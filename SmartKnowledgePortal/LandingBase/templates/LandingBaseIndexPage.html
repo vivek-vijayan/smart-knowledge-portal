@@ -7,10 +7,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart Knowledge Portal</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
     <script src="{% static 'jquery-min.js' %}"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
   </head>
   <body>
-    Hello
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light static-header"
+      style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px"
+    >
+      <span
+        class="navbar-brand"
+        href="#"
+        style="
+          color: #2571ae;
+          font-weight: 200;
+          font-family: SercoLogoTitle;
+          margin-right: 50px;
+        "
+        ><span style="color: #ed3833">Serco</span> Smart Portal
+        <sub style="font-size: 10px">2022</sub></span
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="font-family: SercoFont2Regular">
+          <li class="nav-item header-link-padding power-active-link">
+            <a class="nav-link power-active-link-inner" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link" href="#">PMO Portal</a>
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link" href="#">Lead Portal</a>
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link" href="#">Post</a>
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link" href="#">Boarding Process</a>
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <button class="btn btn-sm btn-success my-2 my-sm-0" type="submit">
+            Portal Login
+          </button>
+        </form>
+      </div>
+    </nav>
+    <div class="">
+      <img
+        src="{% static 'images/Group 2.png' %}"
+        width="100%"
+        style="margin-top: 57px; z-index: -1"
+      />
+    </div>
   </body>
 </html>

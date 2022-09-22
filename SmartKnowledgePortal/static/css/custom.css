@@ -1,0 +1,101 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #d2d7e1;
+  font-family: SercoFont2Regular;
+}
+
+@font-face {
+  font-family: SercoFontLight;
+  src: url("../fonts/Poppins/Poppins-Light.ttf");
+}
+
+@font-face {
+  font-family: SercoFont2Regular;
+  src: url("../fonts/Mulish/Mulish-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: SercoLogoTitle;
+  font-weight: bold;
+  src: url("../fonts/Quicksand/Quicksand-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: SercoFontMedium;
+  src: url("../fonts/Poppins/Poppins-Medium.ttf");
+}
+
+.header-link-padding {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.power-active-link {
+  border-bottom: 2px solid red !important;
+  font-weight: bold;
+  color: black !important;
+}
+
+.power-active-link-inner {
+  color: black !important;
+}
+
+.static-header {
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
+.fade-intro {
+  animation: fadeIn ease 2s;
+  -webkit-animation: fadeIn ease 2s;
+  -moz-animation: fadeIn ease 2s;
+  -o-animation: fadeIn ease 2s;
+  -ms-animation: fadeIn ease 2s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
