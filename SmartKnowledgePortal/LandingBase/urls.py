@@ -19,4 +19,5 @@ from . import views
 
 urlpatterns = [
     path('', views.PortalLandingIndex, name="Homepage"),
+     
 ]

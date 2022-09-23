@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Knowledge Portal - Login</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+    <script src="{% static 'jquery-min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+  </head>
+  <body>
+    <!-- Navigation area -->
+    <nav
+      class="navbar navbar-expand-lg navbar-danger static-header"
+      style="
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: #ffffff;
+        z-index: 10;
+        height: 80px;
+      "
+    >
+      <span
+        class="navbar-brand"
+        href="#"
+        style="
+          color: #2571ae;
+          font-weight: 200;
+          font-family: SercoLogoTitle;
+          margin-right: 50px;
+        "
+        ><span style="color: #ed3833">Serco</span> Smart Portal
+        <sub style="font-size: 10px">2022</sub></span
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="font-family: SercoLogoTitle">
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="/">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+              </svg>
+              Home</a
+            >
+          </li>
+          <li class="nav-item header-link-padding power-active-link">
+            <a class="nav-link power-active-link-inner" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-box-arrow-in-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+                />
+              </svg>
+              Login <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-question-octagon-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zM5.496 6.033a.237.237 0 0 1-.24-.247C5.35 4.091 6.737 3.5 8.005 3.5c1.396 0 2.672.73 2.672 2.24 0 1.08-.635 1.594-1.244 2.057-.737.559-1.01.768-1.01 1.486v.105a.25.25 0 0 1-.25.25h-.81a.25.25 0 0 1-.25-.246l-.004-.217c-.038-.927.495-1.498 1.168-1.987.59-.444.965-.736.965-1.371 0-.825-.628-1.168-1.314-1.168-.803 0-1.253.478-1.342 1.134-.018.137-.128.25-.266.25h-.825zm2.325 6.443c-.584 0-1.009-.394-1.009-.927 0-.552.425-.94 1.01-.94.609 0 1.028.388 1.028.94 0 .533-.42.927-1.029.927z"
+                />
+              </svg>
+              Help</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Static Background -->
+    <div style="position: fixed; bottom: 0px;">
+      <img
+        src="{% static 'images/footerimage.png'%}"
+        width="100%"
+        alt=""
+        srcset=""
+      />
+    </div>
+
+    <!-- Login Card -->
+    <center>
+      <div
+        class="card fade-intro"
+        style="
+          width: 20rem;
+          top: 200px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+            rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+            rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        "
+      >
+        <div class="card-body">
+          <h5 class="card-title">SSP Authenticator</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <small>Enter your SSP credentials</small>
+          </h6>
+          
+          <sub style="color:red">Incorrect Credentials</sub>
+          <form action="" method="post" style="margin-top: 30px">
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >Username</span
+                >
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Small"
+                required
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+
+            <div class="input-group input-group-sm mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-sm"
+                  >Password</span
+                >
+              </div>
+              <input
+                type="text"
+                class="form-control"
+                aria-label="Small"
+                required
+                aria-describedby="inputGroup-sizing-sm"
+              />
+            </div>
+
+            <!-- Submit form -->
+            <button type="submit" class="btn btn-success">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+              </svg>
+              Login</button>
+
+          </form>
+          <br />
+          <sub>If you need any help, contact <a href="#">Support</a></sub>
+        </div>
+      </div>
+    </center>
+
+    <script src="{% static 'js/sercoMap.js' %}"></script>
+  </body>
+</html>

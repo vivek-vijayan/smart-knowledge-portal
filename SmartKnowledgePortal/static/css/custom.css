@@ -3,7 +3,11 @@ html {
 }
 body {
   background-color: #d2d7e1;
-  font-family: SercoFont2Regular;
+  font-family: SercoLogoTitle;
+}
+
+.nav-link-unselect {
+  color: #6c6c6c;
 }
 
 @font-face {
@@ -27,13 +31,17 @@ body {
   src: url("../fonts/Poppins/Poppins-Medium.ttf");
 }
 
+.td-text {
+  margin: 10px;
+}
+
 .header-link-padding {
   margin-left: 10px;
   margin-right: 10px;
 }
 
 .power-active-link {
-  border-bottom: 2px solid red !important;
+  border-bottom: 3px solid red !important;
   font-weight: bold;
   color: black !important;
 }
@@ -45,6 +53,11 @@ body {
 .static-header {
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+.static-header2 {
+  position: static; /* Set the navbar to fixed position */
+  top: 100; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
 }
 

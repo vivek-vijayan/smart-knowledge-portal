@@ -10,11 +10,22 @@
     <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
     <script src="{% static 'jquery-min.js' %}"></script>
     <script src="{% static 'js/bootstrap.js' %}"></script>
+
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+
   </head>
   <body>
+    <!-- Navigation area -->
     <nav
-      class="navbar navbar-expand-lg navbar-light bg-light static-header"
-      style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px"
+      class="navbar navbar-expand-lg navbar-danger static-header"
+      style="
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: #ffffff;
+        z-index: 10;
+        height: 80px;
+      "
     >
       <span
         class="navbar-brand"
@@ -41,44 +52,347 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto" style="font-family: SercoFont2Regular">
+        <ul class="navbar-nav mr-auto" style="font-family: SercoLogoTitle">
           <li class="nav-item header-link-padding power-active-link">
-            <a class="nav-link power-active-link-inner" href="#"
-              >Home <span class="sr-only">(current)</span></a
+            <a class="nav-link power-active-link-inner" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-house-door-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"
+                />
+              </svg>
+              Home <span class="sr-only">(current)</span></a
             >
           </li>
           <li class="nav-item header-link-padding">
-            <a class="nav-link" href="#">PMO Portal</a>
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-diagram-3-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-6 8A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm6 0A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1z"
+                />
+              </svg>
+              PMO Portal</a
+            >
           </li>
           <li class="nav-item header-link-padding">
-            <a class="nav-link" href="#">Lead Portal</a>
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-grid-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"
+                />
+              </svg>
+              Lead Portal</a
+            >
           </li>
           <li class="nav-item header-link-padding">
-            <a class="nav-link" href="#">Post</a>
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chat-text-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"
+                />
+              </svg>
+              Blog</a
+            >
           </li>
           <li class="nav-item header-link-padding">
-            <a class="nav-link" href="#">Boarding Process</a>
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-lightbulb"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"
+                />
+              </svg>
+              Knowledge</a
+            >
           </li>
           <li class="nav-item header-link-padding">
-            <a class="nav-link" href="#">Settings</a>
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-left-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
+                />
+              </svg>
+              Boarding</a
+            >
           </li>
           <li class="nav-item header-link-padding">
-            <a class="nav-link" href="#">Profile</a>
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-gear-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+                />
+              </svg>
+              Settings</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                />
+              </svg>
+              Profile</a
+            >
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <button class="btn btn-sm btn-success my-2 my-sm-0" type="submit">
-            Portal Login
-          </button>
+        <form class="form-inline my-2 my-lg-0" action="/login/ssp-login">
+          <a href="/login/ssp-login">
+            <button class="btn btn-sm btn-success my-2 my-sm-0"  type="submit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+              </svg> Login
+            </button>
+          </a>
         </form>
       </div>
     </nav>
-    <div class="">
+
+    <!-- Intro image -->
+    <div class="fade-intro ">
       <img
-        src="{% static 'images/Group 2.png' %}"
+        src="{% static 'images/Group 1.png' %}"
         width="100%"
-        style="margin-top: 57px; z-index: -1"
+        style="margin-top: 0px; z-index: -1"
       />
     </div>
+
+    <!-- Mesasge from Leaders -->
+    <div class="container" style="margin-top: 100px">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2 class="display5">
+            <center>
+              Message from our Leaders
+            </center>
+          </h2>
+          <blockquote class="blockquote text-center">
+            <p class="blockquote-footer" style="font-weight:100 ; font-size: small">
+             Serco is a FTSE 250 company managing over 500 contracts worldwide. Employing over 50,000 people, we operate internationally across four geographies: UK & Europe, North America, Asia Pacific and the Middle East and across five sectors: Defence, Justice & Immigration, Transport, Health and Citizen Services. Our partnership with Serco Group has grown strengths to strengths in last 15 years. Capgemini is providing Serco with services related to SAP and non-SAP Applications which covers Applications Management in all environments and development activities as part of CR/Projects for Serco and its end customers using an offshore model. As we get busy in our corners of the world, it is important to have a medium to connect and share the knowledge. This Portal will provide you a holistic view of the account. While creating a fun filled working environment for everyone, we are also committed to create a learning opportunity for you and support towards your growth by way of various learning program through Learning Centre. We encourage you to explore this portal regularly, enhance your knowledge and contribute towards improving it further. We look forward for your long and healthy working association with us where we would together as a TEAM deliver excellence. Thank you all for your support, hard work and enthusiasm!! Wish you all the best!!!</p>
+          </blockquote>
+        </div>
+        <div class="col-sm-6">
+          <style>
+            #chartdiv {
+              width: 100%;
+              height: 300px;
+            }
+          </style>
+          <h5 class="display-6">Geographical Site</h5>
+          <p style="font-size:small"> <span style="color: #2571ae">🔵 Capgemini</span> <span style="color: red">🔴 Serco</span> </p>
+          <div id="chartdiv"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Serco Values -->
+    <div class="container" style="margin-top: 100px">
+      <center style="margin: 30px">
+        <h2 class="display-4">Serco values</h2>
+      </center>
+      <table style="font-size: small">
+        <tr>
+          <td class="td-text">
+            We work hard to earn trust and respect. We deliver on our promises;
+            are open, straightforward and honest; do the right thing; and take
+            personal responsibility for getting things done.
+          </td>
+          <td>
+            <img
+              src="{% static 'images/trust.png'%}"
+              width="150px"
+              alt=""
+              srcset=""
+            />
+          </td>
+
+          <td>
+            <img
+              src="{% static 'images/care.png'%}"
+              width="150px"
+              alt=""
+              srcset=""
+            />
+          </td>
+          <td class="td-text" style="text-align: right">
+            We care deeply about the services we provide, and the communities we
+            serve, and we look after each other. We work together to deliver
+            high-quality public services, often of great importance to the
+            nation and the communities we serve. We take care of each other, and
+            those we serve, and we aim to make a positive difference to people’s
+            lives.
+          </td>
+        </tr>
+        <tr>
+          <td class="td-text" >
+            We aspire to be better than anyone else at what we do. We
+            continuously improve our ways of working, and try new ideas, big and
+            small. We share our knowledge and experience and embrace change,
+            knowing that if we don’t provide innovation and value for money to
+            our customers, our competitors will.
+          </td>
+          <td>
+            <img
+              src="{% static 'images/innovation.png'%}"
+              width="150px"
+              alt=""
+              srcset=""
+            />
+          </td>
+
+          <td>
+            <img
+              src="{% static 'images/pride.png'%}"
+              width="150px"
+              alt=""
+              srcset=""
+            />
+          </td>
+          <td class="td-text" style="text-align: right">
+            We want to be proud of what we do. We know that the work we do is
+            important, and we take pride in doing it well. We value energy and
+            enthusiasm, skill and experience, and an ability to make hard work
+            fun. We contribute both as individuals and as part of a team.
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Capgemini Values -->
+    <div class="container-fluid" style="margin-top: 100px; padding: 30px;  text-align: center; align-items: center; background-color: white;">
+      <center style="margin-bottom: 30px">
+        <h2 class="display-4">Capgemini values</h2>
+      </center>
+      <div class="container">
+        <center>
+          <table>
+            <tr>
+              <td>
+                <img
+                  src="{% static 'images/cgvalues/boldness.png' %}"
+                  width="120px"
+                  alt=""
+                  srcset=""
+                />
+              </td>
+              <td>
+                <img
+                  src="{% static 'images/cgvalues/freedom.png' %}"
+                  width="120px"
+                  alt=""
+                  srcset=""
+                />
+              </td>
+              <td>
+                <img
+                  src="{% static 'images/cgvalues/honesty.png' %}"
+                  width="120px"
+                  alt=""
+                  srcset=""
+                />
+              </td>
+              <td>
+                <img
+                  src="{% static 'images/cgvalues/fun.png' %}"
+                  width="120px"
+                  alt=""
+                  srcset=""
+                />
+              </td>
+              <td>
+                <img
+                  src="{% static 'images/cgvalues/modesty.png' %}"
+                  width="120px"
+                  alt=""
+                  srcset=""
+                />
+              </td>
+              <td>
+                <img
+                  src="{% static 'images/cgvalues/team.png' %}"
+                  width="120px"
+                  alt=""
+                  srcset=""
+                />
+              </td>
+              <td>
+                <img
+                  src="{% static 'images/cgvalues/trust.png' %}"
+                  width="120px"
+                  alt=""
+                  srcset=""
+                />
+              </td>
+            </tr>
+          </table>
+        </center>
+      </div>
+      </div>
+    </div>
+
+    <div class="container"  style="margin-top: 50px">
+      
+    </div>
+    
+
+<script src="{% static 'js/sercoMap.js' %}"></script>
   </body>
 </html>
