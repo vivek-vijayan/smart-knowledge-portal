@@ -13,3 +13,8 @@ def OnboardingFillingPage(request):
     return render(
         request=request, template_name="OnboardingFIllingsPage.html", context={}
     )
+
+def AnnouncementPage(request):
+    return render(
+        request=request, template_name="PMOAnnouncement.html", context={}
+    )

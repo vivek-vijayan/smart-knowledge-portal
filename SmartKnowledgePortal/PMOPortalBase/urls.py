@@ -20,4 +20,5 @@ from . import views
 urlpatterns = [
     path('', views.PMOIndexPage, name="PMOPortalHomepage"),
     path('onboard/', views.OnboardingFillingPage, name="OnboardingFillingPage"),
+    path('announcement/', views.AnnouncementPage, name="AnnouncementPage"),
 ]
