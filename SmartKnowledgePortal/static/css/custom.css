@@ -148,9 +148,8 @@ body {
 
 .content-show-card {
   background-color: rgb(255, 255, 255);
-  padding: 20px;
+  padding: 20px;box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
   margin: 15px;
 }
@@ -213,5 +212,48 @@ button {
   outline: none !important;
 }
 * {
-	outline: none;
+  outline: none;
 }
+
+/*  Button styles */
+.s-button-green {
+  color: green;
+  border: none;
+  background-color: white;
+  text-align: center;
+}
+
+.s-button-green:hover {
+
+  border: 2px solid green;
+}
+
+.s-button-red {
+  color: red;
+  border: none;
+  background-color: white;
+  text-align: center;
+}
+
+.s-button-blue {
+  color:#004b6d;
+  border: none;
+  background-color: white;
+  text-align: center;
+}
+
+.s-button-black {
+  color: black;
+  border: none;
+  background-color: white;
+  text-align: center;
+}
+
+.s-button-purple {
+  color: purple;
+  border: none;
+  background-color: white;
+  text-align: center;
+}
+
+
