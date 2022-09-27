@@ -258,7 +258,7 @@
           </div>
           <div class="row">
             <div class="col-sm-7">
-              <h2 class="display-4" style="color: #292929">
+              <h2 class="display-4" style="color: #292929; margin-bottom: 30px">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="46"
@@ -274,16 +274,18 @@
                 Broadcast
               </h2>
 
-              <small class="text-muted">
-                Enter the new joinee information in the below fields. You can
-                also upload in a excel format also</small
-              >
+              <small class="text-dark" style="font-size: smaller">
+                Message posted here will be displayed in the portal homepage,
+                you can delete and control your post from the below card.
+                Priority settings will manage the level of the broadcasted
+                message
+              </small>
 
               <div
                 class="card text-white mb-3"
                 style="
                   max-width: 32rem;
-                  margin-top: 20px;
+                  margin-top: 40px;
                   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                 "
               >
@@ -317,7 +319,9 @@
                       <div class="col-sm-6">
                         <div class="input-group input-group-sm mb-3">
                           <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm"
+                            <span
+                              class="input-group-text"
+                              id="inputGroup-sizing-sm"
                               >Priority</span
                             >
                           </div>
@@ -333,7 +337,9 @@
                       <div class="col-sm-6">
                         <div class="input-group input-group-sm mb-3">
                           <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm"
+                            <span
+                              class="input-group-text"
+                              id="inputGroup-sizing-sm"
                               >End date</span
                             >
                           </div>
@@ -359,7 +365,7 @@
                         aria-label="Small"
                         required
                         aria-describedby="inputGroup-sizing-sm"
-                        style="height: 100px;"
+                        style="height: 100px"
                       ></textarea>
                     </div>
 
@@ -378,7 +384,7 @@
             <div class="col-sm-5" style="text-align: center">
               <img
                 src="{% static  'images/announce.png' %}"
-                style="padding: 20px; rotate: 0deg"
+                style="padding: 20px; rotate: 0deg; margin-top: 100px"
                 width="80%"
                 alt=""
                 srcset=""
@@ -394,7 +400,7 @@
           class="card mb-3"
           style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px"
         >
-          <div class="card-header">Basic Information</div>
+          <div class="card-header">Posted content</div>
           <div class="card-body text-dark">
             <h5 class="card-title text-muted">
               <svg
@@ -410,24 +416,10 @@
                 />
                 <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
               </svg>
-              Personal details
+              Boardcast items
             </h5>
             <p class="card-text text-muted">
               <small>
-                <span style="color: rgb(208, 161, 4)">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-exclamation-triangle-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                    />
-                  </svg>
-                </span>
                 These information can also be editable for the users to modify
                 it. These details are mandatory to get the application move
                 forward.</small
@@ -436,586 +428,106 @@
 
             <!-- Personal Information-->
             <div class="row">
-              <div class="col-sm-9">
-                <div class="row">
-                  <div class="col-sm-10">
-                    <div class="input-group input-group-sm mb-3">
-                      <div class="input-group-prepend">
-                        <span
-                          class="input-group-text"
-                          id="inputGroupFileAddon01"
-                          >Upload Profile Picture</span
+              <div class="col-sm-12" style="font-size: small">
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Body</th>
+                      <th scope="col">Posted on</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Big announcement</td>
+                      <td>This is the new blog of this announce</td>
+                      <td>12/05/2021</td>
+                      <td>20 days left</td>
+                      <td>
+                        <div class="col-sm-12">
+                          <button class="btn btn-sm btn-danger">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-trash3-fill"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Big announcement</td>
+                      <td>This is the new blog of this announce</td>
+                      <td>12/05/2021</td>
+                      <td>
+                        <span class="badge badge-danger" style="padding: 5px"
+                          >Expired</span
                         >
-                      </div>
-                      <div class="custom-file">
-                        <input
-                          type="file"
-                          id="imgInp"
-                          accept="image/*"
-                          class="custom-file-input"
-                          id="inputGroupFile01"
-                          aria-describedby="inputGroupFileAddon01"
-                        />
-                        <label class="custom-file-label" for="inputGroupFile01"
-                          >Choose file</label
+                      </td>
+                      <td>
+                        <div class="col-sm-12">
+                          <button class="btn btn-sm btn-danger">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-trash3-fill"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Big announcement</td>
+                      <td>This is the new blog of this announce</td>
+                      <td>12/05/2021</td>
+                      <td>
+                        <span class="badge badge-danger" style="padding: 5px"
+                          >Expired</span
                         >
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="input-group input-group-sm flex-nowrap">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="addon-wrapping"
-                          >Phone</span
-                        >
-                      </div>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="+91XXXXXXXXXX"
-                        aria-label="Username"
-                        aria-describedby="addon-wrapping"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-sm-5">
-                    <div class="input-group input-group-sm flex-nowrap">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text" id="addon-wrapping"
-                          >Date of birth</span
-                        >
-                      </div>
-                      <input
-                        type="date"
-                        class="form-control"
-                        placeholder="+91XXXXXXXXXX"
-                        aria-label="Username"
-                        aria-describedby="addon-wrapping"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <small class="text-muted">Preview</small> <br />
-                <img
-                  id="blah"
-                  src="{% static 'images/sampleprofile.png' %}"
-                  style="
-                    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
-                      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-                    padding: 5px;
-                    margin: 5px;
-                  "
-                  width="150px"
-                  alt="your image"
-                />
+                      </td>
+                      <td>
+                        <div class="col-sm-12">
+                          <button class="btn btn-sm btn-danger">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-trash3-fill"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                              />
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-
-            <!-- Official information-->
-            <h5 class="card-title text-muted">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-person-workspace"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M4 16s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H4Zm4-5.95a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
-                />
-                <path
-                  d="M2 1a2 2 0 0 0-2 2v9.5A1.5 1.5 0 0 0 1.5 14h.653a5.373 5.373 0 0 1 1.066-2H1V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v9h-2.219c.554.654.89 1.373 1.066 2h.653a1.5 1.5 0 0 0 1.5-1.5V3a2 2 0 0 0-2-2H2Z"
-                />
-              </svg>
-              Employement details
-            </h5>
-            <p class="card-text text-muted">
-              <small>
-                <span style="color: rgb(208, 161, 4)">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-exclamation-triangle-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                    />
-                  </svg>
-                </span>
-
-                These information can also be editable for the users to modify
-                it. These details are mandatory to get the application move
-                forward.</small
-              >
-            </p>
-            <!-- Row 1 -->
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="input-group input-group-sm flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
-                      >CG Email ID</span
-                    >
-                  </div>
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="xyz@capgemini.com"
-                    aria-label="Username"
-                    aria-describedby="addon-wrapping"
-                  />
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="input-group input-group-sm flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
-                      >Date of joining CG</span
-                    >
-                  </div>
-                  <input
-                    type="date"
-                    class="form-control"
-                    placeholder="+91XXXXXXXXXX"
-                    aria-label="Username"
-                    aria-describedby="addon-wrapping"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="row" style="margin-top: 15px">
-              <div class="col-sm-2">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="grade">Grade </label>
-                  </div>
-                  <select class="custom-select" id="grade">
-                    <option selected>Choose...</option>
-                    <option value="1">A4</option>
-                    <option value="2">A5</option>
-                    <option value="3">B1</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01"
-                      >Team</label
-                    >
-                  </div>
-                  <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01"
-                      >Module</label
-                    >
-                  </div>
-                  <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="input-group input-group-sm flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
-                      >Practice</span
-                    >
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder=""
-                    aria-label="Username"
-                    aria-describedby="addon-wrapping"
-                  />
-                </div>
-              </div>
-              <div class="col-sm-3">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01"
-                      >Role</label
-                    >
-                  </div>
-                  <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01"
-                      >Location</label
-                    >
-                  </div>
-                  <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 4 -->
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="input-group input-group-sm flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
-                      >Supervisor name</span
-                    >
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder=""
-                    aria-label="Username"
-                    aria-describedby="addon-wrapping"
-                  />
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="input-group input-group-sm flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
-                      >Supervisor email ID</span
-                    >
-                  </div>
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="xyz@capgemini.com"
-                    aria-label="Username"
-                    aria-describedby="addon-wrapping"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 5 -->
-            <div class="row" style="margin-top: 20px">
-              <div class="col-sm-4">
-                <div class="input-group input-group-sm flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
-                      >N+1 name</span
-                    >
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder=""
-                    aria-label="Username"
-                    aria-describedby="addon-wrapping"
-                  />
-                </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="input-group input-group-sm flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
-                      >N+1 email ID</span
-                    >
-                  </div>
-                  <input
-                    type="email"
-                    class="form-control"
-                    placeholder="xyz@capgemini.com"
-                    aria-label="Username"
-                    aria-describedby="addon-wrapping"
-                  />
-                </div>
-              </div>
-            </div>
-            <div style="margin-top: 20px"></div>
-
-            <script>
-              imgInp.onchange = (evt) => {
-                const [file] = imgInp.files;
-                if (file) {
-                  blah.src = URL.createObjectURL(file);
-                }
-              };
-            </script>
-          </div>
-        </div>
-      </div>
-
-      <!-- PMO info collector -->
-      <div class="container" style="margin-top: 30px">
-        <div
-          class="card mb-3"
-          style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px"
-        >
-          <div class="card-header">Project related Information</div>
-          <div class="card-body text-dark">
-            <h5 class="card-title text-muted">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-kanban-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"
-                />
-              </svg>
-              Project details
-            </h5>
-            <p class="card-text text-muted">
-              <small
-                >These information are secured and mostly hidden to the
-                endusers. Infomation below mentioned are not modifiable by the
-                respective user</small
-              >
-            </p>
-
-            <!-- Row 1 -->
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="input-group input-group-sm flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
-                      >FTE</span
-                    >
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder=""
-                    aria-label="Username"
-                    aria-describedby="addon-wrapping"
-                  />
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Cost rate €</span>
-                  </div>
-                  <input
-                    type="text"
-                    style="text-align: right"
-                    class="form-control"
-                    aria-label="Amount (to the nearest dollar)"
-                  />
-                  <div class="input-group-append">
-                    <span class="input-group-text">.00</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Service Order -->
-            <h5 class="card-title text-muted">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-truck"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
-                />
-              </svg>
-              Service Order
-            </h5>
-            <p class="card-text text-muted">
-              <small>Service order information of the new joinee</small>
-            </p>
-
-            <!-- Row 1 -->
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="backfillornew"
-                      >Onboard type</label
-                    >
-                  </div>
-                  <select
-                    class="custom-select"
-                    id="backfillornew"
-                    onchange="{
-                     if(document.getElementById('backfillornew').value == '2') {
-                      document.getElementById('backfillinput').style.display = 'block';
-                     } else {
-                      document.getElementById('backfillinput').style.display = 'none';
-                     }
-                    }"
-                  >
-                    <option selected>Choose...</option>
-                    <option value="1">New Requirement</option>
-                    <option value="2">Backfill</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-6" id="backfillinput" style="display: none">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="backfillinputarea"
-                      >Backfill person
-                    </label>
-                  </div>
-                  <select class="custom-select" id="backfillinputarea">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">SO No in SMART /R2D2 </span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="basic-url"
-                    aria-describedby="backfillinputarea"
-                  />
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Pool of Requirement </span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="basic-url"
-                    aria-describedby="backfillinputarea"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"
-                      >SO raised in R2D2 ( for NON SAP Skills )
-                    </span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="basic-url"
-                    aria-describedby="backfillinputarea"
-                  />
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="requestedby"
-                      >Requested by</label
-                    >
-                  </div>
-                  <select class="custom-select" id="requestedby">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <script>
-              imgInp.onchange = (evt) => {
-                const [file] = imgInp.files;
-                if (file) {
-                  blah.src = URL.createObjectURL(file);
-                }
-              };
-            </script>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row" style="margin-bottom: 20px; padding: 10px">
-          <div class="col-sm-12">
-            <small style="color: gray">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-exclamation-diamond-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                />
-              </svg>
-              Make sure you are entered the right information as the email and
-              further proceeding will be taken based on the details provided
-              above. Incorrect data mislead the onboarding process.
-            </small>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-5">
-            <button class="btn btn-success" style="height: 50px; margin: 10px">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-send-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"
-                />
-              </svg>
-              Initiate Onboarding Process
-            </button>
           </div>
         </div>
       </div>

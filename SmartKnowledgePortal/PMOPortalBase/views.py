@@ -18,3 +18,8 @@ def AnnouncementPage(request):
     return render(
         request=request, template_name="PMOAnnouncement.html", context={}
     )
+
+def BoardingStatusPage(request):
+    return render(
+        request=request, template_name="BoardingStatusUpdatePage.html", context={}
+    )

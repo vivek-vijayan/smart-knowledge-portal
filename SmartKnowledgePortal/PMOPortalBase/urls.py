@@ -18,7 +18,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.PMOIndexPage, name="PMOPortalHomepage"),
-    path('onboard/', views.OnboardingFillingPage, name="OnboardingFillingPage"),
-    path('announcement/', views.AnnouncementPage, name="AnnouncementPage"),
+    path("", views.PMOIndexPage, name="PMOPortalHomepage"),
+    path("onboard/", views.OnboardingFillingPage, name="OnboardingFillingPage"),
+    path("announcement/", views.AnnouncementPage, name="AnnouncementPage"),
+    path("boardingstatus/", views.BoardingStatusPage, name="BoardingStatusPage"),
 ]
