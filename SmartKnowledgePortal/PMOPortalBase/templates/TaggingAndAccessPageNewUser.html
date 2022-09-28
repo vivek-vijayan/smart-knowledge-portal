@@ -1,0 +1,758 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Knowledge Portal</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+    <script src="{% static 'jquery-min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+  </head>
+  <body>
+    <!-- Navigation area -->
+    <nav
+      class="navbar navbar-expand-lg navbar-danger static-header"
+      style="
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: #ffffff;
+        z-index: 10;
+        height: 60px;
+      "
+    >
+      <span
+        class="navbar-brand"
+        href="#"
+        style="
+          color: #2571ae;
+          font-weight: 200;
+          font-family: SercoLogoTitle;
+          margin-right: 50px;
+        "
+        ><span style="color: #ed3833">Serco</span> Smart Portal!
+        <sub style="font-size: 10px">2022</sub></span
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="font-family: SercoLogoTitle">
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-house-door-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"
+                />
+              </svg>
+              Home</a
+            >
+          </li>
+          <li class="nav-item header-link-padding power-active-link">
+            <a
+              class="nav-link nav-link-select power-active-link-inner"
+              href="/serco-pmo"
+              onclick="() => {
+                document.getElementById('blurry').classList.add('onceblur');
+                }"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-diagram-3-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-6 8A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm6 0A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1z"
+                />
+              </svg>
+              PMO Portal <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-grid-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"
+                />
+              </svg>
+              Lead Portal</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chat-text-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"
+                />
+              </svg>
+              Blog</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-lightbulb"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"
+                />
+              </svg>
+              Knowledge</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-left-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
+                />
+              </svg>
+              Boarding</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-gear-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+                />
+              </svg>
+              Settings</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                />
+              </svg>
+              Profile</a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/login/ssp-login">
+          <a href="/login/ssp-login">
+            <button class="btn btn-sm btn-success my-2 my-sm-0" type="submit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                />
+              </svg>
+              Login
+            </button>
+          </a>
+        </form>
+      </div>
+    </nav>
+
+    <div id="blurry">
+      <!-- Intro image -->
+      <div class="fade-intro" style="margin-top: 130px">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <nav
+                style="
+                  --bs-breadcrumb-divider: url(
+                    &#34;data:image/svg + xml,
+                    %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;
+                  );
+                "
+                aria-label="breadcrumb"
+              >
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="/serco-pmo" style="color: #2571ae">PMO Portal</a>
+                  </li>
+                  <li class="breadcrumb-item" aria-current="page">
+                    <a href="/serco-pmo/onboard" style="color: #2571ae"
+                      >Onboard</a
+                    >
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Tagging & Access
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-7">
+              <h2 class="display-4" style="color: #292929">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="46"
+                  height="46"
+                  fill="currentColor"
+                  class="bi bi-tags-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2zm3.5 4a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+                  />
+                  <path
+                    d="M1.293 7.793A1 1 0 0 1 1 7.086V2a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l.043-.043-7.457-7.457z"
+                  />
+                </svg>
+                Tagging & Access
+              </h2>
+              <br />
+              <small class="text-muted" style="padding-top: 30px">
+                Project tagging and access part of the new user is handled in
+                this portal, if you are looking for a existing user then use the
+                <a href="#" style="color: #2571ae">link : PMO admin</a>
+              </small>
+
+              <div
+                class="card text-white mb-3"
+                style="
+                  max-width: 32rem;
+                  margin-top: 20px;
+                  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                "
+              >
+                <div class="card-header" style="color: rgb(86, 86, 86)">
+                  New Joinee tagging
+                </div>
+
+                <div class="card-body">
+                  <form
+                    action="/login/login-validator"
+                    method="post"
+                    style="margin-top: 10px"
+                  >
+                    {% csrf_token %}
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm"
+                          >Firstname</span
+                        >
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        disabled
+                        aria-label="Small"
+                        required
+                        aria-describedby="inputGroup-sizing-sm"
+                      />
+                    </div>
+
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm"
+                          >Lastname</span
+                        >
+                      </div>
+                      <input
+                        type="text"
+                        class="form-control"
+                        aria-label="Small"
+                        disabled
+                        required
+                        aria-describedby="inputGroup-sizing-sm"
+                      />
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="input-group input-group-sm mb-3">
+                          <div class="input-group-prepend">
+                            <span
+                              class="input-group-text"
+                              id="inputGroup-sizing-sm"
+                              >CG corp ID</span
+                            >
+                          </div>
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Small"
+                            disabled
+                            required
+                            aria-describedby="inputGroup-sizing-sm"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="input-group input-group-sm mb-3">
+                          <div class="input-group-prepend">
+                            <span
+                              class="input-group-text"
+                              id="inputGroup-sizing-sm"
+                              >Emp ID</span
+                            >
+                          </div>
+                          <input
+                            type="text"
+                            class="form-control"
+                            aria-label="Small"
+                            disabled
+                            required
+                            aria-describedby="inputGroup-sizing-sm"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-5">
+              <img
+                src="{% static  'images/tag.png' %}"
+                style="padding-top: 50px"
+                width="100%"
+                alt=""
+                srcset=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Basic info collector -->
+      <div class="container" style="margin-top: 30px">
+        <div
+          class="card mb-3"
+          style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px"
+        >
+          <div class="card-header">Tagging Information</div>
+          <div class="card-body text-dark">
+            <h5 class="card-title text-muted">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-tag-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+                />
+              </svg>
+              Project tag
+            </h5>
+
+            <!-- Personal Information-->
+            <style>
+              .tag {
+                background: #eee;
+                border-radius: 3px 0 0 3px;
+                color: #999;
+                display: inline-block;
+                height: 120px;
+                line-height: 26px;
+                padding: 0 20px 0 23px;
+                position: relative;
+                margin: 0 10px 10px 0;
+                text-decoration: none;
+                transition: color 0.2s;
+              }
+
+              .tag::before {
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+                content: "";
+                height: 80px;
+                left: 10px;
+                position: absolute;
+                width: 6px;
+                top: 10px;
+              }
+
+              .tag::after {
+                background: #fff;
+                border-bottom: 60px solid transparent;
+                border-left: 30px solid #eee;
+                border-top: 60px solid transparent;
+                content: "";
+                position: absolute;
+                right: 0;
+                top: 0;
+              }
+
+              .tag:hover {
+                background-color: #4b4b4b;
+                color: white;
+              }
+
+              .tag:hover::after {
+                border-left-color: #4b4b4b;
+              }
+            </style>
+            <div class="row" style="padding: 30px">
+              <input
+                class="checkbox-tools tag"
+                type="radio"
+                name="tools"
+                id="tool-1"
+                checked
+              />
+              <label class="for-checkbox-tools" for="tool-1">
+                <h5 class="display-6">101019352</h5>
+                <small> BAU - FTE</small>
+              </label>
+
+              <!--
+						--><input class="checkbox-tools" type="radio" name="tools" id="tool-2" />
+              <label class="for-checkbox-tools" for="tool-2">
+                <h5 class="display-6">101019352</h5>
+                <small> BAU - FTE</small> </label
+              ><!--
+						--><input class="checkbox-tools" type="radio" name="tools" id="tool-3" />
+              <label class="for-checkbox-tools" for="tool-3">
+                <h5 class="display-6">101019352</h5>
+                <small> BAU - FTE</small></label
+              ><!--
+						--><input class="checkbox-tools" type="radio" name="tools" id="tool-4" />
+              <label class="for-checkbox-tools" for="tool-4">
+                <h5 class="display-6">101019352</h5>
+                <small> BAU - FTE</small>
+                <br />
+                <span class="badge badge-success">Tagged - 75%</span> </label
+              ><!--
+						--><input class="checkbox-tools" type="radio" name="tools" id="tool-5" />
+              <label class="for-checkbox-tools" for="tool-5">
+                <h5 class="display-6">101019352</h5>
+                <small> BAU - FTE</small> </label
+              ><!--
+						-->
+            </div>
+
+            <!-- Tagging percent -->
+            <p class="card-text text-muted" style="margin-left: 30px">
+              <small>
+                Mention the tagging percentage on the above selected project
+                code</small
+              >
+            </p>
+
+            <div class="row" style="padding-left: 30px">
+              <div class="col-sm-4">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Tag percentage</span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-label="Amount (to the nearest dollar)"
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <button class="btn btn-success">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-node-plus" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM6.025 7.5a5 5 0 1 1 0 1H4A1.5 1.5 0 0 1 2.5 10h-1A1.5 1.5 0 0 1 0 8.5v-1A1.5 1.5 0 0 1 1.5 6h1A1.5 1.5 0 0 1 4 7.5h2.025zM11 5a.5.5 0 0 1 .5.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2A.5.5 0 0 1 11 5zM1.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+                  </svg>
+                  Tag
+                </button>
+
+                <button class="btn btn-danger">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-node-minus" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M11 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM6.025 7.5a5 5 0 1 1 0 1H4A1.5 1.5 0 0 1 2.5 10h-1A1.5 1.5 0 0 1 0 8.5v-1A1.5 1.5 0 0 1 1.5 6h1A1.5 1.5 0 0 1 4 7.5h2.025zM1.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zM8 8a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5A.5.5 0 0 1 8 8z"/>
+                  </svg>
+                  Detag
+                </button>
+              </div>
+            </div>
+
+            <div style="margin-top: 20px"></div>
+
+            <script>
+              imgInp.onchange = (evt) => {
+                const [file] = imgInp.files;
+                if (file) {
+                  blah.src = URL.createObjectURL(file);
+                }
+              };
+            </script>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin: 100px">
+        <!-- Blank space-->
+      </div>
+
+      <script>
+        $(document).ready(function () {
+          bsCustomFileInput.init();
+        });
+      </script>
+    </div>
+    <style>
+      /*  TEST */
+      :root {
+        --white: #ffffff;
+        --light: #46299b;
+        --black: #000000;
+        --dark-blue: #1f2029;
+        --dark-light: #353746;
+        --red: #da2c4d;
+        --yellow: #f8ab37;
+        --grey: #ecedf3;
+      }
+      ::selection {
+        color: var(--white);
+        background-color: var(--black);
+      }
+      ::-moz-selection {
+        color: var(--white);
+        background-color: var(--black);
+      }
+      mark {
+        color: var(--white);
+        background-color: var(--black);
+      }
+      .section {
+        position: relative;
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .over-hide {
+        overflow: hidden;
+      }
+      .z-bigger {
+        z-index: 100 !important;
+      }
+
+      .background-color {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--dark-blue);
+        z-index: 1;
+        -webkit-transition: all 300ms linear;
+        transition: all 300ms linear;
+      }
+      .checkbox:checked ~ .background-color {
+        background-color: var(--white);
+      }
+
+      [type="checkbox"]:checked,
+      [type="checkbox"]:not(:checked),
+      [type="radio"]:checked,
+      [type="radio"]:not(:checked) {
+        position: absolute;
+        left: -9999px;
+        width: 0;
+        height: 0;
+        visibility: hidden;
+      }
+      .checkbox:checked + label,
+      .checkbox:not(:checked) + label {
+        position: relative;
+        width: 100px;
+        display: inline-block;
+        padding: 0;
+        margin: 0 auto;
+        text-align: center;
+        margin: 17px 0;
+        margin-top: 100px;
+        height: 6px;
+        border-radius: 4px;
+        background-image: linear-gradient(298deg, var(--red), var(--yellow));
+        z-index: 100 !important;
+      }
+      .checkbox:checked + label:before,
+      .checkbox:not(:checked) + label:before {
+        position: absolute;
+        font-family: "unicons";
+        cursor: pointer;
+        top: -17px;
+        z-index: 2;
+        font-size: 20px;
+        line-height: 40px;
+        text-align: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        -webkit-transition: all 300ms linear;
+        transition: all 300ms linear;
+      }
+      .checkbox:not(:checked) + label:before {
+        content: "\eac1";
+        left: 0;
+        color: var(--grey);
+        background-color: red;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15),
+          0 0 0 1px rgba(26, 53, 71, 0.07);
+      }
+      .checkbox:checked + label:before {
+        content: "\eb8f";
+        left: 30px;
+        color: var(--yellow);
+        background-color: red;
+        box-shadow: 0 4px 4px rgba(26, 53, 71, 0.25),
+          0 0 0 1px rgba(26, 53, 71, 0.07);
+      }
+
+      .checkbox:checked ~ .section .container .row .col-12 p {
+        color: var(--dark-blue);
+      }
+
+      .checkbox-tools:checked + label,
+      .checkbox-tools:not(:checked) + label {
+        position: relative;
+        display: inline-block;
+        padding: 20px;
+        width: 180px;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 1px;
+        margin: 0 auto;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+        text-align: center;
+        border-radius: 4px;
+        overflow: hidden;
+        cursor: pointer;
+        text-transform: uppercase;
+        color: var(--white);
+        -webkit-transition: all 300ms linear;
+        transition: all 300ms linear;
+      }
+      /* Used aread */
+      .checkbox-tools:not(:checked) + label {
+        background-color: rgb(245, 245, 245);
+        color: rgb(57, 57, 57);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      }
+      .checkbox-tools:checked + label {
+        background-color:var(--dark-blue);
+        color: white;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      }
+      .checkbox-tools:not(:checked) + label:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      }
+      .checkbox-tools:checked + label::before,
+      .checkbox-tools:not(:checked) + label::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+        background-image: linear-gradient(298deg, red, orange);
+        z-index: -1;
+      }
+      .checkbox-tools:checked + label .uil,
+      .checkbox-tools:not(:checked) + label .uil {
+        font-size: 24px;
+        line-height: 24px;
+        display: block;
+        padding-bottom: 10px;
+      }
+
+      .checkbox:checked
+        ~ .section
+        .container
+        .row
+        .col-12
+        .checkbox-tools:not(:checked)
+        + label {
+        background-color: var(--light);
+        color: var(--dark-blue);
+        box-shadow: 0 1x 4px 0 rgba(0, 0, 0, 0.05);
+      }
+    </style>
+  </body>
+</html>

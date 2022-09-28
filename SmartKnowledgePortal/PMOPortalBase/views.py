@@ -23,3 +23,8 @@ def BoardingStatusPage(request):
     return render(
         request=request, template_name="BoardingStatusUpdatePage.html", context={}
     )
+
+def TaggingAndAccessPageForNewUser(request):
+    return render(
+        request=request, template_name="TaggingAndAccessPageNewUser.html", context={}
+    )

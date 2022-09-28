@@ -22,4 +22,5 @@ urlpatterns = [
     path("onboard/", views.OnboardingFillingPage, name="OnboardingFillingPage"),
     path("announcement/", views.AnnouncementPage, name="AnnouncementPage"),
     path("boardingstatus/", views.BoardingStatusPage, name="BoardingStatusPage"),
+    path("tagging-access-new-user/", views.TaggingAndAccessPageForNewUser, name="TaggingAndAccessPageForNewUser"),
 ]
