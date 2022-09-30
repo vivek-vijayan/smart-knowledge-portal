@@ -366,7 +366,7 @@
                   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                 "
               >
-                <div class="card-header" style="color: rgb(86, 86, 86)">
+                <div class="card-header" style="color: rgb(16, 16, 16)">
                   New Joinee Application
                 </div>
 
@@ -461,6 +461,67 @@
         </div>
       </div>
 
+      <!-- Progress flow -->
+      <div
+        class="container card"
+        style="
+          align-items: center;
+          text-align: center;
+          margin-top: 40px;
+          border: none;
+          background-color: #00000000;
+        "
+      >
+        <div
+          class="row card"
+          style="
+            margin: 0px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-color: white;
+          "
+        >
+          <div class="col-md-12">
+            <article class="timeline">
+              <header>
+                <span>
+                  <!--             Process -->
+                </span>
+              </header>
+              <main>
+                <article class="completed">
+                  <section>
+                    <main></main>
+                    <footer>Open Application</footer>
+                  </section>
+                </article>
+
+                <article class="">
+                  <section>
+                    <main></main>
+                    <footer>Getting details</footer>
+                  </section>
+                </article>
+                <article class="">
+                  <section>
+                    <main></main>
+                    <footer>Access & tagging</footer>
+                  </section>
+                </article>
+                <article class="">
+                  <section>
+                    <main></main>
+                    <footer>Initiate Onboard</footer>
+                  </section>
+                </article>
+              </main>
+              <footer>
+                <!--           <span>30 days</span> -->
+              </footer>
+            </article>
+          </div>
+        </div>
+      </div>
+
       <!-- Basic info collector -->
       <div class="container" style="margin-top: 30px">
         <div
@@ -469,7 +530,7 @@
         >
           <div class="card-header">Basic Information</div>
           <div class="card-body text-dark">
-            <h5 class="card-title text-muted">
+            <h5 class="card-title text-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -587,7 +648,7 @@
             </div>
 
             <!-- Official information-->
-            <h5 class="card-title text-muted">
+            <h5 class="card-title text-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -921,7 +982,7 @@
         >
           <div class="card-header">Project related Information</div>
           <div class="card-body text-dark">
-            <h5 class="card-title text-muted">
+            <h5 class="card-title text-dark">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -996,7 +1057,7 @@
             </div>
             <hr />
             <!-- Service Order -->
-            <h5 class="card-title text-muted">
+            <h5 class="card-title text-dark">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -1151,9 +1212,11 @@
               </svg>
               Make sure you are entered the right information as the email and
               further proceeding will be taken based on the details provided
-              above. Incorrect data mislead the onboarding process. 
-             
-              Information filled here will be processed in getting the user ID and further created. There will be a tagging and access control page next. once the data are filled there, onboarding process will be initiated.
+              above. Incorrect data mislead the onboarding process. Information
+              filled here will be processed in getting the user ID and further
+              created. There will be a tagging and access control page next.
+              once the data are filled there, onboarding process will be
+              initiated.
             </small>
           </div>
         </div>
@@ -1611,6 +1674,146 @@
         .checkbox-booking:not(:checked)
         + label::after {
         background-color: var(--light);
+      }
+    </style>
+    <style>
+      article.timeline {
+        opacity: 0.8;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+        transition: all 1000ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      article.timeline > header {
+        text-align: center;
+        padding-bottom: 20px;
+      }
+      article.timeline > header span {
+        font-size: 1.5em;
+        color: rgb(16, 16, 16);
+      }
+      article.timeline > footer {
+        text-align: center;
+        padding-top: 20px;
+      }
+      article.timeline > footer span {
+        width: 100px;
+        font-size: 1em;
+        color: #fff;
+        font-weight: bold;
+        background-color: #40c0cb;
+        padding: 13px;
+      }
+      article.timeline > main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      article.timeline > main article {
+        position: relative;
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+      article.timeline > main article section {
+        min-height: 60px;
+      }
+      article.timeline > main article section header {
+        font-size: 1em;
+      }
+      article.timeline > main article section footer {
+        font-size: 1.2em;
+      }
+      article.timeline > main article section header,
+      article.timeline > main article section footer {
+        color: #393939;
+        transition: color 1s;
+        text-align: center;
+        padding-left: 10px;
+      }
+      article.timeline > main article section main {
+        border-top: 2px solid #d5dbcd;
+        text-align: left;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        left: auto;
+        top: 0;
+        transform: translateX(-30px) rotate(90deg);
+      }
+      article.timeline > main article section main::after {
+        position: absolute;
+        background: #d5dbcd;
+        border-radius: 50%;
+        content: " ";
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        margin-left: -5px;
+        margin-top: -5px;
+        transition: all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      article.timeline > main article:hover section main::after {
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        margin-left: -10px;
+      }
+      article.timeline > main article.completed section main {
+        border-top: 2px solid green;
+      }
+      article.timeline > main article.completed section main::after {
+        background-color: green;
+      }
+      article.timeline > main article.completed:hover header {
+        color: green;
+      }
+      article.timeline > main article.completed:hover footer {
+        color: #444;
+      }
+      article.timeline:hover {
+        opacity: 1;
+      }
+      @media only screen and (min-width: 992px) {
+        article.timeline {
+          margin-top: 10px;
+          margin-bottom: 10px;
+          text-align: center;
+        }
+        article.timeline main {
+          flex-direction: row;
+        }
+        article.timeline main article section {
+          min-height: 0px;
+        }
+        article.timeline main article section header {
+          padding-bottom: 20px;
+          font-weight: bold;
+          text-transform: lowercase;
+        }
+        article.timeline main article section footer {
+          padding-top: 20px;
+        }
+        article.timeline main article section header,
+        article.timeline main article section footer {
+          text-align: center;
+          padding-left: 10px;
+        }
+        article.timeline main article section main {
+          border-top: 2px solid #d5dbcd;
+          padding-right: 20px;
+          padding-left: 20px;
+          width: 100%;
+          min-width: 250px;
+          max-width: fit-content;
+          transform: rotate(0deg);
+          align-items: center;
+        }
+        article.timeline main article section main::after {
+          margin-left: -5px;
+        }
       }
     </style>
   </body>
