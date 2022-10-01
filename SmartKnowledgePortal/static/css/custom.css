@@ -3,7 +3,7 @@ html {
 }
 body {
   background-color: #ebedf2;
-  font-family: SercoLogoTitle;
+  font-family: SercoFontMedium;
 }
 
 .nav-link-unselect {
@@ -34,7 +34,7 @@ body {
 
 @font-face {
   font-family: SercoLogoTitle;
-  font-weight: normal;
+  font-weight: bold;
   src: url("../fonts/Sora/Sora-VariableFont_wght.ttf");
 }
 
@@ -148,7 +148,7 @@ body {
 
 .content-show-card {
   background-color: rgb(255, 255, 255);
-  padding: 20px;
+  padding: 10px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   border-radius: 20px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
