@@ -13,16 +13,15 @@
     <style>
       #chartdiv {
         width: 100%;
-        height: 600px
+        height: 600px;
       }
-      </style>
-      
-      <!-- Resources -->
-      <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-      <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
-      <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
-      <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    </style>
 
+    <!-- Resources -->
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
   </head>
   <body>
     <!-- Navigation area -->
@@ -62,7 +61,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto" style="font-family: SercoLogoTitle">
           <li class="nav-item header-link-padding power-active-link">
-            <a class="nav-link nav-link-select power-active-link-inner" href="#">
+            <a
+              class="nav-link nav-link-select power-active-link-inner"
+              href="#"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -204,10 +206,21 @@
         </ul>
         <form class="form-inline my-2 my-lg-0" action="/login/ssp-login">
           <a href="/login/ssp-login">
-            <button class="btn btn-sm btn-success my-2 my-sm-0"  type="submit">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
-              </svg> Login
+            <button class="btn btn-sm btn-success my-2 my-sm-0" type="submit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                />
+              </svg>
+              Login
             </button>
           </a>
         </form>
@@ -215,29 +228,51 @@
     </nav>
 
     <!-- Intro image -->
-    <div class="  fade-intro ">
+    <div class="fade-intro">
       <img
         src="{% static 'images/background.png' %}"
         width="100%"
         style="margin-top: 40px; z-index: -1"
       />
     </div>
-    
+
     <!-- Broadcast message -->
-    
-    
+
     <!-- Mesasge from Leaders -->
     <div class="container" style="margin-top: 150px">
       <div class="row">
         <div class="col-sm-6">
           <h2 class="display5">
-            <center>
-              Message from our Leaders
-            </center>
+            <center>Message from our Leaders</center>
           </h2>
           <blockquote class="blockquote text-center">
-            <p class="blockquote-footer" style="font-weight:100 ; font-size: small">
-             Serco is a FTSE 250 company managing over 500 contracts worldwide. Employing over 50,000 people, we operate internationally across four geographies: UK & Europe, North America, Asia Pacific and the Middle East and across five sectors: Defence, Justice & Immigration, Transport, Health and Citizen Services. Our partnership with Serco Group has grown strengths to strengths in last 15 years. Capgemini is providing Serco with services related to SAP and non-SAP Applications which covers Applications Management in all environments and development activities as part of CR/Projects for Serco and its end customers using an offshore model. As we get busy in our corners of the world, it is important to have a medium to connect and share the knowledge. This Portal will provide you a holistic view of the account. While creating a fun filled working environment for everyone, we are also committed to create a learning opportunity for you and support towards your growth by way of various learning program through Learning Centre. We encourage you to explore this portal regularly, enhance your knowledge and contribute towards improving it further. We look forward for your long and healthy working association with us where we would together as a TEAM deliver excellence. Thank you all for your support, hard work and enthusiasm!! Wish you all the best!!!</p>
+            <p
+              class="blockquote-footer"
+              style="font-weight: 100; font-size: small"
+            >
+              Serco is a FTSE 250 company managing over 500 contracts worldwide.
+              Employing over 50,000 people, we operate internationally across
+              four geographies: UK & Europe, North America, Asia Pacific and the
+              Middle East and across five sectors: Defence, Justice &
+              Immigration, Transport, Health and Citizen Services. Our
+              partnership with Serco Group has grown strengths to strengths in
+              last 15 years. Capgemini is providing Serco with services related
+              to SAP and non-SAP Applications which covers Applications
+              Management in all environments and development activities as part
+              of CR/Projects for Serco and its end customers using an offshore
+              model. As we get busy in our corners of the world, it is important
+              to have a medium to connect and share the knowledge. This Portal
+              will provide you a holistic view of the account. While creating a
+              fun filled working environment for everyone, we are also committed
+              to create a learning opportunity for you and support towards your
+              growth by way of various learning program through Learning Centre.
+              We encourage you to explore this portal regularly, enhance your
+              knowledge and contribute towards improving it further. We look
+              forward for your long and healthy working association with us
+              where we would together as a TEAM deliver excellence. Thank you
+              all for your support, hard work and enthusiasm!! Wish you all the
+              best!!!
+            </p>
           </blockquote>
         </div>
         <div class="col-sm-6">
@@ -248,87 +283,218 @@
             }
           </style>
           <h5 class="display-6">Geographical Site</h5>
-          <p style="font-size:small"> <span style="color: #2571ae">🔵 Capgemini</span> <span style="color: red">🔴 Serco</span> </p>
+          <p style="font-size: small">
+            <span style="color: #2571ae">🔵 Capgemini</span>
+            <span style="color: red">🔴 Serco</span>
+          </p>
           <div id="chartdiv"></div>
         </div>
       </div>
     </div>
 
-    <!-- Serco Values -->
-    <div class="container" style="margin-top: 100px">
-      <center style="margin: 30px">
-        <h2 class="display-4">Serco values</h2>
-      </center>
-      <table style="font-size: small">
-        <tr>
-          <td class="td-text" style="width:400px">
-            We work hard to earn trust and respect. We deliver on our promises;
-            are open, straightforward and honest; do the right thing; and take
-            personal responsibility for getting things done.
-          </td>
-          <td>
-            <img
-              src="{% static 'images/trust.png'%}"
-              width="150px"
-              alt=""
-              srcset=""
-            />
-          </td>
+    <style>
+      .clock {
+        border-radius: 100%;
+        background: #ffffff;
+        font-family: "Montserrat";
+        border: 5px solid white;
 
-          <td>
-            <img
-              src="{% static 'images/care.png'%}"
-              width="150px"
-              alt=""
-              srcset=""
-            />
-          </td>
-          <td class="td-text" style="text-align: right">
-            We care deeply about the services we provide, and the communities we
-            serve, and we look after each other. We work together to deliver
-            high-quality public services, often of great importance to the
-            nation and the communities we serve. We take care of each other, and
-            those we serve, and we aim to make a positive difference to people’s
-            lives.
-          </td>
-        </tr>
-        <tr>
-          <td class="td-text" >
-            We aspire to be better than anyone else at what we do. We
-            continuously improve our ways of working, and try new ideas, big and
-            small. We share our knowledge and experience and embrace change,
-            knowing that if we don’t provide innovation and value for money to
-            our customers, our competitors will.
-          </td>
-          <td>
-            <img
-              src="{% static 'images/innovation.png'%}"
-              width="150px"
-              alt=""
-              srcset=""
-            />
-          </td>
+        width: 350px;
+        height: 350px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        margin: 100px;
+      }
 
-          <td>
-            <img
-              src="{% static 'images/pride.png'%}"
-              width="150px"
-              alt=""
-              srcset=""
-            />
-          </td>
-          <td class="td-text" style="text-align: right">
-            We want to be proud of what we do. We know that the work we do is
-            important, and we take pride in doing it well. We value energy and
-            enthusiasm, skill and experience, and an ability to make hard work
-            fun. We contribute both as individuals and as part of a team.
-          </td>
-        </tr>
-      </table>
+      .wrap {
+        overflow: hidden;
+        position: relative;
+        width: 350px;
+        height: 350px;
+        border-radius: 100%;
+        box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      .minute,
+      .hour {
+        position: absolute;
+        height: 100px;
+        width: 6px;
+        margin: auto;
+        top: -27%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: black;
+        transform-origin: bottom center;
+        transform: rotate(0deg);
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+        z-index: 1;
+      }
+
+      .minute {
+        position: absolute;
+        height: 130px;
+        width: 4px;
+        top: -38%;
+        left: 0;
+        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+        transform: rotate(90deg);
+      }
+
+      .second {
+        position: absolute;
+        height: 90px;
+        width: 2px;
+        margin: auto;
+        top: -26%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-radius: 4px;
+        background: #ff4b3e;
+        transform-origin: bottom center;
+        transform: rotate(180deg);
+        z-index: 1;
+      }
+
+      .dot {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 12px;
+        height: 12px;
+        border-radius: 100px;
+        background: white;
+        border: 2px solid #1b1b1b;
+        border-radius: 100px;
+        margin: auto;
+        z-index: 1;
+      }
+    </style>
+
+    <!-- Timestamp Values -->
+    <div class="container" style="margin-top: 60px">
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="clock">
+            <div class="wrap">
+              <span class="hour"></span>
+              <span class="minute"></span>
+              <span class="second"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-7">
+          <center>
+            <h1 class="display-6">Our work time</h1>
+            <blockquote class="blockquote text-center" style="margin: 100px">
+              <p
+                class="blockquote-footer"
+                style="font-weight: 100; font-size: small"
+              >
+                Serco is a FTSE 250 company managing over 500 contracts
+                worldwide. Employing over 50,000 people, we operate
+                internationally across four geographies: UK & Europe, North
+                America, Asia Pacific and the Middle East and across five
+                sectors: Defence, Justice & Immigration, Transport, Health and
+                Citizen Services. Our partnership with Serco Group has grown
+                strengths to strengths in last 15 years. Capgemini is providing
+                Serco with services related to SAP and non-SAP Applications
+                which covers Applications Management in all environments and
+                development activities as part of CR/Projects for Serco
+              </p>
+            </blockquote>
+          </center>
+        </div>
+      </div>
+      <!-- Serco Values -->
+      <div class="container" style="margin-top: 100px">
+        <center style="margin: 30px">
+          <h2 class="display-4">Serco values</h2>
+        </center>
+        <table style="font-size: small">
+          <tr>
+            <td class="td-text" style="width: 400px">
+              We work hard to earn trust and respect. We deliver on our
+              promises; are open, straightforward and honest; do the right
+              thing; and take personal responsibility for getting things done.
+            </td>
+            <td>
+              <img
+                src="{% static 'images/trust.png'%}"
+                width="150px"
+                alt=""
+                srcset=""
+              />
+            </td>
+
+            <td>
+              <img
+                src="{% static 'images/care.png'%}"
+                width="150px"
+                alt=""
+                srcset=""
+              />
+            </td>
+            <td class="td-text" style="text-align: right">
+              We care deeply about the services we provide, and the communities
+              we serve, and we look after each other. We work together to
+              deliver high-quality public services, often of great importance to
+              the nation and the communities we serve. We take care of each
+              other, and those we serve, and we aim to make a positive
+              difference to people’s lives.
+            </td>
+          </tr>
+          <tr>
+            <td class="td-text">
+              We aspire to be better than anyone else at what we do. We
+              continuously improve our ways of working, and try new ideas, big
+              and small. We share our knowledge and experience and embrace
+              change, knowing that if we don’t provide innovation and value for
+              money to our customers, our competitors will.
+            </td>
+            <td>
+              <img
+                src="{% static 'images/innovation.png'%}"
+                width="150px"
+                alt=""
+                srcset=""
+              />
+            </td>
+
+            <td>
+              <img
+                src="{% static 'images/pride.png'%}"
+                width="150px"
+                alt=""
+                srcset=""
+              />
+            </td>
+            <td class="td-text" style="text-align: right">
+              We want to be proud of what we do. We know that the work we do is
+              important, and we take pride in doing it well. We value energy and
+              enthusiasm, skill and experience, and an ability to make hard work
+              fun. We contribute both as individuals and as part of a team.
+            </td>
+          </tr>
+        </table>
+      </div>
     </div>
 
     <!-- Capgemini Values -->
-    <div class="container-fluid" style="margin-top: 100px; padding: 30px;  text-align: center; align-items: center; background-color: white;">
+    <div
+      class="container-fluid"
+      style="
+        margin-top: 100px;
+        padding: 30px;
+        text-align: center;
+        align-items: center;
+        background-color: white;
+      "
+    >
       <center style="margin-bottom: 30px">
         <h2 class="display-4">Capgemini values</h2>
       </center>
@@ -396,154 +562,189 @@
           </table>
         </center>
       </div>
-      </div>
     </div>
 
-    <div class="container"  style="margin-top: 50px">
-      
-    </div>
-    
+    <div class="container" style="margin-top: 50px"></div>
 
-<script src="{% static 'js/sercoMap.js' %}"></script>
-<script>
-  am5.ready(function() {
-  
-  var data = [
-    {
-      id: "US",
-      name: "United States",
-      value: 100
-    }, {
-      id: "GB",
-      name: "United Kingdom",
-      value: 100
-    }, {
-      id: "CN",
-      name: "China",
-      value: 100
-    }, {
-      id: "IN",
-      name: "India",
-      value: 100
-    }, {
-      id: "AU",
-      name: "Australia",
-      value: 100
-    }, {
-      id: "CA",
-      name: "Canada",
-      value: 100
-    }, {
-      id: "BR",
-      name: "Brasil",
-      value: 100
-    }, {
-      id: "ZA",
-      name: "South Africa",
-      value: 100
-    }
-  ];
-  
-  var root = am5.Root.new("chartdiv");
-  root.setThemes([am5themes_Animated.new(root)]);
-  
-  var chart = root.container.children.push(am5map.MapChart.new(root, {}));
-  
-  var polygonSeries = chart.series.push(
-    am5map.MapPolygonSeries.new(root, {
-      geoJSON: am5geodata_worldLow,
-      exclude: ["AQ"]
-    })
-  );
-  
-  var bubbleSeries = chart.series.push(
-    am5map.MapPointSeries.new(root, {
-      valueField: "value",
-      calculateAggregates: true,
-      polygonIdField: "id"
-    })
-  );
-  
-  var circleTemplate = am5.Template.new({});
-  
-  bubbleSeries.bullets.push(function(root, series, dataItem) {
-    var container = am5.Container.new(root, {});
-  
-    var circle = container.children.push(
-      am5.Circle.new(root, {
-        radius: 20,
-        fillOpacity: 0.7,
-        fill: am5.color(0xff0000),
-        cursorOverStyle: "pointer",
-        tooltipText: `{name}: [bold]{value}[/]`
-      }, circleTemplate)
-    );
-  
-    var countryLabel = container.children.push(
-      am5.Label.new(root, {
-        text: "{name}",
-        paddingLeft: 5,
-        populateText: true,
-        fontWeight: "bold",
-        fontSize: 13,
-        centerY: am5.p50
-      })
-    );
-  
-    circle.on("radius", function(radius) {
-      countryLabel.set("x", radius);
-    })
-  
-    return am5.Bullet.new(root, {
-      sprite: container,
-      dynamic: true
-    });
-  });
-  
-  bubbleSeries.bullets.push(function(root, series, dataItem) {
-    return am5.Bullet.new(root, {
-      sprite: am5.Label.new(root, {
-        text: "{value.formatNumber('#.')}",
-        fill: am5.color(0xffffff),
-        populateText: true,
-        centerX: am5.p50,
-        centerY: am5.p50,
-        textAlign: "center"
-      }),
-      dynamic: true
-    });
-  });
-  
-  
-  
-  // minValue and maxValue must be set for the animations to work
-  bubbleSeries.set("heatRules", [
-    {
-      target: circleTemplate,
-      dataField: "value",
-      min: 10,
-      max: 50,
-      minValue: 0,
-      maxValue: 100,
-      key: "radius"
-    }
-  ]);
-  
-  bubbleSeries.data.setAll(data);
-  
-  updateData();
-  setInterval(function() {
-    updateData();
-  }, 2000)
-  
-  function updateData() {
-    for (var i = 0; i < bubbleSeries.dataItems.length; i++) {
-      bubbleSeries.data.setIndex(i, { value: Math.round(Math.random() * 100), id: data[i].id, name: data[i].name })
-    }
-  }
-  
-  
-  }); // end am5.ready()
-  </script>
+    <script src="{% static 'js/sercoMap.js' %}"></script>
+    <script>
+      // Project time
+      var inc = 1000;
+
+      clock();
+
+      function clock() {
+        const date = new Date();
+
+        const hours = ((date.getHours() + 6.3 + 11) % 12) + 1;
+        const minutes = date.getMinutes() + 30;
+        const seconds = date.getSeconds();
+
+        const hour = hours * 30;
+        const minute = minutes * 6;
+        const second = seconds * 6;
+
+        document.querySelector(".hour").style.transform = `rotate(${hour}deg)`;
+        document.querySelector(
+          ".minute"
+        ).style.transform = `rotate(${minute}deg)`;
+        document.querySelector(
+          ".second"
+        ).style.transform = `rotate(${second}deg)`;
+      }
+
+      setInterval(clock, inc);
+
+      // ---------------------->
+
+      am5.ready(function () {
+        var data = [
+          {
+            id: "US",
+            name: "United States",
+            value: 100,
+          },
+          {
+            id: "GB",
+            name: "United Kingdom",
+            value: 100,
+          },
+          {
+            id: "CN",
+            name: "China",
+            value: 100,
+          },
+          {
+            id: "IN",
+            name: "India",
+            value: 100,
+          },
+          {
+            id: "AU",
+            name: "Australia",
+            value: 100,
+          },
+          {
+            id: "CA",
+            name: "Canada",
+            value: 100,
+          },
+          {
+            id: "BR",
+            name: "Brasil",
+            value: 100,
+          },
+          {
+            id: "ZA",
+            name: "South Africa",
+            value: 100,
+          },
+        ];
+
+        var root = am5.Root.new("chartdiv");
+        root.setThemes([am5themes_Animated.new(root)]);
+
+        var chart = root.container.children.push(am5map.MapChart.new(root, {}));
+
+        var polygonSeries = chart.series.push(
+          am5map.MapPolygonSeries.new(root, {
+            geoJSON: am5geodata_worldLow,
+            exclude: ["AQ"],
+          })
+        );
+
+        var bubbleSeries = chart.series.push(
+          am5map.MapPointSeries.new(root, {
+            valueField: "value",
+            calculateAggregates: true,
+            polygonIdField: "id",
+          })
+        );
+
+        var circleTemplate = am5.Template.new({});
+
+        bubbleSeries.bullets.push(function (root, series, dataItem) {
+          var container = am5.Container.new(root, {});
+
+          var circle = container.children.push(
+            am5.Circle.new(
+              root,
+              {
+                radius: 20,
+                fillOpacity: 0.7,
+                fill: am5.color(0xff0000),
+                cursorOverStyle: "pointer",
+                tooltipText: `{name}: [bold]{value}[/]`,
+              },
+              circleTemplate
+            )
+          );
+
+          var countryLabel = container.children.push(
+            am5.Label.new(root, {
+              text: "{name}",
+              paddingLeft: 5,
+              populateText: true,
+              fontWeight: "bold",
+              fontSize: 13,
+              centerY: am5.p50,
+            })
+          );
+
+          circle.on("radius", function (radius) {
+            countryLabel.set("x", radius);
+          });
+
+          return am5.Bullet.new(root, {
+            sprite: container,
+            dynamic: true,
+          });
+        });
+
+        bubbleSeries.bullets.push(function (root, series, dataItem) {
+          return am5.Bullet.new(root, {
+            sprite: am5.Label.new(root, {
+              text: "{value.formatNumber('#.')}",
+              fill: am5.color(0xffffff),
+              populateText: true,
+              centerX: am5.p50,
+              centerY: am5.p50,
+              textAlign: "center",
+            }),
+            dynamic: true,
+          });
+        });
+
+        // minValue and maxValue must be set for the animations to work
+        bubbleSeries.set("heatRules", [
+          {
+            target: circleTemplate,
+            dataField: "value",
+            min: 10,
+            max: 50,
+            minValue: 0,
+            maxValue: 100,
+            key: "radius",
+          },
+        ]);
+
+        bubbleSeries.data.setAll(data);
+
+        updateData();
+        setInterval(function () {
+          updateData();
+        }, 2000);
+
+        function updateData() {
+          for (var i = 0; i < bubbleSeries.dataItems.length; i++) {
+            bubbleSeries.data.setIndex(i, {
+              value: Math.round(Math.random() * 100),
+              id: data[i].id,
+              name: data[i].name,
+            });
+          }
+        }
+      }); // end am5.ready()
+    </script>
   </body>
 </html>

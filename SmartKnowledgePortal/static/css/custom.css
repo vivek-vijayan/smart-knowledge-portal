@@ -49,7 +49,7 @@ div::-webkit-scrollbar-thumb {
 
 @font-face {
   font-family: SercoLogoTitle;
-  font-weight: bold;
+  font-weight: normal;
   src: url("../fonts/Sora/Sora-VariableFont_wght.ttf");
 }
 

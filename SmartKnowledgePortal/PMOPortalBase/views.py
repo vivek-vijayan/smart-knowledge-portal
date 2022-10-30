@@ -29,6 +29,12 @@ def BoardingStatusPage(request):
         request=request, template_name="BoardingStatusUpdatePage.html", context={}
     )
 
+def BoardingPassPage(request):
+    return render(
+        request=request, template_name="BoardingPass.html", context={}
+    )
+
+
 def TaggingAndAccessPageForNewUser(request):
     return render(
         request=request, template_name="TaggingAndAccessPageNewUser.html", context={}
