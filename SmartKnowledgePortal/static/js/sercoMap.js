@@ -11,6 +11,11 @@ var chart = root.container.children.push(
   })
 );
 
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+
 // Create polygon series
 var polygonSeries = chart.series.push(
   am5map.MapPolygonSeries.new(root, {
@@ -95,6 +100,7 @@ sercoPointSeries.bullets.push(function () {
     radius: 10,
     fill: am5.color(0xff0000),
     tooltipText: "{name}",
+    showTooltipOn :"always"
   });
 
   circle.events.on("click", function (ev) {
@@ -166,6 +172,7 @@ var CapgeminiLocation = {
       radius: 5,
       fill: am5.color("#004085"),
       tooltipText: "{name}",
+   //   showTooltipOn :"always"
     });
   
     circle.events.on("click", function (ev) {
@@ -183,8 +190,8 @@ var backgroundSeries = chart.series.unshift(
 );
 
 backgroundSeries.mapPolygons.template.setAll({
-  fill: am5.color("#ffffff"),
-  stroke: am5.color(0xd4f1f9),
+  fill: am5.color("#2f4766"),
+  stroke: am5.color(0x2f4766),
 });
 
 backgroundSeries.data.push({
@@ -194,3 +201,23 @@ backgroundSeries.data.push({
 polygonSeries.mapPolygons.template.states.create("hover", {
   fill: am5.color("#ff0000"),
 });
+
+var polygonTemplate = polygonSeries.mapPolygons.template;
+polygonTemplate.tooltipPosition = "fixed";
+polygonTemplate.showTooltipOn = "always";
+
+
+
+
+// Rotate animation
+chart.animate({
+  key: "rotationX",
+  from: 0,
+  to: 360,
+  duration: 10000,
+  loops: Infinity
+});
+
+
+// Make stuff animate on load
+chart.appear(1000, 100);

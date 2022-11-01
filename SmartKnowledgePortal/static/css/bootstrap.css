@@ -3498,13 +3498,13 @@ input[type="button"].btn-block {
 }
 
 .input-group-prepend .btn + .btn,
-.input-group-prepend .btn + .input-group-text,
-.input-group-prepend .input-group-text + .input-group-text,
-.input-group-prepend .input-group-text + .btn,
+.input-group-prepend .btn + .input-group-text input-group-text-dark,
+.input-group-prepend .input-group-text input-group-text-dark + .input-group-text input-group-text-dark,
+.input-group-prepend .input-group-text input-group-text-dark + .btn,
 .input-group-append .btn + .btn,
-.input-group-append .btn + .input-group-text,
-.input-group-append .input-group-text + .input-group-text,
-.input-group-append .input-group-text + .btn {
+.input-group-append .btn + .input-group-text input-group-text-dark,
+.input-group-append .input-group-text input-group-text-dark + .input-group-text input-group-text-dark,
+.input-group-append .input-group-text input-group-text-dark + .btn {
   margin-left: -1px;
 }
 
@@ -3516,7 +3516,7 @@ input[type="button"].btn-block {
   margin-left: -1px;
 }
 
-.input-group-text {
+.input-group-text input-group-text-dark {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
@@ -3534,8 +3534,8 @@ input[type="button"].btn-block {
   border-radius: 0.25rem;
 }
 
-.input-group-text input[type="radio"],
-.input-group-text input[type="checkbox"] {
+.input-group-text input-group-text-dark input[type="radio"],
+.input-group-text input-group-text-dark input[type="checkbox"] {
   margin-top: 0;
 }
 
@@ -3546,8 +3546,8 @@ input[type="button"].btn-block {
 
 .input-group-lg > .form-control,
 .input-group-lg > .custom-select,
-.input-group-lg > .input-group-prepend > .input-group-text,
-.input-group-lg > .input-group-append > .input-group-text,
+.input-group-lg > .input-group-prepend > .input-group-text input-group-text-dark,
+.input-group-lg > .input-group-append > .input-group-text input-group-text-dark,
 .input-group-lg > .input-group-prepend > .btn,
 .input-group-lg > .input-group-append > .btn {
   padding: 0.5rem 1rem;
@@ -3563,8 +3563,8 @@ input[type="button"].btn-block {
 
 .input-group-sm > .form-control,
 .input-group-sm > .custom-select,
-.input-group-sm > .input-group-prepend > .input-group-text,
-.input-group-sm > .input-group-append > .input-group-text,
+.input-group-sm > .input-group-prepend > .input-group-text input-group-text-dark,
+.input-group-sm > .input-group-append > .input-group-text input-group-text-dark,
 .input-group-sm > .input-group-prepend > .btn,
 .input-group-sm > .input-group-append > .btn {
   padding: 0.25rem 0.5rem;
@@ -3579,21 +3579,21 @@ input[type="button"].btn-block {
 }
 
 .input-group > .input-group-prepend > .btn,
-.input-group > .input-group-prepend > .input-group-text,
+.input-group > .input-group-prepend > .input-group-text input-group-text-dark,
 .input-group > .input-group-append:not(:last-child) > .btn,
-.input-group > .input-group-append:not(:last-child) > .input-group-text,
+.input-group > .input-group-append:not(:last-child) > .input-group-text input-group-text-dark,
 .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle),
-.input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
+.input-group > .input-group-append:last-child > .input-group-text input-group-text-dark:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 .input-group > .input-group-append > .btn,
-.input-group > .input-group-append > .input-group-text,
+.input-group > .input-group-append > .input-group-text input-group-text-dark,
 .input-group > .input-group-prepend:not(:first-child) > .btn,
-.input-group > .input-group-prepend:not(:first-child) > .input-group-text,
+.input-group > .input-group-prepend:not(:first-child) > .input-group-text input-group-text-dark,
 .input-group > .input-group-prepend:first-child > .btn:not(:first-child),
-.input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+.input-group > .input-group-prepend:first-child > .input-group-text input-group-text-dark:not(:first-child) {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }

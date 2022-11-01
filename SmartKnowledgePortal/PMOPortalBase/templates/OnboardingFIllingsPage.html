@@ -29,7 +29,7 @@
       class="navbar navbar-expand-lg navbar-danger static-header"
       style="
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-        background-color: #ffffff;
+        background-color: #172231;
         z-index: 10;
         height: 60px;
       "
@@ -38,7 +38,7 @@
         class="navbar-brand"
         href="#"
         style="
-          color: #2571ae;
+          color: #33a9fe;
           font-weight: 200;
           font-family: SercoLogoTitle;
           margin-right: 50px;
@@ -245,9 +245,12 @@
                 "
                 aria-label="breadcrumb"
               >
-                <ol class="breadcrumb">
+                <ol
+                  class="breadcrumb"
+                  style="background-color: #17223100 !important"
+                >
                   <li class="breadcrumb-item">
-                    <a href="/serco-pmo" style="color: #2571ae">PMO Portal</a>
+                    <a href="/serco-pmo" style="color: #33a9fe">PMO Portal</a>
                   </li>
                   <li class="breadcrumb-item active" aria-current="page">
                     Onboard
@@ -258,7 +261,7 @@
           </div>
           <div class="row">
             <div class="col-sm-7">
-              <h1 class="display-5" style="color: #292929; font-weight: bold">
+              <h1 class="display-5" style="color: #ffffff; font-weight: normal">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="46"
@@ -290,12 +293,12 @@
                   >
                     <button
                       style="
-                        color: #2571ae;
+                        color: #35df91;
                         border: none;
-                        background-color: white;
+                        background-color: rgba(255, 255, 255, 0);
                         text-align: center;
                         font-size: 15px;
-                        font-weight: bold;
+                        font-weight: normal;
                       "
                     >
                       <center>
@@ -324,12 +327,12 @@
                   >
                     <button
                       style="
-                        color: rgb(206, 4, 4);
+                        color: #e94f2f;
                         border: none;
-                        background-color: white;
+                        background-color: rgba(132, 108, 108, 0);
                         text-align: center;
                         font-size: 15px;
-                        font-weight: bold;
+                        font-weight: normal;
                       "
                     >
                       <center>
@@ -354,14 +357,16 @@
               </div>
 
               <div
-                class="card text-white mb-3"
+                class="card text-dark mb-3"
                 style="
                   max-width: 32rem;
                   margin-top: 20px;
                   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                  background-color: #1f3046;
+                  color: white;
                 "
               >
-                <div class="card-header" style="color: rgb(16, 16, 16)">
+                <div class="card-header" style="color: #33a9fe">
                   New Joinee Application
                 </div>
 
@@ -374,9 +379,12 @@
                     {% csrf_token %}
                     <div class="input-group input-group-sm mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm"
-                          >Firstname</span
-                        >
+                        <span
+                          class="input-group-text input-group-text-dark"
+                          id="inputGroup-sizing-sm"
+                          style="padding-right: 10px"
+                          >Firstname
+                        </span>
                       </div>
                       <input
                         type="text"
@@ -389,7 +397,10 @@
 
                     <div class="input-group input-group-sm mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-sm"
+                        <span
+                          class="input-group-text input-group-text-dark"
+                          id="inputGroup-sizing-sm"
+                          style="padding-right: 10px"
                           >Lastname</span
                         >
                       </div>
@@ -406,7 +417,8 @@
                         <div class="input-group input-group-sm mb-3">
                           <div class="input-group-prepend">
                             <span
-                              class="input-group-text"
+                              class="input-group-text input-group-text-dark"
+                              style="padding-right: 10px"
                               id="inputGroup-sizing-sm"
                               >CG corp ID</span
                             >
@@ -424,8 +436,9 @@
                         <div class="input-group input-group-sm mb-3">
                           <div class="input-group-prepend">
                             <span
-                              class="input-group-text"
+                              class="input-group-text input-group-text-dark"
                               id="inputGroup-sizing-sm"
+                              style="padding-right: 10px"
                               >Emp ID</span
                             >
                           </div>
@@ -460,11 +473,19 @@
       <div class="container" style="margin-top: 30px">
         <div
           class="card mb-3"
-          style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px"
+          style="
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-color: #1f3046;
+          "
         >
-          <div class="card-header">Basic Information</div>
+          <div class="card-header" style="font-weight: normal; color: #33a9fe">
+            Basic Information
+          </div>
           <div class="card-body text-dark" style="margin-left: 30px">
-            <h5 class="card-title text-black" style="font-weight: bold">
+            <h5
+              class="card-title text-black"
+              style="font-weight: normal; color: white"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -510,7 +531,7 @@
                     <div class="input-group input-group-sm mb-3">
                       <div class="input-group-prepend">
                         <span
-                          class="input-group-text"
+                          class="input-group-text input-group-text-dark"
                           id="inputGroupFileAddon01"
                           >Upload Profile Picture</span
                         >
@@ -523,8 +544,17 @@
                           class="custom-file-input"
                           id="inputGroupFile01"
                           aria-describedby="inputGroupFileAddon01"
+                          style="background-color: #172231; color: white"
                         />
-                        <label class="custom-file-label" for="inputGroupFile01"
+                        <label
+                          class="custom-file-label"
+                          for="inputGroupFile01"
+                          style="
+                            background-color: #1c293c;
+                            border: none;
+                            font-size: 13px;
+                            color: white;
+                          "
                           >Choose file</label
                         >
                       </div>
@@ -533,7 +563,9 @@
                   <div class="col-sm-5">
                     <div class="input-group input-group-sm flex-nowrap">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="addon-wrapping"
+                        <span
+                          class="input-group-text input-group-text-dark"
+                          id="addon-wrapping"
                           >Phone</span
                         >
                       </div>
@@ -549,7 +581,9 @@
                   <div class="col-sm-5">
                     <div class="input-group input-group-sm flex-nowrap">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="addon-wrapping"
+                        <span
+                          class="input-group-text input-group-text-dark"
+                          id="addon-wrapping"
                           >Date of birth</span
                         >
                       </div>
@@ -570,10 +604,14 @@
                   id="blah"
                   src="{% static 'images/sampleprofile.png' %}"
                   style="
-                    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+                    box-shadow: rgba(0, 0, 0, 0.438) 0px 10px 36px 0px,
                       rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
                     padding: 5px;
                     margin: 5px;
+                    width: 150px;
+                    height: 150px;
+                    background-position: center center;
+                    background-repeat: no-repeat; border-radius: 100%;
                   "
                   width="150px"
                   alt="your image"
@@ -582,7 +620,10 @@
             </div>
 
             <!-- Official information-->
-            <h5 class="card-title text-black" style="font-weight: bold">
+            <h5
+              class="card-title text-black"
+              style="font-weight: normal; color: #fff"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -627,7 +668,9 @@
               <div class="col-sm-6">
                 <div class="input-group input-group-sm flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
+                    <span
+                      class="input-group-text input-group-text-dark"
+                      id="addon-wrapping"
                       >CG Email ID</span
                     >
                   </div>
@@ -643,7 +686,9 @@
               <div class="col-sm-4">
                 <div class="input-group input-group-sm flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
+                    <span
+                      class="input-group-text input-group-text-dark"
+                      id="addon-wrapping"
                       >Date of joining CG</span
                     >
                   </div>
@@ -663,7 +708,11 @@
               <div class="col-sm-2">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text" for="grade">Grade </label>
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="grade"
+                      >Grade
+                    </label>
                   </div>
                   <select class="custom-select" id="grade">
                     <option selected>Choose...</option>
@@ -676,7 +725,9 @@
               <div class="col-sm-4">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01"
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="inputGroupSelect01"
                       >Team</label
                     >
                   </div>
@@ -691,7 +742,9 @@
               <div class="col-sm-4">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01"
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="inputGroupSelect01"
                       >Module</label
                     >
                   </div>
@@ -710,7 +763,9 @@
               <div class="col-sm-3">
                 <div class="input-group input-group-sm flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
+                    <span
+                      class="input-group-text input-group-text-dark"
+                      id="addon-wrapping"
                       >Practice</span
                     >
                   </div>
@@ -726,7 +781,9 @@
               <div class="col-sm-3">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01"
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="inputGroupSelect01"
                       >Role</label
                     >
                   </div>
@@ -741,7 +798,9 @@
               <div class="col-sm-4">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01"
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="inputGroupSelect01"
                       >Location</label
                     >
                   </div>
@@ -760,7 +819,9 @@
               <div class="col-sm-4">
                 <div class="input-group input-group-sm flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
+                    <span
+                      class="input-group-text input-group-text-dark"
+                      id="addon-wrapping"
                       >Supervisor name</span
                     >
                   </div>
@@ -776,7 +837,9 @@
               <div class="col-sm-6">
                 <div class="input-group input-group-sm flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
+                    <span
+                      class="input-group-text input-group-text-dark"
+                      id="addon-wrapping"
                       >Supervisor email ID</span
                     >
                   </div>
@@ -796,7 +859,9 @@
               <div class="col-sm-4">
                 <div class="input-group input-group-sm flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
+                    <span
+                      class="input-group-text input-group-text-dark"
+                      id="addon-wrapping"
                       >N+1 name</span
                     >
                   </div>
@@ -812,7 +877,9 @@
               <div class="col-sm-6">
                 <div class="input-group input-group-sm flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
+                    <span
+                      class="input-group-text input-group-text-dark"
+                      id="addon-wrapping"
                       >N+1 email ID</span
                     >
                   </div>
@@ -828,7 +895,10 @@
             </div>
             <!-- Asset type -->
 
-            <div class="row" style="margin-top: 20px">
+            <div
+              class="row"
+              style="margin-top: 20px; color: rgb(158, 158, 158)"
+            >
               <div class="col-sm-12">
                 <small>Asset type</small>
               </div>
@@ -912,11 +982,19 @@
       <div class="container" style="margin-top: 30px">
         <div
           class="card mb-3"
-          style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px"
+          style="
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-color: #1f3046;
+          "
         >
-          <div class="card-header">Project related Information</div>
+          <div class="card-header" style="font-weight: normal; color: #33a9fe">
+            Project related Information
+          </div>
           <div class="card-body text-dark" style="margin-left: 30px">
-            <h5 class="card-title text-dark" style="font-weight: bold">
+            <h5
+              class="card-title text-dark"
+              style="font-weight: normal; color: white !important"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -944,7 +1022,9 @@
               <div class="col-sm-3">
                 <div class="input-group input-group-sm flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping"
+                    <span
+                      class="input-group-text input-group-text-dark"
+                      id="addon-wrapping"
                       >FTE</span
                     >
                   </div>
@@ -960,7 +1040,9 @@
               <div class="col-sm-4">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">Cost rate €</span>
+                    <span class="input-group-text input-group-text-dark"
+                      >Cost rate €</span
+                    >
                   </div>
                   <input
                     type="text"
@@ -969,14 +1051,18 @@
                     aria-label="Amount (to the nearest dollar)"
                   />
                   <div class="input-group-append">
-                    <span class="input-group-text">.00</span>
+                    <span class="input-group-text input-group-text-dark"
+                      >.00</span
+                    >
                   </div>
                 </div>
               </div>
               <div class="col-sm-4">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text" for="requestedby"
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="requestedby"
                       >SPOC</label
                     >
                   </div>
@@ -991,7 +1077,10 @@
             </div>
             <br />
             <!-- Service Order -->
-            <h5 class="card-title text-dark" style="font-weight: bold">
+            <h5
+              class="card-title text-dark"
+              style="font-weight: normal; color: white !important"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -1015,7 +1104,9 @@
               <div class="col-sm-4">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text" for="backfillornew"
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="backfillornew"
                       >Onboard type</label
                     >
                   </div>
@@ -1039,7 +1130,9 @@
               <div class="col-sm-6" id="backfillinput" style="display: none">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text" for="backfillinputarea"
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="backfillinputarea"
                       >Backfill person
                     </label>
                   </div>
@@ -1058,7 +1151,9 @@
               <div class="col-sm-6">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">SO No in SMART /R2D2 </span>
+                    <span class="input-group-text input-group-text-dark"
+                      >SO No in SMART /R2D2
+                    </span>
                   </div>
                   <input
                     type="text"
@@ -1071,7 +1166,9 @@
               <div class="col-sm-5">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text">Pool of Requirement </span>
+                    <span class="input-group-text input-group-text-dark"
+                      >Pool of Requirement
+                    </span>
                   </div>
                   <input
                     type="text"
@@ -1088,7 +1185,7 @@
               <div class="col-sm-6">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text"
+                    <span class="input-group-text input-group-text-dark"
                       >SO raised in R2D2 ( for NON SAP Skills )
                     </span>
                   </div>
@@ -1103,7 +1200,9 @@
               <div class="col-sm-5">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text" for="requestedby"
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="requestedby"
                       >Requested by</label
                     >
                   </div>
@@ -1164,12 +1263,12 @@
             >
               <button
                 style="
-                  color: #01801e;
+                  color: #35df91;
                   border: none;
-                  background-color: white;
+                  background-color: rgba(255, 255, 255, 0);
                   text-align: center;
                   font-size: 15px;
-                  font-weight: bold;
+                  font-weight: normal;
                 "
               >
                 <center>
@@ -1342,8 +1441,8 @@
         transition: all 300ms linear;
       }
       .checkbox-tools:not(:checked) + label {
-        background-color: rgb(244, 244, 244);
-        color: var(--dark-blue);
+        background-color: #29405b;
+        color: white;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
       }
       .checkbox-tools:checked + label {
@@ -1715,13 +1814,13 @@
         margin-left: -10px;
       }
       article.timeline > main article.completed section main {
-        border-top: 2px solid #2571ae;
+        border-top: 2px solid #33a9fe;
       }
       article.timeline > main article.completed section main::after {
-        background-color: #2571ae;
+        background-color: #33a9fe;
       }
       article.timeline > main article.completed:hover header {
-        color: #2571ae;
+        color: #33a9fe;
       }
       article.timeline > main article.completed:hover footer {
         color: #444;
