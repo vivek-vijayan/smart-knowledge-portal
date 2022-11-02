@@ -245,7 +245,10 @@
                 "
                 aria-label="breadcrumb"
               >
-                <ol class="breadcrumb">
+                <ol
+                  class="breadcrumb"
+                  style="background-color: #17223100 !important"
+                >
                   <li class="breadcrumb-item">
                     <a href="/serco-pmo" style="color: #33a9fe">PMO Portal</a>
                   </li>
@@ -258,7 +261,10 @@
           </div>
           <div class="row">
             <div class="col-sm-7">
-              <h2 class="display-4" style="color: #292929; margin-bottom: 30px; font-weight: bold;">
+              <h1
+                class="display-6"
+                style="color: #ffffff; margin-bottom: 20px; font-weight: normal"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="46"
@@ -271,10 +277,10 @@
                     d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 1 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM10 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
                   />
                 </svg>
-                Broadcast 
-              </h2>
+                Broadcast
+              </h1>
 
-              <small class="text-dark" style="font-size:13px ;">
+              <small class="text-muted-ss" style="font-size: 13px">
                 Message posted here will be displayed in the portal homepage,
                 you can delete and control your post from the below card.
                 Priority settings will manage the level of the broadcasted
@@ -287,9 +293,14 @@
                   max-width: 32rem;
                   margin-top: 40px;
                   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                  background-color: #1f3046;
+                  color: white;
                 "
               >
-                <div class="card-header" style="color: rgb(86, 86, 86); font-size: 13px;">
+                <div
+                  class="card-header"
+                  style="color:#33a9fe; font-size: 13px"
+                >
                   Publish a post on homepage
                 </div>
 
@@ -302,7 +313,9 @@
                     {% csrf_token %}
                     <div class="input-group input-group-sm mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text input-group-text-dark" id="inputGroup-sizing-sm"
+                        <span
+                          class="input-group-text input-group-text-dark"
+                          id="inputGroup-sizing-sm"
                           >Subject</span
                         >
                       </div>
@@ -356,7 +369,9 @@
 
                     <div class="input-group input-group-sm mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text input-group-text-dark" id="inputGroup-sizing-sm"
+                        <span
+                          class="input-group-text input-group-text-dark"
+                          id="inputGroup-sizing-sm"
                           >Message</span
                         >
                       </div>
@@ -365,13 +380,13 @@
                         aria-label="Small"
                         required
                         aria-describedby="inputGroup-sizing-sm"
-                        style="height: 100px"
+                        style="height: 100px; background-color:#1c293c; border: none; color:white"
                       ></textarea>
                     </div>
 
                     <div class="row" style="margin-top: 20px">
                       <div class="col-sm-12">
-                        <button class="btn btn-success">
+                        <button class="btn btn-success" style="background-color: #66E091; color: #121E2A; font-size: 13px;">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="16"
@@ -390,7 +405,7 @@
                           Publish
                         </button>
 
-                        <button class="btn btn-danger">Reset</button>
+                        <button class="btn btn-danger" style="background-color: #D9322E;font-size: 13px;">Reset</button>
                       </div>
                     </div>
                   </form>
@@ -414,11 +429,12 @@
       <div class="container" style="margin-top: 30px">
         <div
           class="card mb-3"
-          style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px"
+          style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  background-color: #1f3046;
+          color: white;"
         >
           <div class="card-header">Posted content</div>
           <div class="card-body text-dark">
-            <h5 class="card-title text-dark" style="font-weight:bold ;">
+            <h5 class="card-title text-dark" style="font-weight: bold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -434,7 +450,7 @@
               </svg>
               Broadcast items
             </h5>
-            <p class="card-text text-muted">
+            <p class="card-text text-muted-ss">
               <small>
                 These information can also be editable for the users to modify
                 it. These details are mandatory to get the application move

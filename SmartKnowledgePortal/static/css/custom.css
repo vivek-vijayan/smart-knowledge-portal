@@ -296,6 +296,11 @@ button {
   text-align: center;
 }
 
+.text-muted-ss {
+  color: #6585af !important;
+}
+
+
 .s-button-black {
   color: black;
   border: none;
@@ -311,7 +316,7 @@ button {
 }
 
 .tag {
-  background: #eee;
+  background: rgb(56, 39, 39);
   border-radius: 3px 0 0 3px;
   color: #999;
   display: inline-block;

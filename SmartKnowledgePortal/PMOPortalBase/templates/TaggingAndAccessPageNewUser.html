@@ -245,7 +245,7 @@
                 "
                 aria-label="breadcrumb"
               >
-                <ol class="breadcrumb">
+                <ol class="breadcrumb" style="background-color: #17223100 !important">
                   <li class="breadcrumb-item">
                     <a href="/serco-pmo" style="color: #33a9fe">PMO Portal</a>
                   </li>
@@ -263,7 +263,7 @@
           </div>
           <div class="row">
             <div class="col-sm-7">
-              <h1 class="display-5" style="color: #292929; font-weight: bold">
+              <h1 class="display-5" style="color: #ffffff; font-weight: normal">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="46"
@@ -282,7 +282,7 @@
                 Tagging & Access
               </h1>
               <br />
-              <small class="text-muted" style="padding-top: 30px">
+              <small class="text-muted-ss" style="padding-top: 30px">
                 Project tagging and access part of the new user is handled in
                 this portal, if you are looking for a existing user then use the
                 <a href="#" style="color: #33a9fe">link : PMO admin</a>
@@ -294,9 +294,11 @@
                   max-width: 32rem;
                   margin-top: 20px;
                   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                  background-color: #1f3046;
+                  color: white;
                 "
               >
-                <div class="card-header" style="color: rgb(86, 86, 86)">
+                <div class="card-header" style="color: #33a9fe">
                   New Joinee tagging
                 </div>
 
@@ -401,7 +403,8 @@
       <div class="container" style="margin-top: 30px">
         <div
           class="card mb-3"
-          style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px"
+          style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; background-color: #1f3046;
+          color: white;"
         >
           <div class="card-header">Tagging Information</div>
           <div
@@ -409,7 +412,7 @@
             style="margin-left: 30px; margin-right: 30px"
           >
             <div style="margin-left: 20px">
-              <h5 class="card-title text-black" style="font-weight: bold">
+              <h5 class="card-title text-black" style="font-weight: normal; color:#33a9fe">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -424,18 +427,16 @@
                 </svg>
                 Project tag
               </h5>
-              <small class="text-muted" style="padding-top: 30px">
+              <small class="text-muted-ss" style="padding-top: 30px; color: rgb(193, 193, 193)">
                 Make sure you have selected the correct tagging as it affect the
-                further machine decisions and groupings. if you need more
-                information, click
-                <a href="#" style="color: #33a9fe">KM - PMO Link here</a>
+                further machine decisions and groupings. 
               </small>
             </div>
 
             <!-- Personal Information-->
             <style>
               .tag {
-                background: #eee;
+                background: #121E2A;
                 border-radius: 3px 0 0 3px;
                 color: #999;
                 display: inline-block;
@@ -449,7 +450,7 @@
               }
 
               .tag::before {
-                background: #fff;
+                background: #121E2A;
                 border-radius: 10px;
                 box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
                 content: "";
@@ -461,7 +462,7 @@
               }
 
               .tag::after {
-                background: #fff;
+                background: #121E2A;
                 border-bottom: 60px solid transparent;
                 border-left: 30px solid #eee;
                 border-top: 60px solid transparent;
@@ -505,7 +506,7 @@
                   />
                 </svg>
                 <h5 class="display-6" style="margin-top: 5px">101019352</h5>
-                <small> BAU - FTE</small>
+                <small class="text-muted-ss"> BAU - FTE</small>
               </label>
 
               <!--
@@ -532,7 +533,7 @@
                   />
                 </svg>
                 <h5 class="display-6" style="margin-top: 5px">101019352</h5>
-                <small> BAU - FTE</small> </label
+                <small class="text-muted-ss"> BAU - FTE</small> </label
               ><!--
 						--><input
                 class="checkbox-tools"
@@ -557,7 +558,7 @@
                   />
                 </svg>
                 <h5 class="display-6" style="margin-top: 5px">101019352</h5>
-                <small> BAU - FTE</small></label
+                <small class="text-muted-ss"> BAU - FTE</small></label
               ><!--
 						--><input
                 class="checkbox-tools"
@@ -582,9 +583,9 @@
                   />
                 </svg>
                 <h5 class="display-6" style="margin-top: 5px">101019352</h5>
-                <small> BAU - FTE</small>
+                <small class="text-muted-ss"> BAU - FTE</small>
                 <br />
-                <span class="badge badge-success">TAGGED - 75%</span> </label
+                <span class="badge badge-success" style="background-color: #66E091; color: #121E2A; font-weight: normal;">TAGGED - 75%</span> </label
               ><!--
 						--><input
                 class="checkbox-tools"
@@ -609,13 +610,13 @@
                   />
                 </svg>
                 <h5 class="display-6" style="margin-top: 5px">101019352</h5>
-                <small> BAU - FTE</small> </label
+                <small class="text-muted-ss"> BAU - FTE</small> </label
               ><!--
 						-->
             </div>
 
             <!-- Tagging percent -->
-            <p class="card-text text-muted" style="margin-left: 30px">
+            <p class="card-text text-muted-ss" style="margin-left: 30px">
               <small>
                 Mention the tagging percentage on the above selected project
                 code</small
@@ -630,10 +631,10 @@
                   </div>
                   <input
                     type="text"
-                    class="form-control"
+                    class="form-control" placeholder="Enter Percentage.."
                     aria-label="Amount (to the nearest dollar)"
                   />
-                  <div class="input-group-append">
+                  <div class="input-group-append" style="padding-left: 10px;">
                     <span class="input-group-text input-group-text-dark">%</span>
                   </div>
                 </div>
@@ -642,8 +643,8 @@
 
             <div class="row">
               <div class="col-sm-12">
-                <p class="card-text text-muted" style="margin-left: 30px">
-                  <small>
+                <p class="card-text text-muted-ss" style="margin-left: 30px">
+                  <small >
                     Be sure while providing access to the portal, as this are
                     very sensitive areas</small
                   >
@@ -653,7 +654,7 @@
                 class="col-sm-12"
                 style="margin-left: 30px; margin-top: 20px"
               >
-                <button class="btn btn-success">
+                <button class="btn btn-success" style="background-color: #66E091; color: #121E2A">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -668,7 +669,7 @@
                   </svg>
                   <small> Tag project</small>
                 </button>
-                <button class="btn btn-danger">
+                <button class="btn btn-danger" style="background-color: #D9322E;">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -705,7 +706,8 @@
     <div class="container" style="margin-top: 30px">
       <div
         class="card mb-3"
-        style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px"
+        style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;background-color: #1f3046;
+        color: white;"
       >
         <div class="card-header">Access Information</div>
         <div
@@ -713,7 +715,7 @@
           style="margin-left: 30px; margin-right: 30px"
         >
           <div style="margin-left: 20px">
-            <h5 class="card-title text-black" style="font-weight: bold">
+            <h5 class="card-title text-black" style="font-weight: normal; color: #33a9fe">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -728,7 +730,7 @@
               </svg>
               Access Provision
             </h5>
-            <small class="text-muted" style="padding-top: 30px">
+            <small class="text-muted-ss" style="padding-top: 30px">
               Make sure you have selected the correct tagging as it affect the
               further machine decisions and groupings. if you need more
               information, click
@@ -806,8 +808,8 @@
                 />
               </svg>
               <h5 class="display-6" style="margin-top: 5px">blog</h5>
-              <small> portal access</small>
-              <span class="badge badge-success">GRANTED</span>
+              <small class="text-muted-ss"> portal access</small>
+              <span class="badge badge-success" style="background-color: #66E091; color: #121E2A; font-weight: normal;" >GRANTED</span>
             </label>
 
             <!--
@@ -831,7 +833,7 @@
                 />
               </svg>
               <h5 class="display-6" style="margin-top: 5px">PMO</h5>
-              <small> portal access</small> </label
+              <small class="text-muted-ss"> portal access</small> </label
             ><!--
 						--><input
               class="checkbox-tools"
@@ -853,14 +855,14 @@
                 />
               </svg>
               <h5 class="display-6" style="margin-top: 5px">Lead</h5>
-              <small> portal access</small></label
+              <small class="text-muted-ss"> portal access</small></label
             ><!--
 						--><!--
 						-->
           </div>
 
           <!-- Tagging percent -->
-          <p class="card-text text-muted" style="margin-left: 30px">
+          <p class="card-text text-muted-ss" style="margin-left: 30px">
             <small>
               Mention the tagging percentage on the above selected project
               code</small
@@ -884,7 +886,7 @@
 
           <div class="row">
             <div class="col-sm-12">
-              <p class="card-text text-muted" style="margin-left: 30px">
+              <p class="card-text text-muted-ss" style="margin-left: 30px">
                 <small>
                   Be sure while providing access to the portal, as this are very
                   sensitive areas</small
@@ -892,7 +894,7 @@
               </p>
             </div>
             <div class="col-sm-12" style="margin-left: 30px; margin-top: 20px">
-              <button class="btn btn-success">
+              <button class="btn btn-success" style="background-color: #66E091; color: #121E2A">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -905,9 +907,9 @@
                     d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"
                   />
                 </svg>
-                <small> Grant access </small>
+                <small> Grant  </small>
               </button>
-              <button class="btn btn-danger">
+              <button class="btn btn-danger" style="background-color: #D9322E;">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -920,7 +922,7 @@
                     d="M8 0c-.69 0-1.843.265-2.928.56-1.11.3-2.229.655-2.887.87a1.54 1.54 0 0 0-1.044 1.262c-.596 4.477.787 7.795 2.465 9.99a11.777 11.777 0 0 0 2.517 2.453c.386.273.744.482 1.048.625.28.132.581.24.829.24s.548-.108.829-.24a7.159 7.159 0 0 0 1.048-.625 11.775 11.775 0 0 0 2.517-2.453c1.678-2.195 3.061-5.513 2.465-9.99a1.541 1.541 0 0 0-1.044-1.263 62.467 62.467 0 0 0-2.887-.87C9.843.266 8.69 0 8 0zM6.854 5.146 8 6.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 7l1.147 1.146a.5.5 0 0 1-.708.708L8 7.707 6.854 8.854a.5.5 0 1 1-.708-.708L7.293 7 6.146 5.854a.5.5 0 1 1 .708-.708z"
                   />
                 </svg>
-                <small> Revoke access </small>
+                <small> Revoke  </small>
               </button>
             </div>
           </div>
@@ -941,8 +943,8 @@
     <div class="container">
       <div class="row" style="margin-bottom: 20px; padding: 10px">
         <div class="col-sm-12">
-          <small style="color: RED">
-            <div class="alert alert-warning" role="alert">
+          <small style="color: rgb(116, 116, 116)">
+            <div class="alert text-muted-ss" role="alert">
               <span>
                 Make sure you are entered the right information as the email and
                 further proceeding will be taken based on the details provided
@@ -967,29 +969,21 @@
             >
               <button
                 style="
-                  color: #01801e;
+                  color: #35df91;
                   border: none;
-                  background-color: white;
+                  background-color: rgba(255, 255, 255, 0);
                   text-align: center;
                   font-size: 15px;
-                  font-weight: bold;
+                  font-weight: normal;
                   
                 "
               >
                 <center>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    class="bi bi-arrow-right-circle-fill"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
-                    />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-collection-play" viewBox="0 0 16 16">
+                    <path d="M2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1zm2.765 5.576A.5.5 0 0 0 6 7v5a.5.5 0 0 0 .765.424l4-2.5a.5.5 0 0 0 0-.848l-4-2.5z"/>
+                    <path d="M1.5 14.5A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zm13-1a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5h-13A.5.5 0 0 0 1 6v7a.5.5 0 0 0 .5.5h13z"/>
                   </svg>
-                  Next Step
+                  <span style="padding-left:5px ;"> Initate Onboard Sequence</span>
                 </center>
               </button>
             </a>
@@ -1011,14 +1005,14 @@
     <style>
       /*  TEST */
       :root {
-        --white: #ffffff;
+        --white: #121E2A;
         --light: #46299b;
         --black: #000000;
         --dark-blue: #1f2029;
         --dark-light: #353746;
         --red: #da2c4d;
         --yellow: #f8ab37;
-        --grey: #ecedf3;
+        --grey: #121E2A;
       }
       ::selection {
         color: var(--white);
@@ -1146,13 +1140,16 @@
       }
       /* Used aread */
       .checkbox-tools:not(:checked) + label {
-        background-color: rgb(245, 245, 245);
-        color: rgb(57, 57, 57);
+        background-color: #121E2A;
+        color: rgb(205, 205, 205);
+        border-radius: 5px;
+        border: 1px dashed #121E2A ;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
       }
       .checkbox-tools:checked + label {
-        background: #353e48;
-        color: white;
+        background: #2F4766;
+        color: #ffffff;
+        border: 1px dashed #33a9fe ; border-radius: 5px;
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
       }
       .checkbox-tools:not(:checked) + label:hover {
