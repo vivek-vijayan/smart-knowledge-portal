@@ -23,7 +23,7 @@
     <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
   </head>
-  <body>
+  <body onload="showTime()">
     <!-- Navigation area -->
     <nav
       class="navbar navbar-expand-lg navbar-danger static-header"
@@ -293,25 +293,28 @@
     </div>
 
     <style>
-      .clock {
+      .clocks {
         border-radius: 100%;
-        background: #ffffff;
+        background: #2f4766;
         font-family: "Montserrat";
-        border: 5px solid white;
-
+        border: 5px solid #3ca8f8;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
         width: 350px;
         height: 350px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        box-shadow: #000000 0px 5px 15px;
         margin: 100px;
       }
 
       .wrap {
         overflow: hidden;
+
         position: relative;
         width: 350px;
         height: 350px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
         border-radius: 100%;
-        box-shadow: inset 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
       }
 
       .minute,
@@ -324,11 +327,12 @@
         left: 0;
         bottom: 0;
         right: 0;
-        background: black;
+        background: rgb(248, 248, 248);
         transform-origin: bottom center;
         transform: rotate(0deg);
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
         z-index: 1;
+        border-radius: 100px;
       }
 
       .minute {
@@ -339,6 +343,7 @@
         left: 0;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
         transform: rotate(90deg);
+        border-radius: 100px;
       }
 
       .second {
@@ -366,45 +371,47 @@
         width: 12px;
         height: 12px;
         border-radius: 100px;
-        background: white;
-        border: 2px solid #1b1b1b;
+        background: rgb(255, 0, 0);
+        border: 2px solid #ff0000;
         border-radius: 100px;
         margin: auto;
         z-index: 1;
+      }
+
+      .clock {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        color: #33a9fe;
+
+        font-size: 70px;
+        letter-spacing: 2px;
       }
     </style>
 
     <!-- Timestamp Values -->
     <div class="container" style="margin-top: 60px">
       <div class="row">
-        <div class="col-sm-5">
-          <div class="clock">
-            <div class="wrap">
-              <span class="hour"></span>
-              <span class="minute"></span>
-              <span class="second"></span>
-              <span class="dot"></span>
-            </div>
-          </div>
+        <div class="col-sm-6">
+          <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-6">
           <center>
-            <h1 class="display-6">Our work time</h1>
-            <blockquote class="blockquote text-center" style="margin: 100px">
+            <h1 class="display-6" style="margin-top: 50px">
+              Our work time (UK)
+            </h1>
+            <blockquote
+              class="blockquote text-center text-muted-ss"
+              style="margin: 20px 100px 100px 100px"
+            >
               <p
                 class="blockquote-footer"
                 style="font-weight: 100; font-size: small"
               >
-                Serco is a FTSE 250 company managing over 500 contracts
-                worldwide. Employing over 50,000 people, we operate
-                internationally across four geographies: UK & Europe, North
-                America, Asia Pacific and the Middle East and across five
-                sectors: Defence, Justice & Immigration, Transport, Health and
-                Citizen Services. Our partnership with Serco Group has grown
-                strengths to strengths in last 15 years. Capgemini is providing
-                Serco with services related to SAP and non-SAP Applications
-                which covers Applications Management in all environments and
-                development activities as part of CR/Projects for Serco
+                Our work time offset of 4:30 hours from UK time, and 5:30 hours
+                from UK time during Day-light saving. Make sure you are
+                following the respctive time.
               </p>
             </blockquote>
           </center>
@@ -417,7 +424,10 @@
         </center>
         <table style="font-size: small">
           <tr>
-            <td class="td-text" style="width: 400px">
+            <td
+              class="td-text"
+              style="width: 400px; font-size: 13px; color: #929aa1"
+            >
               We work hard to earn trust and respect. We deliver on our
               promises; are open, straightforward and honest; do the right
               thing; and take personal responsibility for getting things done.
@@ -439,7 +449,10 @@
                 srcset=""
               />
             </td>
-            <td class="td-text" style="text-align: right">
+            <td
+              class="td-text"
+              style="text-align: right; font-size: 13px; color: #929aa1"
+            >
               We care deeply about the services we provide, and the communities
               we serve, and we look after each other. We work together to
               deliver high-quality public services, often of great importance to
@@ -449,7 +462,7 @@
             </td>
           </tr>
           <tr>
-            <td class="td-text">
+            <td class="td-text" style="font-size: 13px; color: #929aa1">
               We aspire to be better than anyone else at what we do. We
               continuously improve our ways of working, and try new ideas, big
               and small. We share our knowledge and experience and embrace
@@ -473,7 +486,10 @@
                 srcset=""
               />
             </td>
-            <td class="td-text" style="text-align: right">
+            <td
+              class="td-text"
+              style="text-align: right; font-size: 13px; color: #929aa1"
+            >
               We want to be proud of what we do. We know that the work we do is
               important, and we take pride in doing it well. We value energy and
               enthusiasm, skill and experience, and an ability to make hard work
@@ -495,7 +511,7 @@
         background-color: #2f4766;
       "
     >
-      <center style="margin-bottom: 30px; background-color: #2f4766;">
+      <center style="margin-bottom: 30px; background-color: #2f4766">
         <h2 class="display-4">Capgemini values</h2>
       </center>
       <div class="container">
@@ -576,8 +592,8 @@
       function clock() {
         const date = new Date();
 
-        const hours = ((date.getHours() + 6.3 + 11) % 12) + 1;
-        const minutes = date.getMinutes() + 30;
+        const hours = (uk_rightNow_hour % 12) + 1;
+        const minutes = uk_rightNow_min;
         const seconds = date.getSeconds();
 
         const hour = hours * 30;
@@ -594,6 +610,46 @@
       }
 
       setInterval(clock, inc);
+
+      function showTime() {
+        var date = new Date();
+        var uk_rightNow = new Date();
+        uk_rightNow_hour = uk_rightNow.toLocaleString("en-GB", {
+          hour: "2-digit",
+          hour12: false,
+          timeZone: "Europe/London",
+        });
+        uk_rightNow_min = uk_rightNow.toLocaleString("en-GB", {
+          minute: "2-digit",
+          hour12: false,
+          timeZone: "Europe/London",
+        });
+        var h = uk_rightNow_hour; // 0 - 23
+        var m = uk_rightNow_min; // 0 - 59
+        var s = date.getSeconds(); // 0 - 59
+        var session = "AM";
+
+        if (h == 0) {
+          h = 12;
+        }
+
+        if (h > 12) {
+          h = h - 12;
+          session = "PM";
+        }
+
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+
+        var time = h + ":" + m + ":" + s + " " + session;
+        document.getElementById("MyClockDisplay").innerText = time;
+        document.getElementById("MyClockDisplay").textContent = time;
+
+        setTimeout(showTime, 1000);
+      }
+
+      showTime();
 
       // ---------------------->
 

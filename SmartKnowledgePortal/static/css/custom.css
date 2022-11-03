@@ -206,14 +206,14 @@ input, select {
   border-radius: 80px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
   margin: 10px;
-  color: #606060;
+  color:#3CA8F8;
 }
 
 
 
 .content-show-card-sm:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  color: rgb(255, 0, 0);
+  color: white;
   font-weight: bold;
 }
 

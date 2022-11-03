@@ -240,12 +240,15 @@
                 style="
                   --bs-breadcrumb-divider: url(
                     &#34;data:image/svg + xml,
-                    %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;
+                    %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%23929aa1'/%3E%3C/svg%3E&#34;
                   );
                 "
                 aria-label="breadcrumb"
               >
-                <ol class="breadcrumb">
+                <ol
+                  class="breadcrumb"
+                  style="background-color: #17223100 !important"
+                >
                   <li class="breadcrumb-item">
                     <a href="/serco-pmo" style="color: #33a9fe">PMO Portal</a>
                   </li>
@@ -258,7 +261,7 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <h1 class="display-5" style="color: #292929">
+              <h1 class="display-6" style="color: #ffffff">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="36"
@@ -276,8 +279,7 @@
               </h1>
 
               <small class="text-muted-ss">
-                Enter the new joinee information in the below fields. You can
-                also upload in a excel format also</small
+                This site has complete control on people onboard & offboard status. Make sure with the selection, it will affect the process flow</small
               >
               <div class="container" style="margin-top: 10px">
                 <div class="row">
@@ -285,7 +287,7 @@
                     class="col-sm-2 content-show-card"
                     style="
                       text-align: center;
-                      padding: 10px;
+                      padding: 5px;
                       border-radius: 10px;
                     "
                     data-toggle="modal"
@@ -295,8 +297,9 @@
                       style="
                         color: #33a9fe;
                         border: none;
-                        background-color: white;
+                        background-color: rgba(255, 0, 0, 0);
                         text-align: center;
+                        font-size: small;
                       "
                     >
                       <center>
@@ -321,7 +324,7 @@
                     class="col-sm-2 content-show-card"
                     style="
                       text-align: center;
-                      padding: 10px;
+                      padding: 5px;
                       border-radius: 10px;
                     "
                   >
@@ -329,8 +332,9 @@
                       style="
                         color: #33a9fe;
                         border: none;
-                        background-color: white;
+                        background-color: rgba(255, 0, 0, 0);
                         text-align: center;
+                        font-size: small;
                       "
                     >
                       <center>
@@ -356,7 +360,7 @@
                     class="col-sm-2 content-show-card"
                     style="
                       text-align: center;
-                      padding: 10px;
+                      padding: 5px;
                       border-radius: 10px;
                     "
                     data-toggle="modal"
@@ -366,8 +370,9 @@
                       style="
                         color: #33a9fe;
                         border: none;
-                        background-color: white;
+                        background-color: rgba(255, 0, 0, 0);
                         text-align: center;
+                        font-size: small;
                       "
                     >
                       <center>
@@ -392,7 +397,7 @@
                     class="col-sm-2 content-show-card"
                     style="
                       text-align: center;
-                      padding: 10px;
+                      padding: 5px;
                       border-radius: 10px;
                     "
                   >
@@ -400,8 +405,9 @@
                       style="
                         color: #33a9fe;
                         border: none;
-                        background-color: white;
+                        background-color: rgba(255, 0, 0, 0);
                         text-align: center;
+                        font-size: small;
                       "
                     >
                       <center>
@@ -427,7 +433,7 @@
                     class="col-sm-2 content-show-card"
                     style="
                       text-align: center;
-                      padding: 10px;
+                      padding: 5px;
                       border-radius: 10px;
                     "
                     data-toggle="modal"
@@ -437,8 +443,9 @@
                       style="
                         color: #33a9fe;
                         border: none;
-                        background-color: white;
+                        background-color: rgba(255, 0, 0, 0);
                         text-align: center;
+                        font-size: small;
                       "
                     >
                       <center>
@@ -459,7 +466,6 @@
                       </center>
                     </button>
                   </div>
-               
                 </div>
               </div>
             </div>
@@ -467,33 +473,41 @@
         </div>
       </div>
 
-
-      <div class="container" style="margin-top: 50px;">
-         <!-- -->
-         <style>
-          .ticket {
+      <div class="container" style="margin-top: 50px">
+        <!-- -->
+        <style>
+          .pass-block {
             display: inline-block;
-            width: 350px;
-            margin: 20px;
-            background-color: #273138;
+            width: 340px;
+            margin: 10px;
+            background-color: #203147;
             border-radius: 10px;
             color: #fff;
             font-weight: 300;
             letter-spacing: 1px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: ease-in-out 0.5s;
           }
-          .ticket header {
+
+          .pass-block:hover {
+            transform: scale(1.03);
+            transition: ease-in-out 0.5s;
+          }
+
+          .pass-block header {
             position: relative;
             height: 45px;
-            background-color: #1b252e;
+            background-color: #1c293c;
             padding: 10px;
+            color: #6e89a5;
             border-radius: 10px;
           }
-          .ticket header .company-name {
+          .pass-block header .company-name {
             line-height: 20px;
             text-align: left;
+            padding-left: 10px;
           }
-          .ticket header .gate {
+          .pass-block header .gate {
             position: absolute;
             right: 15px;
             top: 10px;
@@ -502,7 +516,7 @@
             text-align: center;
             font-size: 12px;
           }
-          .ticket header:after {
+          .pass-block header:after {
             content: "";
             width: 16px;
             height: 16px;
@@ -513,7 +527,7 @@
             border-radius: 50%;
             box-shadow: inset 12px 0px 18px -11px rgba(0, 0, 0, 0.5);
           }
-          .ticket header:before {
+          .pass-block header:before {
             content: "";
             width: 16px;
             height: 16px;
@@ -524,50 +538,130 @@
             border-radius: 50%;
             box-shadow: inset -12px 0px 18px -11px rgba(0, 0, 0, 0.5);
           }
-          .ticket .airports {
+          .pass-block .pass-cards {
             padding: 5px 10px 10px 10px;
             height: 150px;
             text-align: center;
             position: relative;
-            border-bottom: 2px dashed #000;
+            border-bottom: 2px dashed #2f4766;
           }
-          .ticket .airports .airport {
+          .pass-block .pass-cards .pass-card {
             position: relative;
             margin: 10px;
             text-align: center;
             display: inline-block;
           }
-          .ticket .airports .airport .airport-name {
+          .pass-block .pass-cards .pass-card .pass-card-name {
             color: #29a8eb;
             font-size: 12px;
             font-weight: 400;
           }
-          .ticket .airports .airport .airport-code {
+          .pass-block .pass-cards .pass-card .pass-card-code {
             font-size: 25px;
             font-weight: 400;
             margin: 5px 0;
           }
-          .ticket .airports .airport .dep-arr-label {
+          .pass-block .pass-cards .pass-card .dep-arr-label {
             color: #9299a0;
             font-size: 12px;
             font-weight: 500;
           }
-          .ticket .airports .airport .time {
+          .pass-block .pass-cards .pass-card .time {
             font-size: 10px;
             color: #9299a0;
           }
-          .ticket .airports .airport:first-child {
+          .pass-block .pass-cards .pass-card:first-child {
             margin-right: 40%;
           }
-          .ticket .airports .airport:first-child:after {
-            color: #353e48;
-            content: "";
+          .pass-block .pass-cards .pass-card:first-child:after {
+            color: #66e091;
+            content: ">";
             position: absolute;
             font-size: 55px;
             top: calc(50% - 25px);
-            right: -150%;
+            right: -80%;
+            animation: goforward cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s
+              infinite;
           }
-          .ticket .airports:after {
+
+          @keyframes goforward {
+            0% {
+              color: #203147;
+              right: -60%;
+              opacity: 10%;
+            }
+            50% {
+              color: #66e091;
+              opacity: 100%;
+              right: -80%;
+            }
+            100% {
+              color: #203147;
+              right: -120%;
+              opacity: 10%;
+            }
+          }
+
+          /* Offboarding */
+          .pass-block .pass-cards .offboard {
+            position: relative;
+            margin: 10px;
+            text-align: center;
+            display: inline-block;
+          }
+          .pass-block .pass-cards .offboard .pass-card-name {
+            color: #29a8eb;
+            font-size: 12px;
+            font-weight: 400;
+          }
+          .pass-block .pass-cards .offboard .pass-card-code {
+            font-size: 25px;
+            font-weight: 400;
+            margin: 5px 0;
+          }
+          .pass-block .pass-cards .offboard .dep-arr-label {
+            color: #9299a0;
+            font-size: 12px;
+            font-weight: 500;
+          }
+          .pass-block .pass-cards .offboard .time {
+            font-size: 10px;
+            color: #9299a0;
+          }
+          .pass-block .pass-cards .offboard:first-child {
+            margin-right: 40%;
+          }
+          .pass-block .pass-cards .offboard:first-child:after {
+            color: #e94e33;
+            content: "<";
+            position: absolute;
+            font-size: 55px;
+            top: calc(50% - 25px);
+            right: -80%;
+            animation: gobackward cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s
+              infinite;
+          }
+
+          @keyframes gobackward {
+            0% {
+              color: #203147;
+              right: -120%;
+              opacity: 10%;
+            }
+            50% {
+              color: #e94e33;
+              opacity: 100%;
+              right: -80%;
+            }
+            100% {
+              color: #203147;
+              right: -60%;
+              opacity: 10%;
+            }
+          }
+          /* End of offboard*/
+
+          .pass-block .pass-cards:after {
             content: "";
             width: 16px;
             height: 16px;
@@ -578,7 +672,7 @@
             border-radius: 50%;
             box-shadow: inset 12px 0px 18px -11px rgba(0, 0, 0, 0.5);
           }
-          .ticket .airports:before {
+          .pass-block .pass-cards:before {
             content: "";
             width: 16px;
             height: 16px;
@@ -589,67 +683,77 @@
             border-radius: 50%;
             box-shadow: inset -12px 0px 18px -11px rgba(0, 0, 0, 0.5);
           }
-          .ticket .place {
+          .pass-block .place {
             padding: 10px;
             text-align: center;
             height: 130px;
           }
-          .ticket .place-block {
+          .pass-block .place-block {
             display: inline-block;
-            margin: 10px 30px;
+            margin: 5px 20px;
           }
-          .ticket .place-block .place-label {
+          .pass-block .place-block .place-label {
             color: #29a8eb;
             text-transform: uppercase;
             font-weight: 400;
             font-size: 14px;
             margin-bottom: 10px;
           }
-          .ticket .place-block .place-value {
+          .pass-block .place-block .place-value {
             color: #9299a0;
             font-size: 12px;
             font-weight: 500;
           }
-          .ticket .qr {
+          .pass-block .qr {
             width: 220px;
             height: 220px;
             margin: 20px auto;
             border-radius: 10px;
             overflow: hidden;
           }
-          .ticket .qr img {
+          .pass-block .qr img {
             width: 100%;
             height: 100%;
           }
 
-          .ticket.inverse {
+          .pass-block.inverse {
             background-color: #f8f8f8;
           }
-          .ticket.inverse header {
+          .pass-block.inverse header {
             background-color: #29a8eb;
           }
-          .ticket.inverse .airports {
+          .pass-block.inverse .pass-cards {
             border-bottom-color: #d3d6da;
           }
-          .ticket.inverse .airport:first-child:after {
+          .pass-block.inverse .pass-card:first-child:after {
             color: #d3d6da;
           }
-          .ticket.inverse .airport .airport-code {
+          .pass-block.inverse .pass-card .pass-card-code {
             color: #707884;
             font-weight: 500;
           }
+
+          .jumper {
+            animation: jumper-anim cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+          }
+          @keyframes jumper-anim {
+            0%{
+
+            }
+          }
+
         </style>
         <!--  -->
 
-        <div class="row" style="margin-bottom: 40px;">
+        <div class="row" style="margin-bottom: 40px">
           <div class="col-sm-12">
-            <h5 class="display-6" style="color: #292929">
+            <h5 class="display-6" style="color: #ecefed">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="26"
                 height="26"
                 fill="currentColor"
-                class="bi bi-ticket-perforated"
+                class="bi bi-pass-block-perforated"
                 viewBox="0 0 16 16"
               >
                 <path
@@ -662,62 +766,166 @@
               Active Boarding Pass
             </h5>
 
-            <small class="text-muted-ss" >
-              Enter the new joinee information in the below fields. You can
-              also upload in a excel format also</small
+            <small class="text-muted-ss">
+              List of all the active boarding process going on. Finished
+              boarding detail will be collected from the
+              <a href="#">People list</a></small
             >
           </div>
         </div>
 
         <!-- Boarding pass -->
-        <div class="ticket">
+        <div class="pass-block">
           <header>
-            <div class="company-name">Onboarding Pass</div>
+            <div class="company-name" style="color: #66e091">
+              Onboarding Pass
+            </div>
             <div class="gate">
-              <div>A4</div>
-              
+              <div>C2</div>
             </div>
           </header>
-          <section class="airports">
-            <div class="airport">
-              <div class="airport-name">Vivek Vijayan</div>
-              <div class="airport-code">
-                <img src="{%static 'images/vivek.jpg'%}" width="60px" style="border-radius: 100%;" alt="" srcset=""/>
+          <section class="pass-cards">
+            <div class="pass-card">
+              <div class="pass-card-name">Vivek Vijayan</div>
+              <div class="pass-card-code">
+                <img
+                  src="{%static 'images/vivek.jpg'%}"
+                  width="60px"
+                  style="border-radius: 100%"
+                  alt=""
+                  srcset=""
+                />
               </div>
-              <div class="dep-arr-label">Departing</div>
-              <div class="time">7:45am</div>
+              <div class="dep-arr-label text-muted-ss">Manager</div>
             </div>
-            <div class="airport">
-              <div class="airport-name">Serco</div>
-              <div class="airport-code">BPC</div>
-              <div class="dep-arr-label">Arriving</div>
-              <div class="time">9:15am</div>
+            <div class="pass-card">
+              <div class="pass-card-name">Serco</div>
+              <div class="pass-card-code">BPC</div>
+              <div class="dep-arr-label text-muted-ss">Joining</div>
+              <div class="time text-muted-ss">8th May</div>
             </div>
           </section>
           <section class="place">
             <div class="place-block">
-              <div class="place-label">Group</div>
-              <div class="place-value">2</div>
+              <div class="place-label">Status</div>
+              <div class="place-value">Progress</div>
             </div>
             <div class="place-block">
-              <div class="place-label">Seat</div>
-              <div class="place-value">2A</div>
+              <div class="place-label jumper">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-geo-alt-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                  />
+                </svg>
+              </div>
+              <div class="place-value">Bangalore</div>
             </div>
-            <div class="place-block">
-              <div class="place-label">Term</div>
-              <div class="place-value">B</div>
+
+            <style>
+              .hover-pass {
+                color: #2f4766;
+                transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+                margin-top: 0px;
+              }
+              .hover-pass:hover {
+                color: #29a8eb;
+              }
+            </style>
+            <div class="place-block hover-pass">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="currentColor"
+                class="bi bi-arrow-right-circle-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                />
+              </svg>
             </div>
-            
           </section>
         </div>
-       <!-- ENd -->
+        <!-- ENd -->
 
-   
-        
+        <div class="pass-block">
+          <header>
+            <div class="company-name" style="color: #e94e33">
+              Offboarding Pass
+            </div>
+            <div class="gate">
+              <div>C2</div>
+            </div>
+          </header>
+          <section class="pass-cards">
+            <div class="offboard">
+              <div class="pass-card-name">Vivek Vijayan</div>
+              <div class="pass-card-code">
+                <img
+                  src="{%static 'images/vivek.jpg'%}"
+                  width="60px"
+                  style="border-radius: 100%"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+              <div class="dep-arr-label text-muted-ss">Manager</div>
+            </div>
+            <div class="offboard">
+              <div class="pass-card-name">Serco</div>
+              <div class="pass-card-code">BPC</div>
+              <div class="dep-arr-label text-muted-ss">LWD</div>
+              <div class="time text-muted-ss">8th May</div>
+            </div>
+          </section>
+          <section class="place">
+            <div class="place-block">
+              <div class="place-label">status</div>
+              <div class="place-value">Paused</div>
+            </div>
+            <div class="place-block">
+              <div class="place-label">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-geo-alt-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                  />
+                </svg>
+              </div>
+              <div class="place-value">Mumbai</div>
+            </div>
+            <div class="place-block hover-pass">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="36"
+                height="36"
+                fill="currentColor"
+                class="bi bi-arrow-right-circle-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                />
+              </svg>
+            </div>
+          </section>
+        </div>
+        <!-- ENd -->
       </div>
-
-
-
 
       <!-- Basic info collector -->
       <div class="container" style="margin-top: 30px">
@@ -1088,7 +1296,9 @@
               <div class="col-sm-3">
                 <div class="input-group input-group-sm flex-nowrap">
                   <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-dark" id="addon-wrapping"
+                    <span
+                      class="input-group-text input-group-text-dark"
+                      id="addon-wrapping"
                       >FTE</span
                     >
                   </div>
@@ -1104,7 +1314,9 @@
               <div class="col-sm-4">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-dark">Cost rate €</span>
+                    <span class="input-group-text input-group-text-dark"
+                      >Cost rate €</span
+                    >
                   </div>
                   <input
                     type="text"
@@ -1113,7 +1325,9 @@
                     aria-label="Amount (to the nearest dollar)"
                   />
                   <div class="input-group-append">
-                    <span class="input-group-text input-group-text-dark">.00</span>
+                    <span class="input-group-text input-group-text-dark"
+                      >.00</span
+                    >
                   </div>
                 </div>
               </div>
@@ -1144,7 +1358,9 @@
               <div class="col-sm-4">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text input-group-text-dark" for="backfillornew"
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="backfillornew"
                       >Onboard type</label
                     >
                   </div>
@@ -1168,7 +1384,9 @@
               <div class="col-sm-6" id="backfillinput" style="display: none">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text input-group-text-dark" for="backfillinputarea"
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="backfillinputarea"
                       >Backfill person
                     </label>
                   </div>
@@ -1187,7 +1405,9 @@
               <div class="col-sm-6">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-dark">SO No in SMART /R2D2 </span>
+                    <span class="input-group-text input-group-text-dark"
+                      >SO No in SMART /R2D2
+                    </span>
                   </div>
                   <input
                     type="text"
@@ -1200,7 +1420,9 @@
               <div class="col-sm-5">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-dark">Pool of Requirement </span>
+                    <span class="input-group-text input-group-text-dark"
+                      >Pool of Requirement
+                    </span>
                   </div>
                   <input
                     type="text"
@@ -1232,7 +1454,9 @@
               <div class="col-sm-5">
                 <div class="input-group input-group-sm mb-3">
                   <div class="input-group-prepend">
-                    <label class="input-group-text input-group-text-dark" for="requestedby"
+                    <label
+                      class="input-group-text input-group-text-dark"
+                      for="requestedby"
                       >Requested by</label
                     >
                   </div>
@@ -1349,7 +1573,9 @@
                 <div class="col-sm-12">
                   <div class="input-group input-group-sm mb-3">
                     <div class="input-group-prepend">
-                      <label class="input-group-text input-group-text-dark" for="inputGroupSelect01"
+                      <label
+                        class="input-group-text input-group-text-dark"
+                        for="inputGroupSelect01"
                         >User</label
                       >
                     </div>
