@@ -377,7 +377,7 @@
             </div>
             <div class="col-sm-5">
               <img
-                src="{% static  'images/interview.png' %}"
+                src="{% static  'images/interview1.png' %}"
                 style="padding-top: 50px"
                 width="100%"
                 alt=""
@@ -452,10 +452,8 @@
             width: 40%;
             height: auto;
             margin-top: 40px;
-            opacity: 30%;
+            opacity: 80%;
           }
-
-
 
           .id-card .cardhole {
             position: absolute;
@@ -468,6 +466,20 @@
             z-index: 3;
           }
 
+          .id-card .sideslandingarea {
+            transform: rotate(-90deg);
+            transform-origin: 0 0;
+            -webkit-transform: rotate(-90deg);
+            position: absolute;
+            top: 400px;
+            padding: 10px 20px 10px 30px;
+            left:0px;
+            width: 800px;
+            color:#2a405d;
+            font-size: 25px;
+            background-color:#1C293C;
+          }
+
           .id-card .sidedesign {
             position: absolute;
             background-color: #fbfcfd0b;
@@ -476,7 +488,8 @@
             height: 100%;
             transform: skewX(-40deg);
             z-index: 4;
-            animation: shaderun cubic-bezier(0.455, 0.03, 0.515, 0.955) 5s infinite;
+            animation: shaderun cubic-bezier(0.455, 0.03, 0.515, 0.955) 5s
+              infinite;
           }
 
           @keyframes shaderun {
@@ -495,27 +508,38 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="id-card">
+              <div class="sideslandingarea">Sr. Manager</div>
               <div class="sidedesign"></div>
               <center>
                 <div class="cardhole"></div>
-                <div >
-                  <img class="company-logo" src="{% static 'images/capgemini.png' %}" alt="" srcset="">
+                <div>
+                  <img
+                    class="company-logo"
+                    src="{% static 'images/capgemini.png' %}"
+                    alt=""
+                    srcset=""
+                  />
                 </div>
               </center>
-    
-              <div >
+
+              <div>
                 <center>
-                  <img class="img" src="{% static 'images/vivek.jpg'%}" alt="" srcset="" />
-                  <h5 style="margin-top: 20px; color:#85a1c6">Vivek Vijayan</h5>
-                  <small></small>
+                  <img
+                    class="img"
+                    src="{% static 'images/vivek.jpg'%}"
+                    alt=""
+                    srcset=""
+                  />
+                  <h5 style="margin-top: 20px; color: #d9dfe7; font-weight: normal;">
+                    Vivek Vijayan
+                  </h5>
+                  <small class="text-muted-ss" style="width: 50px !important; ">BPC Lead </small>
                 </center>
               </div>
             </div>
-          </div>  
+          </div>
         </div>
         <!-- Each ID card -->
-        
-        
       </div>
 
       <div class="container">
