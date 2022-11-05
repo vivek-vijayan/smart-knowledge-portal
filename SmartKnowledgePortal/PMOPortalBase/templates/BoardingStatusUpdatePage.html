@@ -577,13 +577,14 @@
           }
           .pass-block .pass-cards .pass-card:first-child:after {
             color: #66e091;
-            content: "\2192";
+            content: ">>";
             position: absolute;
             font-size: 55px;
             top: calc(50% - 25px);
             right: -80%;
             animation: goforward cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s
               infinite;
+            
           }
 
           @keyframes goforward {
@@ -635,7 +636,7 @@
           }
           .pass-block .pass-cards .offboard:first-child:after {
             color: #e94e33;
-            content: "\2190";
+            content: "<<";
             
             position: absolute;
             font-size: 55px;
@@ -1051,6 +1052,86 @@
         </style>
 
         <div class="row" style="margin-top: 20px">
+          <div class="col-sm-4">
+            <div class="id-card">
+              <div class="sideslandingarea">Sr. Manager</div>
+              <div class="sidedesign"></div>
+              <center>
+                <div class="cardhole"></div>
+                <div>
+                  <img
+                    class="company-logo"
+                    src="{% static 'images/capgemini.png' %}"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+              </center>
+
+              <div>
+                <center>
+                  <img
+                    class="img"
+                    src="{% static 'images/vivek.jpg'%}"
+                    alt=""
+                    srcset=""
+                  />
+                  <h5
+                    style="
+                      margin-top: 20px;
+                      color: #d9dfe7;
+                      font-weight: normal;
+                    "
+                  >
+                    Vivek Vijayan
+                  </h5>
+                  <small class="text-muted-ss" style="width: 50px !important"
+                    >BPC Lead
+                  </small>
+                </center>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="id-card">
+              <div class="sideslandingarea">Sr. Manager</div>
+              <div class="sidedesign"></div>
+              <center>
+                <div class="cardhole"></div>
+                <div>
+                  <img
+                    class="company-logo"
+                    src="{% static 'images/capgemini.png' %}"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+              </center>
+
+              <div>
+                <center>
+                  <img
+                    class="img"
+                    src="{% static 'images/vivek.jpg'%}"
+                    alt=""
+                    srcset=""
+                  />
+                  <h5
+                    style="
+                      margin-top: 20px;
+                      color: #d9dfe7;
+                      font-weight: normal;
+                    "
+                  >
+                    Vivek Vijayan
+                  </h5>
+                  <small class="text-muted-ss" style="width: 50px !important"
+                    >BPC Lead
+                  </small>
+                </center>
+              </div>
+            </div>
+          </div>
           <div class="col-sm-4">
             <div class="id-card">
               <div class="sideslandingarea">Sr. Manager</div>
