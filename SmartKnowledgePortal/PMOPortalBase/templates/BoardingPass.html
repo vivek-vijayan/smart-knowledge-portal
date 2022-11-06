@@ -245,7 +245,10 @@
                 "
                 aria-label="breadcrumb"
               >
-                <ol class="breadcrumb">
+                <ol
+                  class="breadcrumb"
+                  style="background-color: #17223100 !important"
+                >
                   <li class="breadcrumb-item">
                     <a href="/serco-pmo" style="color: #33a9fe">PMO Portal</a>
                   </li>
@@ -255,7 +258,7 @@
                     >
                   </li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    User boarding pass
+                    Boarding pass
                   </li>
                 </ol>
               </nav>
@@ -434,88 +437,12 @@
               font-weight: 500;
             }
           </style>
-          <div class="ticket">
-            <header>
-              <div class="company-name">American Airlines</div>
-              <div class="gate">
-                <div>Gate</div>
-                <div>B4</div>
-              </div>
-            </header>
-            <section class="airports">
-              <div class="airport">
-                <div class="airport-name">Charlotte</div>
-                <div class="airport-code">CLT</div>
-                <div class="dep-arr-label">Departing</div>
-                <div class="time">7:45am</div>
-              </div>
-              <div class="airport">
-                <div class="airport-name">Tampa</div>
-                <div class="airport-code">TPA</div>
-                <div class="dep-arr-label">Arriving</div>
-                <div class="time">9:15am</div>
-              </div>
-            </section>
-            <section class="place">
-              <div class="place-block">
-                <div class="place-label">Group</div>
-                <div class="place-value">2</div>
-              </div>
-              <div class="place-block">
-                <div class="place-label">Seat</div>
-                <div class="place-value">2A</div>
-              </div>
-              <div class="place-block">
-                <div class="place-label">Term</div>
-                <div class="place-value">B</div>
-              </div>
-              
-            </section>
-          </div>
-          <div class="ticket inverse">
-            <header>
-              <div class="company-name">American Airlines</div>
-              <div class="gate">
-                <div>Gate</div>
-                <div>B4</div>
-              </div>
-            </header>
-            <section class="airports">
-              <div class="airport">
-                <div class="airport-name">Charlotte</div>
-                <div class="airport-code">CLT</div>
-                <div class="dep-arr-label">Departing</div>
-                <div class="time">7:45am</div>
-              </div>
-              <div class="airport">
-                <div class="airport-name">Tampa</div>
-                <div class="airport-code">TPA</div>
-                <div class="dep-arr-label">Arriving</div>
-                <div class="time">9:15am</div>
-              </div>
-            </section>
-            <section class="place">
-              <div class="place-block">
-                <div class="place-label">Group</div>
-                <div class="place-value">2</div>
-              </div>
-              <div class="place-block">
-                <div class="place-label">Seat</div>
-                <div class="place-value">2A</div>
-              </div>
-              <div class="place-block">
-                <div class="place-label">Term</div>
-                <div class="place-value">B</div>
-              </div>
-              
-            </section>
-          </div>
 
           <!--  -->
 
           <div class="row">
             <div class="col-sm-12">
-              <h2 class="display-6" style="color: #292929">
+              <h2 class="display-6" style="color: #ffffff; font-weight: normal">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="46"
@@ -557,13 +484,16 @@
             text-align: center;
             left: 42%;
             border-radius: 50%;
-            border: #ffffff solid 5px;
+            border: #263950 solid 5px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
           "
         />
         <div
           class="card mb-3"
-          style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px"
+          style="
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-color:#263950 !important;
+          "
         >
           <div
             class="card-body text-dark"
@@ -596,279 +526,42 @@
               >
             </p>
 
-            <!-- Onboarding user Information table -->
-            <div class="row">
-              <div
-                class="col-sm-12"
-                style="font-size: 13px; padding: 40px 40px 40px 40px"
-              >
-                <table class="table">
-                  <thead class="thead-light">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Profile</th>
-                      <th scope="col">Fullname</th>
-                      <th scope="col">Team</th>
-                      <th scope="col">Status</th>
-                      <th scope="col">System report</th>
-                      <th scope="col">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>
-                        <img
-                          src="{% static 'images/test.jpg' %}"
-                          width="50px"
-                          height="50px"
-                          alt=""
-                          srcset=""
-                          style="border-radius: 50%"
-                        />
-                      </td>
-                      <td>Vivek Vijayan</td>
-                      <td><b>SAP BPC</b></td>
-                      <td>
-                        <span
-                          class="badge badge-pill badge-danger"
-                          style="font-size: 13px"
-                          >Waiting</span
-                        >
-                      </td>
-                      <td>Waiting for the document</td>
-                      <td><button class="btn btn-sm btn-info">View</button></td>
-                    </tr>
+            <ul class="timeline">
 
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>
-                        <img
-                          src="{% static 'images/test.jpg' %}"
-                          width="50px"
-                          height="50px"
-                          alt=""
-                          srcset=""
-                          style="border-radius: 50%"
-                        />
-                      </td>
-                      <td>Vivek Vijayan</td>
-                      <td><b>SAP BPC</b></td>
-                      <td>
-                        <span
-                          class="badge badge-pill badge-success"
-                          style="font-size: 13px"
-                          >Progress</span
-                        >
-                      </td>
-                      <td>In progress with access</td>
-                      <td><button class="btn btn-sm btn-info">View</button></td>
-                    </tr>
-
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>
-                        <img
-                          src="{% static 'images/test.jpg' %}"
-                          width="50px"
-                          height="50px"
-                          alt=""
-                          srcset=""
-                          style="border-radius: 50%"
-                        />
-                      </td>
-                      <td>Vivek Vijayan</td>
-                      <td><b>SAP BPC</b></td>
-                      <td>
-                        <span
-                          class="badge badge-pill badge-danger"
-                          style="font-size: 13px"
-                          >Waiting</span
-                        >
-                      </td>
-                      <td>Waiting for the document</td>
-                      <td><button class="btn btn-sm btn-info">View</button></td>
-                    </tr>
-
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>
-                        <img
-                          src="{% static 'images/test.jpg' %}"
-                          width="50px"
-                          height="50px"
-                          alt=""
-                          srcset=""
-                          style="border-radius: 50%"
-                        />
-                      </td>
-                      <td>Vivek Vijayan</td>
-                      <td><b>SAP BPC</b></td>
-                      <td>
-                        <span
-                          class="badge badge-pill badge-danger"
-                          style="font-size: 13px"
-                          >Waiting</span
-                        >
-                      </td>
-                      <td>Waiting for the document</td>
-                      <td><button class="btn btn-sm btn-info">View</button></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-
-            <!-- Off boarding information-->
-            <h5 class="card-title text-muted-ss">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-box-arrow-in-down-left"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M9.636 2.5a.5.5 0 0 0-.5-.5H2.5A1.5 1.5 0 0 0 1 3.5v10A1.5 1.5 0 0 0 2.5 15h10a1.5 1.5 0 0 0 1.5-1.5V6.864a.5.5 0 0 0-1 0V13.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"
-                />
-                <path
-                  fill-rule="evenodd"
-                  d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z"
-                />
-              </svg>
-              Onboarding
-            </h5>
-            <p class="card-text text-muted-ss">
-              <small>
-                Here you will see the list of users who are in progress of
-                onboarding.</small
-              >
-            </p>
-
-            <!-- Onboarding user Information table -->
-            <div class="row">
-              <div
-                class="col-sm-12"
-                style="font-size: 13px; padding: 40px 40px 40px 40px"
-              >
-                <table class="table">
-                  <thead class="thead-light">
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Profile</th>
-                      <th scope="col">Fullname</th>
-                      <th scope="col">Team</th>
-                      <th scope="col">Status</th>
-                      <th scope="col">System report</th>
-                      <th scope="col">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>
-                        <img
-                          src="{% static 'images/test.jpg' %}"
-                          width="50px"
-                          height="50px"
-                          alt=""
-                          srcset=""
-                          style="border-radius: 50%"
-                        />
-                      </td>
-                      <td>Vivek Vijayan</td>
-                      <td><b>SAP BPC</b></td>
-                      <td>
-                        <span
-                          class="badge badge-pill badge-danger"
-                          style="font-size: 13px"
-                          >Waiting</span
-                        >
-                      </td>
-                      <td>Waiting for the document</td>
-                      <td><button class="btn btn-sm btn-info">View</button></td>
-                    </tr>
-
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>
-                        <img
-                          src="{% static 'images/test.jpg' %}"
-                          width="50px"
-                          height="50px"
-                          alt=""
-                          srcset=""
-                          style="border-radius: 50%"
-                        />
-                      </td>
-                      <td>Vivek Vijayan</td>
-                      <td><b>SAP BPC</b></td>
-                      <td>
-                        <span
-                          class="badge badge-pill badge-success"
-                          style="font-size: 13px"
-                          >Progress</span
-                        >
-                      </td>
-                      <td>In progress with access</td>
-                      <td><button class="btn btn-sm btn-info">View</button></td>
-                    </tr>
-
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>
-                        <img
-                          src="{% static 'images/test.jpg' %}"
-                          width="50px"
-                          height="50px"
-                          alt=""
-                          srcset=""
-                          style="border-radius: 50%"
-                        />
-                      </td>
-                      <td>Vivek Vijayan</td>
-                      <td><b>SAP BPC</b></td>
-                      <td>
-                        <span
-                          class="badge badge-pill badge-danger"
-                          style="font-size: 13px"
-                          >Waiting</span
-                        >
-                      </td>
-                      <td>Waiting for the document</td>
-                      <td><button class="btn btn-sm btn-info">View</button></td>
-                    </tr>
-
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>
-                        <img
-                          src="{% static 'images/test.jpg' %}"
-                          width="50px"
-                          height="50px"
-                          alt=""
-                          srcset=""
-                          style="border-radius: 50%"
-                        />
-                      </td>
-                      <td>Vivek Vijayan</td>
-                      <td><b>SAP BPC</b></td>
-                      <td>
-                        <span
-                          class="badge badge-pill badge-danger"
-                          style="font-size: 13px"
-                          >Waiting</span
-                        >
-                      </td>
-                      <td>Waiting for the document</td>
-                      <td><button class="btn btn-sm btn-info">View</button></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+              <!-- Item 1 -->
+              <li>
+                <div class="direction-r">
+                  <div class="flag-wrapper">
+                    <span class="flag">Onboard Initated</span>
+                    <span class="time-wrapper"><span class="times">2013 - present</span></span>
+                  </div>
+                  <div class="desc">My current employment. Way better than the position before!</div>
+                </div>
+              </li>
+              
+              <!-- Item 2 -->
+              <li>
+                <div class="direction-l">
+                  <div class="flag-wrapper">
+                    <span class="flag">BCG Documentation</span>
+                    <span class="time-wrapper"><span class="times">2011 - 2013</span></span>
+                  </div>
+                  <div class="desc">My first employer. All the stuff I've learned and projects I've been working on.</div>
+                </div>
+              </li>
+            
+              <!-- Item 3 -->
+              <li>
+                <div class="direction-r">
+                  <div class="flag-wrapper">
+                    <span class="flag">Ticket raising</span>
+                    <span class="time-wrapper"><span class="times">2008 - 2011</span></span>
+                  </div>
+                  <div class="desc">A description of all the lectures and courses I have taken and my final degree?</div>
+                </div>
+              </li>
+              
+            </ul>
 
             <script>
               imgInp.onchange = (evt) => {
@@ -878,254 +571,6 @@
                 }
               };
             </script>
-          </div>
-        </div>
-      </div>
-
-      <!-- PMO info collector -->
-      <div class="container" style="margin-top: 30px">
-        <div
-          class="card mb-3"
-          style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px"
-        >
-          <div class="card-header">Project related Information</div>
-          <div class="card-body text-dark">
-            <h5 class="card-title text-muted-ss">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-kanban-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M2.5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11zm5 2h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zm-5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm9-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"
-                />
-              </svg>
-              Project details
-            </h5>
-            <p class="card-text text-muted-ss">
-              <small
-                >These information are secured and mostly hidden to the
-                endusers. Infomation below mentioned are not modifiable by the
-                respective user</small
-              >
-            </p>
-
-            <!-- Row 1 -->
-            <div class="row">
-              <div class="col-sm-3">
-                <div class="input-group input-group-sm flex-nowrap">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-dark" id="addon-wrapping"
-                      >FTE</span
-                    >
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder=""
-                    aria-label="Username"
-                    aria-describedby="addon-wrapping"
-                  />
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-dark">Cost rate €</span>
-                  </div>
-                  <input
-                    type="text"
-                    style="text-align: right"
-                    class="form-control"
-                    aria-label="Amount (to the nearest dollar)"
-                  />
-                  <div class="input-group-append">
-                    <span class="input-group-text input-group-text-dark">.00</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr />
-            <!-- Service Order -->
-            <h5 class="card-title text-muted-ss">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-truck"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"
-                />
-              </svg>
-              Service Order
-            </h5>
-            <p class="card-text text-muted-ss">
-              <small>Service order information of the new joinee</small>
-            </p>
-
-            <!-- Row 1 -->
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text input-group-text-dark" for="backfillornew"
-                      >Onboard type</label
-                    >
-                  </div>
-                  <select
-                    class="custom-select"
-                    id="backfillornew"
-                    onchange="{
-                     if(document.getElementById('backfillornew').value == '2') {
-                      document.getElementById('backfillinput').style.display = 'block';
-                     } else {
-                      document.getElementById('backfillinput').style.display = 'none';
-                     }
-                    }"
-                  >
-                    <option selected>Choose...</option>
-                    <option value="1">New Requirement</option>
-                    <option value="2">Backfill</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-sm-6" id="backfillinput" style="display: none">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text input-group-text-dark" for="backfillinputarea"
-                      >Backfill person
-                    </label>
-                  </div>
-                  <select class="custom-select" id="backfillinputarea">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-dark">SO No in SMART /R2D2 </span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="basic-url"
-                    aria-describedby="backfillinputarea"
-                  />
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-dark">Pool of Requirement </span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="basic-url"
-                    aria-describedby="backfillinputarea"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text input-group-text-dark"
-                      >SO raised in R2D2 ( for NON SAP Skills )
-                    </span>
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="basic-url"
-                    aria-describedby="backfillinputarea"
-                  />
-                </div>
-              </div>
-              <div class="col-sm-5">
-                <div class="input-group input-group-sm mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text input-group-text-dark" for="requestedby"
-                      >Requested by</label
-                    >
-                  </div>
-                  <select class="custom-select" id="requestedby">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <script>
-              imgInp.onchange = (evt) => {
-                const [file] = imgInp.files;
-                if (file) {
-                  blah.src = URL.createObjectURL(file);
-                }
-              };
-            </script>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row" style="margin-bottom: 20px; padding: 10px">
-          <div class="col-sm-12">
-            <small style="color: gray">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-exclamation-diamond-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
-                />
-              </svg>
-              Make sure you are entered the right information as the email and
-              further proceeding will be taken based on the details provided
-              above. Incorrect data mislead the onboarding process.
-            </small>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-5">
-            <button class="btn btn-success" style="height: 50px; margin: 10px">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-send-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"
-                />
-              </svg>
-              Initiate Onboarding Sequence
-            </button>
           </div>
         </div>
       </div>
@@ -1179,7 +624,9 @@
                 <div class="col-sm-12">
                   <div class="input-group input-group-sm mb-3">
                     <div class="input-group-prepend">
-                      <label class="input-group-text input-group-text-dark" for="inputGroupSelect01"
+                      <label
+                        class="input-group-text input-group-text-dark"
+                        for="inputGroupSelect01"
                         >User</label
                       >
                     </div>
