@@ -488,18 +488,21 @@
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
           "
         />
+        <div class="row">
+          <div class="col-sm-3"></div>
+        </div>
         <div
           class="card mb-3"
           style="
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            background-color:#263950 !important;
+            background-color: #263950 !important;
           "
         >
           <div
             class="card-body text-dark"
             style="margin-left: 40px; margin-right: 40px; margin-top: 100px"
           >
-            <h5 class="card-title text-muted-ss">
+            <h5 class="card-title" style="color: #29a8eb">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -517,60 +520,177 @@
                   d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z"
                 />
               </svg>
-              Onboarding
+              Boarding Status
             </h5>
             <p class="card-text text-muted-ss">
               <small>
-                Here you will see the list of users who are in progress of
-                onboarding.</small
-              >
+                You will be notified the status of your boarding. if you have
+                any issue with the below status, reach out to PMO team query box
+              </small>
             </p>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <ul class="timeline">
+                  <!-- Item 1 -->
+                  <li>
+                    <div class="direction-r">
+                      <div class="flag-wrapper">
+                        <span class="flag">Onboard Initated</span>
+                        <span class="time-wrapper"
+                          ><span class="times">
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <div class="green-loading-dot"></div>
+                              </div>
+                              <div
+                                class="col-sm-9"
+                                style="padding-top: 5px; text-align: left"
+                              >
+                                Ongoing
+                              </div>
+                            </div>
+                          </span></span
+                        >
+                      </div>
+                      <div class="desc">
+                        My current employment. Way better than the position
+                        before!
+                      </div>
+                    </div>
+                  </li>
 
-            <ul class="timeline">
+                  <!-- Item 2 -->
+                  <li>
+                    <div class="direction-l">
+                      <div class="flag-wrapper">
+                        <span class="flag">BCG Documentation</span>
+                        <span class="time-wrapper"
+                          ><span class="times">Completed</span></span
+                        >
+                      </div>
+                      <div class="desc">
+                        My first employer. All the stuff I've learned and
+                        projects I've been working on.
+                      </div>
+                    </div>
+                  </li>
 
-              <!-- Item 1 -->
-              <li>
-                <div class="direction-r">
-                  <div class="flag-wrapper">
-                    <span class="flag">Onboard Initated</span>
-                    <span class="time-wrapper"><span class="times">2013 - present</span></span>
-                  </div>
-                  <div class="desc">My current employment. Way better than the position before!</div>
-                </div>
-              </li>
-              
-              <!-- Item 2 -->
-              <li>
-                <div class="direction-l">
-                  <div class="flag-wrapper">
-                    <span class="flag">BCG Documentation</span>
-                    <span class="time-wrapper"><span class="times">2011 - 2013</span></span>
-                  </div>
-                  <div class="desc">My first employer. All the stuff I've learned and projects I've been working on.</div>
-                </div>
-              </li>
-            
-              <!-- Item 3 -->
-              <li>
-                <div class="direction-r">
-                  <div class="flag-wrapper">
-                    <span class="flag">Ticket raising</span>
-                    <span class="time-wrapper"><span class="times">2008 - 2011</span></span>
-                  </div>
-                  <div class="desc">A description of all the lectures and courses I have taken and my final degree?</div>
-                </div>
-              </li>
-              
-            </ul>
+                  <!-- Item 1 -->
+                  <li>
+                    <div class="direction-r">
+                      <div class="flag-wrapper">
+                        <span class="flag">Onboard Initated</span>
+                        <span class="time-wrapper"
+                          ><span class="times">
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <div class="green-loading-dot"></div>
+                              </div>
+                              <div
+                                class="col-sm-9"
+                                style="padding-top: 5px; text-align: left"
+                              >
+                                Ongoing
+                              </div>
+                            </div>
+                          </span></span
+                        >
+                      </div>
+                      <div class="desc">
+                        My current employment. Way better than the position
+                        before!
+                      </div>
+                    </div>
+                  </li>
 
-            <script>
-              imgInp.onchange = (evt) => {
-                const [file] = imgInp.files;
-                if (file) {
-                  blah.src = URL.createObjectURL(file);
-                }
-              };
-            </script>
+                  <!-- Item 2 -->
+                  <li>
+                    <div class="direction-l">
+                      <div class="flag-wrapper">
+                        <span class="flag">BCG Documentation</span>
+                        <span class="time-wrapper"
+                          ><span class="times">Completed</span></span
+                        >
+                      </div>
+                      <div class="desc">
+                        My first employer. All the stuff I've learned and
+                        projects I've been working on.
+                      </div>
+                    </div>
+                  </li>
+                  <!-- Item 1 -->
+                  <li>
+                    <div class="direction-r">
+                      <div class="flag-wrapper">
+                        <span class="flag">Onboard Initated</span>
+                        <span class="time-wrapper"
+                          ><span class="times">
+                            <div class="row">
+                              <div class="col-sm-3">
+                                <div class="green-loading-dot"></div>
+                              </div>
+                              <div
+                                class="col-sm-9"
+                                style="padding-top: 5px; text-align: left"
+                              >
+                                Ongoing
+                              </div>
+                            </div>
+                          </span></span
+                        >
+                      </div>
+                      <div class="desc">
+                        My current employment. Way better than the position
+                        before!
+                      </div>
+                    </div>
+                  </li>
+
+                  <!-- Item 2 -->
+                  <li>
+                    <div class="direction-l">
+                      <div class="flag-wrapper">
+                        <span class="flag">Smart Portal access</span>
+                        <span class="time-wrapper"
+                          ><span class="times">Granted</span></span
+                        >
+                      </div>
+                      <div class="desc">
+                        My first employer. All the stuff I've learned and
+                        projects I've been working on.
+                      </div>
+                    </div>
+                  </li>
+
+                  <!-- Item 3 -->
+                  <li>
+                    <div class="direction-r">
+                      <div class="flag-wrapper">
+                        <span class="flag">Initiate Onboard</span>
+                        <span class="time-wrapper"
+                          ><span class="times">Completed</span></span
+                        >
+                      </div>
+                      <div class="desc">
+                        A description of all the lectures and courses I have
+                        taken and my final degree?
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+
+                <script>
+                  imgInp.onchange = (evt) => {
+                    const [file] = imgInp.files;
+                    if (file) {
+                      blah.src = URL.createObjectURL(file);
+                    }
+                  };
+                </script>
+              </div>
+            </div>
           </div>
         </div>
       </div>

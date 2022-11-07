@@ -539,33 +539,54 @@ canvas {
   background: -webkit-linear-gradient(
     top,
     rgba(80, 80, 80, 0) 0%,
-    #3ca8f8,
-    #3ca8f8,
+    #0071c3,
+    #0071c3,
     rgba(80, 80, 80, 0) 100%
   );
   background: -o-linear-gradient(
     top,
     rgba(80, 80, 80, 0) 0%,
-   #3ca8f8,
-    #3ca8f8,
+    #0071c3,
+    #0071c3,
     rgba(80, 80, 80, 0) 100%
   );
   background: -ms-linear-gradient(
     top,
     rgba(80, 80, 80, 0) 0%,
-   #3ca8f8,
-    #3ca8f8,
+    #0071c3,
+    #0071c3,
     rgba(80, 80, 80, 0) 100%
   );
   background: linear-gradient(
     to bottom,
     rgba(80, 80, 80, 0) 0%,
-    #3ca8f8,
-    #3ca8f8,
+    #0071c3,
+    #0071c3,
     rgba(80, 80, 80, 0) 100%
   );
 
   z-index: 5;
+}
+
+.green-loading-dot {
+  background-color: #35df91;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  margin: 5px;
+  animation: greenload cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s infinite;
+}
+
+@keyframes greenload {
+  0% {
+    background-color: #004a6d00;
+  }
+  50% {
+    background-color: #35df91;
+  }
+  100% {
+    background-color: #004a6d00;
+  }
 }
 
 .timeline li {
@@ -603,10 +624,10 @@ canvas {
 .flag {
   position: relative;
   display: inline;
-  background:#f47960;
+  background: #0071c3;
   padding: 6px 10px;
   border-radius: 5px;
-  color:#121e2a;
+  color: #d2deeb;
   text-align: left;
 }
 
@@ -634,10 +655,10 @@ canvas {
   width: 17px;
   height: 17px;
   margin-top: -10px;
-  background:#004b6d;
+  background: #004b6d;
   border-radius: 10px;
   border: 5px solid rgb(255, 80, 80);
-  z-index: 10;
+  z-index: 4;
 }
 
 .direction-r .flag:before {
@@ -677,7 +698,7 @@ canvas {
 
   line-height: 1em;
   font-size: 0.66666em;
-  color: rgb(250, 80, 80);
+  color: rgb(194, 194, 194);
   vertical-align: middle;
 }
 
@@ -692,14 +713,14 @@ canvas {
 .times {
   display: inline-block;
   padding: 4px 6px;
-  background: rgb(248, 248, 248);
+  background: #203147;
 }
 
 .desc {
   margin: 1em 0.75em 0 0;
 
   font-size: 0.77777em;
-  font-style: italic;
+  color: #6585af !important;
   line-height: 1.5em;
 }
 
@@ -749,7 +770,7 @@ canvas {
     background: #fff;
     border-radius: 10px;
     border: 4px solid rgb(255, 80, 80);
-    z-index: 10;
+    z-index: 4;
   }
 
   .direction-l .flag:after,
