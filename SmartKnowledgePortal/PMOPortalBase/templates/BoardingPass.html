@@ -498,9 +498,49 @@
             background-color: #263950 !important;
           "
         >
+          <!-- Username -->
+          <div style="margin-top: 100px">
+            <center>
+              <h3 class="display-6">Vivek Vijayan</h3>
+              <small class="text-muted-ss">BPC Lead</small>
+            </center>
+          </div>
           <div
             class="card-body text-dark"
-            style="margin-left: 40px; margin-right: 40px; margin-top: 100px"
+            style="margin-left: 40px; margin-right: 40px; margin-top: 10px"
+          >
+            <h5 class="card-title" style="color: #29a8eb">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-box-arrow-in-down-left"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9.636 2.5a.5.5 0 0 0-.5-.5H2.5A1.5 1.5 0 0 0 1 3.5v10A1.5 1.5 0 0 0 2.5 15h10a1.5 1.5 0 0 0 1.5-1.5V6.864a.5.5 0 0 0-1 0V13.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z"
+                />
+              </svg>
+              General Details
+            </h5>
+            <p class="card-text text-muted-ss">
+              <small>
+                You will be notified the status of your boarding. if you have
+                any issue with the below status, reach out to PMO team query box
+              </small>
+            </p>
+          </div>
+
+          <!-- Basic onboarding information -->
+          <div
+            class="card-body text-dark"
+            style="margin-left: 40px; margin-right: 40px; margin-top: 10px"
           >
             <h5 class="card-title" style="color: #29a8eb">
               <svg
@@ -533,11 +573,36 @@
             <div class="row">
               <div class="col-sm-12">
                 <ul class="timeline">
+                  <!-- Item 2 -->
+                  <li>
+                    <div class="direction-l">
+                      <div class="flag-wrapper">
+                        <span class="flag completed-flag"
+                          >Onboard Initated
+
+                          <img
+                            src="{% static 'images/success.webp' %}"
+                            width="20px"
+                            style="margin-left: 10px"
+                            alt=""
+                            srcset=""
+                          />
+                        </span>
+                      </div>
+                      <div class="desc">
+                        My first employer. All the stuff I've learned and
+                        projects I've been working on.
+                      </div>
+                    </div>
+                  </li>
                   <!-- Item 1 -->
                   <li>
                     <div class="direction-r">
                       <div class="flag-wrapper">
-                        <span class="flag">Onboard Initated</span>
+                        <span
+                          class="flag progress-bar progress-bar-striped progress-bar-animated bg-primary"
+                          >Smart Portal access</span
+                        >
                         <span class="time-wrapper"
                           ><span class="times">
                             <div class="row">
@@ -565,9 +630,9 @@
                   <li>
                     <div class="direction-l">
                       <div class="flag-wrapper">
-                        <span class="flag">BCG Documentation</span>
+                        <span class="flag noflag">BGV Procedure</span>
                         <span class="time-wrapper"
-                          ><span class="times">Completed</span></span
+                          ><span class="times">Not started</span></span
                         >
                       </div>
                       <div class="desc">
@@ -581,20 +646,10 @@
                   <li>
                     <div class="direction-r">
                       <div class="flag-wrapper">
-                        <span class="flag">Onboard Initated</span>
+                        <span class="flag noflag">Mgmt. approval</span>
                         <span class="time-wrapper"
                           ><span class="times">
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <div class="green-loading-dot"></div>
-                              </div>
-                              <div
-                                class="col-sm-9"
-                                style="padding-top: 5px; text-align: left"
-                              >
-                                Ongoing
-                              </div>
-                            </div>
+                            <span class="times">Not started</span>
                           </span></span
                         >
                       </div>
@@ -609,9 +664,9 @@
                   <li>
                     <div class="direction-l">
                       <div class="flag-wrapper">
-                        <span class="flag">BCG Documentation</span>
+                        <span class="flag noflag">Project credentails</span>
                         <span class="time-wrapper"
-                          ><span class="times">Completed</span></span
+                          ><span class="times">Not started</span></span
                         >
                       </div>
                       <div class="desc">
@@ -624,20 +679,10 @@
                   <li>
                     <div class="direction-r">
                       <div class="flag-wrapper">
-                        <span class="flag">Onboard Initated</span>
+                        <span class="flag noflag">ServiceNow access</span>
                         <span class="time-wrapper"
                           ><span class="times">
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <div class="green-loading-dot"></div>
-                              </div>
-                              <div
-                                class="col-sm-9"
-                                style="padding-top: 5px; text-align: left"
-                              >
-                                Ongoing
-                              </div>
-                            </div>
+                            <span class="times">Not started</span>
                           </span></span
                         >
                       </div>
@@ -652,9 +697,9 @@
                   <li>
                     <div class="direction-l">
                       <div class="flag-wrapper">
-                        <span class="flag">Smart Portal access</span>
+                        <span class="flag noflag">Citrix/AVD access</span>
                         <span class="time-wrapper"
-                          ><span class="times">Granted</span></span
+                          ><span class="times">Not started</span></span
                         >
                       </div>
                       <div class="desc">
@@ -668,9 +713,9 @@
                   <li>
                     <div class="direction-r">
                       <div class="flag-wrapper">
-                        <span class="flag">Initiate Onboard</span>
+                        <span class="flag noflag">Email DL setup</span>
                         <span class="time-wrapper"
-                          ><span class="times">Completed</span></span
+                          ><span class="times">Not started</span></span
                         >
                       </div>
                       <div class="desc">
@@ -679,7 +724,32 @@
                       </div>
                     </div>
                   </li>
+
+                  <!-- Item 2 -->
+                  <li>
+                    <div class="direction-l">
+                      <div class="flag-wrapper">
+                        <span class="flag noflag">Citrix/AVD access</span>
+                        <span class="time-wrapper"
+                          ><span class="times">Not started</span></span
+                        >
+                      </div>
+                      <div class="desc">
+                        My first employer. All the stuff I've learned and
+                        projects I've been working on.
+                      </div>
+                    </div>
+                  </li>
                 </ul>
+                <center>
+                  <img
+                    src="{% static 'images/green-tick.png' %}"
+                    width="60px"
+                    alt=""
+                    class="grayscale"
+                    srcset=""
+                  />
+                </center>
 
                 <script>
                   imgInp.onchange = (evt) => {

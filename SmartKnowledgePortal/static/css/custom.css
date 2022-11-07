@@ -541,28 +541,28 @@ canvas {
     rgba(80, 80, 80, 0) 0%,
     #0071c3,
     #0071c3,
-    rgba(80, 80, 80, 0) 100%
+    #0071c3 100%
   );
   background: -o-linear-gradient(
     top,
     rgba(80, 80, 80, 0) 0%,
     #0071c3,
     #0071c3,
-    rgba(80, 80, 80, 0) 100%
+    #0071c3 100%
   );
   background: -ms-linear-gradient(
     top,
     rgba(80, 80, 80, 0) 0%,
     #0071c3,
     #0071c3,
-    rgba(80, 80, 80, 0) 100%
+    #0071c3 100%
   );
   background: linear-gradient(
     to bottom,
     rgba(80, 80, 80, 0) 0%,
     #0071c3,
     #0071c3,
-    rgba(80, 80, 80, 0) 100%
+    #0071c3 100%
   );
 
   z-index: 5;
@@ -624,12 +624,39 @@ canvas {
 .flag {
   position: relative;
   display: inline;
-  background: #0071c3;
   padding: 6px 10px;
   border-radius: 5px;
-  color: #d2deeb;
+  
   text-align: left;
+  
 }
+
+@keyframes loading-anim {
+  0%{
+    background: #20b871;
+  }
+  50%{
+    background: #35df91;
+  }
+  100%{
+    background: #20b871;
+  }
+}
+
+
+.completed-flag {
+  background:#427c68;
+  color: #76f8a6;
+}
+.noflag {
+  background: #425b7c;
+  color: #d2deeb;
+}
+
+.loading-flag {
+  animation: loading-anim cubic-bezier(0.455, 0.03, 0.515, 0.955) 1s infinite;
+}
+
 
 .direction-l .flag {
   -webkit-box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15),
@@ -657,8 +684,8 @@ canvas {
   margin-top: -10px;
   background: #004b6d;
   border-radius: 10px;
-  border: 5px solid rgb(255, 80, 80);
-  z-index: 4;
+  border: 5px solid rgb(255, 255, 255);
+  z-index: 8;
 }
 
 .direction-r .flag:before {
@@ -714,6 +741,13 @@ canvas {
   display: inline-block;
   padding: 4px 6px;
   background: #203147;
+}
+
+.times-completed {
+  display: inline-block;
+  padding: 4px 6px;
+  background: #35df91;
+  color: #121e2a;
 }
 
 .desc {
@@ -823,4 +857,8 @@ canvas {
 
     z-index: 15;
   }
+}
+
+.grayscale {
+  filter: grayscale(100%);
 }
