@@ -186,13 +186,28 @@ select {
   margin: 15px;
 }
 
-.onceblur {
-  filter: blur(20px);
-}
 
 .content-show-card:hover {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+
+.content-show-card-inner {
+  background-color: #334b69;
+  padding: 10px;
+
+  border-radius: 10px;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+  margin: 15px;
+}
+
+.onceblur {
+  filter: blur(20px);
+}
+
+.content-show-card-inner:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
 
 /* TEST */
 
@@ -626,9 +641,10 @@ canvas {
   display: inline;
   padding: 6px 10px;
   border-radius: 5px;
-  
+  font-weight: normal;
   text-align: left;
-  
+  font-size: 13px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 @keyframes loading-anim {
@@ -645,8 +661,8 @@ canvas {
 
 
 .completed-flag {
-  background:#427c68;
-  color: #76f8a6;
+  background:#425b7c;
+  color: #ffffff;
 }
 .noflag {
   background: #425b7c;
