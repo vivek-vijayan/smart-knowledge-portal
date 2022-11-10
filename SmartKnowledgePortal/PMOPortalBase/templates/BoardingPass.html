@@ -495,7 +495,8 @@
           class="card mb-3"
           style="
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            background-color: #203147 !important; padding-bottom: 100px;
+            background-color: #203147 !important;
+            padding-bottom: 100px;
           "
         >
           <!-- Username -->
@@ -538,95 +539,94 @@
             </p>
           </div>
 
-          <div class="container" style="margin: 10px 10px 10px 50px;">
+          <div class="container" style="margin: 10px 10px 10px 50px">
             <div class="row">
               <div class="col-sm-6">
                 <form
-                    action="/login/login-validator"
-                    method="post"
-                    style="margin-top: 10px"
-                  >
-                    {% csrf_token %}
-                    <div class="input-group input-group-sm mb-3">
-                      <div class="input-group-prepend">
-                        <span
-                          class="input-group-text input-group-text-dark"
-                          id="inputGroup-sizing-sm"
-                          style="padding-right: 10px"
-                          >Firstname
-                        </span>
-                      </div>
-                      <input
-                        type="text"
-                        class="form-control"
-                        aria-label="Small"
-                        required
-                        aria-describedby="inputGroup-sizing-sm"
-                      />
+                  action="/login/login-validator"
+                  method="post"
+                  style="margin-top: 10px"
+                >
+                  {% csrf_token %}
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text input-group-text-dark"
+                        id="inputGroup-sizing-sm"
+                        style="padding-right: 10px"
+                        >Firstname
+                      </span>
                     </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Small"
+                      required
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
 
-                    <div class="input-group input-group-sm mb-3">
-                      <div class="input-group-prepend">
-                        <span
-                          class="input-group-text input-group-text-dark"
-                          id="inputGroup-sizing-sm"
-                          style="padding-right: 10px"
-                          >Lastname</span
-                        >
-                      </div>
-                      <input
-                        type="text"
-                        class="form-control"
-                        aria-label="Small"
-                        required
-                        aria-describedby="inputGroup-sizing-sm"
-                      />
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text input-group-text-dark"
+                        id="inputGroup-sizing-sm"
+                        style="padding-right: 10px"
+                        >Lastname</span
+                      >
                     </div>
-                    <div class="row">
-                      <div class="col-sm-6">
-                        <div class="input-group input-group-sm mb-3">
-                          <div class="input-group-prepend">
-                            <span
-                              class="input-group-text input-group-text-dark"
-                              style="padding-right: 10px"
-                              id="inputGroup-sizing-sm"
-                              >CG corp ID</span
-                            >
-                          </div>
-                          <input
-                            type="text"
-                            class="form-control"
-                            aria-label="Small"
-                            required
-                            aria-describedby="inputGroup-sizing-sm"
-                          />
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Small"
+                      required
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <span
+                            class="input-group-text input-group-text-dark"
+                            style="padding-right: 10px"
+                            id="inputGroup-sizing-sm"
+                            >CG corp ID</span
+                          >
                         </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="input-group input-group-sm mb-3">
-                          <div class="input-group-prepend">
-                            <span
-                              class="input-group-text input-group-text-dark"
-                              id="inputGroup-sizing-sm"
-                              style="padding-right: 10px"
-                              >Emp ID</span
-                            >
-                          </div>
-                          <input
-                            type="text"
-                            class="form-control"
-                            aria-label="Small"
-                            required
-                            aria-describedby="inputGroup-sizing-sm"
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          aria-label="Small"
+                          required
+                          aria-describedby="inputGroup-sizing-sm"
+                        />
                       </div>
                     </div>
-                  </form>
+                    <div class="col-sm-6">
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <span
+                            class="input-group-text input-group-text-dark"
+                            id="inputGroup-sizing-sm"
+                            style="padding-right: 10px"
+                            >Emp ID</span
+                          >
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          aria-label="Small"
+                          required
+                          aria-describedby="inputGroup-sizing-sm"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-          
 
           <!-- Basic onboarding information -->
           <div
@@ -660,187 +660,326 @@
               </small>
             </p>
           </div>
-          <div class="container" style="margin: 10px;">
+          <!-- NAVBAR style -->
+          <style>
+            .nav-item .active {
+              background-color: #203147 !important;
+              color: white !important;
+              border: #29a8eb 1px solid !important;
+              font-size: 13px;
+            }
+            .nav-item .nav-link-pass {
+              background-color: #18273a !important;
+              color: #6686ac;
+              padding: 10px;
+              text-decoration: none;
+              font-size: 13px;
+              border-radius: 5px;
+              margin: 10px;
+            }
+          </style>
+          <div class="container" style="margin: 10px">
             <div class="row">
               <div class="col-sm-8">
-                <ul class="timeline">
-                  <!-- Item 2 -->
-                  <li>
-                    <div class="direction-l">
-                      <div class="flag-wrapper">
-                        <span class="flag completed-flag  "
-                          >Onboard Initated
-
-                          <img
-                            src="{% static 'images/success.webp' %}"
-                            width="20px"
-                            style="margin-left: 10px"
-                            alt=""
-                            srcset=""
-                          />
-                        </span>
-                      </div>
-                      <div class="desc">
-                        My first employer. All the stuff I've learned and
-                        projects I've been working on.
-                      </div>
-                    </div>
+                <ul
+                  class="nav nav-tabs"
+                  id="myTab"
+                  role="tablist"
+                  style="margin-left: 50px; border: none;"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link-pass active"
+                      id="boarding-timeline-tab"
+                      data-toggle="tab"
+                      href="#boarding-timeline"
+                      role="tab"
+                      aria-controls="boarding-timeline"
+                      aria-selected="true"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-hourglass-split"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z"
+                        />
+                      </svg>
+                      Timeline</a
+                    >
                   </li>
-                  <!-- Item 1 -->
-                  <li>
-                    <div class="direction-r">
-                      <div class="flag-wrapper">
-                        <span
-                          class="flag progress-bar progress-bar-striped progress-bar-animated bg-success"
-                          >Smart Portal access</span
-                        >
-                        <span class="time-wrapper"
-                          ><span class="times">
-                            <div class="row">
-                              <div class="col-sm-3">
-                                <div class="green-loading-dot"></div>
-                              </div>
-                              <div
-                                class="col-sm-9"
-                                style="padding-top: 5px; text-align: left"
-                              >
-                                Ongoing
-                              </div>
-                            </div>
-                          </span></span
-                        >
-                      </div>
-                      <div class="desc">
-                        My current employment. Way better than the position
-                        before!
-                      </div>
-                    </div>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link-pass"
+                      id="ticket-relation-tab"
+                      data-toggle="tab"
+                      href="#ticket-relation"
+                      role="tab"
+                      aria-controls="ticket-relation"
+                      aria-selected="false"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-link-45deg"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
+                        />
+                        <path
+                          d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
+                        />
+                      </svg>
+                      Ticket relation</a
+                    >
                   </li>
-
-                  <!-- Item 2 -->
-                  <li>
-                    <div class="direction-l">
-                      <div class="flag-wrapper">
-                        <span class="flag noflag">BGV Procedure</span>
-                        <span class="time-wrapper"
-                          ><span class="times">Not started</span></span
-                        >
-                      </div>
-                      <div class="desc">
-                        My first employer. All the stuff I've learned and
-                        projects I've been working on.
-                      </div>
-                    </div>
-                  </li>
-
-                  <!-- Item 1 -->
-                  <li>
-                    <div class="direction-r">
-                      <div class="flag-wrapper">
-                        <span class="flag noflag">Mgmt. approval</span>
-                        <span class="time-wrapper"
-                          ><span class="times">
-                            <span class="times">Not started</span>
-                          </span></span
-                        >
-                      </div>
-                      <div class="desc">
-                        My current employment. Way better than the position
-                        before!
-                      </div>
-                    </div>
-                  </li>
-
-                  <!-- Item 2 -->
-                  <li>
-                    <div class="direction-l">
-                      <div class="flag-wrapper">
-                        <span class="flag noflag">Project credentails</span>
-                        <span class="time-wrapper"
-                          ><span class="times">Not started</span></span
-                        >
-                      </div>
-                      <div class="desc">
-                        My first employer. All the stuff I've learned and
-                        projects I've been working on.
-                      </div>
-                    </div>
-                  </li>
-                  <!-- Item 1 -->
-                  <li>
-                    <div class="direction-r">
-                      <div class="flag-wrapper">
-                        <span class="flag noflag">ServiceNow access</span>
-                        <span class="time-wrapper"
-                          ><span class="times">
-                            <span class="times">Not started</span>
-                          </span></span
-                        >
-                      </div>
-                      <div class="desc">
-                        My current employment. Way better than the position
-                        before!
-                      </div>
-                    </div>
-                  </li>
-
-                  <!-- Item 2 -->
-                  <li>
-                    <div class="direction-l">
-                      <div class="flag-wrapper">
-                        <span class="flag noflag">Citrix/AVD access</span>
-                        <span class="time-wrapper"
-                          ><span class="times">Not started</span></span
-                        >
-                      </div>
-                      <div class="desc">
-                        My first employer. All the stuff I've learned and
-                        projects I've been working on.
-                      </div>
-                    </div>
-                  </li>
-
-                  <!-- Item 3 -->
-                  <li>
-                    <div class="direction-r">
-                      <div class="flag-wrapper">
-                        <span class="flag noflag">Email DL setup</span>
-                        <span class="time-wrapper"
-                          ><span class="times">Not started</span></span
-                        >
-                      </div>
-                      <div class="desc">
-                        A description of all the lectures and courses I have
-                        taken and my final degree?
-                      </div>
-                    </div>
-                  </li>
-
-                  <!-- Item 2 -->
-                  <li>
-                    <div class="direction-l">
-                      <div class="flag-wrapper">
-                        <span class="flag noflag">Citrix/AVD access</span>
-                        <span class="time-wrapper"
-                          ><span class="times">Not started</span></span
-                        >
-                      </div>
-                      <div class="desc">
-                        My first employer. All the stuff I've learned and
-                        projects I've been working on.
-                      </div>
-                    </div>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link-pass"
+                      id="worknotes-tab"
+                      data-toggle="tab"
+                      href="#worknotes"
+                      role="tab"
+                      aria-controls="worknotes"
+                      aria-selected="false"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-stickies-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M0 1.5V13a1 1 0 0 0 1 1V1.5a.5.5 0 0 1 .5-.5H14a1 1 0 0 0-1-1H1.5A1.5 1.5 0 0 0 0 1.5z"
+                        />
+                        <path
+                          d="M3.5 2A1.5 1.5 0 0 0 2 3.5v11A1.5 1.5 0 0 0 3.5 16h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 16 9.586V3.5A1.5 1.5 0 0 0 14.5 2h-11zm6 8.5a1 1 0 0 1 1-1h4.396a.25.25 0 0 1 .177.427l-5.146 5.146a.25.25 0 0 1-.427-.177V10.5z"
+                        />
+                      </svg>
+                      Work notes</a
+                    >
                   </li>
                 </ul>
-                <center>
-                  <img
-                    src="{% static 'images/green-tick.png' %}"
-                    width="60px"
-                    alt=""
-                    class="grayscale"
-                    srcset=""
-                  />
-                </center>
+                <div
+                  class="tab-content"
+                  id="myTabContent"
+                  style="margin-left: 50px"
+                >
+                  <!-- Timeline -->
+                  <div
+                    class="tab-pane fade show active"
+                    id="boarding-timeline"
+                    role="tabpanel"
+                    aria-labelledby="boarding-timeline-tab" 
+                  >
+                  <div style="margin-top: 70px">
+                    <ul class="timeline" >
+                      <!-- Item 2 -->
+                      <li>
+                        <div class="direction-l">
+                          <div class="flag-wrapper">
+                            <span class="flag completed-flag"
+                              >Onboard Initated
+
+                              <img
+                                src="{% static 'images/success.webp' %}"
+                                width="20px"
+                                style="margin-left: 10px"
+                                alt=""
+                                srcset=""
+                              />
+                            </span>
+                          </div>
+                          <div class="desc">
+                            My first employer. All the stuff I've learned and
+                            projects I've been working on.
+                          </div>
+                        </div>
+                      </li>
+                      <!-- Item 1 -->
+                      <li>
+                        <div class="direction-r">
+                          <div class="flag-wrapper">
+                            <span
+                              class="flag progress-bar progress-bar-striped progress-bar-animated bg-success"
+                              >Smart Portal access</span
+                            >
+                            <span class="time-wrapper"
+                              ><span class="times">
+                                <div class="row">
+                                  <div class="col-sm-3">
+                                    <div class="green-loading-dot"></div>
+                                  </div>
+                                  <div
+                                    class="col-sm-9"
+                                    style="padding-top: 5px; text-align: left"
+                                  >
+                                    Ongoing
+                                  </div>
+                                </div>
+                              </span></span
+                            >
+                          </div>
+                          <div class="desc">
+                            My current employment. Way better than the position
+                            before!
+                          </div>
+                        </div>
+                      </li>
+
+                      <!-- Item 2 -->
+                      <li>
+                        <div class="direction-l">
+                          <div class="flag-wrapper">
+                            <span class="flag noflag">BGV Procedure</span>
+                            <span class="time-wrapper"
+                              ><span class="times">Not started</span></span
+                            >
+                          </div>
+                          <div class="desc">
+                            My first employer. All the stuff I've learned and
+                            projects I've been working on.
+                          </div>
+                        </div>
+                      </li>
+
+                      <!-- Item 1 -->
+                      <li>
+                        <div class="direction-r">
+                          <div class="flag-wrapper">
+                            <span class="flag noflag">Mgmt. approval</span>
+                            <span class="time-wrapper"
+                              ><span class="times">
+                                <span class="times">Not started</span>
+                              </span></span
+                            >
+                          </div>
+                          <div class="desc">
+                            My current employment. Way better than the position
+                            before!
+                          </div>
+                        </div>
+                      </li>
+
+                      <!-- Item 2 -->
+                      <li>
+                        <div class="direction-l">
+                          <div class="flag-wrapper">
+                            <span class="flag noflag">Project credentails</span>
+                            <span class="time-wrapper"
+                              ><span class="times">Not started</span></span
+                            >
+                          </div>
+                          <div class="desc">
+                            My first employer. All the stuff I've learned and
+                            projects I've been working on.
+                          </div>
+                        </div>
+                      </li>
+                      <!-- Item 1 -->
+                      <li>
+                        <div class="direction-r">
+                          <div class="flag-wrapper">
+                            <span class="flag noflag">ServiceNow access</span>
+                            <span class="time-wrapper"
+                              ><span class="times">
+                                <span class="times">Not started</span>
+                              </span></span
+                            >
+                          </div>
+                          <div class="desc">
+                            My current employment. Way better than the position
+                            before!
+                          </div>
+                        </div>
+                      </li>
+
+                      <!-- Item 2 -->
+                      <li>
+                        <div class="direction-l">
+                          <div class="flag-wrapper">
+                            <span class="flag noflag">Citrix/AVD access</span>
+                            <span class="time-wrapper"
+                              ><span class="times">Not started</span></span
+                            >
+                          </div>
+                          <div class="desc">
+                            My first employer. All the stuff I've learned and
+                            projects I've been working on.
+                          </div>
+                        </div>
+                      </li>
+
+                      <!-- Item 3 -->
+                      <li>
+                        <div class="direction-r">
+                          <div class="flag-wrapper">
+                            <span class="flag noflag">Email DL setup</span>
+                            <span class="time-wrapper"
+                              ><span class="times">Not started</span></span
+                            >
+                          </div>
+                          <div class="desc">
+                            A description of all the lectures and courses I have
+                            taken and my final degree?
+                          </div>
+                        </div>
+                      </li>
+
+                      <!-- Item 2 -->
+                      <li>
+                        <div class="direction-l">
+                          <div class="flag-wrapper">
+                            <span class="flag noflag">Citrix/AVD access</span>
+                            <span class="time-wrapper"
+                              ><span class="times">Not started</span></span
+                            >
+                          </div>
+                          <div class="desc">
+                            My first employer. All the stuff I've learned and
+                            projects I've been working on.
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                    <center>
+                      <img
+                        src="{% static 'images/green-tick.png' %}"
+                        width="60px"
+                        alt=""
+                        class="grayscale"
+                        srcset=""
+                      />
+                    </center>
+                  </div>
+                    
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="ticket-relation"
+                    role="tabpanel"
+                    aria-labelledby="profile-tab"
+                  >
+                    ...
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="worknotes"
+                    role="tabpanel"
+                    aria-labelledby="worknotes-tab"
+                  >
+                    ...
+                  </div>
+                </div>
 
                 <script>
                   imgInp.onchange = (evt) => {
@@ -851,7 +990,7 @@
                   };
                 </script>
               </div>
-              <div class="col-sm-4" style="margin-top:50px; position: sticky;">
+              <div class="col-sm-4" style="margin-top: 50px; position: sticky">
                 <div>
                   <div class="container" style="margin-top: 10px">
                     <div class="row">
@@ -875,9 +1014,20 @@
                           "
                         >
                           <center>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
-                              <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
-                              <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"/>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-bookmarks-fill"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"
+                              />
+                              <path
+                                d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"
+                              />
                             </svg>
                             Register ticket details
                           </center>
@@ -890,7 +1040,6 @@
                           text-align: center;
                           padding: 5px;
                           border-radius: 10px;
-                          
                         "
                         data-toggle="modal"
                         data-target="#addWorkNotes"
@@ -905,16 +1054,30 @@
                           "
                         >
                           <center>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
-                              <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
-                              <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-                              <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-journal-plus"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"
+                              />
+                              <path
+                                d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"
+                              />
+                              <path
+                                d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"
+                              />
                             </svg>
-                           Add Work notes
+                            Add Work notes
                           </center>
                         </button>
                       </a>
-    
+
                       <div
                         class="col-sm-10 content-show-card-inner"
                         style="
@@ -940,14 +1103,14 @@
                               width="16"
                               height="16"
                               fill="currentColor"
-                              class="bi bi-geo-alt-fill"
+                              class="bi bi-lightning-fill"
                               viewBox="0 0 16 16"
                             >
                               <path
-                                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                                d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"
                               />
                             </svg>
-                            Location
+                            Process update
                           </center>
                         </button>
                       </div>
@@ -987,15 +1150,15 @@
                           </center>
                         </button>
                       </a>
-    
+
                       <div
                         class="col-sm-10 content-show-card-inner"
                         style="
                           text-align: center;
                           padding: 5px;
                           border-radius: 10px;
-                          background-color: #EA5034;
-                          color:white;  
+                          background-color: #ea5034;
+                          color: white;
                         "
                         data-toggle="modal"
                         data-target="#exampleModalLong"
@@ -1010,9 +1173,20 @@
                           "
                         >
                           <center>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-x-circle"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                              />
+                              <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                              />
                             </svg>
                             Cancel Pass
                           </center>
@@ -1040,22 +1214,37 @@
 
     <!-- Add ticket information Modal -->
     <div
-      class="modal fade" 
+      class="modal fade"
       id="addticketinformationmodel"
       tabindex="-1"
       role="dialog"
       aria-labelledby="addticketinformationmodelTitle"
       aria-hidden="true"
     >
-      <div class="modal-dialog" role="document" >
-        <div class="modal-content" style="background-color:#172231 !important;">
-          <div class="modal-header" style="border-color: #29384d;">
-            <h5 class="modal-title" id="addticketinformationmodelTitle" style="color:#29a8eb">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks-fill" viewBox="0 0 16 16">
-                <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
-                <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"/>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #172231 !important">
+          <div class="modal-header" style="border-color: #29384d">
+            <h5
+              class="modal-title"
+              id="addticketinformationmodelTitle"
+              style="color: #29a8eb"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-bookmarks-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"
+                />
+                <path
+                  d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"
+                />
               </svg>
-              
+
               Register ticket number
             </h5>
             <button
@@ -1067,12 +1256,14 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body" >
+          <div class="modal-body">
             <div class="container">
               <div class="row">
                 <div class="col-sm-12">
                   <small class="text-muted-ss">
-                    Enter the ticket number and the purpose of raising it, select the category accurately as it is used in further classifcation
+                    Enter the ticket number and the purpose of raising it,
+                    select the category accurately as it is used in further
+                    classifcation
                   </small>
                 </div>
               </div>
@@ -1137,15 +1328,18 @@
               </div>
             </div>
           </div>
-          <div class="modal-footer" style="border-color: #29384d;">
+          <div class="modal-footer" style="border-color: #29384d">
             <button
               type="button"
-              class="btn btn-sm btn-dark" style="background-color:#EA5034"
+              class="btn btn-sm btn-dark"
+              style="background-color: #ea5034"
               data-dismiss="modal"
             >
               Close
             </button>
-            <button type="button" class="btn btn-sm btn-primary">Save changes</button>
+            <button type="button" class="btn btn-sm btn-primary">
+              Save changes
+            </button>
           </div>
         </div>
       </div>
@@ -1161,15 +1355,29 @@
       aria-hidden="true"
     >
       <div class="modal-dialog" role="document">
-        <div class="modal-content" style="background-color:#172231 !important;">
-          <div class="modal-header" style="border-color: #29384d;">
+        <div class="modal-content" style="background-color: #172231 !important">
+          <div class="modal-header" style="border-color: #29384d">
             <h5 class="modal-title" id="addWorkNotesTitle">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-plus" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"/>
-                <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
-                <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-journal-plus"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"
+                />
+                <path
+                  d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"
+                />
+                <path
+                  d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"
+                />
               </svg>
-              
+
               Work notes
             </h5>
             <button
@@ -1186,18 +1394,30 @@
               <div class="row">
                 <div class="col-sm-12">
                   <small class="text-muted-ss">
-                    Enter the work notes here, you can also make it user visible as they can see it in their portal and also recieve an email
+                    Enter the work notes here, you can also make it user visible
+                    as they can see it in their portal and also recieve an email
                   </small>
                 </div>
               </div>
               <div class="row" style="margin-top: 20px">
+                <div class="col-sm-12">
+                  <div class="form-group input-group-text-dark">
+                    <label for="exampleFormControlTextarea1">Note:</label>
+                    <textarea
+                      class="form-control input-group-text-dark"
+                      id="exampleFormControlTextarea1"
+                      style="background-color: #203147 !important"
+                      rows="6"
+                    ></textarea>
+                  </div>
+                </div>
                 <div class="col-sm-12">
                   <div class="input-group input-group-sm mb-3">
                     <div class="input-group-prepend">
                       <label
                         class="input-group-text input-group-text-dark"
                         for="inputGroupSelect01"
-                        >User</label
+                        >Category</label
                       >
                     </div>
                     <select class="custom-select" id="inputGroupSelect01">
@@ -1208,18 +1428,117 @@
                     </select>
                   </div>
                 </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <label
+                        class="input-group-text input-group-text-dark"
+                        for="inputGroupSelect01"
+                        >Process type</label
+                      >
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>Choose...</option>
+                      <option value="1">Onboard initiated</option>
+                      <option value="2">Smart Portal access</option>
+                      <option value="3">BGV Process</option>
+                      <option value="3">Management approval</option>
+                      <option value="3">Project credentials</option>
+                      <option value="3">ServiceNow access</option>
+                      <option value="3">Citrix/AVD access</option>
+                      <option value="3">Email/DL setup</option>
+                      <option value="3">Citrix/AVD access</option>
+                    </select>
+                  </div>
+                </div>
+                <style>
+                  .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 40px;
+                    height: 24px;
+                  }
+
+                  .switch input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                  }
+
+                  .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #29384d;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
+                  }
+
+                  .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 16px;
+                    width: 16px;
+                    left: 4px;
+                    bottom: 4px;
+                    background-color: white;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
+                  }
+
+                  input:checked + .slider {
+                    background-color: #2196f3;
+                  }
+
+                  input:focus + .slider {
+                    box-shadow: 0 0 1px #2196f3;
+                  }
+
+                  input:checked + .slider:before {
+                    -webkit-transform: translateX(16px);
+                    -ms-transform: translateX(16px);
+                    transform: translateX(16px);
+                  }
+
+                  /* Rounded sliders */
+                  .slider.round {
+                    border-radius: 34px;
+                  }
+
+                  .slider.round:before {
+                    border-radius: 50%;
+                  }
+                </style>
+                <div class="col-sm-12">
+                  <small class="text-muted-ss" style="top: 50px"
+                    >Customer visibility</small
+                  >
+                  <br />
+                  <label class="switch">
+                    <div class="row">
+                      <input type="checkbox" checked />
+                      <span class="slider round"></span>
+                    </div>
+                  </label>
+                </div>
               </div>
             </div>
           </div>
-          <div class="modal-footer"  style="border-color: #29384d;">
+          <div class="modal-footer" style="border-color: #29384d">
             <button
               type="button"
-              class="btn btn-sm btn-secondary"
+              class="btn btn-sm btn-dark"
+              style="background-color: #ea5034"
               data-dismiss="modal"
             >
               Close
             </button>
-            <button type="button" class="btn btn-sm btn-primary">Save changes</button>
+            <button type="button" class="btn btn-sm btn-primary">
+              Save changes
+            </button>
           </div>
         </div>
       </div>
