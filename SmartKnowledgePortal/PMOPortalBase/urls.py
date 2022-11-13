@@ -26,4 +26,5 @@ urlpatterns = [
     path("boardingstatus/boardingpass/", views.BoardingPassPage, name="BoardingPassPage"),
     path("tagging-access-new-user/", views.TaggingAndAccessPageForNewUser, name="TaggingAndAccessPageForNewUser"),
     path("success/", views.successpage, name="PMOSuccessPage"),
+    path("boardingstatus/request-to-deactivate/", views.RequestToDeactivateAccount, name="RequestToDeactivateAccount"),
 ]

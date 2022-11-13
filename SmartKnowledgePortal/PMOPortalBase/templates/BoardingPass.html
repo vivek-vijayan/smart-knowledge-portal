@@ -503,7 +503,7 @@
           <div style="margin-top: 100px">
             <center>
               <h3 class="display-6">Vivek Vijayan</h3>
-              <small class="text-muted-ss">BPC Lead</small>
+              <small class="text-muted" style="color:#29a8eb">BPC Lead</small>
             </center>
           </div>
 
@@ -624,6 +624,70 @@
                     </div>
                   </div>
                 </form>
+              </div>
+              <div
+                class="col-sm-4"
+                style="
+                  background-color: #1C293C;
+                  margin-left: 50px;
+                  margin-right: 50px;
+                  border-radius: 10px;
+                "
+              >
+                <div class="row">
+                  <div class="col-sm-5">
+                    <span
+                      style="
+                        font-size: 100px;
+                        text-align: center;
+                        padding-left: 35px;
+                        font-weight: bold;
+                        color: #66e092;
+                      "
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="80"
+                        height="80"
+                        fill="currentColor"
+                        class="bi bi-box-arrow-in-up-right"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M6.364 13.5a.5.5 0 0 0 .5.5H13.5a1.5 1.5 0 0 0 1.5-1.5v-10A1.5 1.5 0 0 0 13.5 1h-10A1.5 1.5 0 0 0 2 2.5v6.636a.5.5 0 1 0 1 0V2.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H6.864a.5.5 0 0 0-.5.5z"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          d="M11 5.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793l-8.147 8.146a.5.5 0 0 0 .708.708L10 6.707V10.5a.5.5 0 0 0 1 0v-5z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="col-sm-6"
+                    style="text-align: center; padding-top: 30px"
+                  >
+                    <h1 class="display-4" style="color: #85a6d1">BPC</h1>
+                    <p
+                      class="text-muted-ss"
+                      style="color: #66e092 !important; font-size: 15px"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="bi bi-geo-alt-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                        />
+                      </svg>
+                      Mumbai
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -974,7 +1038,483 @@
                     role="tabpanel"
                     aria-labelledby="profile-tab"
                   >
-                    ...
+                    <img
+                      src="{% static 'images/servicenow.png'%}"
+                      width="100px"
+                      style="padding-bottom: 7px; margin-top: 50px"
+                      alt=""
+                      srcset=""
+                    />
+                    <!-- Ticket relation tab-->
+                    <div
+                      class="accordion"
+                      id="accordionExample"
+                      style="margin-top: 10px"
+                    >
+                      <div
+                        class="card tickets-collection-card"
+                        style="border: 2px solid #1a2b41; outline: none"
+                      >
+                        <div
+                          class="card-header"
+                          id="headingOne"
+                          style="
+                            background-color: #1c293c !important;
+                            border: 1px solid #19283c !important;
+                            border-radius: 0px !important;
+                            outline: none;
+                          "
+                        >
+                          <h5 class="mb-0">
+                            <button
+                              class="btn"
+                              type="button"
+                              style="color: #ffffff; border: none"
+                              data-toggle="collapse"
+                              data-target="#collapseOne"
+                              aria-expanded="true"
+                              aria-controls="collapseOne"
+                            >
+                              <span class="text-muted-ss">#</span>
+                              <span style="font-size: 20px">RITM0084742</span>
+
+                              <small
+                                style="
+                                  position: absolute;
+                                  right: 40px;
+                                  top: 20px;
+                                  color: white;
+                                "
+                                >Citrix login access</small
+                              >
+                            </button>
+                          </h5>
+                        </div>
+
+                        <div
+                          id="collapseOne"
+                          class="collapse"
+                          style="background-color: #121e2a !important"
+                          aria-labelledby="headingOne"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body text-muted">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div
+                                  class="col-sm-6"
+                                  style="padding-bottom: 20px"
+                                >
+                                  <small>Description: &nbsp; </small>
+                                  <small class="text-muted-ss">
+                                    User needs to have a Citrix icon access in
+                                    the portal. access part required - BPC and
+                                    BW icons
+                                  </small>
+                                </div>
+                                <div
+                                  class="col-sm-6"
+                                  style="
+                                    color: #66e092 !important;
+                                    background-color: #203147;
+                                    padding: 10px;
+                                    border-radius: 5px;
+                                    text-align: center;
+                                    height: 40px !important;
+                                  "
+                                >
+                                  <small class="text-muted-ss">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      fill="currentColor"
+                                      class="bi bi-cpu-fill"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"
+                                      />
+                                      <path
+                                        d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z"
+                                      />
+                                    </svg>
+                                  </small>
+                                  <small style="font-size: 15px">
+                                    &nbsp;Citrix/AVD access</small
+                                  >
+                                  <br />
+                                </div>
+                                <div class="col-sm-4">
+                                  <small class="text-muted-ss">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      fill="currentColor"
+                                      class="bi bi-calendar-event"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"
+                                      />
+                                      <path
+                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
+                                      />
+                                    </svg>
+                                  </small>
+                                  <small style="color: #f9c762">
+                                    &nbsp;2/3/2022
+                                  </small>
+                                </div>
+                              </div>
+                            </div>
+
+                            <br />
+                            <div
+                              style="
+                                margin: 10px;
+                                padding-top: 20px;
+                                display: flex;
+                                flex-direction: row;
+                              "
+                            >
+                              <button
+                                class="btn btn-sm btn-outline-danger"
+                                style="
+                                  border: 1px solid #ea5034 !important;
+                                  margin: 5px;
+                                  font-size: 12px;
+                                  padding: 5px !important;
+                                "
+                                id="copy_clipboard_button"
+                                value="http://data"
+                                onclick="copy_to_clipboard()"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="16"
+                                  fill="currentColor"
+                                  class="bi bi-trash3-fill"
+                                  viewBox="0 0 16 16"
+                                >
+                                  <path
+                                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                                  />
+                                </svg>
+                                Delete relation
+                              </button>
+                              <a href="http://vivek" target="_blank">
+                                <button
+                                  class="btn btn-sm btn-outline-success"
+                                  style="
+                                    border: 1px solid green !important;
+                                    margin: 5px;
+                                    font-size: 12px;
+                                    padding: 5px !important;
+                                  "
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="currentColor"
+                                    class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path
+                                      d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
+                                    />
+                                    <path
+                                      d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
+                                    />
+                                  </svg>
+                                  Open link
+                                </button>
+                              </a>
+                              <button
+                                class="btn btn-sm btn-outline-info"
+                                style="
+                                  border: 1px solid #2196f3 !important;
+                                  margin: 5px;
+                                  font-size: 12px;
+                                  padding: 5px !important;
+                                "
+                                id="copy_clipboard_button"
+                                value="http://data"
+                                onclick="copy_to_clipboard()"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="16"
+                                  fill="currentColor"
+                                  class="bi bi-clipboard-fill"
+                                  viewBox="0 0 16 16"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"
+                                  />
+                                </svg>
+                                Copy link
+                              </button>
+
+                              <span
+                                id="success-copy"
+                                style="
+                                  display: none;
+                                  font-size: 12px;
+                                  margin: 10px;
+                                "
+                              >
+                                <img
+                                  src="{% static 'images/success.webp' %}"
+                                  width="20px"
+                                  alt=""
+                                  srcset=""
+                                />
+                                Copied!
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Dummy 2-->
+                      <div
+                        class="card tickets-collection-card"
+                        style="border: 2px solid #1a2b41; outline: none"
+                      >
+                        <div
+                          class="card-header"
+                          id="headingTwo"
+                          style="
+                            background-color: #1c293c !important;
+                            border: 1px solid #19283c !important;
+                            border-radius: 0px !important;
+                            outline: none;
+                          "
+                        >
+                          <h5 class="mb-0">
+                            <button
+                              class="btn"
+                              type="button"
+                              style="color: #ffffff; border: none"
+                              data-toggle="collapse"
+                              data-target="#collapseTwo"
+                              aria-expanded="true"
+                              aria-controls="collapseTwo"
+                            >
+                              <span class="text-muted-ss">#</span>
+                              <span style="font-size: 20px">RITM0084742</span>
+
+                              <small
+                                style="
+                                  position: absolute;
+                                  right: 40px;
+                                  top: 20px;
+                                  color: white;
+                                "
+                                >Citrix login access</small
+                              >
+                            </button>
+                          </h5>
+                        </div>
+
+                        <div
+                          id="collapseTwo"
+                          class="collapse"
+                          style="background-color: #121e2a !important"
+                          aria-labelledby="headingTwo"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body text-muted">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div
+                                  class="col-sm-12"
+                                  style="padding-bottom: 20px"
+                                >
+                                  <small>Description: &nbsp; </small>
+                                  <small class="text-muted-ss">
+                                    User needs to have a Citrix icon access in
+                                    the portal. access part required - BPC and
+                                    BW icons
+                                  </small>
+                                </div>
+                                <div
+                                  class="col-sm-4"
+                                  style="
+                                    color: #66e092 !important;
+                                    background-color: #203147;
+                                    padding: 10px;
+                                    border-radius: 20px;
+                                    text-align: center;
+                                  "
+                                >
+                                  <small class="text-muted-ss">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      fill="currentColor"
+                                      class="bi bi-cpu-fill"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"
+                                      />
+                                      <path
+                                        d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z"
+                                      />
+                                    </svg>
+                                  </small>
+                                  <small> &nbsp;Citrix/AVD access</small>
+                                </div>
+                                <div
+                                  class="col-sm-3"
+                                  style="
+                                    color: #f9c762 !important;
+                                    padding: 10px;
+                                    text-align: center;
+                                  "
+                                >
+                                  <small class="text-muted-ss">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      fill="currentColor"
+                                      class="bi bi-calendar-event"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"
+                                      />
+                                      <path
+                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
+                                      />
+                                    </svg>
+                                  </small>
+                                  <small> &nbsp;2/3/2022 </small>
+                                </div>
+                              </div>
+                            </div>
+
+                            <br />
+                            <div
+                              style="
+                                margin: 10px;
+                                padding-top: 20px;
+                                display: flex;
+                                flex-direction: row;
+                              "
+                            >
+                              <button
+                                class="btn btn-sm btn-outline-danger"
+                                style="
+                                  border: 1px solid #ea5034 !important;
+                                  margin: 5px;
+                                  font-size: 12px;
+                                  padding: 5px !important;
+                                "
+                                id="copy_clipboard_button"
+                                value="http://data"
+                                onclick="copy_to_clipboard()"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="16"
+                                  fill="currentColor"
+                                  class="bi bi-trash3-fill"
+                                  viewBox="0 0 16 16"
+                                >
+                                  <path
+                                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                                  />
+                                </svg>
+                                Delete link
+                              </button>
+                              <a href="http://vivek" target="_blank">
+                                <button
+                                  class="btn btn-sm btn-outline-success"
+                                  style="
+                                    border: 1px solid green !important;
+                                    margin: 5px;
+                                    font-size: 12px;
+                                    padding: 5px !important;
+                                  "
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="currentColor"
+                                    class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path
+                                      d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
+                                    />
+                                    <path
+                                      d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
+                                    />
+                                  </svg>
+                                  Open link
+                                </button>
+                              </a>
+                              <button
+                                class="btn btn-sm btn-outline-info"
+                                style="
+                                  border: 1px solid #2196f3 !important;
+                                  margin: 5px;
+                                  font-size: 12px;
+                                  padding: 5px !important;
+                                "
+                                id="copy_clipboard_button"
+                                value="http://data"
+                                onclick="copy_to_clipboard()"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="16"
+                                  fill="currentColor"
+                                  class="bi bi-clipboard-fill"
+                                  viewBox="0 0 16 16"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"
+                                  />
+                                </svg>
+                                Copy link
+                              </button>
+
+                              <span
+                                id="success-copy"
+                                style="
+                                  display: none;
+                                  font-size: 12px;
+                                  margin: 10px;
+                                "
+                              >
+                                <img
+                                  src="{% static 'images/success.webp' %}"
+                                  width="20px"
+                                  alt=""
+                                  srcset=""
+                                />
+                                Copied!
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div
                     class="tab-pane fade"
@@ -1003,7 +1543,7 @@
                         class="col-sm-10 content-show-card-inner"
                         style="
                           text-align: center;
-                          padding: 5px;
+                          padding: 10px;
                           border-radius: 10px;
                         "
                         data-toggle="modal"
@@ -1043,7 +1583,7 @@
                         class="col-sm-10 content-show-card-inner"
                         style="
                           text-align: center;
-                          padding: 5px;
+                          padding: 10px;
                           border-radius: 10px;
                         "
                         data-toggle="modal"
@@ -1087,7 +1627,7 @@
                         class="col-sm-10 content-show-card-inner"
                         style="
                           text-align: center;
-                          padding: 5px;
+                          padding: 10px;
                           border-radius: 10px;
                         "
                         data-toggle="modal"
@@ -1124,7 +1664,7 @@
                         class="col-sm-10 content-show-card-inner"
                         style="
                           text-align: center;
-                          padding: 5px;
+                          padding: 10px;
                           border-radius: 10px;
                         "
                       >
@@ -1160,7 +1700,7 @@
                         class="col-sm-10 content-show-card-inner"
                         style="
                           text-align: center;
-                          padding: 5px;
+                          padding: 10px;
                           border-radius: 10px;
                           background-color: #ea5034;
                           color: white;
@@ -1261,7 +1801,7 @@
               data-dismiss="modal"
               aria-label="Close"
             >
-              <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true" style="color: white">&times;</span>
             </button>
           </div>
           <div class="modal-body">
@@ -1273,6 +1813,15 @@
                     select the category accurately as it is used in further
                     classifcation
                   </small>
+                </div>
+                <div class="col-sm-12">
+                  <img
+                    src="{% static 'images/servicenow.png'%}"
+                    width="80px"
+                    style="padding-bottom: 7px; margin-top: 20px"
+                    alt=""
+                    srcset=""
+                  />
                 </div>
               </div>
               <div class="row" style="margin-top: 20px">
@@ -1397,7 +1946,7 @@
               data-dismiss="modal"
               aria-label="Close"
             >
-              <span aria-hidden="true">&times;</span>
+              <span aria-hidden="true" style="color: white">&times;</span>
             </button>
           </div>
           <div class="modal-body">
@@ -2001,16 +2550,22 @@
                   }
                 </style>
                 <div class="col-sm-12">
-                  <small class="text-muted-ss" style="top: 50px"
-                    >Customer visibility</small
-                  >
-                  <br />
-                  <label class="switch">
-                    <div class="row">
-                      <input type="checkbox" checked />
-                      <span class="slider round"></span>
-                    </div>
-                  </label>
+                  <small class="text-muted-ss" style="top: 50px">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-eye-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                      <path
+                        d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
+                      />
+                    </svg>
+                    User visibility : <b style="color: #66e092">Yes</b>
+                  </small>
                 </div>
               </div>
             </div>
@@ -2073,6 +2628,19 @@
           document.getElementById("register_new_state").disabled = false;
           console.log("Button activated");
         }
+      }
+
+      // Copy to clipboard
+      function copy_to_clipboard() {
+        let ctc_button = document.getElementById("copy_clipboard_button");
+        navigator.clipboard.writeText(ctc_button.value);
+
+        // making success message appear and disappear after 3 seconds
+        let success_message = document.getElementById("success-copy");
+        success_message.style.display = "block";
+        setTimeout(() => {
+          success_message.style.display = "none";
+        }, 3000);
       }
     </script>
   </body>

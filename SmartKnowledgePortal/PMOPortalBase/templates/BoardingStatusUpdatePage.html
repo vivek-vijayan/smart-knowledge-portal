@@ -280,9 +280,8 @@
               </h1>
 
               <small class="text-muted-ss">
-                <br>
-                </small
-              >
+                <br />
+              </small>
               <div class="container" style="margin-top: 10px">
                 <div class="row">
                   <div
@@ -499,9 +498,9 @@
           .pass-block header {
             position: relative;
             height: 45px;
-            background-color: #1c293c;
+            background-color: #2171C2;
             padding: 10px;
-            color: #6e89a5;
+            color: #ffffff !important;
             border-radius: 10px;
           }
           .pass-block header .company-name {
@@ -520,22 +519,22 @@
           }
           .pass-block header:after {
             content: "";
-            width: 16px;
-            height: 16px;
+            width: 26px;
+            height: 26px;
             background-color: #121e2a;
             position: absolute;
-            bottom: -8px;
+            bottom: -15px;
             right: -8px;
             border-radius: 50%;
             box-shadow: inset 12px 0px 18px -11px rgba(0, 0, 0, 0.5);
           }
           .pass-block header:before {
             content: "";
-            width: 16px;
-            height: 16px;
+            width: 26px;
+            height: 26px;
             background-color: #121e2a;
             position: absolute;
-            bottom: -8px;
+            bottom: -15px;
             left: -8px;
             border-radius: 50%;
             box-shadow: inset -12px 0px 18px -11px rgba(0, 0, 0, 0.5);
@@ -577,9 +576,9 @@
           }
           .pass-block .pass-cards .pass-card:first-child:after {
             color: #66e09157;
-            content: ">>";
+            content: "\21E2";
             position: absolute;
-            font-size: 55px;
+            font-size: 45px;
             top: calc(50% - 25px);
             right: -70%;
             animation: goforward cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.5s
@@ -635,9 +634,10 @@
           }
           .pass-block .pass-cards .offboard:first-child:after {
             color: #e94e33;
-            content: "<<";
+            content: "\21E0";
+
             position: absolute;
-            font-size: 55px;
+            font-size: 45px;
             top: calc(50% - 25px);
             right: -100%;
             animation: gobackward cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.5s
@@ -647,13 +647,13 @@
           @keyframes gobackward {
             0% {
               color: #203147;
-              right: -150%;
+              right: -140%;
               opacity: 10%;
             }
             50% {
               color: #e94e33b7;
               opacity: 90%;
-              right: -100%;
+              right: -90%;
             }
             100% {
               color: #203147;
@@ -665,22 +665,22 @@
 
           .pass-block .pass-cards:after {
             content: "";
-            width: 16px;
-            height: 16px;
+            width: 26px;
+            height: 26px;
             background-color: #121e2a;
             position: absolute;
-            bottom: -8px;
+            bottom: -15px;
             right: -8px;
             border-radius: 50%;
             box-shadow: inset 12px 0px 18px -11px rgba(0, 0, 0, 0.5);
           }
           .pass-block .pass-cards:before {
             content: "";
-            width: 16px;
-            height: 16px;
+            width: 26px;
+            height: 26px;
             background-color: #121e2a;
             position: absolute;
-            bottom: -8px;
+            bottom: -15px;
             left: -8px;
             border-radius: 50%;
             box-shadow: inset -12px 0px 18px -11px rgba(0, 0, 0, 0.5);
@@ -790,12 +790,13 @@
 
           Most recently added</small
         >
-        <br> <br>
+        <br />
+        <br />
 
         <!-- Boarding pass -->
         <div class="pass-block">
           <header>
-            <div class="company-name" style="color: #66e091">
+            <div class="company-name" >
               Onboarding Pass
             </div>
             <div class="gate">
@@ -805,7 +806,7 @@
           <section class="pass-cards">
             <div class="pass-card">
               <div class="pass-card-name">Vivek Vijayan</div>
-              <div class="pass-card-code" style="margin-top:15px">
+              <div class="pass-card-code" style="margin-top: 15px">
                 <img
                   src="{%static 'images/vivek.jpg'%}"
                   width="60px"
@@ -818,12 +819,12 @@
             </div>
             <div class="pass-card">
               <div class="pass-card-name">Serco</div>
-              <div class="pass-card-code" style="margin-top:15px">BPC</div>
+              <div class="pass-card-code" style="margin-top: 15px">BPC</div>
               <div class="dep-arr-label text-muted-ss">Joining</div>
               <div class="time text-muted-ss">8th May</div>
             </div>
           </section>
-          <div style="margin-top: 20px;"></div>
+          <div style="margin-top: 20px"></div>
           <section class="place">
             <div class="place-block">
               <div class="place-label">Status</div>
@@ -877,7 +878,7 @@
 
         <div class="pass-block">
           <header>
-            <div class="company-name" style="color: #e94e33">
+            <div class="company-name" >
               Offboarding Pass
             </div>
             <div class="gate">
@@ -887,7 +888,7 @@
           <section class="pass-cards">
             <div class="offboard">
               <div class="pass-card-name">Vivek Vijayan</div>
-              <div class="pass-card-code" style="margin-top:15px">
+              <div class="pass-card-code" style="margin-top: 15px">
                 <img
                   src="{%static 'images/vivek.jpg'%}"
                   width="60px"
@@ -900,12 +901,12 @@
             </div>
             <div class="offboard">
               <div class="pass-card-name">Serco</div>
-              <div class="pass-card-code" style="margin-top:15px">BW</div>
+              <div class="pass-card-code" style="margin-top: 15px">BW</div>
               <div class="dep-arr-label text-muted-ss">LWD</div>
               <div class="time text-muted-ss">8th May</div>
             </div>
           </section>
-          <div style="margin-top: 20px;"></div>
+          <div style="margin-top: 20px"></div>
           <section class="place">
             <div class="place-block">
               <div class="place-label">status</div>
@@ -1001,11 +1002,12 @@
         <style>
           /* ID Card style */
           .id-card {
+            scale: 1;
             position: relative;
             height: 400px;
             width: 300px;
             overflow: hidden;
-            background-color: #263950;
+            background-color: #2171C2;
             margin: 10px;
             border-radius: 20px;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -1034,20 +1036,22 @@
           }
 
           .id-card .img {
-            width: 100px;
-            height: 100px;
+            width: 130px;
+            height: 130px;
             border-radius: 100%;
             text-align: center;
             margin-top: 20px;
             z-index: 5;
-            opacity: 80%;
+            box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+            opacity: 90%;
+            border: 2px solid white;
           }
 
           .id-card .company-logo {
             width: 30%;
             height: auto;
             margin-top: 40px;
-            opacity: 40%;
+            opacity: 80%;
             filter: brightness(20);
           }
 
@@ -1071,7 +1075,7 @@
             padding: 10px 20px 10px 50px;
             left: 0px;
             width: 800px;
-            color: #2a405d;
+            color: #29a8eb;
             font-size: 25px;
             background-color: #1c293c;
             z-index: 2;
@@ -1186,13 +1190,13 @@
                   <h5
                     style="
                       margin-top: 20px;
-                      color: #d9dfe7;
+                      color: #ffffff;
                       font-weight: normal;
                     "
                   >
                     Vivek Vijayan
                   </h5>
-                  <small class="text-muted-ss">SAP BPC Lead </small>
+                  <small style="color: #9ac1e7">BPC Lead </small>
                   <br />
 
                   <br />
@@ -1235,7 +1239,10 @@
                         </a>
                       </div>
                       <div class="col-sm-2">
-                        <a href="#" class="text-muted-ss-button">
+                        <a
+                          href="request-to-deactivate/"
+                          class="text-muted-ss-button"
+                        >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="22"
