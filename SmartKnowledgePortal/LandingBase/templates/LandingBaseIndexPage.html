@@ -23,7 +23,7 @@
     <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
   </head>
-  <body onload="showTime()">
+  <body>
     <!-- Navigation area -->
     <nav
       class="navbar navbar-expand-lg navbar-danger static-header"
@@ -293,108 +293,292 @@
     </div>
 
     <style>
-      .clocks {
-        border-radius: 100%;
-        background: #2f4766;
-        font-family: "Montserrat";
-        border: 5px solid #3ca8f8;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-        width: 350px;
-        height: 350px;
-        box-shadow: #000000 0px 5px 15px;
-        margin: 100px;
+      .light-on {
+        color: #ffffff !important;
       }
 
-      .wrap {
-        overflow: hidden;
-
+      /* DATE */
+      .date-field {
+        margin: 5px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      .date-field div {
+        display: inline-block;
         position: relative;
-        width: 350px;
-        height: 350px;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
-          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-        border-radius: 100%;
       }
-
-      .minute,
-      .hour {
-        position: absolute;
-        height: 100px;
-        width: 6px;
-        margin: auto;
-        top: -27%;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background: rgb(248, 248, 248);
-        transform-origin: bottom center;
-        transform: rotate(0deg);
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-        z-index: 1;
-        border-radius: 100px;
-      }
-
-      .minute {
-        position: absolute;
-        height: 130px;
-        width: 4px;
-        top: -38%;
-        left: 0;
-        box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
-        transform: rotate(90deg);
-        border-radius: 100px;
-      }
-
-      .second {
-        position: absolute;
-        height: 90px;
-        width: 2px;
-        margin: auto;
-        top: -26%;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        border-radius: 4px;
-        background: #ff4b3e;
-        transform-origin: bottom center;
-        transform: rotate(180deg);
+      .date-field div p {
+        font-size: 34px;
+        position: relative;
         z-index: 1;
       }
-
-      .dot {
+      .date-field div p.placeholder {
+        color: #2f476600;
         position: absolute;
         top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 12px;
-        height: 12px;
-        border-radius: 100px;
-        background: rgb(255, 0, 0);
-        border: 2px solid #ff0000;
-        border-radius: 100px;
-        margin: auto;
         z-index: 1;
       }
+      .date-field div.day-of-week-mobile {
+        display: none;
+      }
+      .date-field div.day-of-week p {
+        font-size: 50px;
+      }
+      .date-field div p.type {
+        font-size: 10px;
+        font-weight: bold;
+        font-family: sans-serif;
+        text-transform: uppercase;
+      }
+      @media (max-width: 768px) {
+        .date-field {
+          justify-content: space-evenly;
+        }
+        .date-field div.day-of-week {
+          display: none;
+        }
+        .date-field div.day-of-week-mobile {
+          display: inline-block;
+        }
+        .date-field div.day-of-week-mobile p {
+          font-size: 56px;
+          margin-top: -2px;
+        }
+      }
+      @media (max-width: 550px) {
+        .date-field div.day-of-week-mobile p {
+          font-size: 50px;
+          margin-top: 0px;
+        }
+      }
+      @media (max-width: 468px) {
+        .date-field div.day-of-week-mobile p {
+          font-size: 42px;
+        }
+      }
+      @media (max-width: 400px) {
+        .date-field div.day-of-week-mobile p {
+          font-size: 20px;
+        }
+      }
 
-      .clock {
+      /* CLOCK */
+      .clock-field {
+        margin: 5px 0;
+        display: flex;
+        justify-content: center;
+      }
+      .clock-field div {
+        display: inline-block;
+        position: relative;
+      }
+      .clock-field div p {
+        font-size: 100px;
+        position: relative;
+        z-index: 3;
+      }
+      .clock-field .numbers .placeholder {
+        color: #172231;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
+        top: 0;
+        z-index: 1;
+      }
+      .clock-field .numbers .type {
+        font-size: 10px;
+        font-weight: bold;
+        font-family: sans-serif;
+        text-transform: uppercase;
+        margin-top: -10px;
+      }
+      .clock-field .am-pm {
+        font-family: sans-serif;
+        text-transform: uppercase;
+        width: 20px;
+      }
+      .clock-field .am-pm div p {
+        font-size: 12px;
+        font-weight: bold;
+        width: 100%;
+      }
+      .clock-field .am,
+      .clock-field .pm {
+        color: #2f4766;
+      }
+
+      body main.clock-display {
+        display: inline-block;
+        text-align: center;
+        padding: 15px 30px;
+        margin-left: 50px !important;
+        border-radius: 10px;
+        margin: 60px auto 0 auto;
+        background-color: #00000000;
         color: #33a9fe;
-        font-family: "Lucida Console", "Courier New", monospace;  
-        font-size: 70px;
-        letter-spacing: 2px;
+      }
+
+      @media (max-width: 768px) {
+        main.clock-display {
+          padding: 15px 30px;
+        }
+        .desktop-view {
+          display: none;
+        }
+      }
+
+      @media (max-width: 550px) {
+        .date-field div p {
+          font-size: 30px;
+        }
+        .clock-field div p {
+          font-size: 80px;
+        }
+      }
+
+      @media (max-width: 468px) {
+        .date-field div p {
+          font-size: 24px;
+        }
+        .clock-field div p {
+          font-size: 60px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .date-field div p {
+          font-size: 20px;
+        }
+        .days .day p,
+        .clock-field .am-pm div p {
+          font-size: 10px;
+        }
+        .clock-field div p {
+          font-size: 50px;
+        }
+      }
+
+      @media (max-width: 350px) {
+        .date-field div p {
+          font-size: 20px;
+        }
+        .clock-field div p {
+          font-size: 43px;
+        }
+      }
+
+      @media (max-width: 320px) {
+        .date-field div p {
+        }
+        .clock-field div p {
+          font-size: 40px;
+        }
       }
     </style>
 
     <!-- Timestamp Values -->
     <div class="container" style="margin-top: 60px">
       <div class="row">
-        <div class="col-sm-6">
-          <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+        <div
+          class="col-sm-6 digital"
+          style="font-family: digital, sans-serif !important"
+        >
+          <!-- <div id="MyClockDisplay" class="clock" onload="showTime()"></div> -->
+          <main class="clock-display" style="text-align: center">
+            <div class="date-field">
+              <div class="day-of-week">
+                <p class="day-alpha"></p>
+                <p class="placeholder">mmmmmmmmm</p>
+                <p class="placeholder">ooooooooo</p>
+                <p class="placeholder">nnnnnnnnn</p>
+                <p class="placeholder">ttttttttt</p>
+                <p class="placeholder">uuuuuuuuu</p>
+                <p class="placeholder">eeeeeeeee</p>
+                <p class="placeholder">sssssssss</p>
+                <p class="placeholder">wwwwwwwww</p>
+                <p class="placeholder">hhhhhhhhh</p>
+                <p class="placeholder">rrrrrrrrr</p>
+                <p class="placeholder">fffffffff</p>
+                <p class="placeholder">iiiiiiiii</p>
+                <p class="placeholder">ddddddddd</p>
+                <p class="placeholder">aaaaaaaaa</p>
+                <p class="placeholder">yyyyyyyyy</p>
+              </div>
+              <div class="day-of-week-mobile">
+                <p class="day-alpha-mobile"></p>
+                <p class="placeholder">mmm</p>
+                <p class="placeholder">ooo</p>
+                <p class="placeholder">nnn</p>
+                <p class="placeholder">ttt</p>
+                <p class="placeholder">uuu</p>
+                <p class="placeholder">eee</p>
+                <p class="placeholder">sss</p>
+                <p class="placeholder">www</p>
+                <p class="placeholder">hhh</p>
+                <p class="placeholder">rrr</p>
+                <p class="placeholder">fff</p>
+                <p class="placeholder">iii</p>
+              </div>
+              <div class="month">
+                <p class="month-alpha"></p>
+                <p class="placeholder">mmm</p>
+                <p class="placeholder">ooo</p>
+                <p class="placeholder">nnn</p>
+                <p class="placeholder">ttt</p>
+                <p class="placeholder">uuu</p>
+                <p class="placeholder">eee</p>
+                <p class="placeholder">sss</p>
+                <p class="placeholder">www</p>
+                <p class="placeholder">hhh</p>
+                <p class="placeholder">rrr</p>
+                <p class="placeholder">fff</p>
+                <p class="placeholder">iii</p>
+                <p class="placeholder">ddd</p>
+                <p class="placeholder">aaa</p>
+                <p class="placeholder">yyy</p>
+                <p class="type">month</p>
+              </div>
+              <div class="date">
+                <p class="date-number"></p>
+                <p class="placeholder">88</p>
+                <p class="type">day</p>
+              </div>
+              <div class="year">
+                <p class="year-number"></p>
+                <p class="placeholder">8888</p>
+                <p class="type">year</p>
+              </div>
+            </div>
+            <div class="clock-field">
+              <div class="numbers">
+                <p class="hours"></p>
+                <p class="placeholder">88</p>
+                <p class="type">hour</p>
+              </div>
+              <div class="colon">
+                <p>:</p>
+              </div>
+              <div class="numbers">
+                <p class="minutes"></p>
+                <p class="placeholder">88</p>
+                <p class="type">minute</p>
+              </div>
+              <div class="colon">
+                <p>:</p>
+              </div>
+              <div class="numbers">
+                <p class="seconds"></p>
+                <p class="placeholder">88</p>
+                <p class="type">second</p>
+              </div>
+              <div class="am-pm">
+                <div>
+                  <p class="am">am</p>
+                </div>
+                <div>
+                  <p class="pm">pm</p>
+                </div>
+              </div>
+            </div>
+          </main>
         </div>
         <div class="col-sm-6">
           <center>
@@ -585,33 +769,8 @@
     <script src="{% static 'js/sercoMap.js' %}"></script>
     <script>
       // Project time
-      var inc = 1000;
 
-      clock();
-
-      function clock() {
-        const date = new Date();
-
-        const hours = (uk_rightNow_hour % 12) + 1;
-        const minutes = uk_rightNow_min;
-        const seconds = date.getSeconds();
-
-        const hour = hours * 30;
-        const minute = minutes * 6;
-        const second = seconds * 6;
-
-        document.querySelector(".hour").style.transform = `rotate(${hour}deg)`;
-        document.querySelector(
-          ".minute"
-        ).style.transform = `rotate(${minute}deg)`;
-        document.querySelector(
-          ".second"
-        ).style.transform = `rotate(${second}deg)`;
-      }
-
-      setInterval(clock, inc);
-
-      function showTime() {
+      function showTime1() {
         var date = new Date();
         var uk_rightNow = new Date();
         uk_rightNow_hour = uk_rightNow.toLocaleString("en-GB", {
@@ -648,9 +807,6 @@
 
         setTimeout(showTime, 1000);
       }
-
-      showTime();
-
       // ---------------------->
 
       am5.ready(function () {
@@ -801,6 +957,157 @@
           }
         }
       }); // end am5.ready()
+
+      (() => {
+        const init = () => {
+          updateClock();
+          setInterval(() => {
+            updateClock();
+          }, 1000);
+        };
+
+        const updateClock = () => {
+          resetClock();
+          getCurrentTime();
+          displayCurrentTime();
+        };
+
+        const getCurrentTime = () => {
+          let fullDate = new Date();
+          var uk_rightNow = new Date();
+          var uk_rightNow_hour = uk_rightNow.toLocaleString("en-GB", {
+            hour: "2-digit",
+            hour12: false,
+            timeZone: "Europe/London",
+          });
+          var uk_rightNow_min = uk_rightNow.toLocaleString("en-GB", {
+            minute: "2-digit",
+            hour12: false,
+            timeZone: "Europe/London",
+          });
+          const datex = new Date();
+          var dateString = datex.toLocaleString("en-GB", {
+            timeZone: "Europe/London",
+          });
+          var dateString1 = dateString.toString();
+          var dateonly = dateString1.split(",").toString();
+          var splitDate = dateonly.split("/");
+          let month = fullDate.getMonth();
+          let date = splitDate[0];
+          let year = fullDate.getFullYear();
+          let day = fullDate.getDay();
+          let hours = uk_rightNow_hour;
+          let minutes = uk_rightNow_min;
+          let seconds = fullDate.getSeconds();
+          let period = hours >= 12 ? "pm" : "am";
+
+          window.clock = {};
+          window.clock.time = {
+            fullDate: fullDate,
+            month: month,
+            date: date,
+            year: year,
+            day: day,
+            hours: hours,
+            minutes: minutes,
+            seconds: seconds,
+            period: period,
+          };
+        };
+
+        const displayCurrentTime = () => {
+          let day = window.clock.time.day;
+          let month = window.clock.time.month;
+          let date = window.clock.time.date;
+          let year = window.clock.time.year;
+          let hours = window.clock.time.hours;
+          let minutes = window.clock.time.minutes;
+          let seconds = window.clock.time.seconds;
+          let period = window.clock.time.period;
+
+          //formats hours
+          hours = hours > 12 ? hours - 12 : hours;
+          hours = hours === 0 ? 12 : hours;
+          hours = hours <= 9 ? "0" + hours : hours;
+          //formats minutes
+          minutes = minutes <= 9 ? "0" + minutes : minutes;
+          //formats seconds
+          seconds = seconds <= 9 ? "0" + seconds : seconds;
+          //formats day
+          let days = [
+            "sunday",
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+          ];
+          let dayText = ``;
+          if (days[day].length === 6)
+            dayText = `<span style="color: #2b2828;">--</span>${days[day]}`;
+          if (days[day].length === 7)
+            dayText = `<span style="color: #2b2828;">--</span>${days[day]}`;
+          if (days[day].length === 8)
+            dayText = `<span style="color: #2b2828;">-</span>${days[day]}`;
+          if (days[day].length === 9)
+            dayText = `<span style="color: #2b2828;"></span>${days[day]}`;
+          //formats mobile day
+          let mobileDays = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+          //formats month
+          let months = [
+            "jan",
+            "feb",
+            "mar",
+            "apr",
+            "may",
+            "jun",
+            "jul",
+            "aug",
+            "sep",
+            "oct",
+            "nov",
+            "dec",
+          ];
+          //formats date
+          date = date <= 9 ? "0" + date : date;
+
+          // targets the html
+          const dayHtml = document.getElementsByClassName("day-alpha")[0];
+          const mobileDayHtml =
+            document.getElementsByClassName("day-alpha-mobile")[0];
+          const monthHtml = document.getElementsByClassName("month-alpha")[0];
+          const dateHtml = document.getElementsByClassName("date-number")[0];
+          const yearHtml = document.getElementsByClassName("year-number")[0];
+          const hoursHtml = document.getElementsByClassName("hours")[0];
+          const minutesHtml = document.getElementsByClassName("minutes")[0];
+          const secondsHtml = document.getElementsByClassName("seconds")[0];
+          const periodHtml = document.getElementsByClassName(period)[0];
+
+          // changes the html values
+          dayHtml.innerHTML = dayText;
+          mobileDayHtml.innerHTML = mobileDays[day];
+          monthHtml.innerHTML = months[month];
+          dateHtml.innerHTML = date;
+          yearHtml.innerHTML = year;
+          hoursHtml.innerHTML = hours;
+          minutesHtml.innerHTML = minutes;
+          secondsHtml.innerHTML = seconds;
+          periodHtml.classList.add("light-on");
+        };
+
+        const resetClock = () => {
+          const lights = document.querySelectorAll(".light-on");
+
+          if (lights) {
+            lights.forEach((item) => {
+              item.classList.remove("light-on");
+            });
+          }
+        };
+
+        return init();
+      })();
     </script>
   </body>
 </html>
