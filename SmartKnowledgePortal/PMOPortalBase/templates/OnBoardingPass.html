@@ -1,0 +1,2699 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Knowledge Portal</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+    <script src="{% static 'jquery-min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+  </head>
+  <body>
+    <!-- Navigation area -->
+    <nav
+      class="navbar navbar-expand-lg navbar-danger static-header"
+      style="
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: #172231;
+        z-index: 10;
+        height: 60px;
+      "
+    >
+      <span
+        class="navbar-brand"
+        href="#"
+        style="
+          color: #33a9fe;
+          font-weight: 200;
+          font-family: SercoLogoTitle;
+          margin-right: 50px;
+        "
+        ><span style="color: #ed3833">Serco</span> Smart Portal!
+        <sub style="font-size: 10px">2022</sub></span
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="font-family: SercoLogoTitle">
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-house-door-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"
+                />
+              </svg>
+              Home</a
+            >
+          </li>
+          <li class="nav-item header-link-padding power-active-link">
+            <a
+              class="nav-link nav-link-select power-active-link-inner"
+              href="/serco-pmo"
+              onclick="() => {
+                document.getElementById('blurry').classList.add('onceblur');
+                }"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-diagram-3-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-6 8A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm6 0A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1z"
+                />
+              </svg>
+              PMO Portal <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-grid-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"
+                />
+              </svg>
+              Lead Portal</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="/blog">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chat-text-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"
+                />
+              </svg>
+              Blog</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-lightbulb"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"
+                />
+              </svg>
+              Knowledge</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-left-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
+                />
+              </svg>
+              Boarding</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-gear-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+                />
+              </svg>
+              Settings</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                />
+              </svg>
+              Profile</a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/login/ssp-login">
+          <a href="/login/ssp-login">
+            <button class="btn btn-sm btn-success my-2 my-sm-0" type="submit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                />
+              </svg>
+              Login
+            </button>
+          </a>
+        </form>
+      </div>
+    </nav>
+
+    <div id="blurry">
+      <!-- Intro image -->
+      <div class="fade-intro" style="margin-top: 130px">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <nav
+                style="
+                  --bs-breadcrumb-divider: url(
+                    &#34;data:image/svg + xml,
+                    %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%23929aa1'/%3E%3C/svg%3E&#34;
+                  );
+                "
+                aria-label="breadcrumb"
+              >
+                <ol
+                  class="breadcrumb"
+                  style="background-color: #17223100 !important"
+                >
+                  <li class="breadcrumb-item">
+                    <a href="/serco-pmo" style="color: #33a9fe">PMO Portal</a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="/serco-pmo/boardingstatus" style="color: #33a9fe"
+                      >Boarding control</a
+                    >
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    OnBoarding pass
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <!-- -->
+          <style>
+            .ticket {
+              display: inline-block;
+              width: 350px;
+              margin: 20px;
+              background-color: #273138;
+              border-radius: 10px;
+              color: #fff;
+              font-family: Helvetica Neue;
+              font-weight: 300;
+              letter-spacing: 1px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+            .ticket header {
+              position: relative;
+              height: 35px;
+              background-color: #1b252e;
+              padding: 10px;
+              border-radius: 10px;
+            }
+            .ticket header .company-name {
+              line-height: 35px;
+              text-align: left;
+            }
+            .ticket header .gate {
+              position: absolute;
+              right: 15px;
+              top: 10px;
+              font-weight: 400;
+              line-height: 18px;
+              text-align: center;
+              font-size: 12px;
+            }
+            .ticket header:after {
+              content: "";
+              width: 16px;
+              height: 16px;
+              background-color: #fff;
+              position: absolute;
+              bottom: -8px;
+              right: -8px;
+              border-radius: 50%;
+              box-shadow: inset 12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+            }
+            .ticket header:before {
+              content: "";
+              width: 16px;
+              height: 16px;
+              background-color: #fff;
+              position: absolute;
+              bottom: -8px;
+              left: -8px;
+              border-radius: 50%;
+              box-shadow: inset -12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+            }
+            .ticket .airports {
+              padding: 5px 10px 10px 10px;
+              height: 100px;
+              text-align: center;
+              position: relative;
+              border-bottom: 2px dashed #000;
+            }
+            .ticket .airports .airport {
+              position: relative;
+              margin: 10px;
+              text-align: center;
+              display: inline-block;
+            }
+            .ticket .airports .airport .airport-name {
+              color: #29a8eb;
+              font-size: 12px;
+              font-weight: 400;
+            }
+            .ticket .airports .airport .airport-code {
+              font-size: 32px;
+              font-weight: 400;
+              margin: 5px 0;
+            }
+            .ticket .airports .airport .dep-arr-label {
+              color: #9299a0;
+              font-size: 12px;
+              font-weight: 500;
+            }
+            .ticket .airports .airport .time {
+              font-size: 10px;
+              color: #9299a0;
+            }
+            .ticket .airports .airport:first-child {
+              margin-right: 40%;
+            }
+            .ticket .airports .airport:first-child:after {
+              font-family: FontAwesome;
+              color: #353e48;
+              content: "";
+              position: absolute;
+              font-size: 55px;
+              top: calc(50% - 25px);
+              right: -150%;
+            }
+            .ticket .airports:after {
+              content: "";
+              width: 16px;
+              height: 16px;
+              background-color: #fff;
+              position: absolute;
+              bottom: -8px;
+              right: -8px;
+              border-radius: 50%;
+              box-shadow: inset 12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+            }
+            .ticket .airports:before {
+              content: "";
+              width: 16px;
+              height: 16px;
+              background-color: #fff;
+              position: absolute;
+              bottom: -8px;
+              left: -8px;
+              border-radius: 50%;
+              box-shadow: inset -12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+            }
+            .ticket .place {
+              padding: 10px;
+              text-align: center;
+              height: 130px;
+            }
+            .ticket .place-block {
+              display: inline-block;
+              margin: 10px 30px;
+            }
+            .ticket .place-block .place-label {
+              color: #29a8eb;
+              text-transform: uppercase;
+              font-weight: 400;
+              font-size: 14px;
+              margin-bottom: 10px;
+            }
+            .ticket .place-block .place-value {
+              color: #9299a0;
+              font-size: 12px;
+              font-weight: 500;
+            }
+            .ticket .qr {
+              width: 220px;
+              height: 220px;
+              margin: 20px auto;
+              border-radius: 10px;
+              overflow: hidden;
+            }
+            .ticket .qr img {
+              width: 100%;
+              height: 100%;
+            }
+
+            .ticket.inverse {
+              background-color: #f8f8f8;
+            }
+            .ticket.inverse header {
+              background-color: #29a8eb;
+            }
+            .ticket.inverse .airports {
+              border-bottom-color: #d3d6da;
+            }
+            .ticket.inverse .airport:first-child:after {
+              color: #d3d6da;
+            }
+            .ticket.inverse .airport .airport-code {
+              color: #707884;
+              font-weight: 500;
+            }
+          </style>
+
+          <!--  -->
+
+          <div class="row">
+            <div class="col-sm-12">
+              <h2 class="display-6" style="color: #ffffff; font-weight: normal">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="46"
+                  height="46"
+                  fill="currentColor"
+                  class="bi bi-ticket-perforated"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M4 4.85v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Z"
+                  />
+                  <path
+                    d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13ZM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9V4.5Z"
+                  />
+                </svg>
+                Onboarding Pass
+              </h2>
+
+              <small class="text-muted-ss">
+                Enter the new joinee information in the below fields. You can
+                also upload in a excel format also</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Basic info collector -->
+      <div class="container" style="margin-top: 30px">
+        <img
+          src="{%  static 'images/vivek.jpg' %}"
+          alt=""
+          style="
+            position: relative;
+            width: 170px;
+            height: 170px;
+            top: 70px;
+            z-index: 2;
+            text-align: center;
+            left: 42%;
+            border-radius: 50%;
+            border: #263950 solid 5px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          "
+        />
+        <div class="row">
+          <div class="col-sm-3"></div>
+        </div>
+        <div
+          class="card mb-3"
+          style="
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            background-color: #203147 !important;
+            padding-bottom: 100px;
+          "
+        >
+          <!-- Username -->
+          <div style="margin-top: 100px">
+            <center>
+              <h3 class="display-6">
+                Vivek Vijayan
+                <img
+                  src="{% static 'images/verified.png' %}"
+                  width="30px"
+                  alt=""
+                  srcset=""
+                />
+              </h3>
+              <small class="text-muted" style="color: #29a8eb">BPC Lead</small>
+            </center>
+          </div>
+
+          <div
+            class="card-body text-dark"
+            style="margin-left: 40px; margin-right: 40px; margin-top: 10px"
+          >
+            <h5 class="card-title" style="color: #29a8eb">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-box-arrow-in-down-left"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9.636 2.5a.5.5 0 0 0-.5-.5H2.5A1.5 1.5 0 0 0 1 3.5v10A1.5 1.5 0 0 0 2.5 15h10a1.5 1.5 0 0 0 1.5-1.5V6.864a.5.5 0 0 0-1 0V13.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z"
+                />
+              </svg>
+              General Details
+            </h5>
+            <p class="card-text text-muted-ss">
+              <small>
+                You will be notified the status of your boarding. if you have
+                any issue with the below status, reach out to PMO team query box
+              </small>
+            </p>
+          </div>
+
+          <div class="container" style="margin: 10px 10px 10px 50px">
+            <div class="row">
+              <div class="col-sm-6">
+                <form
+                  action="/login/login-validator"
+                  method="post"
+                  style="margin-top: 10px"
+                >
+                  {% csrf_token %}
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text input-group-text-dark"
+                        id="inputGroup-sizing-sm"
+                        style="padding-right: 10px"
+                        >Firstname
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Small"
+                      required
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
+
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text input-group-text-dark"
+                        id="inputGroup-sizing-sm"
+                        style="padding-right: 10px"
+                        >Lastname</span
+                      >
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Small"
+                      required
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <span
+                            class="input-group-text input-group-text-dark"
+                            style="padding-right: 10px"
+                            id="inputGroup-sizing-sm"
+                            >CG corp ID</span
+                          >
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          aria-label="Small"
+                          required
+                          aria-describedby="inputGroup-sizing-sm"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <span
+                            class="input-group-text input-group-text-dark"
+                            id="inputGroup-sizing-sm"
+                            style="padding-right: 10px"
+                            >Emp ID</span
+                          >
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          aria-label="Small"
+                          required
+                          aria-describedby="inputGroup-sizing-sm"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div
+                class="col-sm-4"
+                style="
+                  background-color: #1c293c;
+                  margin-left: 50px;
+                  margin-right: 50px;
+                  border-radius: 10px;
+                "
+              >
+                <div class="row">
+                  <div class="col-sm-5">
+                    <span
+                      style="
+                        font-size: 100px;
+                        text-align: center;
+                        padding-left: 35px;
+                        font-weight: bold;
+                        color: #66e092;
+                      "
+                      ><svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="80"
+                        height="80"
+                        fill="currentColor"
+                        class="bi bi-box-arrow-in-up-right"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M6.364 13.5a.5.5 0 0 0 .5.5H13.5a1.5 1.5 0 0 0 1.5-1.5v-10A1.5 1.5 0 0 0 13.5 1h-10A1.5 1.5 0 0 0 2 2.5v6.636a.5.5 0 1 0 1 0V2.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H6.864a.5.5 0 0 0-.5.5z"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          d="M11 5.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793l-8.147 8.146a.5.5 0 0 0 .708.708L10 6.707V10.5a.5.5 0 0 0 1 0v-5z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="col-sm-6"
+                    style="text-align: center; padding-top: 30px"
+                  >
+                    <h1 class="display-4" style="color: #85a6d1">BPC</h1>
+                    <p
+                      class="text-muted-ss"
+                      style="color: #66e092 !important; font-size: 15px"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="bi bi-geo-alt-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                        />
+                      </svg>
+                      Mumbai
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Basic onboarding information -->
+          <div
+            class="card-body text-dark"
+            style="margin-left: 40px; margin-right: 40px; margin-top: 10px"
+          >
+            <h5 class="card-title" style="color: #29a8eb">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-box-arrow-in-down-left"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9.636 2.5a.5.5 0 0 0-.5-.5H2.5A1.5 1.5 0 0 0 1 3.5v10A1.5 1.5 0 0 0 2.5 15h10a1.5 1.5 0 0 0 1.5-1.5V6.864a.5.5 0 0 0-1 0V13.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M5 10.5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1H6.707l8.147-8.146a.5.5 0 0 0-.708-.708L6 9.293V5.5a.5.5 0 0 0-1 0v5z"
+                />
+              </svg>
+              Boarding Status
+            </h5>
+            <p class="card-text text-muted-ss">
+              <small>
+                You will be notified the status of your boarding. if you have
+                any issue with the below status, reach out to PMO team query box
+              </small>
+            </p>
+          </div>
+          <!-- NAVBAR style -->
+          <style>
+            .nav-item .active {
+              background-color: #203147 !important;
+              color: white !important;
+              border: #29a8eb 1px solid !important;
+              font-size: 13px;
+            }
+            .nav-item .nav-link-pass {
+              background-color: #18273a !important;
+              color: #6686ac;
+              padding: 10px;
+              text-decoration: none;
+              font-size: 13px;
+              border-radius: 5px;
+              margin: 10px;
+            }
+          </style>
+          <div class="container" style="margin: 10px">
+            <div class="row">
+              <div class="col-sm-8">
+                <ul
+                  class="nav nav-tabs"
+                  id="myTab"
+                  role="tablist"
+                  style="margin-left: 50px; border: none"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link-pass active"
+                      id="boarding-timeline-tab"
+                      data-toggle="tab"
+                      href="#boarding-timeline"
+                      role="tab"
+                      aria-controls="boarding-timeline"
+                      aria-selected="true"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-hourglass-split"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z"
+                        />
+                      </svg>
+                      Timeline</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link-pass"
+                      id="ticket-relation-tab"
+                      data-toggle="tab"
+                      href="#ticket-relation"
+                      role="tab"
+                      aria-controls="ticket-relation"
+                      aria-selected="false"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-link-45deg"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
+                        />
+                        <path
+                          d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
+                        />
+                      </svg>
+                      Ticket relation</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="nav-link-pass"
+                      id="worknotes-tab"
+                      data-toggle="tab"
+                      href="#worknotes"
+                      role="tab"
+                      aria-controls="worknotes"
+                      aria-selected="false"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-journal-plus"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"
+                        />
+                        <path
+                          d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"
+                        />
+                        <path
+                          d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"
+                        />
+                      </svg>
+                      Work notes</a
+                    >
+                  </li>
+                </ul>
+                <div
+                  class="tab-content"
+                  id="myTabContent"
+                  style="margin-left: 50px"
+                >
+                  <!-- Timeline -->
+                  <div
+                    class="tab-pane fade show active"
+                    id="boarding-timeline"
+                    role="tabpanel"
+                    aria-labelledby="boarding-timeline-tab"
+                  >
+                    <div style="margin-top: 70px">
+                      <ul class="timeline">
+                        <!-- Item 2 -->
+                        <li>
+                          <div class="direction-l">
+                            <div class="flag-wrapper">
+                              <span class="flag completed-flag"
+                                >Onboard Initated
+
+                                <img
+                                  src="{% static 'images/success.webp' %}"
+                                  width="20px"
+                                  style="margin-left: 10px"
+                                  alt=""
+                                  srcset=""
+                                />
+                              </span>
+                            </div>
+                            <div class="desc">
+                              Onboarding process initialisation after entering
+                              the user personal and professional information
+                            </div>
+                          </div>
+                        </li>
+                        <!-- Item 1 -->
+                        <li>
+                          <div class="direction-r">
+                            <div class="flag-wrapper">
+                              <span
+                                class="flag progress-bar progress-bar-striped progress-bar-animated bg-success"
+                                >Smart Portal access</span
+                              >
+                              <span class="time-wrapper"
+                                ><span class="times">
+                                  <div class="row">
+                                    <div class="col-sm-3">
+                                      <div class="green-loading-dot"></div>
+                                    </div>
+                                    <div
+                                      class="col-sm-9"
+                                      style="padding-top: 5px; text-align: left"
+                                    >
+                                      Ongoing
+                                    </div>
+                                  </div>
+                                </span></span
+                              >
+                            </div>
+                            <div class="desc">
+                              System will automatically provides the access to
+                              the SmartPortal based on the PMO request, use this
+                              link to view your access profile
+                              <a href="#">View</a>
+                            </div>
+                          </div>
+                        </li>
+
+                        <!-- Item 2 -->
+                        <li>
+                          <div class="direction-l">
+                            <div class="flag-wrapper">
+                              <span class="flag noflag">BGV Procedure</span>
+                              <span class="time-wrapper"
+                                ><span class="times">Not started</span></span
+                              >
+                            </div>
+                            <div class="desc">
+                              Background verification process will be handled
+                              after submitting the BGV document. you will be
+                              verified after passing this phase
+                            </div>
+                          </div>
+                        </li>
+
+                        <!-- Item 1 -->
+                        <li>
+                          <div class="direction-r">
+                            <div class="flag-wrapper">
+                              <span class="flag noflag">Mgmt. approval</span>
+                              <span class="time-wrapper"
+                                ><span class="times">
+                                  <span class="times">Not started</span>
+                                </span></span
+                              >
+                            </div>
+                            <div class="desc">
+                              Process of recieving the approval from the CG and
+                              Serco management
+                            </div>
+                          </div>
+                        </li>
+
+                        <!-- Item 2 -->
+                        <li>
+                          <div class="direction-l">
+                            <div class="flag-wrapper">
+                              <span class="flag noflag"
+                                >Project credentails</span
+                              >
+                              <span class="time-wrapper"
+                                ><span class="times">Not started</span></span
+                              >
+                            </div>
+                            <div class="desc">
+                              User will get the access to the system based upon
+                              the tickets, check the tickets related to getting
+                              access
+                              <a
+                                class="nav-link-pass "
+                                id="ticket-relation-tab"
+                                data-toggle="tab"
+                                href="#ticket-relation"
+                                role="tab"
+                                aria-controls="ticket-relation"
+                                aria-selected="false"
+                                >here</a
+                              >
+                            </div>
+                          </div>
+                        </li>
+                        <!-- Item 1 -->
+                        <li>
+                          <div class="direction-r">
+                            <div class="flag-wrapper">
+                              <span class="flag noflag">ServiceNow access</span>
+                              <span class="time-wrapper"
+                                ><span class="times">
+                                  <span class="times">Not started</span>
+                                </span></span
+                              >
+                            </div>
+                            <div class="desc">
+                              My current employment. Way better than the
+                              position before!
+                            </div>
+                          </div>
+                        </li>
+
+                        <!-- Item 2 -->
+                        <li>
+                          <div class="direction-l">
+                            <div class="flag-wrapper">
+                              <span class="flag noflag">Citrix/AVD access</span>
+                              <span class="time-wrapper"
+                                ><span class="times">Not started</span></span
+                              >
+                            </div>
+                            <div class="desc">
+                              My first employer. All the stuff I've learned and
+                              projects I've been working on.
+                            </div>
+                          </div>
+                        </li>
+
+                        <!-- Item 3 -->
+                        <li>
+                          <div class="direction-r">
+                            <div class="flag-wrapper">
+                              <span class="flag noflag">Email DL setup</span>
+                              <span class="time-wrapper"
+                                ><span class="times">Not started</span></span
+                              >
+                            </div>
+                            <div class="desc">
+                              A description of all the lectures and courses I
+                              have taken and my final degree?
+                            </div>
+                          </div>
+                        </li>
+
+                        <!-- Item 2 -->
+                        <li>
+                          <div class="direction-l">
+                            <div class="flag-wrapper">
+                              <span class="flag noflag">Citrix/AVD access</span>
+                              <span class="time-wrapper"
+                                ><span class="times">Not started</span></span
+                              >
+                            </div>
+                            <div class="desc">
+                              My first employer. All the stuff I've learned and
+                              projects I've been working on.
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                      <center>
+                        <img
+                          src="{% static 'images/green-tick.png' %}"
+                          width="60px"
+                          alt=""
+                          class="grayscale"
+                          srcset=""
+                        />
+                      </center>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="ticket-relation"
+                    role="tabpanel"
+                    aria-labelledby="profile-tab"
+                  >
+                    <img
+                      src="{% static 'images/servicenow.png'%}"
+                      width="100px"
+                      style="padding-bottom: 7px; margin-top: 50px"
+                      alt=""
+                      srcset=""
+                    />
+                    <!-- Ticket relation tab-->
+                    <div
+                      class="accordion"
+                      id="accordionExample"
+                      style="margin-top: 10px"
+                    >
+                      <div
+                        class="card tickets-collection-card"
+                        style="border: 2px solid #1a2b41; outline: none"
+                      >
+                        <div
+                          class="card-header"
+                          id="headingOne"
+                          style="
+                            background-color: #1c293c !important;
+                            border: 1px solid #19283c !important;
+                            border-radius: 0px !important;
+                            outline: none;
+                          "
+                        >
+                          <h5 class="mb-0">
+                            <button
+                              class="btn"
+                              type="button"
+                              style="color: #ffffff; border: none"
+                              data-toggle="collapse"
+                              data-target="#collapseOne"
+                              aria-expanded="true"
+                              aria-controls="collapseOne"
+                            >
+                              <span class="text-muted-ss">#</span>
+                              <span style="font-size: 20px">RITM0084742</span>
+
+                              <small
+                                style="
+                                  position: absolute;
+                                  right: 40px;
+                                  top: 20px;
+                                  color: white;
+                                "
+                                >Citrix login access</small
+                              >
+                            </button>
+                          </h5>
+                        </div>
+
+                        <div
+                          id="collapseOne"
+                          class="collapse"
+                          style="background-color: #121e2a !important"
+                          aria-labelledby="headingOne"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body text-muted">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div
+                                  class="col-sm-6"
+                                  style="padding-bottom: 20px"
+                                >
+                                  <small>Description: &nbsp; </small>
+                                  <small class="text-muted-ss">
+                                    User needs to have a Citrix icon access in
+                                    the portal. access part required - BPC and
+                                    BW icons
+                                  </small>
+                                </div>
+                                <div
+                                  class="col-sm-6"
+                                  style="
+                                    color: #66e092 !important;
+                                    background-color: #203147;
+                                    padding: 10px;
+                                    border-radius: 5px;
+                                    text-align: center;
+                                    height: 40px !important;
+                                  "
+                                >
+                                  <small class="text-muted-ss">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      fill="currentColor"
+                                      class="bi bi-cpu-fill"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"
+                                      />
+                                      <path
+                                        d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z"
+                                      />
+                                    </svg>
+                                  </small>
+                                  <small style="font-size: 15px">
+                                    &nbsp;Citrix/AVD access</small
+                                  >
+                                  <br />
+                                </div>
+                                <div class="col-sm-4">
+                                  <small class="text-muted-ss">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      fill="currentColor"
+                                      class="bi bi-calendar-event"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"
+                                      />
+                                      <path
+                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
+                                      />
+                                    </svg>
+                                  </small>
+                                  <small style="color: #f9c762">
+                                    &nbsp;2/3/2022
+                                  </small>
+                                </div>
+                              </div>
+                            </div>
+
+                            <br />
+                            <div
+                              style="
+                                margin: 10px;
+                                padding-top: 20px;
+                                display: flex;
+                                flex-direction: row;
+                              "
+                            >
+                              <button
+                                class="btn btn-sm btn-outline-danger"
+                                style="
+                                  border: 1px solid #ea5034 !important;
+                                  margin: 5px;
+                                  font-size: 12px;
+                                  padding: 5px !important;
+                                "
+                                id="copy_clipboard_button"
+                                value="http://data"
+                                onclick="copy_to_clipboard()"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="16"
+                                  fill="currentColor"
+                                  class="bi bi-trash3-fill"
+                                  viewBox="0 0 16 16"
+                                >
+                                  <path
+                                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                                  />
+                                </svg>
+                                Delete relation
+                              </button>
+                              <a href="http://vivek" target="_blank">
+                                <button
+                                  class="btn btn-sm btn-outline-success"
+                                  style="
+                                    border: 1px solid green !important;
+                                    margin: 5px;
+                                    font-size: 12px;
+                                    padding: 5px !important;
+                                  "
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="currentColor"
+                                    class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path
+                                      d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
+                                    />
+                                    <path
+                                      d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
+                                    />
+                                  </svg>
+                                  Open link
+                                </button>
+                              </a>
+                              <button
+                                class="btn btn-sm btn-outline-info"
+                                style="
+                                  border: 1px solid #2196f3 !important;
+                                  margin: 5px;
+                                  font-size: 12px;
+                                  padding: 5px !important;
+                                "
+                                id="copy_clipboard_button"
+                                value="http://data"
+                                onclick="copy_to_clipboard()"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="16"
+                                  fill="currentColor"
+                                  class="bi bi-clipboard-fill"
+                                  viewBox="0 0 16 16"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"
+                                  />
+                                </svg>
+                                Copy link
+                              </button>
+
+                              <span
+                                id="success-copy"
+                                style="
+                                  display: none;
+                                  font-size: 12px;
+                                  margin: 10px;
+                                "
+                              >
+                                <img
+                                  src="{% static 'images/success.webp' %}"
+                                  width="20px"
+                                  alt=""
+                                  srcset=""
+                                />
+                                Copied!
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Dummy 2-->
+                      <div
+                        class="card tickets-collection-card"
+                        style="border: 2px solid #1a2b41; outline: none"
+                      >
+                        <div
+                          class="card-header"
+                          id="headingTwo"
+                          style="
+                            background-color: #1c293c !important;
+                            border: 1px solid #19283c !important;
+                            border-radius: 0px !important;
+                            outline: none;
+                          "
+                        >
+                          <h5 class="mb-0">
+                            <button
+                              class="btn"
+                              type="button"
+                              style="color: #ffffff; border: none"
+                              data-toggle="collapse"
+                              data-target="#collapseTwo"
+                              aria-expanded="true"
+                              aria-controls="collapseTwo"
+                            >
+                              <span class="text-muted-ss">#</span>
+                              <span style="font-size: 20px">RITM0084742</span>
+
+                              <small
+                                style="
+                                  position: absolute;
+                                  right: 40px;
+                                  top: 20px;
+                                  color: white;
+                                "
+                                >Citrix login access</small
+                              >
+                            </button>
+                          </h5>
+                        </div>
+
+                        <div
+                          id="collapseTwo"
+                          class="collapse"
+                          style="background-color: #121e2a !important"
+                          aria-labelledby="headingTwo"
+                          data-parent="#accordionExample"
+                        >
+                          <div class="card-body text-muted">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div
+                                  class="col-sm-12"
+                                  style="padding-bottom: 20px"
+                                >
+                                  <small>Description: &nbsp; </small>
+                                  <small class="text-muted-ss">
+                                    User needs to have a Citrix icon access in
+                                    the portal. access part required - BPC and
+                                    BW icons
+                                  </small>
+                                </div>
+                                <div
+                                  class="col-sm-4"
+                                  style="
+                                    color: #66e092 !important;
+                                    background-color: #203147;
+                                    padding: 10px;
+                                    border-radius: 20px;
+                                    text-align: center;
+                                  "
+                                >
+                                  <small class="text-muted-ss">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      fill="currentColor"
+                                      class="bi bi-cpu-fill"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"
+                                      />
+                                      <path
+                                        d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z"
+                                      />
+                                    </svg>
+                                  </small>
+                                  <small> &nbsp;Citrix/AVD access</small>
+                                </div>
+                                <div
+                                  class="col-sm-3"
+                                  style="
+                                    color: #f9c762 !important;
+                                    padding: 10px;
+                                    text-align: center;
+                                  "
+                                >
+                                  <small class="text-muted-ss">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      fill="currentColor"
+                                      class="bi bi-calendar-event"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"
+                                      />
+                                      <path
+                                        d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
+                                      />
+                                    </svg>
+                                  </small>
+                                  <small> &nbsp;2/3/2022 </small>
+                                </div>
+                              </div>
+                            </div>
+
+                            <br />
+                            <div
+                              style="
+                                margin: 10px;
+                                padding-top: 20px;
+                                display: flex;
+                                flex-direction: row;
+                              "
+                            >
+                              <button
+                                class="btn btn-sm btn-outline-danger"
+                                style="
+                                  border: 1px solid #ea5034 !important;
+                                  margin: 5px;
+                                  font-size: 12px;
+                                  padding: 5px !important;
+                                "
+                                id="copy_clipboard_button"
+                                value="http://data"
+                                onclick="copy_to_clipboard()"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="16"
+                                  fill="currentColor"
+                                  class="bi bi-trash3-fill"
+                                  viewBox="0 0 16 16"
+                                >
+                                  <path
+                                    d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                                  />
+                                </svg>
+                                Delete link
+                              </button>
+                              <a href="http://vivek" target="_blank">
+                                <button
+                                  class="btn btn-sm btn-outline-success"
+                                  style="
+                                    border: 1px solid green !important;
+                                    margin: 5px;
+                                    font-size: 12px;
+                                    padding: 5px !important;
+                                  "
+                                >
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="16"
+                                    height="16"
+                                    fill="currentColor"
+                                    class="bi bi-link-45deg"
+                                    viewBox="0 0 16 16"
+                                  >
+                                    <path
+                                      d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
+                                    />
+                                    <path
+                                      d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
+                                    />
+                                  </svg>
+                                  Open link
+                                </button>
+                              </a>
+                              <button
+                                class="btn btn-sm btn-outline-info"
+                                style="
+                                  border: 1px solid #2196f3 !important;
+                                  margin: 5px;
+                                  font-size: 12px;
+                                  padding: 5px !important;
+                                "
+                                id="copy_clipboard_button"
+                                value="http://data"
+                                onclick="copy_to_clipboard()"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="16"
+                                  height="16"
+                                  fill="currentColor"
+                                  class="bi bi-clipboard-fill"
+                                  viewBox="0 0 16 16"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    d="M10 1.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-1Zm-5 0A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5v1A1.5 1.5 0 0 1 9.5 4h-3A1.5 1.5 0 0 1 5 2.5v-1Zm-2 0h1v1A2.5 2.5 0 0 0 6.5 5h3A2.5 2.5 0 0 0 12 2.5v-1h1a2 2 0 0 1 2 2V14a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3.5a2 2 0 0 1 2-2Z"
+                                  />
+                                </svg>
+                                Copy link
+                              </button>
+
+                              <span
+                                id="success-copy"
+                                style="
+                                  display: none;
+                                  font-size: 12px;
+                                  margin: 10px;
+                                "
+                              >
+                                <img
+                                  src="{% static 'images/success.webp' %}"
+                                  width="20px"
+                                  alt=""
+                                  srcset=""
+                                />
+                                Copied!
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Work notes -->
+                  <div
+                    class="tab-pane fade"
+                    id="worknotes"
+                    role="tabpanel"
+                    aria-labelledby="worknotes-tab"
+                    style="margin-top: 40px"
+                  >
+                    <div class="worknotes">
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        alt=""
+                        class="userimg"
+                      />
+                      <div class="username">Vivek Vijayan</div>
+                      <div class="date">23 November 2022</div>
+                      <hr style="margin-top: 50px" />
+                      <div class="notes">
+                        We work hard to earn trust and respect. We deliver on
+                        our promises; are open, straightforward and honest; do
+                        the right thing; and take personal responsibility for
+                        getting things done.
+                      </div>
+
+                      <div class="tags">
+                        <div class="tag">Citrix apps</div>
+                        <div class="tag">Management Approval</div>
+                      </div>
+                    </div>
+
+                    <div class="worknotes">
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        alt=""
+                        class="userimg"
+                      />
+                      <div class="username">Vivek Vijayan</div>
+                      <div class="date">23 November 2022</div>
+                      <hr style="margin-top: 50px" />
+                      <div class="notes">
+                        We work hard to earn trust and respect. We deliver on
+                        our promises; are open, straightforward and honest; do
+                        the right thing; and take personal responsibility for
+                        getting things done.
+                      </div>
+
+                      <div class="tags">
+                        <div class="tag">Citrix apps</div>
+                        <div class="tag">Management Approval</div>
+                      </div>
+                    </div>
+
+                    <div class="worknotes">
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        alt=""
+                        class="userimg"
+                      />
+                      <div class="username">Vivek Vijayan</div>
+                      <div class="date">23 November 2022</div>
+                      <hr style="margin-top: 50px" />
+                      <div class="notes">
+                        We work hard to earn trust and respect. We deliver on
+                        our promises; are open, straightforward and honest; do
+                        the right thing; and take personal responsibility for
+                        getting things done.
+                      </div>
+
+                      <div class="tags">
+                        <div class="tag">Citrix apps</div>
+                        <div class="tag">Management Approval</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <script>
+                  imgInp.onchange = (evt) => {
+                    const [file] = imgInp.files;
+                    if (file) {
+                      blah.src = URL.createObjectURL(file);
+                    }
+                  };
+                </script>
+              </div>
+              <div class="col-sm-4" style="margin-top: 50px; position: sticky">
+                <div>
+                  <div class="container" style="margin-top: 10px">
+                    <div class="row">
+                      <div
+                        class="col-sm-10 content-show-card-inner"
+                        style="
+                          text-align: center;
+                          padding: 10px;
+                          border-radius: 10px;
+                        "
+                        data-toggle="modal"
+                        data-target="#addticketinformationmodel"
+                      >
+                        <button
+                          style="
+                            color: #33a9fe;
+                            border: none;
+                            background-color: rgba(255, 0, 0, 0);
+                            text-align: center;
+                            font-size: small;
+                          "
+                        >
+                          <center>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-bookmarks-fill"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"
+                              />
+                              <path
+                                d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"
+                              />
+                            </svg>
+                            Register ticket details
+                          </center>
+                        </button>
+                      </div>
+                      <a
+                        href="/serco-pmo/onboard"
+                        class="col-sm-10 content-show-card-inner"
+                        style="
+                          text-align: center;
+                          padding: 10px;
+                          border-radius: 10px;
+                        "
+                        data-toggle="modal"
+                        data-target="#addWorkNotes"
+                      >
+                        <button
+                          style="
+                            color: #33a9fe;
+                            border: none;
+                            background-color: rgba(255, 0, 0, 0);
+                            text-align: center;
+                            font-size: small;
+                          "
+                        >
+                          <center>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-journal-plus"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"
+                              />
+                              <path
+                                d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"
+                              />
+                              <path
+                                d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"
+                              />
+                            </svg>
+                            Add Work notes
+                          </center>
+                        </button>
+                      </a>
+
+                      <div
+                        class="col-sm-10 content-show-card-inner"
+                        style="
+                          text-align: center;
+                          padding: 10px;
+                          border-radius: 10px;
+                        "
+                        data-toggle="modal"
+                        data-target="#processupdate"
+                      >
+                        <button
+                          style="
+                            color: #33a9fe;
+                            border: none;
+                            background-color: rgba(255, 0, 0, 0);
+                            text-align: center;
+                            font-size: small;
+                          "
+                        >
+                          <center>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-lightning-fill"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"
+                              />
+                            </svg>
+                            Process update
+                          </center>
+                        </button>
+                      </div>
+
+                      <div
+                        class="col-sm-10 content-show-card-inner"
+                        style="
+                          text-align: center;
+                          padding: 10px;
+                          border-radius: 10px;
+                          background-color: #ea5034;
+                          color: white;
+                        "
+                        data-toggle="modal"
+                        data-target="#exampleModalLong"
+                      >
+                        <button
+                          style="
+                            color: #ffffff;
+                            border: none;
+                            background-color: rgba(255, 0, 0, 0);
+                            text-align: center;
+                            font-size: small;
+                          "
+                        >
+                          <center>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-x-circle"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                              />
+                              <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                              />
+                            </svg>
+                            Cancel Pass
+                          </center>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin: 100px">
+        <!-- Blank space-->
+      </div>
+
+      <script>
+        $(document).ready(function () {
+          bsCustomFileInput.init();
+        });
+      </script>
+    </div>
+
+    <!-- Add ticket information Modal -->
+    <div
+      class="modal fade"
+      id="addticketinformationmodel"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="addticketinformationmodelTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #172231 !important">
+          <div
+            class="modal-header"
+            style="border-color: #29384d; background-color: #0071c3"
+          >
+            <h6
+              class="modal-title"
+              id="addticketinformationmodelTitle"
+              style="color: #ffffff"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-bookmarks-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"
+                />
+                <path
+                  d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"
+                />
+              </svg>
+
+              Register ticket number
+            </h6>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" style="color: white">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <small class="text-muted-ss">
+                    Enter the ticket number and the purpose of raising it,
+                    select the category accurately as it is used in further
+                    classifcation
+                  </small>
+                </div>
+                <div class="col-sm-12">
+                  <img
+                    src="{% static 'images/servicenow.png'%}"
+                    width="80px"
+                    style="padding-bottom: 7px; margin-top: 20px"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+              </div>
+              <div class="row" style="margin-top: 20px">
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text input-group-text-dark"
+                        id="inputGroup-sizing-sm"
+                        style="padding-right: 10px"
+                        >Ticket number</span
+                      >
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Small"
+                      placeholder="RITMXXXXXX"
+                      required
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <span
+                        class="input-group-text input-group-text-dark"
+                        id="inputGroup-sizing-sm"
+                        style="padding-right: 10px"
+                        >Description</span
+                      >
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Small"
+                      placeholder=""
+                      required
+                      aria-describedby="inputGroup-sizing-sm"
+                    />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <label
+                        class="input-group-text input-group-text-dark"
+                        for="inputGroupSelect01"
+                        >Category</label
+                      >
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" style="border-color: #29384d">
+            <button
+              type="button"
+              class="btn btn-sm btn-dark"
+              style="background-color: #ea5034"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-sm btn-primary">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add work notes -->
+    <div
+      class="modal fade"
+      id="addWorkNotes"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="addWorkNotesTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #172231 !important">
+          <div
+            class="modal-header"
+            style="border-color: #29384d; background-color: #0071c3"
+          >
+            <h6 class="modal-title" id="addWorkNotesTitle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-journal-plus"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 5.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5z"
+                />
+                <path
+                  d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"
+                />
+                <path
+                  d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"
+                />
+              </svg>
+
+              Work notes
+            </h6>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" style="color: white">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <small class="text-muted-ss">
+                    Enter the work notes here, you can also make it user visible
+                    as they can see it in their portal and also recieve an email
+                  </small>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 20px">
+                <div class="col-sm-12">
+                  <div class="form-group input-group-text-dark">
+                    <label for="exampleFormControlTextarea1">Note:</label>
+                    <textarea
+                      class="form-control input-group-text-dark"
+                      id="exampleFormControlTextarea1"
+                      style="background-color: #203147 !important"
+                      rows="6"
+                    ></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <label
+                        class="input-group-text input-group-text-dark"
+                        for="inputGroupSelect01"
+                        >Category</label
+                      >
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>Choose...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <label
+                        class="input-group-text input-group-text-dark"
+                        for="inputGroupSelect01"
+                        >Process type</label
+                      >
+                    </div>
+                    <select class="custom-select" id="inputGroupSelect01">
+                      <option selected>Choose...</option>
+                      <option value="1">Onboard initiated</option>
+                      <option value="2">Smart Portal access</option>
+                      <option value="3">BGV Process</option>
+                      <option value="3">Management approval</option>
+                      <option value="3">Project credentials</option>
+                      <option value="3">ServiceNow access</option>
+                      <option value="3">Citrix/AVD access</option>
+                      <option value="3">Email/DL setup</option>
+                      <option value="3">Citrix/AVD access</option>
+                    </select>
+                  </div>
+                </div>
+                <style>
+                  .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 40px;
+                    height: 24px;
+                  }
+
+                  .switch input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                  }
+
+                  .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #29384d;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
+                  }
+
+                  .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 16px;
+                    width: 16px;
+                    left: 4px;
+                    bottom: 4px;
+                    background-color: white;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
+                  }
+
+                  input:checked + .slider {
+                    background-color: #2196f3;
+                  }
+
+                  input:focus + .slider {
+                    box-shadow: 0 0 1px #2196f3;
+                  }
+
+                  input:checked + .slider:before {
+                    -webkit-transform: translateX(16px);
+                    -ms-transform: translateX(16px);
+                    transform: translateX(16px);
+                  }
+
+                  /* Rounded sliders */
+                  .slider.round {
+                    border-radius: 34px;
+                  }
+
+                  .slider.round:before {
+                    border-radius: 50%;
+                  }
+                </style>
+                <div class="col-sm-12">
+                  <small class="text-muted-ss" style="top: 50px"
+                    >Customer visibility</small
+                  >
+                  <br />
+                  <label class="switch">
+                    <div class="row">
+                      <input type="checkbox" checked />
+                      <span class="slider round"></span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" style="border-color: #29384d">
+            <button
+              type="button"
+              class="btn btn-sm btn-dark"
+              style="background-color: #ea5034"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-sm btn-primary">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Process update model -->
+    <style>
+      .status-closed {
+        background-color: #ea5034 !important;
+        color: #fff !important;
+      }
+
+      .status-opened {
+        background-color: #66e092 !important;
+        color: #18273a !important;
+      }
+    </style>
+    <div
+      class="modal fade"
+      id="processupdate"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="processupdateTitle"
+      aria-hidden="true"
+      style="background-color: #1b252e5d; filter: blur(50)"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-color: #172231 !important">
+          <div
+            class="modal-header"
+            style="border-color: #29384d; background-color: #0071c3"
+          >
+            <h6 class="modal-title" id="processupdateTitle">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-lightning-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"
+                />
+              </svg>
+              Process Update
+            </h6>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true" style="color: white">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12">
+                  <small class="text-muted-ss">
+                    Select the process and change the status of it, make sure of
+                    the status.
+                  </small>
+                </div>
+              </div>
+              <div class="row" style="margin-top: 20px">
+                <style>
+                  #form-wrapper {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                  }
+                  .state-line {
+                    width: 100%;
+                    max-width: 500px;
+                  }
+                  .state-line #form-title {
+                    margin-top: 0;
+                    font-weight: 100;
+                    text-align: center;
+                  }
+                  .state-line #debt-amount-slider {
+                    display: flex;
+                    flex-direction: row;
+                    align-content: stretch;
+                    position: relative;
+                    width: 100%;
+                    height: 50px;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                  }
+                  .state-line #debt-amount-slider::before {
+                    content: " ";
+                    position: absolute;
+                    height: 2px;
+                    width: 100%;
+                    width: calc(100% * (4 / 5));
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: #29384d;
+                  }
+                  .state-line #debt-amount-slider input,
+                  .state-line #debt-amount-slider label {
+                    box-sizing: border-box;
+                    flex: 1;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    cursor: pointer;
+                  }
+                  .state-line #debt-amount-slider label {
+                    display: inline-block;
+                    position: relative;
+                    width: 20%;
+                    height: 100%;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                  }
+                  .state-line #debt-amount-slider label::before {
+                    content: attr(data-debt-amount);
+                    position: absolute;
+                    left: 50%;
+                    padding-top: 10px;
+                    transform: translate(-50%, 45px);
+                    font-size: 12px;
+                    letter-spacing: 0.4px;
+                    font-weight: 100;
+                    white-space: nowrap;
+                    opacity: 0.85;
+                    color: #6789b6;
+                    transition: all 0.15s ease-in-out;
+                  }
+                  .state-line #debt-amount-slider label::after {
+                    content: " ";
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 30px;
+                    height: 30px;
+                    border: 2px solid #263950;
+                    background: #203147;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    z-index: 1;
+                    cursor: pointer;
+                    transition: all 0.15s ease-in-out;
+                  }
+                  .state-line #debt-amount-slider label:hover::after {
+                    transform: translate(-50%, -50%) scale(1.25);
+                    color: #29a8eb;
+                  }
+                  .state-line #debt-amount-slider input {
+                    display: none;
+                  }
+                  .state-line
+                    #debt-amount-slider
+                    input:checked
+                    + label::before {
+                    font-weight: 100;
+                    color: #29a8eb;
+                    font-weight: bold;
+                    opacity: 1;
+                  }
+                  .state-line #debt-amount-slider input:checked + label::after {
+                    border-width: 4px;
+                    transform: translate(-50%, -50%) scale(0.75);
+                  }
+                  .state-line
+                    #debt-amount-slider
+                    input:checked
+                    ~ #debt-amount-pos {
+                    opacity: 1;
+                  }
+                  .state-line
+                    #debt-amount-slider
+                    input:checked:nth-child(1)
+                    ~ #debt-amount-pos {
+                    left: 10%;
+                  }
+                  .state-line
+                    #debt-amount-slider
+                    input:checked:nth-child(3)
+                    ~ #debt-amount-pos {
+                    left: 30%;
+                  }
+                  .state-line
+                    #debt-amount-slider
+                    input:checked:nth-child(5)
+                    ~ #debt-amount-pos {
+                    left: 50%;
+                  }
+                  .state-line
+                    #debt-amount-slider
+                    input:checked:nth-child(7)
+                    ~ #debt-amount-pos {
+                    left: 70%;
+                  }
+                  .state-line
+                    #debt-amount-slider
+                    input:checked:nth-child(9)
+                    ~ #debt-amount-pos {
+                    left: 90%;
+                  }
+                  .state-line #debt-amount-slider #debt-amount-pos {
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    width: 15px;
+                    height: 15px;
+                    background: #2196f3;
+                    border-radius: 50%;
+                    transition: all 0.15s ease-in-out;
+                    transform: translate(-50%, -50%);
+                    border: 2px solid #fff;
+                    opacity: 0;
+                    z-index: 2;
+                  }
+                  .state-line:valid #debt-amount-slider input + label::before {
+                    transform: translate(-50%, 45px) scale(0.9);
+                    transition: all 0.15s linear;
+                  }
+                  .state-line:valid
+                    #debt-amount-slider
+                    input:checked
+                    + label::before {
+                    transform: translate(-50%, 45px) scale(1.1);
+                    transition: all 0.15s linear;
+                  }
+                  @-webkit-keyframes spin {
+                    from {
+                      transform: rotate(0deg);
+                      width: 24px;
+                      opacity: 1;
+                      margin-right: 12px;
+                    }
+                    to {
+                      transform: rotate(360deg);
+                      width: 24px;
+                      opacity: 1;
+                      margin-right: 12px;
+                    }
+                  }
+
+                  @keyframes spin {
+                    from {
+                      transform: rotate(0deg);
+                      width: 24px;
+                      opacity: 1;
+                      margin-right: 12px;
+                    }
+                    to {
+                      transform: rotate(360deg);
+                      width: 24px;
+                      opacity: 1;
+                      margin-right: 12px;
+                    }
+                  }
+                </style>
+                <div class="col-sm-12">
+                  <div id="form-wrapper">
+                    <div class="state-line">
+                      <div id="debt-amount-slider">
+                        <input
+                          type="radio"
+                          name="process-state"
+                          id="pending"
+                          value="1"
+                          required
+                        />
+                        <label for="1" data-debt-amount="Pending"></label>
+                        <input
+                          type="radio"
+                          name="process-state"
+                          id="open"
+                          value="2"
+                          required
+                        />
+                        <label for="2" data-debt-amount="Open"></label>
+                        <input
+                          type="radio"
+                          name="process-state"
+                          id="progress"
+                          value="3"
+                          required
+                        />
+                        <label for="3" data-debt-amount="In progress"></label>
+                        <input
+                          type="radio"
+                          name="process-state"
+                          id="hold"
+                          value="4"
+                          required
+                        />
+                        <label for="4" data-debt-amount="on hold"></label>
+                        <input
+                          type="radio"
+                          name="process-state"
+                          id="completed"
+                          value="5"
+                          required
+                        />
+                        <label for="5" data-debt-amount="Completed"></label>
+                        <div id="debt-amount-pos"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12" style="margin-top: 60px">
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <label
+                        class="input-group-text input-group-text-dark"
+                        for="onboard_process_state_for_change_purpose"
+                        >Process type</label
+                      >
+                    </div>
+                    <select
+                      class="custom-select"
+                      id="onboard_process_state_for_change_purpose"
+                      onchange="get_state_update(event)"
+                    >
+                      <option selected>Choose...</option>
+                      <option value="onboard_initiated">
+                        Onboard initiated
+                      </option>
+                      <option value="smart_portal_access">
+                        Smart Portal access
+                      </option>
+                      <option value="bgv_procedure">BGV Process</option>
+                      <option value="mgmt_approval">Management approval</option>
+                      <option value="project_credential">
+                        Project credentials
+                      </option>
+                      <option value="3">ServiceNow access</option>
+                      <option value="3">Citrix/AVD access</option>
+                      <option value="3">Email/DL setup</option>
+                      <option value="3">Citrix/AVD access</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                      <label
+                        class="input-group-text input-group-text-dark"
+                        for="onboard_process_state_change_to"
+                        >New state</label
+                      >
+                    </div>
+                    <select
+                      class="custom-select"
+                      id="onboard_process_state_change_to"
+                      onchange="check_the_status_and_disable_register_button(event)"
+                    >
+                      <option selected value="none">Choose...</option>
+                      <option value="pending">Pending</option>
+                      <option value="open">Open</option>
+                      <option value="progress">In progress</option>
+                      <option value="hold">On Hold</option>
+                      <option value="completed">Completed</option>
+                    </select>
+                  </div>
+                </div>
+                <br />
+                <div class="col-sm-12">
+                  <div class="form-group input-group-text-dark">
+                    <label for="exampleFormControlTextarea1">Note:</label>
+                    <textarea
+                      class="form-control input-group-text-dark"
+                      id="exampleFormControlTextarea1"
+                      style="background-color: #203147 !important"
+                      rows="4"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+                <style>
+                  .switch {
+                    position: relative;
+                    display: inline-block;
+                    width: 40px;
+                    height: 24px;
+                  }
+
+                  .switch input {
+                    opacity: 0;
+                    width: 0;
+                    height: 0;
+                  }
+
+                  .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #29384d;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
+                  }
+
+                  .slider:before {
+                    position: absolute;
+                    content: "";
+                    height: 16px;
+                    width: 16px;
+                    left: 4px;
+                    bottom: 4px;
+                    background-color: white;
+                    -webkit-transition: 0.4s;
+                    transition: 0.4s;
+                  }
+
+                  input:checked + .slider {
+                    background-color: #2196f3;
+                  }
+
+                  input:focus + .slider {
+                    box-shadow: 0 0 1px #2196f3;
+                  }
+
+                  input:checked + .slider:before {
+                    -webkit-transform: translateX(16px);
+                    -ms-transform: translateX(16px);
+                    transform: translateX(16px);
+                  }
+
+                  /* Rounded sliders */
+                  .slider.round {
+                    border-radius: 34px;
+                  }
+
+                  .slider.round:before {
+                    border-radius: 50%;
+                  }
+                </style>
+                <div class="col-sm-12">
+                  <small class="text-muted-ss" style="top: 50px">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-eye-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                      <path
+                        d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"
+                      />
+                    </svg>
+                    User visibility : <b style="color: #66e092">Yes</b>
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" style="border-color: #29384d">
+            <button
+              type="button"
+              class="btn btn-sm btn-dark"
+              style="background-color: #ea5034"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              id="register_new_state"
+              onclick="get_state_update(event)"
+              class="btn btn-sm btn-primary"
+            >
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $("#addWorkNotes").on("shown.bs.modal", function () {
+        $("#myInput").trigger("focus");
+      });
+
+      system_process_live_status_data = {
+        onboard_initiated: "pending",
+        smart_portal_access: "open",
+        bgv_procedure: "progress",
+        mgmt_approval: "hold",
+        project_credential: "pending",
+      };
+
+      // Getting the selected process and updating the current state for it;
+      function get_state_update(event) {
+        document.getElementById("onboard_process_state_change_to").value =
+          "none";
+        var selected_process = event.target.value;
+        document.getElementById(
+          system_process_live_status_data[selected_process]
+        ).checked = true;
+      }
+
+      // Checking the existing and new state
+      function check_the_status_and_disable_register_button(event) {
+        var selected_state = event.target.value;
+
+        if (
+          document.querySelector('input[name="process-state"]:checked').id ===
+          selected_state
+        ) {
+          document.getElementById("register_new_state").disabled = true;
+          console.log("Button disabled");
+        } else {
+          document.getElementById("register_new_state").disabled = false;
+          console.log("Button activated");
+        }
+      }
+
+      // Copy to clipboard
+      function copy_to_clipboard() {
+        let ctc_button = document.getElementById("copy_clipboard_button");
+        navigator.clipboard.writeText(ctc_button.value);
+
+        // making success message appear and disappear after 3 seconds
+        let success_message = document.getElementById("success-copy");
+        success_message.style.display = "block";
+        setTimeout(() => {
+          success_message.style.display = "none";
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

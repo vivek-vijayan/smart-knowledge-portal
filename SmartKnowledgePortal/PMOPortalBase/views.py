@@ -29,8 +29,8 @@ def BoardingStatusPage(request):
     )
 
 
-def BoardingPassPage(request):
-    return render(request=request, template_name="BoardingPass.html", context={})
+def OnBoardingPassPage(request):
+    return render(request=request, template_name="OnBoardingPass.html", context={})
 
 
 def TaggingAndAccessPageForNewUser(request):

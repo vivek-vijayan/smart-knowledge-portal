@@ -315,6 +315,7 @@
               background-color: #1f3046;
               font-weight: normal;
               color: white;
+              border-radius: 10px;
             "
           >
             <div class="card-body">
@@ -323,14 +324,14 @@
                   <img
                     src="{% static 'images/vivek.jpg'%}"
                     alt=""
-                    style="border-radius: 100%"
+                    style="border-radius: 100%; border:#172231 solid 2px;"
                     srcset=""
                     width="35px"
                   />
                 </div>
 
                 <div style="margin-left: 10px; padding-top: 2px">
-                  <small style="font-size: 14px">Vivek Vijayan</small>
+                  <small style="font-size: 14px">Vivek Vijayan <img src="{% static 'images/verified.png' %}" width="15px" alt="" srcset=""></small>
                 </div>
               </div>
             </div>
@@ -342,7 +343,7 @@
             <style>
               .post-like-button {
                 background-color: rgba(255, 255, 255, 0);
-                color: #F07960;
+                color:#33a9fe;
                 border: none;
                 font-size: 14px;
                 outline: none;
@@ -353,11 +354,9 @@
                 transition: cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
               }
               .post-like-button:hover {
-                color: #ED4F34;
-                background-color: rgba(255, 255, 255, 0);
-                border: 2px solid red;
+                color: #35DF91;
+                box-shadow: rgba(50, 50, 93, 0.312) 0px 30px 60px -12px inset, rgb(0, 0, 0) 0px 18px 36px -18px inset;
                 border-radius: 100px;
-                
               }
             </style>
             <div class="card-body">
@@ -422,7 +421,7 @@
                 <div class="row">
                   <div class="col-sm-3">
                     <p style="color: #ffffff">
-                      182 claps
+                      182 likes
                     </p>
                   </div>
                   <div class="col-sm-4" style="color: #33a9fe">

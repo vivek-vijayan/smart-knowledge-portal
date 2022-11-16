@@ -920,7 +920,7 @@
               <div class="place-value">Mumbai</div>
             </div>
             <div class="place-block">
-              <a href="boardingpass/" class="hover-pass">
+              <a href="onboardingpass/" class="hover-pass">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="36"
@@ -1037,6 +1037,16 @@
             border: 2px solid white;
           }
 
+          .id-card .verified {
+            position: absolute;
+            bottom: 190px;
+            right: 100px;
+            width: 25px;
+            height: 25px;
+            z-index: 5px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          }
+
           .id-card .company-logo {
             width: 30%;
             height: auto;
@@ -1149,6 +1159,8 @@
             opacity: 0.6;
             transform: translateZ(20px);
           }
+
+          
         </style>
 
         <div class="row" style="margin-top: 20px">
@@ -1166,6 +1178,7 @@
                     alt=""
                     srcset=""
                   />
+
                 </div>
               </center>
 
@@ -1177,6 +1190,9 @@
                     alt=""
                     srcset=""
                   />
+                  <div class="verified">
+                    <img src="{% static 'images/verified.png' %}" width="30px" alt="" srcset="">
+                  </div>
                   <h5
                     style="
                       margin-top: 20px;
@@ -1184,7 +1200,7 @@
                       font-weight: normal;
                     "
                   >
-                    Vivek Vijayan
+                    Vivek Vijayan  
                   </h5>
                   <small style="color: #9ac1e7">BPC Lead </small>
                   <br />

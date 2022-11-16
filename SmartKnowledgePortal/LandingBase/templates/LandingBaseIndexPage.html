@@ -475,11 +475,11 @@
     </style>
 
     <!-- Timestamp Values -->
-    <div class="container" style="margin-top: 60px">
+    <div class="container" style="margin-top: 70px">
       <div class="row">
         <div
           class="col-sm-6 digital"
-          style="font-family: digital, sans-serif !important"
+          style="font-family: digital, sans-serif !important; margin-top: 0px;"
         >
           <!-- <div id="MyClockDisplay" class="clock" onload="showTime()"></div> -->
           <main class="clock-display" style="text-align: center">
@@ -582,7 +582,7 @@
         </div>
         <div class="col-sm-6">
           <center>
-            <h1 class="display-6" style="margin-top: 50px">
+            <h1 class="display-6" style="margin-top: 80px">
               Our work time (UK)
             </h1>
             <blockquote
@@ -1028,7 +1028,7 @@
           //formats hours
           hours = hours > 12 ? hours - 12 : hours;
           hours = hours === 0 ? 12 : hours;
-          hours = hours <= 9 ? "0" + hours : hours;
+          hours = hours <= 9 ? "" + hours : hours;
           //formats minutes
           minutes = minutes <= 9 ? "0" + minutes : minutes;
           //formats seconds
