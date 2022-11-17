@@ -263,8 +263,18 @@
           <div class="row">
             <div class="col-sm-12">
               <h1 class="display-6" style="color: #ffffff">
-                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"/>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  fill="currentColor"
+                  class="bi bi-arrow-down-up"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z"
+                  />
                 </svg>
                 Boarding control
               </h1>
@@ -480,15 +490,21 @@
             transition: ease-in-out 0.5s;
           }
 
-          .pass-block:hover {
-            transform: scale(1.03);
-            transition: ease-in-out 0.5s;
+          .hover-pass {
+            color: #2f4766;
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+            margin-top: 0px;
+          }
+
+          .pass-block:hover .hover-pass {
+            transform: scale(1.2);
+            color: #33a9fe;
           }
 
           .pass-block header {
             position: relative;
             height: 45px;
-            background-color: #2171C2;
+            background-color: #2171c2;
             padding: 10px;
             color: #ffffff !important;
             border-radius: 10px;
@@ -536,6 +552,13 @@
             position: relative;
             border-bottom: 2px dashed #2f4766;
           }
+
+          .pass-block .pass-cards .secure {
+            position: absolute;
+            top: 70px;
+            left: 60px;
+          }
+
           .pass-block .pass-cards .pass-card {
             position: relative;
             margin: 10px;
@@ -786,9 +809,7 @@
         <!-- Boarding pass -->
         <div class="pass-block">
           <header>
-            <div class="company-name" >
-              Onboarding Pass
-            </div>
+            <div class="company-name">Onboarding Pass</div>
             <div class="gate">
               <div>C2</div>
             </div>
@@ -800,7 +821,15 @@
                 <img
                   src="{%static 'images/vivek.jpg'%}"
                   width="60px"
-                  style="border-radius: 100%"
+                  style="border-radius: 100%; border: #fff solid 1px"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+              <div class="secure">
+                <img
+                  src="{% static 'images/shield.png' %}"
+                  width="20px"
                   alt=""
                   srcset=""
                 />
@@ -838,29 +867,22 @@
               <div class="place-value">Bangalore</div>
             </div>
 
-            <style>
-              .hover-pass {
-                color: #2f4766;
-                transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-                margin-top: 0px;
-              }
-              .hover-pass:hover {
-                color: #29a8eb;
-              }
-            </style>
+            <style></style>
             <div class="place-block hover-pass">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="36"
-                height="36"
-                fill="currentColor"
-                class="bi bi-arrow-right-circle-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
-                />
-              </svg>
+              <a href="onboardingpass/" class="hover-pass">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  fill="currentColor"
+                  class="bi bi-arrow-right-circle-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                  />
+                </svg>
+              </a>
             </div>
           </section>
         </div>
@@ -868,9 +890,7 @@
 
         <div class="pass-block">
           <header>
-            <div class="company-name" >
-              Offboarding Pass
-            </div>
+            <div class="company-name">Offboarding Pass</div>
             <div class="gate">
               <div>C2</div>
             </div>
@@ -878,11 +898,19 @@
           <section class="pass-cards">
             <div class="offboard">
               <div class="pass-card-name">Vivek Vijayan</div>
+              <div class="secure">
+                <img
+                  src="{% static 'images/shield.png' %}"
+                  width="20px"
+                  alt=""
+                  srcset=""
+                />
+              </div>
               <div class="pass-card-code" style="margin-top: 15px">
                 <img
                   src="{%static 'images/vivek.jpg'%}"
                   width="60px"
-                  style="border-radius: 100%"
+                  style="border-radius: 100%; border: #fff solid 1px"
                   alt=""
                   srcset=""
                 />
@@ -919,8 +947,8 @@
               </div>
               <div class="place-value">Mumbai</div>
             </div>
-            <div class="place-block">
-              <a href="onboardingpass/" class="hover-pass">
+            <div class="place-block hover-pass">
+              <a href="offboardingpass/" class="hover-pass">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="36"
@@ -997,7 +1025,7 @@
             height: 400px;
             width: 300px;
             overflow: hidden;
-            background-color: #2171C2;
+            background-color: #2171c2;
             margin: 10px;
             border-radius: 20px;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -1032,7 +1060,8 @@
             text-align: center;
             margin-top: 20px;
             z-index: 5;
-            box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+            box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset,
+              rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
             opacity: 90%;
             border: 2px solid white;
           }
@@ -1159,8 +1188,6 @@
             opacity: 0.6;
             transform: translateZ(20px);
           }
-
-          
         </style>
 
         <div class="row" style="margin-top: 20px">
@@ -1178,7 +1205,6 @@
                     alt=""
                     srcset=""
                   />
-
                 </div>
               </center>
 
@@ -1191,7 +1217,12 @@
                     srcset=""
                   />
                   <div class="verified">
-                    <img src="{% static 'images/verified.png' %}" width="30px" alt="" srcset="">
+                    <img
+                      src="{% static 'images/verified.png' %}"
+                      width="30px"
+                      alt=""
+                      srcset=""
+                    />
                   </div>
                   <h5
                     style="
@@ -1200,7 +1231,7 @@
                       font-weight: normal;
                     "
                   >
-                    Vivek Vijayan  
+                    Vivek Vijayan
                   </h5>
                   <small style="color: #9ac1e7">BPC Lead </small>
                   <br />
