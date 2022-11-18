@@ -8,6 +8,12 @@ def PMOIndexPage(request):
         request=request, template_name="PMOPortalBaseIndexPage.html", context={}
     )
 
+def PMOAdminPage(request):
+    return render(
+        request=request, template_name="PMOAdmin.html", context={}
+    )
+
+
 
 def OnboardingFillingPage(request):
     return render(

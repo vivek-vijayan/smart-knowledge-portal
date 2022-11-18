@@ -283,20 +283,9 @@
                 <br />
               </small>
               <small class="text-muted-ss">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  class="bi bi-link-45deg"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
-                  />
-                  <path
-                    d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                  <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                  <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
                 </svg>
                 PMO admin quick links
               </small>
@@ -506,8 +495,6 @@
             letter-spacing: 1px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             transition: ease-in-out 0.5s;
-            position: relative;
-            overflow: hidden;
           }
 
           .hover-pass {
@@ -521,58 +508,11 @@
             color: #33a9fe;
           }
 
-          .arrow {
-            position: absolute !important;
-            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-            right: 200px;
-            bottom: -100px;
-            color: #66e091 !important;
-          }
-
-          .a-color {
-            color: #66e091;
-            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-          }
-
-          .a-color:hover {
-            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-            color: #46bb6f;
-          }
-
-          .progress-status {
-            position: absolute;
-            left: 50px;
-            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-          }
-
-          .location-area {
-            position: absolute;
-            right: 0px;
-            bottom: -20px;
-            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-          }
-
-          .pass-block:hover .location-area {
-            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-            transform: scale(1.1);
-          }
-
-          .pass-block:hover .arrow {
-            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-            right: 200px;
-            bottom: 50px;
-          }
-
-          .pass-block:hover .progress-status {
-            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
-            left: -200px;
-          }
-
           .pass-block header {
             position: relative;
             height: 45px;
-            background-color: #121e2a7c;
-            padding: 10px 0px 10px 15px;
+            background-color:#172231;
+            padding: 10px 0px 10px 15px;  
             border-bottom: #66e091 solid 1px;
             color: #66e091 !important;
             border-radius: 10px;
@@ -580,10 +520,10 @@
           .pass-block .offboard-header {
             position: relative;
             height: 45px;
-            border-bottom: #e94e33 solid 1px;
-            background-color: #121e2a7c;
+            border-bottom: #E94E33 solid 1px;
+            background-color: #172231;
             padding: 10px 0px 10px 15px;
-            color: #e94e33 !important;
+            color: #E94E33 !important;
             border-radius: 10px;
           }
           .pass-block header .company-name {
@@ -777,6 +717,7 @@
           }
           .pass-block .place {
             padding: 10px;
+            text-align: center;
             height: 130px;
           }
           .pass-block .place-block {
@@ -884,8 +825,10 @@
 
         <!-- Boarding pass -->
         <div class="pass-block">
-          <header>
-            <div class="company-name">ONBOARD PASS</div>
+          <header >
+            <div class="company-name">
+              
+             ONBOARD PASS</div>
             <div class="gate">
               <div>C2</div>
             </div>
@@ -910,7 +853,7 @@
                   srcset=""
                 />
               </div>
-              <div class="dep-arr-label text-muted">Manager</div>
+              <div class="dep-arr-label text-muted-ss">Manager</div>
             </div>
             <div class="pass-card">
               <div class="pass-card-name">Serco</div>
@@ -921,42 +864,35 @@
           </section>
           <div style="margin-top: 20px"></div>
           <section class="place">
-            <div class="place-block progress-status">
+            <div class="place-block">
               <div class="place-label">Status</div>
               <div class="place-value">Progress</div>
             </div>
             <div class="place-block">
-              <div class="place-label jumper location-area">
-                <center>
-                  <div class="place-value" style="color: white">chennai</div>
-                </center>
-
-                <div
-                  class=""
-                  style="
-                    filter: invert(1);
-                    opacity: 30%;
-                    transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;transform: scale(1.2);
-                  "
-                >
-                  <object
-                    data="{% static 'images/location-images/chennai.svg' %}"
-                    style=""
-                    width="110px"
-                    height="110px"
-                    alt=""
-                    srcset=""
-                  ></object>
-                </div>
-              </div>
-            </div>
-
-            <div class="arrow">
-              <a href="onboardingpass/" class="a-color">
+              <div class="place-label jumper">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="50"
-                  height="50"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-geo-alt-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                  />
+                </svg>
+              </div>
+              <div class="place-value">Bangalore</div>
+            </div>
+
+            <style></style>
+            <div class="place-block hover-pass">
+              <a href="onboardingpass/" class="hover-pass">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
                   fill="currentColor"
                   class="bi bi-arrow-right-circle-fill"
                   viewBox="0 0 16 16"
@@ -973,7 +909,9 @@
 
         <div class="pass-block">
           <header class="offboard-header">
-            <div class="company-name">OFFBOARD PASS</div>
+            <div class="company-name">
+              
+              OFFBOARD PASS</div>
             <div class="gate">
               <div>C2</div>
             </div>
@@ -1009,42 +947,33 @@
           </section>
           <div style="margin-top: 20px"></div>
           <section class="place">
-            <div class="place-block progress-status">
-              <div class="place-label">Status</div>
-              <div class="place-value">Progress</div>
+            <div class="place-block">
+              <div class="place-label">status</div>
+              <div class="place-value">Paused</div>
             </div>
             <div class="place-block">
-              <div class="place-label jumper location-area">
-                <center>
-                  <div class="place-value" style="color: white">Mumbai</div>
-                </center>
-
-                <div
-                  class=""
-                  style="
-                    filter: invert(1);
-                    opacity: 30%;
-                    transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s; transform: scale(1.2);
-                  "
-                >
-                  <object
-                    data="{% static 'images/location-images/mumbai.svg' %}"
-                    style=""
-                    width="110px"
-                    height="110px"
-                    alt=""
-                    srcset=""
-                  ></object>
-                </div>
-              </div>
-            </div>
-
-            <div class="arrow">
-              <a href="onboardingpass/" class="a-color">
+              <div class="place-label">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="50"
-                  height="50"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-geo-alt-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                  />
+                </svg>
+              </div>
+              <div class="place-value">Mumbai</div>
+            </div>
+            <div class="place-block hover-pass">
+              <a href="offboardingpass/" class="hover-pass">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
                   fill="currentColor"
                   class="bi bi-arrow-right-circle-fill"
                   viewBox="0 0 16 16"
@@ -1059,6 +988,87 @@
         </div>
         <!-- ENd -->
 
+        <div class="pass-block">
+          <header >
+            <div class="company-name">
+              
+             ONBOARD PASS</div>
+            <div class="gate">
+              <div>C2</div>
+            </div>
+          </header>
+          <section class="pass-cards">
+            <div class="pass-card">
+              <div class="pass-card-name">Vivek Vijayan</div>
+              <div class="pass-card-code" style="margin-top: 15px">
+                <img
+                  src="{%static 'images/vivek.jpg'%}"
+                  width="60px"
+                  style="border-radius: 100%; border: #fff solid 1px"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+              <div class="secure">
+                <img
+                  src="{% static 'images/shield.png' %}"
+                  width="20px"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+              <div class="dep-arr-label text-muted-ss">Manager</div>
+            </div>
+            <div class="pass-card">
+              <div class="pass-card-name">Serco</div>
+              <div class="pass-card-code" style="margin-top: 15px">BPC</div>
+              <div class="dep-arr-label text-muted-ss">Joining</div>
+              <div class="time text-muted-ss">8th May</div>
+            </div>
+          </section>
+          <div style="margin-top: 20px"></div>
+          <section class="place">
+            <div class="place-block">
+              <div class="place-label">Status</div>
+              <div class="place-value">Progress</div>
+            </div>
+            <div class="place-block">
+              <div class="place-label jumper">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-geo-alt-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                  />
+                </svg>
+              </div>
+              <div class="place-value">Bangalore</div>
+            </div>
+
+            <style></style>
+            <div class="place-block hover-pass">
+              <a href="onboardingpass/" class="hover-pass">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  fill="currentColor"
+                  class="bi bi-arrow-right-circle-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </section>
+        </div>
         <!-- ENd -->
 
         <hr />
