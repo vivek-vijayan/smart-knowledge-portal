@@ -515,6 +515,39 @@
             border: #66e09100 solid 1px;
           }
 
+          .location-card .closeme {
+            position: absolute;
+            top: -50px;
+            right: 10px;
+            z-index: 6;
+            color: #e94e33;
+            transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+          }
+
+          .location-card .totalusers {
+            position: absolute;
+            left: 20px;
+            color:#9ac1e7;
+            font-size: 12px;
+            bottom: 10px;
+          }
+
+          .location-card .bird {
+            left: -200px;
+            position: absolute;
+            top: 5px;
+            z-index: 2px;
+          }
+
+          @keyframes birdfly {
+            0% {
+              left: -100px;
+            }
+            100% {
+              left: 300px;
+            }
+          }
+
           .location-card:hover {
             border: #66e091 solid 1px;
             background-color: #203147;
@@ -525,9 +558,22 @@
               rgba(0, 0, 0, 0.09) 0px -3px 5px;
           }
 
+          .location-card:hover .closeme {
+            top: 2px;
+            transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+          }
+
           .location-card:hover .location-name {
             color: #66e091;
             transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+            z-index: 5px;
+          }
+
+          .location-card:hover .bird {
+            animation: birdfly 15s infinite;
+            position: absolute;
+            top: 5px;
+            z-index: 2px;
           }
 
           .location-card:hover .location-image {
@@ -576,9 +622,7 @@
             </h5>
 
             <small class="text-muted-ss">
-              List of all the active boarding process going on. Finished
-              boarding detail will be collected from the
-              <a href="#">People list</a></small
+              List of all location currently projects available, making modification can cause problem in user profile</small
             >
           </div>
         </div>
@@ -607,11 +651,40 @@
           <div class="row">
             <div class="col-sm-3">
               <div class="location-card">
+                <div class="totalusers">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                    <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                  </svg>
+                  20
+                </div>
+                <div class="closeme">
+
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-dash-circle-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z"
+                    />
+                  </svg>
+                </div>
                 <div class="location-name">Chennai</div>
+
+                <img
+                  class="bird"
+                  src="{% static 'images/birds.gif'%}"
+                  alt=""
+                  srcset=""
+                  width="80px"
+                />
+
                 <div class="location-image">
                   <object
                     data="{% static 'images/location-images/chennai.svg' %}"
-                    style=""
                     width="110px"
                     height="110px"
                     alt=""
@@ -623,10 +696,36 @@
             <div class="col-sm-3">
               <div class="location-card">
                 <div class="location-name">Delhi</div>
+                <div class="totalusers">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                    <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                  </svg>
+                  22
+                </div>
+                <div class="closeme">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-dash-circle-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z"
+                    />
+                  </svg>
+                </div>
+                <img
+                  class="bird"
+                  src="{% static 'images/birds.gif'%}"
+                  alt=""
+                  srcset=""
+                  width="80px"
+                />
                 <div class="location-image">
                   <object
                     data="{% static 'images/location-images/delhi.svg' %}"
-                    style=""
                     width="110px"
                     height="110px"
                     alt=""
