@@ -541,7 +541,7 @@
 
           .progress-status {
             position: absolute;
-            left: 50px;
+            left: 15px;
             transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
           }
 
@@ -927,7 +927,9 @@
           <section class="place">
             <div class="place-block progress-status">
               <div class="place-label">Status</div>
-              <div class="place-value">Progress</div>
+              <div class="place-value">
+                <img src="{% static 'images/green-pulse.gif' %}" width="20px" alt="" srcset="">
+                Progress</div>
             </div>
             <div class="place-block">
               <div class="place-label jumper location-area">
@@ -1015,7 +1017,9 @@
           <section class="place">
             <div class="place-block progress-status">
               <div class="place-label">Status</div>
-              <div class="place-value">Progress</div>
+              <div class="place-value">
+                <img src="{% static 'images/green-pulse.gif' %}" width="20px" alt="" srcset="">
+                Progress</div>
             </div>
             <div class="place-block">
               <div class="place-label jumper location-area">
@@ -1034,7 +1038,6 @@
                 >
                   <object
                     data="{% static 'images/location-images/mumbai.svg' %}"
-                    style=""
                     width="110px"
                     height="110px"
                     alt=""
