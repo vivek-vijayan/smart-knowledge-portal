@@ -479,44 +479,11 @@
       <div class="row">
         <div
           class="col-sm-6 digital"
-          style="font-family: digital, sans-serif !important; margin-top: 0px;"
+          style="font-family: digital, sans-serif !important; margin-top: 0px"
         >
           <!-- <div id="MyClockDisplay" class="clock" onload="showTime()"></div> -->
           <main class="clock-display" style="text-align: center">
             <div class="date-field">
-              <div class="day-of-week">
-                <p class="day-alpha"></p>
-                <p class="placeholder">mmmmmmmmm</p>
-                <p class="placeholder">ooooooooo</p>
-                <p class="placeholder">nnnnnnnnn</p>
-                <p class="placeholder">ttttttttt</p>
-                <p class="placeholder">uuuuuuuuu</p>
-                <p class="placeholder">eeeeeeeee</p>
-                <p class="placeholder">sssssssss</p>
-                <p class="placeholder">wwwwwwwww</p>
-                <p class="placeholder">hhhhhhhhh</p>
-                <p class="placeholder">rrrrrrrrr</p>
-                <p class="placeholder">fffffffff</p>
-                <p class="placeholder">iiiiiiiii</p>
-                <p class="placeholder">ddddddddd</p>
-                <p class="placeholder">aaaaaaaaa</p>
-                <p class="placeholder">yyyyyyyyy</p>
-              </div>
-              <div class="day-of-week-mobile">
-                <p class="day-alpha-mobile"></p>
-                <p class="placeholder">mmm</p>
-                <p class="placeholder">ooo</p>
-                <p class="placeholder">nnn</p>
-                <p class="placeholder">ttt</p>
-                <p class="placeholder">uuu</p>
-                <p class="placeholder">eee</p>
-                <p class="placeholder">sss</p>
-                <p class="placeholder">www</p>
-                <p class="placeholder">hhh</p>
-                <p class="placeholder">rrr</p>
-                <p class="placeholder">fff</p>
-                <p class="placeholder">iii</p>
-              </div>
               <div class="month">
                 <p class="month-alpha"></p>
                 <p class="placeholder">mmm</p>
@@ -601,6 +568,35 @@
           </center>
         </div>
       </div>
+
+      <!-- Our holidays -->
+      <div class="row">
+        <div class="col-sm-6">
+          <center>
+            <h1 class="display-6" style="margin-top: 80px">Our holiday (UK)</h1>
+            <blockquote
+              class="blockquote text-center text-muted-ss"
+              style="margin: 20px 100px 100px 100px"
+            >
+              <p
+                class="blockquote-footer"
+                style="font-weight: 100; font-size: small"
+              >
+                As we support UK time based, we follow UK holiday
+              </p>
+            </blockquote>
+          </center>
+        </div>
+
+        <div class="col-sm-6">
+          <select id="selectCountry">
+            <option value="uk">UK</option>
+            <option value="indian">India</option>
+          </select>
+          <pre id="output"></pre>
+        </div>
+      </div>
+
       <!-- Serco Values -->
       <div class="container" style="margin-top: 100px">
         <center style="margin: 30px">
@@ -1073,9 +1069,9 @@
           date = date <= 9 ? "0" + date : date;
 
           // targets the html
-          const dayHtml = document.getElementsByClassName("day-alpha")[0];
-          const mobileDayHtml =
-            document.getElementsByClassName("day-alpha-mobile")[0];
+          //const dayHtml = document.getElementsByClassName("day-alpha")[0];
+          // const mobileDayHtml =
+          //  document.getElementsByClassName("day-alpha-mobile")[0];
           const monthHtml = document.getElementsByClassName("month-alpha")[0];
           const dateHtml = document.getElementsByClassName("date-number")[0];
           const yearHtml = document.getElementsByClassName("year-number")[0];
@@ -1085,8 +1081,8 @@
           const periodHtml = document.getElementsByClassName(period)[0];
 
           // changes the html values
-          dayHtml.innerHTML = dayText;
-          mobileDayHtml.innerHTML = mobileDays[day];
+          //dayHtml.innerHTML = dayText;
+          // mobileDayHtml.innerHTML = mobileDays[day];
           monthHtml.innerHTML = months[month];
           dateHtml.innerHTML = date;
           yearHtml.innerHTML = year;
@@ -1108,6 +1104,40 @@
 
         return init();
       })();
+
+      // Loading holiday
+      let year = window.clock.time.year;
+
+      $("#selectCountry").change(function (e) {
+        $("#output").html("Loading...");
+        var country = $("#selectCountry").val();
+        var calendarUrl =
+          "https://www.googleapis.com/calendar/v3/calendars/en." +
+          country +
+          "%23holiday%40group.v.calendar.google.com/events?key=AIzaSyDfKWdpeRjC-731P6PQkR8DsKuuVewHpqc";
+
+        $.getJSON(calendarUrl)
+          .success(function (data) {
+            console.log(data);
+            $("#output").empty();
+            for (item in data.items) {
+              if (data.items[item].start.date.toString().includes(year))
+                $("#output").append(
+                  "<hr><span style='color:white'>" +
+                    data.items[item].summary +
+                    "<span>" +
+                    "<p>" +
+                    data.items[item].start.date +
+                    "<p>"
+                );
+            }
+          })
+          .error(function (error) {
+            $("#output").html("An error occurred.");
+          });
+      });
+      $("#selectCountry").trigger("change");
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </body>
 </html>

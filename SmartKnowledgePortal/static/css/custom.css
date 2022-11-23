@@ -951,3 +951,88 @@ canvas {
   border-radius: 50px;
 
 }
+
+.div-table {
+  margin: 20px;
+  background-color: #203147;
+}
+
+.div-table table {
+  width: 100%;
+}
+
+.div-table table .tr {
+  transform: scale(1);
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+}
+
+.div-table table .tr:hover {
+  transform: scale(1.02);
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+}
+
+.div-table table .tr:hover td {
+  background-color: #172231;
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+}
+
+.div-table table .tr:hover .red-button {
+  color: #e94e33;
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+}
+
+.div-table table .tr:hover .yellow-button {
+  color: #f9c762;
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+}
+
+.div-table table tr {
+  border: #203147 solid 2px;
+}
+
+.div-table table tr th {
+  padding: 10px;
+  font-weight: normal;
+  background-color: #203147;
+  font-size: 13px;
+  color: #33a9fe;
+}
+
+.div-table table tr td {
+  padding: 10px;
+  font-weight: normal;
+  font-size: 13px;
+  background-color: #192638;
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+}
+
+.div-table .red-button {
+  padding: 5px;
+  color: #9ac1e7;
+  border-radius: 10px;
+  border: #e94e3300 solid 0.2px;
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+  margin: 2px;
+}
+.div-table .red-button:hover {
+  padding: 5px;
+  color: #e94e33;
+  border: #e94e33 solid 0.2px;
+  border-radius: 10px;
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+}
+.div-table .yellow-button {
+  padding: 5px;
+  color: #9ac1e7;
+  border-radius: 10px;
+  border: #f9c76200 solid 0.2px;
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+  margin: 2px;
+}
+.div-table .yellow-button:hover {
+  padding: 5px;
+  color: #f9c762;
+  border-radius: 10px;
+  border: #f9c762 solid 0.2px;
+  transition: cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.4s;
+}
