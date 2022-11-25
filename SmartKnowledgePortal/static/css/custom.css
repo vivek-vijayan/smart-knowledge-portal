@@ -1,5 +1,6 @@
 html {
   scroll-behavior: smooth;
+  scrollbar-color: #3CA8F8 !important;
   user-select: none;
   -webkit-user-select: none; /* Safari */
   -ms-user-select: none; /* IE 10 and IE 11 */
@@ -185,7 +186,6 @@ select {
 .content-show-card {
   background-color: #203147;
   padding: 10px;
-
   border-radius: 10px;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
   margin: 15px;

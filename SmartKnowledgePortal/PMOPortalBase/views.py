@@ -60,3 +60,8 @@ def RequestToDeactivateAccount(request):
     return render(
         request=request, template_name="DeactivateAccountRequest.html", context={}
     )
+
+def BoardingPassRepository(request):
+    return render(
+        request=request, template_name="BoardingPassRepository.html", context={}
+    )

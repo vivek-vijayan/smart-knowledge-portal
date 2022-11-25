@@ -1,0 +1,963 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Knowledge Portal</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+    <script src="{% static 'jquery-min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  </head>
+  <body>
+    <!-- Navigation area -->
+    <nav
+      class="navbar navbar-expand-lg navbar-danger static-header"
+      style="
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: #172231;
+        z-index: 10;
+        height: 60px;
+      "
+    >
+      <span
+        class="navbar-brand"
+        href="#"
+        style="
+          color: #33a9fe;
+          font-weight: 200;
+          font-family: SercoLogoTitle;
+          margin-right: 50px;
+        "
+        ><span style="color: #ed3833">Serco</span> Smart Portal!
+        <sub style="font-size: 10px">2022</sub></span
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="font-family: SercoLogoTitle">
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-house-door-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"
+                />
+              </svg>
+              Home</a
+            >
+          </li>
+          <li class="nav-item header-link-padding power-active-link">
+            <a
+              class="nav-link nav-link-select power-active-link-inner"
+              href="/serco-pmo"
+              onclick="() => {
+                document.getElementById('blurry').classList.add('onceblur');
+                }"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-diagram-3-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-6 8A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm6 0A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1z"
+                />
+              </svg>
+              PMO Portal <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-grid-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"
+                />
+              </svg>
+              Lead Portal</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="/blog">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chat-text-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"
+                />
+              </svg>
+              Blog</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-lightbulb"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"
+                />
+              </svg>
+              Knowledge</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-left-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
+                />
+              </svg>
+              Boarding</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-gear-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+                />
+              </svg>
+              Settings</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                />
+              </svg>
+              Profile</a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/login/ssp-login">
+          <a href="/login/ssp-login">
+            <button class="btn btn-sm btn-success my-2 my-sm-0" type="submit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                />
+              </svg>
+              Login
+            </button>
+          </a>
+        </form>
+      </div>
+    </nav>
+
+    <div id="blurry">
+      <!-- Intro image -->
+      <div class="fade-intro" style="margin-top: 130px">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <nav
+                style="
+                  --bs-breadcrumb-divider: url(
+                    &#34;data:image/svg + xml,
+                    %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%23929aa1'/%3E%3C/svg%3E&#34;
+                  );
+                "
+                aria-label="breadcrumb"
+              >
+                <ol
+                  class="breadcrumb"
+                  style="background-color: #17223100 !important"
+                >
+                  <li class="breadcrumb-item">
+                    <a href="/serco-pmo" style="color: #33a9fe">PMO Portal</a>
+                  </li>
+                  <li class="breadcrumb-item">
+                    <a href="/serco-pmo" style="color: #33a9fe">Boarding control</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    Boarding pass repository
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="display-6" style="color: #ffffff">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-ticket-perforated" viewBox="0 0 16 16">
+                  <path d="M4 4.85v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Z"/>
+                  <path d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13ZM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9V4.5Z"/>
+                </svg>
+                Passes repository
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container" style="margin-top: 50px">
+        <!-- -->
+        <style>
+          .pass-block {
+            display: inline-block;
+            width: 340px;
+            margin: 10px;
+            background-color: #203147;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: 300;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: ease-in-out 0.5s;
+            position: relative;
+            overflow: hidden;
+          }
+
+          .hover-pass {
+            color: #2f4766;
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+            margin-top: 0px;
+          }
+
+          .pass-block:hover .hover-pass {
+            transform: scale(1.2);
+            color: #33a9fe;
+          }
+
+          .arrow {
+            position: absolute !important;
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+            right: 200px;
+            bottom: -100px;
+            color: #66e091 !important;
+          }
+
+          .a-color {
+            color: #66e091;
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+          }
+
+          .a-color:hover {
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+            color: #46bb6f;
+          }
+
+          .progress-status {
+            position: absolute;
+            left: 15px;
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+          }
+
+          .location-area {
+            position: absolute;
+            right: 0px;
+            bottom: -20px;
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+          }
+
+          .pass-block:hover .location-area {
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+            transform: scale(1.1);
+          }
+
+          .pass-block:hover .arrow {
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+            right: 200px;
+            bottom: 50px;
+          }
+
+          .pass-block:hover .progress-status {
+            transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+            left: -200px;
+          }
+
+          .pass-block .bird {
+            opacity: 30;
+          }
+
+          .pass-block header {
+            position: relative;
+            height: 45px;
+            background-color: #121e2a7c;
+            padding: 10px 0px 10px 15px;
+            border-bottom: #66e091 solid 1px;
+            color: #66e091 !important;
+            border-radius: 10px;
+          }
+          .pass-block .offboard-header {
+            position: relative;
+            height: 45px;
+            border-bottom: #e94e33 solid 1px;
+            background-color: #121e2a7c;
+            padding: 10px 0px 10px 15px;
+            color: #e94e33 !important;
+            border-radius: 10px;
+          }
+          .pass-block header .company-name {
+            line-height: 20px;
+            text-align: left;
+            padding-left: 10px;
+          }
+          .pass-block header .gate {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-weight: 400;
+            line-height: 18px;
+            text-align: center;
+            font-size: 12px;
+          }
+          .pass-block header:after {
+            content: "";
+            width: 26px;
+            height: 26px;
+            background-color: #121e2a;
+            position: absolute;
+            bottom: -15px;
+            right: -8px;
+            border-radius: 50%;
+            box-shadow: inset 12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+          }
+          .pass-block header:before {
+            content: "";
+            width: 26px;
+            height: 26px;
+            background-color: #121e2a;
+            position: absolute;
+            bottom: -15px;
+            left: -8px;
+            border-radius: 50%;
+            box-shadow: inset -12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+          }
+          .pass-block .pass-cards {
+            padding: 5px 10px 10px 10px;
+            height: 150px;
+            text-align: center;
+            position: relative;
+            border-bottom: 2px dashed #2f4766;
+          }
+
+          .pass-block .pass-cards .secure {
+            position: absolute;
+            top: 70px;
+            left: 60px;
+          }
+
+          .pass-block .pass-cards .pass-card {
+            position: relative;
+            margin: 10px;
+            text-align: center;
+            display: inline-block;
+          }
+          .pass-block .pass-cards .pass-card .pass-card-name {
+            color: #29a8eb;
+            font-size: 12px;
+            font-weight: 400;
+          }
+          .pass-block .pass-cards .pass-card .pass-card-code {
+            font-size: 25px;
+            font-weight: 400;
+            margin: 5px 0;
+          }
+          .pass-block .pass-cards .pass-card .dep-arr-label {
+            color: #9299a0;
+            font-size: 12px;
+            font-weight: 500;
+          }
+          .pass-block .pass-cards .pass-card .time {
+            font-size: 10px;
+            color: #9299a0;
+          }
+          .pass-block .pass-cards .pass-card:first-child {
+            margin-right: 40%;
+          }
+          .pass-block .pass-cards .pass-card:first-child:after {
+            color: #66e09157;
+            content: "\21E2";
+            position: absolute;
+            font-size: 45px;
+            top: calc(50% - 25px);
+            right: -70%;
+            animation: goforward cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.5s
+              infinite;
+          }
+
+          @keyframes goforward {
+            0% {
+              color: #203147;
+              right: -60%;
+              opacity: 10%;
+            }
+            50% {
+              color: #66e0919d;
+              opacity: 100%;
+              right: -90%;
+            }
+            100% {
+              color: #203147;
+              right: -120%;
+              opacity: 10%;
+            }
+          }
+
+          /* Offboarding */
+          .pass-block .pass-cards .offboard {
+            position: relative;
+            margin: 10px;
+            text-align: center;
+            display: inline-block;
+          }
+          .pass-block .pass-cards .offboard .pass-card-name {
+            color: #29a8eb;
+            font-size: 12px;
+            font-weight: 400;
+          }
+          .pass-block .pass-cards .offboard .pass-card-code {
+            font-size: 25px;
+            font-weight: 400;
+            margin: 5px 0;
+          }
+          .pass-block .pass-cards .offboard .dep-arr-label {
+            color: #9299a0;
+            font-size: 12px;
+            font-weight: 500;
+          }
+          .pass-block .pass-cards .offboard .time {
+            font-size: 10px;
+            color: #9299a0;
+          }
+          .pass-block .pass-cards .offboard:first-child {
+            margin-right: 40%;
+          }
+          .pass-block .pass-cards .offboard:first-child:after {
+            color: #e94e33;
+            content: "\21E0";
+
+            position: absolute;
+            font-size: 45px;
+            top: calc(50% - 25px);
+            right: -100%;
+            animation: gobackward cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.5s
+              infinite;
+          }
+
+          @keyframes gobackward {
+            0% {
+              color: #203147;
+              right: -140%;
+              opacity: 10%;
+            }
+            50% {
+              color: #e94e33b7;
+              opacity: 90%;
+              right: -90%;
+            }
+            100% {
+              color: #203147;
+              right: -60%;
+              opacity: 10%;
+            }
+          }
+          /* End of offboard*/
+
+          .pass-block .pass-cards:after {
+            content: "";
+            width: 26px;
+            height: 26px;
+            background-color: #121e2a;
+            position: absolute;
+            bottom: -15px;
+            right: -8px;
+            border-radius: 50%;
+            box-shadow: inset 12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+          }
+          .pass-block .pass-cards:before {
+            content: "";
+            width: 26px;
+            height: 26px;
+            background-color: #121e2a;
+            position: absolute;
+            bottom: -15px;
+            left: -8px;
+            border-radius: 50%;
+            box-shadow: inset -12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+          }
+          .pass-block .place {
+            padding: 10px;
+            height: 130px;
+          }
+          .pass-block .place-block {
+            display: inline-block;
+            margin: 5px 20px;
+          }
+          .pass-block .place-block .place-label {
+            color: #29a8eb;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-size: 14px;
+            margin-bottom: 10px;
+          }
+          .pass-block .place-block .place-value {
+            color: #9299a0;
+            font-size: 12px;
+            font-weight: 500;
+          }
+          .pass-block .qr {
+            width: 220px;
+            height: 220px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+          }
+          .pass-block .qr img {
+            width: 100%;
+            height: 100%;
+          }
+
+          .pass-block.inverse {
+            background-color: #f8f8f8;
+          }
+          .pass-block.inverse header {
+            background-color: #29a8eb;
+          }
+          .pass-block.inverse .pass-cards {
+            border-bottom-color: #d3d6da;
+          }
+          .pass-block.inverse .pass-card:first-child:after {
+            color: #d3d6da;
+          }
+          .pass-block.inverse .pass-card .pass-card-code {
+            color: #707884;
+            font-weight: 500;
+          }
+
+          .jumper {
+            animation: jumper-anim cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+          }
+          @keyframes jumper-anim {
+            0% {
+            }
+          }
+        </style>
+        <!-- Active Boaring Pass -->
+
+        <div class="row" style="margin-bottom: 40px">
+          <div class="col-sm-12">
+            <h5 class="display-6" style="color: #ecefed">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="26"
+                height="26"
+                fill="currentColor"
+                class="bi bi-pass-block-perforated"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M4 4.85v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Z"
+                />
+                <path
+                  d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13ZM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9V4.5Z"
+                />
+              </svg>
+              Active Boarding Pass
+            </h5>
+
+            <small class="text-muted-ss">
+              List of all the active boarding process going on. Finished
+              boarding detail will be collected from the
+              <a href="#">People list</a></small
+            >
+          </div>
+        </div>
+
+        <div class="row">
+          <!-- Boarding pass -->
+          <div class="pass-block">
+            <header>
+              <div class="company-name">ONBOARD PASS</div>
+              <div class="gate">
+                <div>C2</div>
+              </div>
+            </header>
+            <section class="pass-cards">
+              <div class="pass-card">
+                <div class="pass-card-name">Vivek Vijayan</div>
+                <div class="pass-card-code" style="margin-top: 15px">
+                  <img
+                    src="{%static 'images/vivek.jpg'%}"
+                    width="60px"
+                    style="border-radius: 100%; border: #fff solid 1px"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <div class="secure">
+                  <img
+                    src="{% static 'images/shield.png' %}"
+                    width="20px"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <div class="dep-arr-label text-muted">Manager</div>
+              </div>
+              <div class="pass-card">
+                <div class="pass-card-name">Serco</div>
+                <div class="pass-card-code" style="margin-top: 15px">BPC</div>
+                <div class="dep-arr-label text-muted-ss">Joining</div>
+                <div class="time text-muted-ss">8th May</div>
+              </div>
+            </section>
+            <div style="margin-top: 20px"></div>
+            <section class="place">
+              <div class="place-block progress-status">
+                <div class="place-label">Status</div>
+                <div class="place-value">
+                  <img
+                    src="{% static 'images/green-pulse.gif' %}"
+                    width="20px"
+                    alt=""
+                    srcset=""
+                  />
+                  Progress
+                </div>
+              </div>
+              <div class="place-block">
+                <div class="place-label jumper location-area">
+                  <center>
+                    <div class="place-value" style="color: white">chennai</div>
+                  </center>
+
+                  <div
+                    class=""
+                    style="
+                      filter: invert(1);
+                      opacity: 30%;
+                      transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+                      transform: scale(1.2);
+                    "
+                  >
+                    <object
+                      data="{% static 'images/location-images/chennai.svg' %}"
+                      width="110px"
+                      height="110px"
+                      alt=""
+                      srcset=""
+                    ></object>
+                  </div>
+                </div>
+              </div>
+
+              <div class="arrow">
+                <a href="onboardingpass/" class="a-color">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="50"
+                    height="50"
+                    fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </section>
+          </div>
+          <!-- ENd -->
+
+          <div class="pass-block">
+            <header class="offboard-header">
+              <div class="company-name">OFFBOARD PASS</div>
+              <div class="gate">
+                <div>C2</div>
+              </div>
+            </header>
+            <section class="pass-cards">
+              <div class="offboard">
+                <div class="pass-card-name">Vivek Vijayan</div>
+                <div class="secure">
+                  <img
+                    src="{% static 'images/shield.png' %}"
+                    width="20px"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <div class="pass-card-code" style="margin-top: 15px">
+                  <img
+                    src="{%static 'images/vivek.jpg'%}"
+                    width="60px"
+                    style="border-radius: 100%; border: #fff solid 1px"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <div class="dep-arr-label text-muted-ss">Manager</div>
+              </div>
+              <div class="offboard">
+                <div class="pass-card-name">Serco</div>
+                <div class="pass-card-code" style="margin-top: 15px">BW</div>
+                <div class="dep-arr-label text-muted-ss">LWD</div>
+                <div class="time text-muted-ss">8th May</div>
+              </div>
+            </section>
+            <div style="margin-top: 20px"></div>
+            <section class="place">
+              <div class="place-block progress-status">
+                <div class="place-label">Status</div>
+                <div class="place-value">
+                  <img
+                    src="{% static 'images/green-pulse.gif' %}"
+                    width="20px"
+                    alt=""
+                    srcset=""
+                  />
+                  Progress
+                </div>
+              </div>
+              <div class="place-block">
+                <div class="place-label jumper location-area">
+                  <center>
+                    <div class="place-value" style="color: white">Mumbai</div>
+                  </center>
+
+                  <div
+                    class=""
+                    style="
+                      filter: invert(1);
+                      opacity: 30%;
+                      transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+                      transform: scale(1.2);
+                    "
+                  >
+                    <object
+                      data="{% static 'images/location-images/mumbai.svg' %}"
+                      width="110px"
+                      height="110px"
+                      alt=""
+                      srcset=""
+                    ></object>
+                  </div>
+                </div>
+              </div>
+
+              <div class="arrow">
+                <a href="onboardingpass/" class="a-color">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="50"
+                    height="50"
+                    fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </section>
+          </div>
+          <!-- ENd -->
+
+          <div class="pass-block">
+            <header>
+              <div class="company-name">ONBOARD PASS</div>
+              <div class="gate">
+                <div>C2</div>
+              </div>
+            </header>
+            <section class="pass-cards">
+              <div class="pass-card">
+                <div class="pass-card-name">Vivek Vijayan</div>
+                <div class="pass-card-code" style="margin-top: 15px">
+                  <img
+                    src="{%static 'images/vivek.jpg'%}"
+                    width="60px"
+                    style="border-radius: 100%; border: #fff solid 1px"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <div class="secure">
+                  <img
+                    src="{% static 'images/shield.png' %}"
+                    width="20px"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <div class="dep-arr-label text-muted">Manager</div>
+              </div>
+              <div class="pass-card">
+                <div class="pass-card-name">Serco</div>
+                <div class="pass-card-code" style="margin-top: 15px">BPC</div>
+                <div class="dep-arr-label text-muted-ss">Joining</div>
+                <div class="time text-muted-ss">8th May</div>
+              </div>
+            </section>
+            <div style="margin-top: 20px"></div>
+            <section class="place">
+              <div class="place-block progress-status">
+                <div class="place-label">Status</div>
+                <div class="place-value">
+                  <img
+                    src="{% static 'images/green-pulse.gif' %}"
+                    width="20px"
+                    alt=""
+                    srcset=""
+                  />
+                  Progress
+                </div>
+              </div>
+              <div class="place-block">
+                <div class="place-label jumper location-area">
+                  <center>
+                    <div class="place-value" style="color: white">chennai</div>
+                  </center>
+
+                  <div
+                    class=""
+                    style="
+                      filter: invert(1);
+                      opacity: 30%;
+                      transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+                      transform: scale(1.2);
+                    "
+                  >
+                    <object
+                      data="{% static 'images/location-images/chennai.svg' %}"
+                      width="110px"
+                      height="110px"
+                      alt=""
+                      srcset=""
+                    ></object>
+                  </div>
+                </div>
+              </div>
+
+              <div class="arrow">
+                <a href="onboardingpass/" class="a-color">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="50"
+                    height="50"
+                    fill="currentColor"
+                    class="bi bi-arrow-right-circle-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin: 100px">
+        <!-- Blank space-->
+      </div>
+
+      <script>
+        $(document).ready(function () {
+          bsCustomFileInput.init();
+        });
+      </script>
+    </div>
+
+    <script>
+      $("#exampleModalLong").on("shown.bs.modal", function () {
+        $("#myInput").trigger("focus");
+      });
+    </script>
+  </body>
+</html>

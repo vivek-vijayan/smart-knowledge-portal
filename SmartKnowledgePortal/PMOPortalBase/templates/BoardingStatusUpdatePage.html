@@ -867,22 +867,47 @@
           </div>
         </div>
 
-        <small style="margin-bottom: 20px; color: #3ca8f8">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            class="bi bi-stars"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"
-            />
-          </svg>
+        <div class="row">
+          <div class="col-sm-6">
+            <small style="margin-bottom: 20px; color: #3ca8f8">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-stars"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z"
+                />
+              </svg>
 
-          Most recently added</small
-        >
+              Most recently added</small
+            >
+          </div>
+          <div class="col-sm-6" style="text-align: right; padding-right: 50px">
+            <a href="boarding-pass-repository/">
+              <small style="margin-bottom: 20px; color: #3ca8f8">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-three-dots"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+                  />
+                </svg>
+
+                View all in repository</small
+              >
+            </a>
+          </div>
+        </div>
+
         <br />
         <br />
 
@@ -928,15 +953,21 @@
             <div class="place-block progress-status">
               <div class="place-label">Status</div>
               <div class="place-value">
-                <img src="{% static 'images/green-pulse.gif' %}" width="20px" alt="" srcset="">
-                Progress</div>
+                <img
+                  src="{% static 'images/green-pulse.gif' %}"
+                  width="20px"
+                  alt=""
+                  srcset=""
+                />
+                Progress
+              </div>
             </div>
             <div class="place-block">
               <div class="place-label jumper location-area">
                 <center>
                   <div class="place-value" style="color: white">chennai</div>
                 </center>
-                
+
                 <div
                   class=""
                   style="
@@ -1018,8 +1049,14 @@
             <div class="place-block progress-status">
               <div class="place-label">Status</div>
               <div class="place-value">
-                <img src="{% static 'images/green-pulse.gif' %}" width="20px" alt="" srcset="">
-                Progress</div>
+                <img
+                  src="{% static 'images/green-pulse.gif' %}"
+                  width="20px"
+                  alt=""
+                  srcset=""
+                />
+                Progress
+              </div>
             </div>
             <div class="place-block">
               <div class="place-label jumper location-area">
@@ -1066,6 +1103,101 @@
           </section>
         </div>
         <!-- ENd -->
+
+        <div class="pass-block">
+          <header>
+            <div class="company-name">ONBOARD PASS</div>
+            <div class="gate">
+              <div>C2</div>
+            </div>
+          </header>
+          <section class="pass-cards">
+            <div class="pass-card">
+              <div class="pass-card-name">Vivek Vijayan</div>
+              <div class="pass-card-code" style="margin-top: 15px">
+                <img
+                  src="{%static 'images/vivek.jpg'%}"
+                  width="60px"
+                  style="border-radius: 100%; border: #fff solid 1px"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+              <div class="secure">
+                <img
+                  src="{% static 'images/shield.png' %}"
+                  width="20px"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+              <div class="dep-arr-label text-muted">Manager</div>
+            </div>
+            <div class="pass-card">
+              <div class="pass-card-name">Serco</div>
+              <div class="pass-card-code" style="margin-top: 15px">BPC</div>
+              <div class="dep-arr-label text-muted-ss">Joining</div>
+              <div class="time text-muted-ss">8th May</div>
+            </div>
+          </section>
+          <div style="margin-top: 20px"></div>
+          <section class="place">
+            <div class="place-block progress-status">
+              <div class="place-label">Status</div>
+              <div class="place-value">
+                <img
+                  src="{% static 'images/green-pulse.gif' %}"
+                  width="20px"
+                  alt=""
+                  srcset=""
+                />
+                Progress
+              </div>
+            </div>
+            <div class="place-block">
+              <div class="place-label jumper location-area">
+                <center>
+                  <div class="place-value" style="color: white">chennai</div>
+                </center>
+
+                <div
+                  class=""
+                  style="
+                    filter: invert(1);
+                    opacity: 30%;
+                    transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+                    transform: scale(1.2);
+                  "
+                >
+                  <object
+                    data="{% static 'images/location-images/chennai.svg' %}"
+                    width="110px"
+                    height="110px"
+                    alt=""
+                    srcset=""
+                  ></object>
+                </div>
+              </div>
+            </div>
+
+            <div class="arrow">
+              <a href="onboardingpass/" class="a-color">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="50"
+                  height="50"
+                  fill="currentColor"
+                  class="bi bi-arrow-right-circle-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </section>
+        </div>
 
         <!-- ENd -->
 

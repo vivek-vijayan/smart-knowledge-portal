@@ -466,17 +466,42 @@
       }
 
       @media (max-width: 320px) {
-        .date-field div p {
-        }
         .clock-field div p {
           font-size: 40px;
         }
+      }
+
+      .time-container {
+        border-radius: 1px;
+      }
+      .holiday-container {
+        border-radius: 1px;
+      }
+
+      .time-division {
+        color: #2f4766;
+        transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+      }
+
+      .time-container:hover .time-division {
+        color: #66e091;
+        transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+      }
+
+      .holiday-division {
+        color: #2f4766;
+        transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+      }
+
+      .holiday-container:hover .holiday-division {
+        color: #F9C762;
+        transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
       }
     </style>
 
     <!-- Timestamp Values -->
     <div class="container" style="margin-top: 70px">
-      <div class="row">
+      <div class="row time-container">
         <div
           class="col-sm-6 digital"
           style="font-family: digital, sans-serif !important; margin-top: 0px"
@@ -549,6 +574,23 @@
         </div>
         <div class="col-sm-6">
           <center>
+            <h1 class="time-division" style="margin-top: 20px">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="150"
+                height="150"
+                fill="currentColor"
+                class="bi bi-watch"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8.5 5a.5.5 0 0 0-1 0v2.5H6a.5.5 0 0 0 0 1h2a.5.5 0 0 0 .5-.5V5z"
+                />
+                <path
+                  d="M5.667 16C4.747 16 4 15.254 4 14.333v-1.86A5.985 5.985 0 0 1 2 8c0-1.777.772-3.374 2-4.472V1.667C4 .747 4.746 0 5.667 0h4.666C11.253 0 12 .746 12 1.667v1.86a5.99 5.99 0 0 1 1.918 3.48.502.502 0 0 1 .582.493v1a.5.5 0 0 1-.582.493A5.99 5.99 0 0 1 12 12.473v1.86c0 .92-.746 1.667-1.667 1.667H5.667zM13 8A5 5 0 1 0 3 8a5 5 0 0 0 10 0z"
+                />
+              </svg>
+            </h1>
             <h1 class="display-6" style="margin-top: 80px">
               Our work time (UK)
             </h1>
@@ -570,9 +612,23 @@
       </div>
 
       <!-- Our holidays -->
-      <div class="row">
-        <div class="col-sm-6">
+      <div class="row holiday-container">
+        <div class="col-sm-7">
           <center>
+            <h1 style="margin-top: 20px" class="holiday-division">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="150"
+                height="150"
+                fill="currentColor"
+                class="bi bi-sun-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
+                />
+              </svg>
+            </h1>
             <h1 class="display-6" style="margin-top: 80px">Our holiday (UK)</h1>
             <blockquote
               class="blockquote text-center text-muted-ss"
@@ -582,18 +638,83 @@
                 class="blockquote-footer"
                 style="font-weight: 100; font-size: small"
               >
-                As we support UK time based, we follow UK holiday
+                As we support UK time based, we follow UK holiday. Some of the
+                holiday listed here may not be considered for a project
+                vacation. so we may be supporting on-call on those days
               </p>
             </blockquote>
           </center>
         </div>
 
-        <div class="col-sm-6">
-          <select id="selectCountry">
+        <div class="col-sm-5">
+          <select id="selectCountry" class="custom-select">
             <option value="uk">UK</option>
             <option value="indian">India</option>
           </select>
-          <pre id="output"></pre>
+          <style>
+            .ul,
+            .li {
+              list-style: none;
+              padding: 0;
+            }
+
+            .sessions {
+              margin-top: 2rem;
+              border-radius: 12px;
+              position: relative;
+            }
+
+            .li {
+              padding-bottom: 1.5rem;
+              border-left: 1px solid #2f4766;
+              position: relative;
+              padding-left: 20px;
+              margin-left: 10px;
+            }
+            .li:last-child {
+              border: 0px;
+              padding-bottom: 0;
+            }
+            .li:before {
+              content: "";
+              width: 15px;
+              height: 15px;
+              background: #66e091;
+              border: 1px solid #3e8d56;
+              box-shadow: 3px 3px 0px #2f4766;
+              box-shadow: 3px 3px 0px #2f4766;
+              border-radius: 50%;
+              position: absolute;
+              left: -10px;
+              top: 0px;
+            }
+
+            .holiday-date {
+              color: #66e091;
+              font-family: "Poppins", sans-serif;
+              font-weight: 500;
+              font-size: 25px;
+            }
+          </style>
+          <div class="container">
+            <div class="wrapper">
+              <ul
+                class="sessions ul"
+                id="output"
+                style="
+                  height: 350px;
+                  overflow: scroll;
+                  margin-top: 20px;
+                  scrollbar-color: #66e091 !important;
+                "
+              >
+                <li class="li">
+                  <div class="time">09:00 AM</div>
+                  <p>Time</p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1108,8 +1229,26 @@
       // Loading holiday
       let year = window.clock.time.year;
 
-      $("#selectCountry").change(function (e) {
-        $("#output").html("Loading...");
+      let month_name = [
+        "January",
+        "Febraury",
+        "March",
+        "April",
+        "May",
+        "Jun",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+
+      // Once load
+      $("#selectCountry").add(function (e) {
+        $("#output").html(
+          "<span style='color:white; padding-top:50px'> Loading holidays... </span>"
+        );
         var country = $("#selectCountry").val();
         var calendarUrl =
           "https://www.googleapis.com/calendar/v3/calendars/en." +
@@ -1121,14 +1260,79 @@
             console.log(data);
             $("#output").empty();
             for (item in data.items) {
+              console.log(data.items[item]);
+              var getMonth =
+                month_name[
+                  parseInt(
+                    data.items[item].start.date.toString().split("-")[1]
+                  ) - 1
+                ];
+              var getDate = data.items[item].start.date
+                .toString()
+                .split("-")[2];
+              var getYear = data.items[item].start.date
+                .toString()
+                .split("-")[0];
               if (data.items[item].start.date.toString().includes(year))
                 $("#output").append(
-                  "<hr><span style='color:white'>" +
+                  '<li class="li"><div class="holiday-date">' +
+                    getDate +
+                    " " +
+                    getMonth +
+                    " " +
+                    getYear +
+                    "</div>" +
+                    "<small class='text-muted-ss'>" +
                     data.items[item].summary +
-                    "<span>" +
-                    "<p>" +
-                    data.items[item].start.date +
-                    "<p>"
+                    "</small>"
+                );
+            }
+          })
+          .error(function (error) {
+            $("#output").html("An error occurred.");
+          });
+      });
+
+      $("#selectCountry").change(function (e) {
+        $("#output").html(
+          "<span style='color:white; padding-top:50px'> Loading holidays... </span>"
+        );
+        var country = $("#selectCountry").val();
+        var calendarUrl =
+          "https://www.googleapis.com/calendar/v3/calendars/en." +
+          country +
+          "%23holiday%40group.v.calendar.google.com/events?key=AIzaSyDfKWdpeRjC-731P6PQkR8DsKuuVewHpqc";
+
+        $.getJSON(calendarUrl)
+          .success(function (data) {
+            console.log(data);
+            $("#output").empty();
+            for (item in data.items) {
+              console.log(data.items[item]);
+              var getMonth =
+                month_name[
+                  parseInt(
+                    data.items[item].start.date.toString().split("-")[1]
+                  ) - 1
+                ];
+              var getDate = data.items[item].start.date
+                .toString()
+                .split("-")[2];
+              var getYear = data.items[item].start.date
+                .toString()
+                .split("-")[0];
+              if (data.items[item].start.date.toString().includes(year))
+                $("#output").append(
+                  '<li class="li"><div class="holiday-date">' +
+                    getDate +
+                    " " +
+                    getMonth +
+                    " " +
+                    getYear +
+                    "</div>" +
+                    "<small class='text-muted-ss'>" +
+                    data.items[item].summary +
+                    "</small>"
                 );
             }
           })
