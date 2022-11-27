@@ -61,7 +61,7 @@ def RequestToDeactivateAccount(request):
         request=request, template_name="DeactivateAccountRequest.html", context={}
     )
 
-def BoardingPassRepository(request):
+def PMORepository(request):
     return render(
-        request=request, template_name="BoardingPassRepository.html", context={}
+        request=request, template_name="PMORepository.html", context={}
     )
