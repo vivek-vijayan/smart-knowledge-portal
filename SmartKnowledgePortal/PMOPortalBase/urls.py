@@ -29,5 +29,5 @@ urlpatterns = [
     path("success/", views.successpage, name="PMOSuccessPage"),
     path("boardingstatus/request-to-deactivate/", views.RequestToDeactivateAccount, name="RequestToDeactivateAccount"),
     path("pmo-admin/", views.PMOAdminPage, name="PMOAdminPage"),
-    path("boardingstatus/pmo-repository/", views.PMORepository, name="PMORepository"),
+    path("pmo-repository/", views.PMORepository, name="PMORepository"),
 ]

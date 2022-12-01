@@ -24,6 +24,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
   </head>
   <body>
+    <div
+      style="
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        opacity: 100%;
+        filter: blur(5px);
+        z-index: -1;
+      "
+    >
+      <img src="{% static 'images/loginbg.png' %}" alt="" srcset="" />
+    </div>
     <!-- Navigation area -->
     <nav
       class="navbar navbar-expand-lg navbar-danger static-header"
@@ -61,14 +73,23 @@
 
     <div class="">
       <center>
-        <div style="margin-top: 200px">
+        <div
+          style="
+            margin-top: 200px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            background-color: #121e2a;
+            padding: 30px;
+            width: 35rem;
+            border-radius: 10px;
+          "
+        >
           <img
             src="{% static  'images/success.webp' %}"
             width="100px"
             alt=""
             srcset=""
           />
-          <h3 class="display-5" style="color: #66E091; padding-top: 20px">
+          <h3 class="display-5" style="color: #66e091; padding-top: 20px">
             {{ transaction_type }} successful
           </h3>
           <div style="width: 500px">
