@@ -14,10 +14,11 @@
     <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
     <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="//cdn.amcharts.com/lib/5/themes/Dark.js"></script>
     <script>
       am5.ready(function () {
         var root = am5.Root.new("chartdiv");
-        root.setThemes([am5themes_Animated.new(root)]);
+        root.setThemes([am5themes_Dark.new(root)]);
         var chart = root.container.children.push(
           am5xy.XYChart.new(root, {
             panX: false,
@@ -138,6 +139,7 @@
     </script>
   </head>
   <body>
+ 
     <!-- Navigation area -->
     <nav
       class="navbar navbar-expand-lg navbar-danger static-header"

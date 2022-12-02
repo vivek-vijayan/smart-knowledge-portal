@@ -23,8 +23,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="//cdn.amcharts.com/lib/5/themes/Dark.js"></script>
   </head>
   <body>
+    <style>
+      #chartdiv {
+        width: 100%;
+        height: 500px;
+      }
+    </style>
     <!-- Navigation area -->
     <nav
       class="navbar navbar-expand-lg navbar-danger static-header"
@@ -253,7 +263,7 @@
                   <li class="breadcrumb-item">
                     <a href="/serco-pmo" style="color: #33a9fe">PMO Portal</a>
                   </li>
-                  
+
                   <li class="breadcrumb-item active" aria-current="page">
                     PMO Repository
                   </li>
@@ -283,22 +293,71 @@
         </div>
       </div>
       <div class="container">
-
-        <hr style="border: #203147 dashed 1px">
+        <hr style="border: #203147 dashed 1px" />
       </div>
       <!-- Repository content-->
       <div id="boarding-pass-repository">
-        <div class="container" style="text-align: center; background-color: #203147; padding: 20px;">
+        <div
+          class="container"
+          style="text-align: center; background-color: #203147; padding: 20px"
+        >
           <small class="text-muted-ss">Repository name</small>
           <h4 class="display-5">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-ticket-perforated" viewBox="0 0 16 16">
-              <path d="M4 4.85v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Z"/>
-              <path d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13ZM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9V4.5Z"/>
-            </svg> &nbsp; Boarding pass repository v1.0
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              fill="currentColor"
+              class="bi bi-ticket-perforated"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M4 4.85v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Z"
+              />
+              <path
+                d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13ZM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9V4.5Z"
+              />
+            </svg>
+            &nbsp; User profile repository v1.0
           </h4>
           <small class="text-muted-ss">created by administrator</small>
         </div>
         <br />
+
+        <!-- Total members in each team -->
+        <div class="container" style="margin-top: 30px;">
+          <div class="row" style="margin-bottom: 40px">
+            <div class="col-sm-9">
+              <h5 class="display-6" id="archieved" style="color: #ffffff">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-file-zip"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M6.5 7.5a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v.938l.4 1.599a1 1 0 0 1-.416 1.074l-.93.62a1 1 0 0 1-1.109 0l-.93-.62a1 1 0 0 1-.415-1.074l.4-1.599V7.5zm2 0h-1v.938a1 1 0 0 1-.03.243l-.4 1.598.93.62.93-.62-.4-1.598a1 1 0 0 1-.03-.243V7.5z"
+                  />
+                  <path
+                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm5.5-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9v1H8v1h1v1H8v1h1v1H7.5V5h-1V4h1V3h-1V2h1V1z"
+                  />
+                </svg>
+                Team strength
+              </h5>
+
+              <small class="text-muted-ss">
+                List of all the active boarding process going on. Archieved
+                passes are available on the
+                <a href="#">archeived section</a></small
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div id="chartdiv"></div>
+          </div>
+        </div>
         <div class="container">
           <small class="text-muted-ss" style="margin-bottom: 20px">
             Top request
@@ -921,13 +980,22 @@
           >
             <div class="col-sm-9">
               <h5 class="display-6" style="color: #ffffff">
-                <img
-                  src="{% static 'images/green-pulse.gif' %}"
-                  width="30px"
-                  alt=""
-                  srcset=""
-                />
-                Active Boarding Pass
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  fill="currentColor"
+                  class="bi bi-person-badge"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M6.5 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"
+                  />
+                  <path
+                    d="M4.5 0A2.5 2.5 0 0 0 2 2.5V14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2.5A2.5 2.5 0 0 0 11.5 0h-7zM3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v10.795a4.2 4.2 0 0 0-.776-.492C11.392 12.387 10.063 12 8 12s-3.392.387-4.224.803a4.2 4.2 0 0 0-.776.492V2.5z"
+                  />
+                </svg>
+                &nbsp; Active user profile
               </h5>
 
               <small class="text-muted-ss">
@@ -3284,7 +3352,7 @@
         for (i = 1; i < 7; i++) {
           var x = thead[0].getElementsByTagName("th")[i];
           x.style.backgroundColor = "#EFB34200";
-          x.style.color = "#3CA8F8";
+          x.style.color = "#FFFFFF";
         }
         for (i = 0; i < tr.length; i++) {
           tr[i].getElementsByTagName("td");
@@ -3295,7 +3363,7 @@
               mode.value
             ].style.backgroundColor = "#2171BF";
             thead[0].getElementsByTagName("th")[mode.value].style.color =
-              "#fff";
+              "#ffffff";
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
               tr[i].style.display = "";
@@ -3372,6 +3440,191 @@
 
         downloadCSVFile(csv_data);
       }
+    </script>
+    <!-- Chart code -->
+    <script>
+      am5.ready(function () {
+        // Create root element
+        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+        var root = am5.Root.new("chartdiv");
+
+        // Set themes
+        // https://www.amcharts.com/docs/v5/concepts/themes/
+        root.setThemes([am5themes_Dark.new(root)]);
+
+        // Create chart
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/
+        var chart = root.container.children.push(
+          am5xy.XYChart.new(root, {
+            panX: false,
+            panY: false,
+            wheelX: "none",
+            wheelY: "none",
+          })
+        );
+
+        // We don't want zoom-out button to appear while animating, so we hide it
+        chart.zoomOutButton.set("forceHidden", true);
+
+        // Create axes
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+        var yRenderer = am5xy.AxisRendererY.new(root, {
+          minGridDistance: 30,
+        });
+
+        var yAxis = chart.yAxes.push(
+          am5xy.CategoryAxis.new(root, {
+            maxDeviation: 0,
+            categoryField: "team_name",
+            renderer: yRenderer,
+            tooltip: am5.Tooltip.new(root, { themeTags: ["axis"] }),
+          })
+        );
+
+        var xAxis = chart.xAxes.push(
+          am5xy.ValueAxis.new(root, {
+            maxDeviation: 0,
+            min: 0,
+            extraMax: 0.1,
+            renderer: am5xy.AxisRendererX.new(root, {}),
+          })
+        );
+
+        // Add series
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+        var series = chart.series.push(
+          am5xy.ColumnSeries.new(root, {
+            name: "Series 1",
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueXField: "value",
+            categoryYField: "team_name",
+            tooltip: am5.Tooltip.new(root, {
+              pointerOrientation: "left",
+              labelText: "{valueX}",
+            }),
+          })
+        );
+
+        // Rounded corners for columns
+        series.columns.template.setAll({
+          cornerRadiusTR: 5,
+          cornerRadiusBR: 5,
+        });
+
+        // Make each column to be of a different color
+        series.columns.template.adapters.add("fill", function (fill, target) {
+          return chart.get("colors").getIndex(series.columns.indexOf(target));
+        });
+
+        series.columns.template.adapters.add(
+          "stroke",
+          function (stroke, target) {
+            return chart.get("colors").getIndex(series.columns.indexOf(target));
+          }
+        );
+
+        // Set data
+        var data = [
+          {
+            team_name: "BPC",
+            value: 20,
+          },
+          {
+            team_name: "BO",
+            value: 5,
+          },
+          {
+            team_name: "BW",
+            value: 17,
+          },
+          {
+            team_name: "RTR",
+            value: 14,
+          },
+          {
+            team_name: "PTP",
+            value: 7,
+          },
+          {
+            team_name: "PMO",
+            value: 8,
+          },
+          {
+            team_name: "RL",
+            value: 2,
+          },
+        ];
+
+        yAxis.data.setAll(data);
+        series.data.setAll(data);
+        sortCategoryAxis();
+
+        // Get series item by category
+        function getSeriesItem(category) {
+          for (var i = 0; i < series.dataItems.length; i++) {
+            var dataItem = series.dataItems[i];
+            if (dataItem.get("categoryY") == category) {
+              return dataItem;
+            }
+          }
+        }
+
+        chart.set(
+          "cursor",
+          am5xy.XYCursor.new(root, {
+            behavior: "none",
+            xAxis: xAxis,
+            yAxis: yAxis,
+          })
+        );
+
+        // Axis sorting
+        function sortCategoryAxis() {
+          // Sort by value
+          series.dataItems.sort(function (x, y) {
+            return x.get("valueX") - y.get("valueX"); // descending
+            //return y.get("valueY") - x.get("valueX"); // ascending
+          });
+
+          // Go through each axis item
+          am5.array.each(yAxis.dataItems, function (dataItem) {
+            // get corresponding series item
+            var seriesDataItem = getSeriesItem(dataItem.get("category"));
+
+            if (seriesDataItem) {
+              // get index of series data item
+              var index = series.dataItems.indexOf(seriesDataItem);
+              // calculate delta position
+              var deltaPosition =
+                (index - dataItem.get("index", 0)) / series.dataItems.length;
+              // set index to be the same as series data item index
+              dataItem.set("index", index);
+              // set deltaPosition instanlty
+              dataItem.set("deltaPosition", -deltaPosition);
+              // animate delta position to 0
+              dataItem.animate({
+                key: "deltaPosition",
+                to: 0,
+                duration: 1000,
+                easing: am5.ease.out(am5.ease.cubic),
+              });
+            }
+          });
+
+          // Sort axis items by index.
+          // This changes the order instantly, but as deltaPosition is set,
+          // they keep in the same places and then animate to true positions.
+          yAxis.dataItems.sort(function (x, y) {
+            return x.get("index") - y.get("index");
+          });
+        }
+
+        // Make stuff animate on load
+        // https://www.amcharts.com/docs/v5/concepts/animations/
+        series.appear(1000);
+        chart.appear(1000, 100);
+      }); // end am5.ready()
     </script>
   </body>
 </html>

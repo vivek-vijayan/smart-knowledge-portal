@@ -61,7 +61,16 @@ def RequestToDeactivateAccount(request):
         request=request, template_name="DeactivateAccountRequest.html", context={}
     )
 
-def PMORepository(request):
-    return render(
-        request=request, template_name="PMORepository.html", context={}
-    )
+def PMORepository(request, repo_set):
+    if(repo_set == 1):
+        return render(
+            request=request, template_name="PMORepository-boardingpass.html", context={}
+        )
+    elif(repo_set == 2):
+        return render(
+            request=request, template_name="PMORepository-userprofile.html", context={}
+        )
+    else:
+        return render(
+            request=request, template_name="PMORepository-boardingpass.html", context={}
+        )

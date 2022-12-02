@@ -1,0 +1,3628 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Knowledge Portal</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+    <script src="{% static 'jquery-min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bs-custom-file-input/dist/bs-custom-file-input.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+    <script src="//cdn.amcharts.com/lib/5/themes/Dark.js"></script>
+  </head>
+  <body>
+    <style>
+      #chartdiv {
+        width: 100%;
+        height: 500px;
+      }
+    </style>
+    <!-- Navigation area -->
+    <nav
+      class="navbar navbar-expand-lg navbar-danger static-header"
+      style="
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: #172231;
+        z-index: 10;
+        height: 60px;
+      "
+    >
+      <span
+        class="navbar-brand"
+        href="#"
+        style="
+          color: #33a9fe;
+          font-weight: 200;
+          font-family: SercoLogoTitle;
+          margin-right: 50px;
+        "
+        ><span style="color: #ed3833">Serco</span> Smart Portal!
+        <sub style="font-size: 10px">2022</sub></span
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" style="font-family: SercoLogoTitle">
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="/">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-house-door-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"
+                />
+              </svg>
+              Home</a
+            >
+          </li>
+          <li class="nav-item header-link-padding power-active-link">
+            <a
+              class="nav-link nav-link-select power-active-link-inner"
+              href="/serco-pmo"
+              onclick="() => {
+                document.getElementById('blurry').classList.add('onceblur');
+                }"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-diagram-3-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H14a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 2 7h5.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-6 8A1.5 1.5 0 0 1 1.5 10h1A1.5 1.5 0 0 1 4 11.5v1A1.5 1.5 0 0 1 2.5 14h-1A1.5 1.5 0 0 1 0 12.5v-1zm6 0A1.5 1.5 0 0 1 7.5 10h1a1.5 1.5 0 0 1 1.5 1.5v1A1.5 1.5 0 0 1 8.5 14h-1A1.5 1.5 0 0 1 6 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1a1.5 1.5 0 0 1-1.5-1.5v-1z"
+                />
+              </svg>
+              PMO Portal <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-grid-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"
+                />
+              </svg>
+              Lead Portal</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="/blog">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-chat-text-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.5 5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7zm0 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4z"
+                />
+              </svg>
+              Blog</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-lightbulb"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z"
+                />
+              </svg>
+              Knowledge</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-left-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
+                />
+              </svg>
+              Boarding</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-gear-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
+                />
+              </svg>
+              Settings</a
+            >
+          </li>
+          <li class="nav-item header-link-padding">
+            <a class="nav-link nav-link-unselect" href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
+              >
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                />
+              </svg>
+              Profile</a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="/login/ssp-login">
+          <a href="/login/ssp-login">
+            <button class="btn btn-sm btn-success my-2 my-sm-0" type="submit">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-right"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                />
+              </svg>
+              Login
+            </button>
+          </a>
+        </form>
+      </div>
+    </nav>
+
+    <div id="blurry">
+      <!-- Intro image -->
+      <div class="fade-intro" style="margin-top: 130px">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <nav
+                style="
+                  --bs-breadcrumb-divider: url(
+                    &#34;data:image/svg + xml,
+                    %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%23929aa1'/%3E%3C/svg%3E&#34;
+                  );
+                "
+                aria-label="breadcrumb"
+              >
+                <ol
+                  class="breadcrumb"
+                  style="background-color: #17223100 !important"
+                >
+                  <li class="breadcrumb-item">
+                    <a href="/serco-pmo" style="color: #33a9fe">PMO Portal</a>
+                  </li>
+
+                  <li class="breadcrumb-item active" aria-current="page">
+                    PMO Repository
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="display-6" style="color: #ffffff">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="36"
+                  height="36"
+                  fill="currentColor"
+                  class="bi bi-box-seam"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"
+                  />
+                </svg>
+                <span style="color: #66e091">PMO</span> Repository
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <hr style="border: #203147 dashed 1px" />
+      </div>
+      <!-- Repository content-->
+      <div id="boarding-pass-repository">
+        <div
+          class="container"
+          style="text-align: center; background-color: #203147; padding: 20px"
+        >
+          <small class="text-muted-ss">Repository name</small>
+          <h4 class="display-5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="50"
+              height="50"
+              fill="currentColor"
+              class="bi bi-ticket-perforated"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M4 4.85v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Z"
+              />
+              <path
+                d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13ZM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9V4.5Z"
+              />
+            </svg>
+            &nbsp; Boarding pass repository v1.0
+          </h4>
+          <small class="text-muted-ss">created by administrator</small>
+        </div>
+        <br />
+        <div class="container">
+          <small class="text-muted-ss">
+            <br />
+          </small>
+          <small class="text-muted-ss">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-link-45deg"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"
+              />
+              <path
+                d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"
+              />
+            </svg>
+            Repository controls
+          </small>
+          <div class="container" style="margin-top: 10px">
+            <div class="row">
+              <div
+                class="col-sm-2 content-show-card"
+                style="text-align: center; padding: 5px; border-radius: 10px"
+                data-toggle="modal"
+                data-target="#exampleModalLong"
+              >
+                <button
+                  style="
+                    color: #33a9fe;
+                    border: none;
+                    background-color: rgba(255, 0, 0, 0);
+                    text-align: center;
+                    font-size: small;
+                  "
+                >
+                  <center>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-file-zip"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M6.5 7.5a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v.938l.4 1.599a1 1 0 0 1-.416 1.074l-.93.62a1 1 0 0 1-1.109 0l-.93-.62a1 1 0 0 1-.415-1.074l.4-1.599V7.5zm2 0h-1v.938a1 1 0 0 1-.03.243l-.4 1.598.93.62.93-.62-.4-1.598a1 1 0 0 1-.03-.243V7.5z"
+                      />
+                      <path
+                        d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm5.5-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9v1H8v1h1v1H8v1h1v1H7.5V5h-1V4h1V3h-1V2h1V1z"
+                      />
+                    </svg>
+                    Archived Pass
+                  </center>
+                </button>
+              </div>
+              <a
+                href="/serco-pmo/onboard"
+                class="col-sm-2 content-show-card"
+                style="text-align: center; padding: 5px; border-radius: 10px"
+              >
+                <button
+                  style="
+                    color: #33a9fe;
+                    border: none;
+                    background-color: rgba(255, 0, 0, 0);
+                    text-align: center;
+                    font-size: small;
+                  "
+                >
+                  <center>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-diagram-2-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-3 8A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5v-1z"
+                      />
+                    </svg>
+                    Team settings
+                  </center>
+                </button>
+              </a>
+
+              <div
+                class="col-sm-2 content-show-card"
+                style="text-align: center; padding: 5px; border-radius: 10px"
+                data-toggle="modal"
+                data-target="#exampleModalLong"
+              >
+                <button
+                  style="
+                    color: #33a9fe;
+                    border: none;
+                    background-color: rgba(255, 0, 0, 0);
+                    text-align: center;
+                    font-size: small;
+                  "
+                >
+                  <center>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-geo-alt-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                      />
+                    </svg>
+                    Location
+                  </center>
+                </button>
+              </div>
+              <a
+                href="/serco-pmo/onboard"
+                class="col-sm-2 content-show-card"
+                style="text-align: center; padding: 5px; border-radius: 10px"
+              >
+                <button
+                  style="
+                    color: #33a9fe;
+                    border: none;
+                    background-color: rgba(255, 0, 0, 0);
+                    text-align: center;
+                    font-size: small;
+                  "
+                >
+                  <center>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-diagram-2-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-3 8A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5v-1z"
+                      />
+                    </svg>
+                    Add new team
+                  </center>
+                </button>
+              </a>
+
+              <div
+                class="col-sm-2 content-show-card"
+                style="text-align: center; padding: 5px; border-radius: 10px"
+                data-toggle="modal"
+                data-target="#exampleModalLong"
+              >
+                <button
+                  style="
+                    color: #33a9fe;
+                    border: none;
+                    background-color: rgba(255, 0, 0, 0);
+                    text-align: center;
+                    font-size: small;
+                  "
+                >
+                  <center>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-diagram-2-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5v-1zm-3 8A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5v-1zm6 0a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5v-1z"
+                      />
+                    </svg>
+                    Map Project
+                  </center>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Onboarding and offbaording rate -->
+        <div class="container" style="margin-top: 30px">
+          <div class="row" style="margin-bottom: 40px">
+            <div class="col-sm-9">
+              <h5 class="display-6" id="archieved" style="color: #ffffff">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="26"
+                  height="26"
+                  fill="currentColor"
+                  class="bi bi-graph-up"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"
+                  />
+                </svg>
+                Boarding timeline rate
+              </h5>
+
+              <small class="text-muted-ss">
+                Timeline graph of rate of onboarding and offboarding activities
+                performed so far on a day-wise
+                <a href="#">archeived section</a></small
+              >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-2">
+              <small>
+                <span style="color: #35df91">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    fill="currentColor"
+                    class="bi bi-dash-lg"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"
+                    />
+                  </svg>
+                </span>
+                Onboard rate</small
+              >
+            </div>
+            <div class="col-sm-2">
+              <small>
+                <span style="color: #e94e33">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="36"
+                    height="36"
+                    fill="currentColor"
+                    class="bi bi-dash-lg"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"
+                    />
+                  </svg>
+                </span>
+                Offboard rate</small
+              >
+            </div>
+          </div>
+
+          <div class="row">
+            <div id="chartdiv"></div>
+          </div>
+        </div>
+
+        <div class="container" style="margin-top: 30px">
+          <!-- -->
+          <style>
+            .pass-block {
+              display: inline-block;
+              width: 340px;
+              margin: 10px;
+              background-color: #203147;
+              border-radius: 10px;
+              color: #fff;
+              font-weight: 300;
+              letter-spacing: 1px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+              transition: ease-in-out 0.5s;
+              position: relative;
+              overflow: hidden;
+            }
+
+            .hover-pass {
+              color: #2f4766;
+              transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+              margin-top: 0px;
+            }
+
+            .pass-block:hover .hover-pass {
+              transform: scale(1.2);
+              color: #33a9fe;
+            }
+
+            .arrow {
+              position: absolute !important;
+              transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+              right: 200px;
+              bottom: -100px;
+              color: #66e091 !important;
+            }
+
+            .a-color {
+              color: #66e091;
+              transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+            }
+
+            .a-color:hover {
+              transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+              color: #46bb6f;
+            }
+
+            .progress-status {
+              position: absolute;
+              left: 15px;
+              transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+            }
+
+            .location-area {
+              position: absolute;
+              right: 0px;
+              bottom: -20px;
+              transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+            }
+
+            .pass-block:hover .location-area {
+              transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+              transform: scale(1.1);
+            }
+
+            .pass-block:hover .arrow {
+              transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+              right: 200px;
+              bottom: 50px;
+            }
+
+            .pass-block:hover .progress-status {
+              transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+              left: -200px;
+            }
+
+            .pass-block .bird {
+              opacity: 30;
+            }
+
+            .pass-block header {
+              position: relative;
+              height: 45px;
+              background-color: #121e2a7c;
+              padding: 10px 0px 10px 15px;
+              border-bottom: #66e091 solid 1px;
+              color: #66e091 !important;
+              border-radius: 10px;
+            }
+            .pass-block .offboard-header {
+              position: relative;
+              height: 45px;
+              border-bottom: #e94e33 solid 1px;
+              background-color: #121e2a7c;
+              padding: 10px 0px 10px 15px;
+              color: #e94e33 !important;
+              border-radius: 10px;
+            }
+            .pass-block header .company-name {
+              line-height: 20px;
+              text-align: left;
+              padding-left: 10px;
+            }
+            .pass-block header .gate {
+              position: absolute;
+              right: 15px;
+              top: 10px;
+              font-weight: 400;
+              line-height: 18px;
+              text-align: center;
+              font-size: 12px;
+            }
+            .pass-block header:after {
+              content: "";
+              width: 26px;
+              height: 26px;
+              background-color: #121e2a;
+              position: absolute;
+              bottom: -15px;
+              right: -8px;
+              border-radius: 50%;
+              box-shadow: inset 12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+            }
+            .pass-block header:before {
+              content: "";
+              width: 26px;
+              height: 26px;
+              background-color: #121e2a;
+              position: absolute;
+              bottom: -15px;
+              left: -8px;
+              border-radius: 50%;
+              box-shadow: inset -12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+            }
+            .pass-block .pass-cards {
+              padding: 5px 10px 10px 10px;
+              height: 150px;
+              text-align: center;
+              position: relative;
+              border-bottom: 2px dashed #2f4766;
+            }
+
+            .pass-block .pass-cards .secure {
+              position: absolute;
+              top: 70px;
+              left: 60px;
+            }
+
+            .pass-block .pass-cards .pass-card {
+              position: relative;
+              margin: 10px;
+              text-align: center;
+              display: inline-block;
+            }
+            .pass-block .pass-cards .pass-card .pass-card-name {
+              color: #29a8eb;
+              font-size: 12px;
+              font-weight: 400;
+            }
+            .pass-block .pass-cards .pass-card .pass-card-code {
+              font-size: 25px;
+              font-weight: 400;
+              margin: 5px 0;
+            }
+            .pass-block .pass-cards .pass-card .dep-arr-label {
+              color: #9299a0;
+              font-size: 12px;
+              font-weight: 500;
+            }
+            .pass-block .pass-cards .pass-card .time {
+              font-size: 10px;
+              color: #9299a0;
+            }
+            .pass-block .pass-cards .pass-card:first-child {
+              margin-right: 40%;
+            }
+            .pass-block .pass-cards .pass-card:first-child:after {
+              color: #66e09157;
+              content: "\21E2";
+              position: absolute;
+              font-size: 45px;
+              top: calc(50% - 25px);
+              right: -70%;
+              animation: goforward cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.5s
+                infinite;
+            }
+
+            @keyframes goforward {
+              0% {
+                color: #203147;
+                right: -60%;
+                opacity: 10%;
+              }
+              50% {
+                color: #66e0919d;
+                opacity: 100%;
+                right: -90%;
+              }
+              100% {
+                color: #203147;
+                right: -120%;
+                opacity: 10%;
+              }
+            }
+
+            /* Offboarding */
+            .pass-block .pass-cards .offboard {
+              position: relative;
+              margin: 10px;
+              text-align: center;
+              display: inline-block;
+            }
+            .pass-block .pass-cards .offboard .pass-card-name {
+              color: #29a8eb;
+              font-size: 12px;
+              font-weight: 400;
+            }
+            .pass-block .pass-cards .offboard .pass-card-code {
+              font-size: 25px;
+              font-weight: 400;
+              margin: 5px 0;
+            }
+            .pass-block .pass-cards .offboard .dep-arr-label {
+              color: #9299a0;
+              font-size: 12px;
+              font-weight: 500;
+            }
+            .pass-block .pass-cards .offboard .time {
+              font-size: 10px;
+              color: #9299a0;
+            }
+            .pass-block .pass-cards .offboard:first-child {
+              margin-right: 40%;
+            }
+            .pass-block .pass-cards .offboard:first-child:after {
+              color: #e94e33;
+              content: "\21E0";
+
+              position: absolute;
+              font-size: 45px;
+              top: calc(50% - 25px);
+              right: -100%;
+              animation: gobackward cubic-bezier(0.175, 0.885, 0.32, 1.275) 2.5s
+                infinite;
+            }
+
+            @keyframes gobackward {
+              0% {
+                color: #203147;
+                right: -140%;
+                opacity: 10%;
+              }
+              50% {
+                color: #e94e33b7;
+                opacity: 90%;
+                right: -90%;
+              }
+              100% {
+                color: #203147;
+                right: -60%;
+                opacity: 10%;
+              }
+            }
+            /* End of offboard*/
+
+            .pass-block .pass-cards:after {
+              content: "";
+              width: 26px;
+              height: 26px;
+              background-color: #121e2a;
+              position: absolute;
+              bottom: -15px;
+              right: -8px;
+              border-radius: 50%;
+              box-shadow: inset 12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+            }
+            .pass-block .pass-cards:before {
+              content: "";
+              width: 26px;
+              height: 26px;
+              background-color: #121e2a;
+              position: absolute;
+              bottom: -15px;
+              left: -8px;
+              border-radius: 50%;
+              box-shadow: inset -12px 0px 18px -11px rgba(0, 0, 0, 0.5);
+            }
+            .pass-block .place {
+              padding: 10px;
+              height: 130px;
+            }
+            .pass-block .place-block {
+              display: inline-block;
+              margin: 5px 20px;
+            }
+            .pass-block .place-block .place-label {
+              color: #29a8eb;
+              text-transform: uppercase;
+              font-weight: 400;
+              font-size: 14px;
+              margin-bottom: 10px;
+            }
+            .pass-block .place-block .place-value {
+              color: #9299a0;
+              font-size: 12px;
+              font-weight: 500;
+            }
+            .pass-block .qr {
+              width: 220px;
+              height: 220px;
+              margin: 20px auto;
+              border-radius: 10px;
+              overflow: hidden;
+            }
+            .pass-block .qr img {
+              width: 100%;
+              height: 100%;
+            }
+
+            .pass-block.inverse {
+              background-color: #f8f8f8;
+            }
+            .pass-block.inverse header {
+              background-color: #29a8eb;
+            }
+            .pass-block.inverse .pass-cards {
+              border-bottom-color: #d3d6da;
+            }
+            .pass-block.inverse .pass-card:first-child:after {
+              color: #d3d6da;
+            }
+            .pass-block.inverse .pass-card .pass-card-code {
+              color: #707884;
+              font-weight: 500;
+            }
+
+            .jumper {
+              animation: jumper-anim cubic-bezier(0.175, 0.885, 0.32, 1.275)
+                0.5s;
+            }
+            @keyframes jumper-anim {
+              0% {
+              }
+            }
+          </style>
+          <!-- Active Boaring Pass -->
+
+          <!-- View change radio button design -->
+          <style>
+            .radio_container {
+              display: flex;
+              justify-content: space-around;
+              align-items: center;
+              background-color: #20314700;
+              width: 180px;
+              height: 45px;
+              border-radius: 9999px;
+              box-shadow: inset 0.5px 0.5px 2px 0 rgba(0, 0, 0, 0.15);
+              margin-left: 20px;
+            }
+
+            input[type="radio"] {
+              appearance: none;
+              display: none;
+              margin-left: 10px;
+              margin-right: 10px;
+            }
+
+            label {
+              font-family: "Open Sans", sans-serif;
+              font-size: 15px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background-color: inherit;
+              width: 100px;
+              height: 30px;
+              text-align: center;
+              border-radius: 9999px;
+              overflow: hidden;
+              transition: linear 0.3s;
+              color: #f5f5f5dd;
+            }
+
+            input[type="radio"]:checked + label {
+              background-color: #1e90ff;
+              color: #f1f3f5;
+              transition: 0.3s;
+              margin-left: 10px;
+              margin-right: 10px;
+            }
+          </style>
+
+          <div
+            class="row"
+            style="margin-bottom: 20px; margin-top: 50px !important"
+          >
+            <div class="col-sm-9">
+              <h5 class="display-6" style="color: #ffffff">
+                <img
+                  src="{% static 'images/green-pulse.gif' %}"
+                  width="30px"
+                  alt=""
+                  srcset=""
+                />
+                Active Boarding Pass
+              </h5>
+
+              <small class="text-muted-ss">
+                List of all the active boarding process going on. Archieved
+                passes are available on the
+                <a href="#archieved">archeived section</a></small
+              >
+            </div>
+
+            <div class="col-sm-3">
+              <div class="container">
+                <div class="radio_container">
+                  <input
+                    checked
+                    type="radio"
+                    onchange="changeViewOfBoardingPassList()"
+                    name="view-change"
+                    id="list"
+                  />
+                  <label for="list">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-list-task"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"
+                      />
+                      <path
+                        d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"
+                      />
+                    </svg>
+                    &nbsp; List</label
+                  >
+                  <input
+                    type="radio"
+                    onchange="changeViewOfBoardingPassList()"
+                    name="view-change"
+                    id="card"
+                  />
+                  <label for="card">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-postcard"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4Zm7.5.5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7ZM2 5.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5Zm0 2a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5ZM10.5 5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3ZM13 8h-2V6h2v2Z"
+                      />
+                    </svg>
+                    &nbsp; Card</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="container">
+               
+                <br />
+                <div class="progress" style="margin-top: 10px">
+                  <div
+                    class="progress-bar bg-success"
+                    role="progressbar"
+                    style="width: 40%"
+                    aria-valuenow="15"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    Onboarding (40%)
+                  </div>
+                  <div
+                    class="progress-bar bg-danger"
+                    role="progressbar"
+                    style="width: 60%"
+                    aria-valuenow="30"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  >
+                    Offboarding
+                  </div>
+                </div>
+                <br>
+              </div>
+            </div>
+          </div>
+
+          <!-- card view -->
+          <div
+            id="card-view-boarding-pass"
+            class="row"
+            style="transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s"
+          >
+            <!-- Boarding pass -->
+            <div class="pass-block">
+              <header>
+                <div class="company-name">ONBOARD PASS</div>
+                <div class="gate">
+                  <div>C2</div>
+                </div>
+              </header>
+              <section class="pass-cards">
+                <div class="pass-card">
+                  <div class="pass-card-name">Vivek Vijayan</div>
+                  <div class="pass-card-code" style="margin-top: 15px">
+                    <img
+                      src="{%static 'images/vivek.jpg'%}"
+                      width="60px"
+                      style="border-radius: 100%; border: #fff solid 1px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="secure">
+                    <img
+                      src="{% static 'images/shield.png' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="dep-arr-label text-muted">Manager</div>
+                </div>
+                <div class="pass-card">
+                  <div class="pass-card-name">Serco</div>
+                  <div class="pass-card-code" style="margin-top: 15px">BPC</div>
+                  <div class="dep-arr-label text-muted-ss">Joining</div>
+                  <div class="time text-muted-ss">8th May</div>
+                </div>
+              </section>
+              <div style="margin-top: 20px"></div>
+              <section class="place">
+                <div class="place-block progress-status">
+                  <div class="place-label">Status</div>
+                  <div class="place-value">
+                    <img
+                      src="{% static 'images/green-pulse.gif' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                    Progress
+                  </div>
+                </div>
+                <div class="place-block">
+                  <div class="place-label jumper location-area">
+                    <center>
+                      <div class="place-value" style="color: white">
+                        chennai
+                      </div>
+                    </center>
+
+                    <div
+                      class=""
+                      style="
+                        filter: invert(1);
+                        opacity: 30%;
+                        transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+                        transform: scale(1.2);
+                      "
+                    >
+                      <object
+                        data="{% static 'images/location-images/chennai.svg' %}"
+                        width="110px"
+                        height="110px"
+                        alt=""
+                        srcset=""
+                      ></object>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="arrow">
+                  <a href="onboardingpass/" class="a-color">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-arrow-right-circle-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </section>
+            </div>
+            <!-- ENd -->
+
+            <div class="pass-block">
+              <header class="offboard-header">
+                <div class="company-name">OFFBOARD PASS</div>
+                <div class="gate">
+                  <div>C2</div>
+                </div>
+              </header>
+              <section class="pass-cards">
+                <div class="offboard">
+                  <div class="pass-card-name">Vivek Vijayan</div>
+                  <div class="secure">
+                    <img
+                      src="{% static 'images/shield.png' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="pass-card-code" style="margin-top: 15px">
+                    <img
+                      src="{%static 'images/vivek.jpg'%}"
+                      width="60px"
+                      style="border-radius: 100%; border: #fff solid 1px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="dep-arr-label text-muted-ss">Manager</div>
+                </div>
+                <div class="offboard">
+                  <div class="pass-card-name">Serco</div>
+                  <div class="pass-card-code" style="margin-top: 15px">BW</div>
+                  <div class="dep-arr-label text-muted-ss">LWD</div>
+                  <div class="time text-muted-ss">8th May</div>
+                </div>
+              </section>
+              <div style="margin-top: 20px"></div>
+              <section class="place">
+                <div class="place-block progress-status">
+                  <div class="place-label">Status</div>
+                  <div class="place-value">
+                    <img
+                      src="{% static 'images/green-pulse.gif' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                    Progress
+                  </div>
+                </div>
+                <div class="place-block">
+                  <div class="place-label jumper location-area">
+                    <center>
+                      <div class="place-value" style="color: white">Mumbai</div>
+                    </center>
+
+                    <div
+                      class=""
+                      style="
+                        filter: invert(1);
+                        opacity: 30%;
+                        transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+                        transform: scale(1.2);
+                      "
+                    >
+                      <object
+                        data="{% static 'images/location-images/mumbai.svg' %}"
+                        width="110px"
+                        height="110px"
+                        alt=""
+                        srcset=""
+                      ></object>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="arrow">
+                  <a href="onboardingpass/" class="a-color">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-arrow-right-circle-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </section>
+            </div>
+            <!-- ENd -->
+
+            <div class="pass-block">
+              <header>
+                <div class="company-name">ONBOARD PASS</div>
+                <div class="gate">
+                  <div>C2</div>
+                </div>
+              </header>
+              <section class="pass-cards">
+                <div class="pass-card">
+                  <div class="pass-card-name">Vivek Vijayan</div>
+                  <div class="pass-card-code" style="margin-top: 15px">
+                    <img
+                      src="{%static 'images/vivek.jpg'%}"
+                      width="60px"
+                      style="border-radius: 100%; border: #fff solid 1px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="secure">
+                    <img
+                      src="{% static 'images/shield.png' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="dep-arr-label text-muted">Manager</div>
+                </div>
+                <div class="pass-card">
+                  <div class="pass-card-name">Serco</div>
+                  <div class="pass-card-code" style="margin-top: 15px">BPC</div>
+                  <div class="dep-arr-label text-muted-ss">Joining</div>
+                  <div class="time text-muted-ss">8th May</div>
+                </div>
+              </section>
+              <div style="margin-top: 20px"></div>
+              <section class="place">
+                <div class="place-block progress-status">
+                  <div class="place-label">Status</div>
+                  <div class="place-value">
+                    <img
+                      src="{% static 'images/green-pulse.gif' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                    Progress
+                  </div>
+                </div>
+                <div class="place-block">
+                  <div class="place-label jumper location-area">
+                    <center>
+                      <div class="place-value" style="color: white">
+                        chennai
+                      </div>
+                    </center>
+
+                    <div
+                      class=""
+                      style="
+                        filter: invert(1);
+                        opacity: 30%;
+                        transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+                        transform: scale(1.2);
+                      "
+                    >
+                      <object
+                        data="{% static 'images/location-images/chennai.svg' %}"
+                        width="110px"
+                        height="110px"
+                        alt=""
+                        srcset=""
+                      ></object>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="arrow">
+                  <a href="onboardingpass/" class="a-color">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-arrow-right-circle-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </section>
+            </div>
+
+            <!-- Boarding pass -->
+            <div class="pass-block">
+              <header>
+                <div class="company-name">ONBOARD PASS</div>
+                <div class="gate">
+                  <div>C2</div>
+                </div>
+              </header>
+              <section class="pass-cards">
+                <div class="pass-card">
+                  <div class="pass-card-name">Vivek Vijayan</div>
+                  <div class="pass-card-code" style="margin-top: 15px">
+                    <img
+                      src="{%static 'images/vivek.jpg'%}"
+                      width="60px"
+                      style="border-radius: 100%; border: #fff solid 1px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="secure">
+                    <img
+                      src="{% static 'images/shield.png' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="dep-arr-label text-muted">Manager</div>
+                </div>
+                <div class="pass-card">
+                  <div class="pass-card-name">Serco</div>
+                  <div class="pass-card-code" style="margin-top: 15px">BPC</div>
+                  <div class="dep-arr-label text-muted-ss">Joining</div>
+                  <div class="time text-muted-ss">8th May</div>
+                </div>
+              </section>
+              <div style="margin-top: 20px"></div>
+              <section class="place">
+                <div class="place-block progress-status">
+                  <div class="place-label">Status</div>
+                  <div class="place-value">
+                    <img
+                      src="{% static 'images/green-pulse.gif' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                    Progress
+                  </div>
+                </div>
+                <div class="place-block">
+                  <div class="place-label jumper location-area">
+                    <center>
+                      <div class="place-value" style="color: white">
+                        chennai
+                      </div>
+                    </center>
+
+                    <div
+                      class=""
+                      style="
+                        filter: invert(1);
+                        opacity: 30%;
+                        transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+                        transform: scale(1.2);
+                      "
+                    >
+                      <object
+                        data="{% static 'images/location-images/chennai.svg' %}"
+                        width="110px"
+                        height="110px"
+                        alt=""
+                        srcset=""
+                      ></object>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="arrow">
+                  <a href="onboardingpass/" class="a-color">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-arrow-right-circle-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </section>
+            </div>
+            <!-- ENd -->
+
+            <div class="pass-block">
+              <header class="offboard-header">
+                <div class="company-name">OFFBOARD PASS</div>
+                <div class="gate">
+                  <div>C2</div>
+                </div>
+              </header>
+              <section class="pass-cards">
+                <div class="offboard">
+                  <div class="pass-card-name">Vivek Vijayan</div>
+                  <div class="secure">
+                    <img
+                      src="{% static 'images/shield.png' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="pass-card-code" style="margin-top: 15px">
+                    <img
+                      src="{%static 'images/vivek.jpg'%}"
+                      width="60px"
+                      style="border-radius: 100%; border: #fff solid 1px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="dep-arr-label text-muted-ss">Manager</div>
+                </div>
+                <div class="offboard">
+                  <div class="pass-card-name">Serco</div>
+                  <div class="pass-card-code" style="margin-top: 15px">BW</div>
+                  <div class="dep-arr-label text-muted-ss">LWD</div>
+                  <div class="time text-muted-ss">8th May</div>
+                </div>
+              </section>
+              <div style="margin-top: 20px"></div>
+              <section class="place">
+                <div class="place-block progress-status">
+                  <div class="place-label">Status</div>
+                  <div class="place-value">
+                    <img
+                      src="{% static 'images/green-pulse.gif' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                    Progress
+                  </div>
+                </div>
+                <div class="place-block">
+                  <div class="place-label jumper location-area">
+                    <center>
+                      <div class="place-value" style="color: white">Mumbai</div>
+                    </center>
+
+                    <div
+                      class=""
+                      style="
+                        filter: invert(1);
+                        opacity: 30%;
+                        transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+                        transform: scale(1.2);
+                      "
+                    >
+                      <object
+                        data="{% static 'images/location-images/mumbai.svg' %}"
+                        width="110px"
+                        height="110px"
+                        alt=""
+                        srcset=""
+                      ></object>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="arrow">
+                  <a href="onboardingpass/" class="a-color">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-arrow-right-circle-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </section>
+            </div>
+            <!-- ENd -->
+
+            <div class="pass-block">
+              <header>
+                <div class="company-name">ONBOARD PASS</div>
+                <div class="gate">
+                  <div>C2</div>
+                </div>
+              </header>
+              <section class="pass-cards">
+                <div class="pass-card">
+                  <div class="pass-card-name">Vivek Vijayan</div>
+                  <div class="pass-card-code" style="margin-top: 15px">
+                    <img
+                      src="{%static 'images/vivek.jpg'%}"
+                      width="60px"
+                      style="border-radius: 100%; border: #fff solid 1px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="secure">
+                    <img
+                      src="{% static 'images/shield.png' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <div class="dep-arr-label text-muted">Manager</div>
+                </div>
+                <div class="pass-card">
+                  <div class="pass-card-name">Serco</div>
+                  <div class="pass-card-code" style="margin-top: 15px">BPC</div>
+                  <div class="dep-arr-label text-muted-ss">Joining</div>
+                  <div class="time text-muted-ss">8th May</div>
+                </div>
+              </section>
+              <div style="margin-top: 20px"></div>
+              <section class="place">
+                <div class="place-block progress-status">
+                  <div class="place-label">Status</div>
+                  <div class="place-value">
+                    <img
+                      src="{% static 'images/green-pulse.gif' %}"
+                      width="20px"
+                      alt=""
+                      srcset=""
+                    />
+                    Progress
+                  </div>
+                </div>
+                <div class="place-block">
+                  <div class="place-label jumper location-area">
+                    <center>
+                      <div class="place-value" style="color: white">
+                        chennai
+                      </div>
+                    </center>
+
+                    <div
+                      class=""
+                      style="
+                        filter: invert(1);
+                        opacity: 30%;
+                        transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+                        transform: scale(1.2);
+                      "
+                    >
+                      <object
+                        data="{% static 'images/location-images/chennai.svg' %}"
+                        width="110px"
+                        height="110px"
+                        alt=""
+                        srcset=""
+                      ></object>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="arrow">
+                  <a href="onboardingpass/" class="a-color">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="50"
+                      height="50"
+                      fill="currentColor"
+                      class="bi bi-arrow-right-circle-fill"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          <!-- list view -->
+          <div
+            id="list-view-boarding-pass"
+            class="row"
+            style="transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s"
+          >
+            <div class="container" style="margin-bottom: 20px">
+              <div
+                class="container"
+                style="margin-top: 0px; margin-bottom: 20px"
+              >
+                <div class="row">
+                  <div class="col-sm-3">
+                    <div class="input-group input-group-sm mb-3">
+                      <div class="input-group-prepend">
+                        <label
+                          class="input-group-text input-group-text-dark"
+                          for="requestedby"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            fill="currentColor"
+                            class="bi bi-funnel-fill"
+                            viewBox="0 0 16 16"
+                          >
+                            <path
+                              d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"
+                            />
+                          </svg>
+                          &nbsp; Filter mode</label
+                        >
+                      </div>
+                      <select class="custom-select" id="filter-mode">
+                        <option name="Username" value="1">Username</option>
+                        <option name="Team" value="2">Team</option>
+                        <option name="Joining/LWD" value="3">
+                          Joining/LWD
+                        </option>
+                        <option name="Boarding Type" value="4">
+                          Boarding Type
+                        </option>
+                        <option name="Location" value="5" selected>
+                          Location
+                        </option>
+                        <option name="Status" value="6">Status</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="col-sm-12">
+                      <div class="input-group input-group-sm mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text input-group-text-dark">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="16"
+                              height="16"
+                              fill="currentColor"
+                              class="bi bi-filter-square-fill"
+                              viewBox="0 0 16 16"
+                            >
+                              <path
+                                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm.5 5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1 0-1zM4 8.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"
+                              />
+                            </svg>
+                            &nbsp; Filter
+                          </span>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control text-muted"
+                          id="quickfilter"
+                          aria-describedby="backfillinputarea"
+                          oninput="activePassTableFilterUsingQF()"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-2">
+                    <!-- Empty space-->
+                  </div>
+                  <div
+                    class="col-sm-2"
+                    style="
+                      background-color: #203147;
+                      height: 30px;
+                      border-radius: 20px;
+                      text-align: center;
+                      padding-top: 2px;
+                    "
+                  >
+                    <button
+                      style="
+                        color: #35df91;
+                        border: none;
+                        background-color: rgba(255, 255, 255, 0);
+                        text-align: center;
+                        font-size: 12px;
+                        font-weight: normal;
+                      "
+                      onclick="generateCSVforTable()"
+                    >
+                      <center>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-filetype-csv"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM3.517 14.841a1.13 1.13 0 0 0 .401.823c.13.108.289.192.478.252.19.061.411.091.665.091.338 0 .624-.053.859-.158.236-.105.416-.252.539-.44.125-.189.187-.408.187-.656 0-.224-.045-.41-.134-.56a1.001 1.001 0 0 0-.375-.357 2.027 2.027 0 0 0-.566-.21l-.621-.144a.97.97 0 0 1-.404-.176.37.37 0 0 1-.144-.299c0-.156.062-.284.185-.384.125-.101.296-.152.512-.152.143 0 .266.023.37.068a.624.624 0 0 1 .246.181.56.56 0 0 1 .12.258h.75a1.092 1.092 0 0 0-.2-.566 1.21 1.21 0 0 0-.5-.41 1.813 1.813 0 0 0-.78-.152c-.293 0-.551.05-.776.15-.225.099-.4.24-.527.421-.127.182-.19.395-.19.639 0 .201.04.376.122.524.082.149.2.27.352.367.152.095.332.167.539.213l.618.144c.207.049.361.113.463.193a.387.387 0 0 1 .152.326.505.505 0 0 1-.085.29.559.559 0 0 1-.255.193c-.111.047-.249.07-.413.07-.117 0-.223-.013-.32-.04a.838.838 0 0 1-.248-.115.578.578 0 0 1-.255-.384h-.765ZM.806 13.693c0-.248.034-.46.102-.633a.868.868 0 0 1 .302-.399.814.814 0 0 1 .475-.137c.15 0 .283.032.398.097a.7.7 0 0 1 .272.26.85.85 0 0 1 .12.381h.765v-.072a1.33 1.33 0 0 0-.466-.964 1.441 1.441 0 0 0-.489-.272 1.838 1.838 0 0 0-.606-.097c-.356 0-.66.074-.911.223-.25.148-.44.359-.572.632-.13.274-.196.6-.196.979v.498c0 .379.064.704.193.976.131.271.322.48.572.626.25.145.554.217.914.217.293 0 .554-.055.785-.164.23-.11.414-.26.55-.454a1.27 1.27 0 0 0 .226-.674v-.076h-.764a.799.799 0 0 1-.118.363.7.7 0 0 1-.272.25.874.874 0 0 1-.401.087.845.845 0 0 1-.478-.132.833.833 0 0 1-.299-.392 1.699 1.699 0 0 1-.102-.627v-.495Zm8.239 2.238h-.953l-1.338-3.999h.917l.896 3.138h.038l.888-3.138h.879l-1.327 4Z"
+                          />
+                        </svg>
+                        CSV download
+                      </center>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Boarding pass -->
+            <div class="container-fluid">
+              <div class="div-table">
+                <table id="active-boarding-pass">
+                  <thead>
+                    <th id="heading-sno">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-123"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M2.873 11.297V4.142H1.699L0 5.379v1.137l1.64-1.18h.06v5.961h1.174Zm3.213-5.09v-.063c0-.618.44-1.169 1.196-1.169.676 0 1.174.44 1.174 1.106 0 .624-.42 1.101-.807 1.526L4.99 10.553v.744h4.78v-.99H6.643v-.069L8.41 8.252c.65-.724 1.237-1.332 1.237-2.27C9.646 4.849 8.723 4 7.308 4c-1.573 0-2.36 1.064-2.36 2.15v.057h1.138Zm6.559 1.883h.786c.823 0 1.374.481 1.379 1.179.01.707-.55 1.216-1.421 1.21-.77-.005-1.326-.419-1.379-.953h-1.095c.042 1.053.938 1.918 2.464 1.918 1.478 0 2.642-.839 2.62-2.144-.02-1.143-.922-1.651-1.551-1.714v-.063c.535-.09 1.347-.66 1.326-1.678-.026-1.053-.933-1.855-2.359-1.845-1.5.005-2.317.88-2.348 1.898h1.116c.032-.498.498-.944 1.206-.944.703 0 1.206.435 1.206 1.07.005.64-.504 1.106-1.2 1.106h-.75v.96Z"
+                        />
+                      </svg>
+                      &nbsp; Sno
+                    </th>
+                    <th id="heading-username">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-person"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"
+                        />
+                      </svg>
+                      &nbsp;Username
+                    </th>
+                    <th id="heading-team">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-people"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
+                        />
+                      </svg>
+                      &nbsp; Team
+                    </th>
+
+                    <th id="heading-lwd">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-calendar-week"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"
+                        />
+                        <path
+                          d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
+                        />
+                      </svg>
+                      &nbsp; Joining / LWD date
+                    </th>
+                    <th id="heading-boarding-type">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrow-left-right"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
+                        />
+                      </svg>
+                      &nbsp; Boarding type
+                    </th>
+                    <th id="heading-location">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-geo-alt-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                        />
+                      </svg>
+                      &nbsp; Location
+                    </th>
+                    <th id="heading-status">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-info-circle-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+                        />
+                      </svg>
+                      &nbsp; Status
+                    </th>
+                    <th>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-lightning-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"
+                        />
+                      </svg>
+                      &nbsp; Action
+                    </th>
+                  </thead>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td value="vivek">
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td value="bpc">BPC</td>
+                    <td value="date">20-Dec-2022</td>
+                    <td value="onboarding">
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td value="onboard">
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #e94e33">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-left"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                          />
+                        </svg>
+                        &nbsp; Offboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #e94e33">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-left"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                          />
+                        </svg>
+                        &nbsp; Offboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #e94e33">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-left"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                          />
+                        </svg>
+                        &nbsp; Offboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #e94e33">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-left"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                          />
+                        </svg>
+                        &nbsp; Offboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #e94e33">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-left"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                          />
+                        </svg>
+                        &nbsp; Offboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <img
+                        src="{% static 'images/green-pulse.gif' %}"
+                        width="20px"
+                        alt=""
+                        srcset=""
+                      />Progress
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                </table>
+                <center>
+                  <small class="text-muted-ss" style="margin-top: 20px">
+                    <span id="filtered-status"> </span>
+                  </small>
+                </center>
+              </div>
+            </div>
+            <!-- ENd -->
+          </div>
+        </div>
+
+        <div class="container" style="margin-top: 100px">
+          <div class="row" style="margin-bottom: 40px">
+            <div class="col-sm-9">
+              <h5 class="display-6" id="archieved" style="color: #ffffff">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-file-zip"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M6.5 7.5a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v.938l.4 1.599a1 1 0 0 1-.416 1.074l-.93.62a1 1 0 0 1-1.109 0l-.93-.62a1 1 0 0 1-.415-1.074l.4-1.599V7.5zm2 0h-1v.938a1 1 0 0 1-.03.243l-.4 1.598.93.62.93-.62-.4-1.598a1 1 0 0 1-.03-.243V7.5z"
+                  />
+                  <path
+                    d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm5.5-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9v1H8v1h1v1H8v1h1v1H7.5V5h-1V4h1V3h-1V2h1V1z"
+                  />
+                </svg>
+                Archieved pass
+              </h5>
+
+              <small class="text-muted-ss">
+                List of all the active boarding process going on. Archieved
+                passes are available on the
+                <a href="#">archeived section</a></small
+              >
+            </div>
+          </div>
+
+          <!-- list view -->
+          <div id="list-view-boarding-pass" class="row">
+            <!-- Boarding pass -->
+            <div class="container-fluid">
+              <div class="div-table">
+                <table>
+                  <thead>
+                    <th>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-123"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M2.873 11.297V4.142H1.699L0 5.379v1.137l1.64-1.18h.06v5.961h1.174Zm3.213-5.09v-.063c0-.618.44-1.169 1.196-1.169.676 0 1.174.44 1.174 1.106 0 .624-.42 1.101-.807 1.526L4.99 10.553v.744h4.78v-.99H6.643v-.069L8.41 8.252c.65-.724 1.237-1.332 1.237-2.27C9.646 4.849 8.723 4 7.308 4c-1.573 0-2.36 1.064-2.36 2.15v.057h1.138Zm6.559 1.883h.786c.823 0 1.374.481 1.379 1.179.01.707-.55 1.216-1.421 1.21-.77-.005-1.326-.419-1.379-.953h-1.095c.042 1.053.938 1.918 2.464 1.918 1.478 0 2.642-.839 2.62-2.144-.02-1.143-.922-1.651-1.551-1.714v-.063c.535-.09 1.347-.66 1.326-1.678-.026-1.053-.933-1.855-2.359-1.845-1.5.005-2.317.88-2.348 1.898h1.116c.032-.498.498-.944 1.206-.944.703 0 1.206.435 1.206 1.07.005.64-.504 1.106-1.2 1.106h-.75v.96Z"
+                        />
+                      </svg>
+                      &nbsp; Sno
+                    </th>
+                    <th>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-person"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"
+                        />
+                      </svg>
+                      &nbsp;Username
+                    </th>
+                    <th>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-people"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8Zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022ZM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816ZM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"
+                        />
+                      </svg>
+                      &nbsp; Team
+                    </th>
+
+                    <th>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-calendar-week"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"
+                        />
+                        <path
+                          d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"
+                        />
+                      </svg>
+                      &nbsp; Joining / LWD date
+                    </th>
+                    <th>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-arrow-left-right"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"
+                        />
+                      </svg>
+                      &nbsp; Boarding type
+                    </th>
+                    <th>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-geo-alt-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                        />
+                      </svg>
+                      &nbsp; Location
+                    </th>
+                    <th>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-info-circle-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
+                        />
+                      </svg>
+                      &nbsp; Status
+                    </th>
+                    <th>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-lightning-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5z"
+                        />
+                      </svg>
+                      &nbsp; Action
+                    </th>
+                  </thead>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-file-zip"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M6.5 7.5a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v.938l.4 1.599a1 1 0 0 1-.416 1.074l-.93.62a1 1 0 0 1-1.109 0l-.93-.62a1 1 0 0 1-.415-1.074l.4-1.599V7.5zm2 0h-1v.938a1 1 0 0 1-.03.243l-.4 1.598.93.62.93-.62-.4-1.598a1 1 0 0 1-.03-.243V7.5z"
+                        />
+                        <path
+                          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm5.5-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9v1H8v1h1v1H8v1h1v1H7.5V5h-1V4h1V3h-1V2h1V1z"
+                        />
+                      </svg>
+                      Completed
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td style="color: #e94e33">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-x-square-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"
+                        />
+                      </svg>
+                      Cancelled
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #e94e33">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-left"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
+                          />
+                        </svg>
+                        &nbsp; Offboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-file-zip"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M6.5 7.5a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v.938l.4 1.599a1 1 0 0 1-.416 1.074l-.93.62a1 1 0 0 1-1.109 0l-.93-.62a1 1 0 0 1-.415-1.074l.4-1.599V7.5zm2 0h-1v.938a1 1 0 0 1-.03.243l-.4 1.598.93.62.93-.62-.4-1.598a1 1 0 0 1-.03-.243V7.5z"
+                        />
+                        <path
+                          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm5.5-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9v1H8v1h1v1H8v1h1v1H7.5V5h-1V4h1V3h-1V2h1V1z"
+                        />
+                      </svg>
+                      Completed
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr class="tr">
+                    <td>1</td>
+                    <td>
+                      <img
+                        src="{% static 'images/vivek.jpg'%}"
+                        width="20px"
+                        style="border-radius: 100px"
+                        alt=""
+                      />
+                      &nbsp; Vivek Vijayan
+                    </td>
+                    <td>BPC</td>
+                    <td>20-Dec-2022</td>
+                    <td>
+                      <span style="color: #66e091">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-arrow-right"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
+                          />
+                        </svg>
+                        &nbsp; Onboard
+                      </span>
+                    </td>
+                    <td>
+                      <span style="color: #2f4766">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-geo-alt-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                          />
+                        </svg>
+                        &nbsp;
+                      </span>
+                      Mumbai
+                    </td>
+                    <td>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-file-zip"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M6.5 7.5a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v.938l.4 1.599a1 1 0 0 1-.416 1.074l-.93.62a1 1 0 0 1-1.109 0l-.93-.62a1 1 0 0 1-.415-1.074l.4-1.599V7.5zm2 0h-1v.938a1 1 0 0 1-.03.243l-.4 1.598.93.62.93-.62-.4-1.598a1 1 0 0 1-.03-.243V7.5z"
+                        />
+                        <path
+                          d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm5.5-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9v1H8v1h1v1H8v1h1v1H7.5V5h-1V4h1V3h-1V2h1V1z"
+                        />
+                      </svg>
+                      Completed
+                    </td>
+                    <td>
+                      <a href="">View details</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      colspan="8"
+                      style="text-align: center"
+                      class="text-muted-ss"
+                    >
+                      <a
+                        href="
+                    "
+                        >View more</a
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <!-- ENd -->
+          </div>
+        </div>
+      </div>
+
+      <div style="margin: 100px">
+        <!-- Blank space-->
+      </div>
+
+      <script>
+        $(document).ready(function () {
+          bsCustomFileInput.init();
+        });
+
+        // Boarding pass view switch
+        function changeViewOfBoardingPassList() {
+          var selectedOption = document.getElementsByName("view-change");
+          if (selectedOption[0].checked) {
+            document.getElementById("list-view-boarding-pass").style.display =
+              "block";
+            document.getElementById("card-view-boarding-pass").style.display =
+              "none";
+          } else {
+            document.getElementById("list-view-boarding-pass").style.display =
+              "none";
+            document.getElementById("card-view-boarding-pass").style.display =
+              "block";
+          }
+        }
+
+        // once load..
+        changeViewOfBoardingPassList();
+      </script>
+    </div>
+
+    <script>
+      $("#exampleModalLong").on("shown.bs.modal", function () {
+        $("#myInput").trigger("focus");
+      });
+
+      // Filtering the table
+      function activePassTableFilterUsingQF() {
+        var input, filter, table, tr, td, i, txtValue, mode;
+        var filteredCount = 0;
+        mode = document.getElementById("filter-mode");
+        input = document.getElementById("quickfilter");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("active-boarding-pass");
+        tr = table.getElementsByTagName("tr");
+        var thead = table.getElementsByTagName("thead");
+        for (i = 1; i < 7; i++) {
+          var x = thead[0].getElementsByTagName("th")[i];
+          x.style.backgroundColor = "#EFB34200";
+          x.style.color = "#3CA8F8";
+        }
+        for (i = 0; i < tr.length; i++) {
+          tr[i].getElementsByTagName("td");
+          td = tr[i].getElementsByTagName("td")[mode.value];
+
+          if (td) {
+            thead[0].getElementsByTagName("th")[
+              mode.value
+            ].style.backgroundColor = "#2171BF";
+            thead[0].getElementsByTagName("th")[mode.value].style.color =
+              "#fff";
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              tr[i].style.display = "";
+              filteredCount++;
+            } else {
+              tr[i].style.display = "none";
+            }
+          }
+        }
+        if (filteredCount <= 0) {
+          document.getElementById(
+            "filtered-status"
+          ).innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="currentColor" class="bi bi-exclamation-diamond-fill" viewBox="0 0 16 16">
+  <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435zM8 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+</svg> <br> No result found`;
+        } else {
+          document.getElementById(
+            "filtered-status"
+          ).innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill" viewBox="0 0 16 16">
+          <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+        </svg> ${filteredCount} results filtered`;
+        }
+      }
+
+      // Downloading the active boarding passs information to an CSV file
+      function downloadCSVFile(csv_data) {
+        // Create CSV file object and feed our
+        // csv_data into it
+        CSVFile = new Blob([csv_data], { type: "text/csv" });
+
+        // Create to temporary link to initiate
+        // download process
+        var temp_link = document.createElement("a");
+
+        // Download csv file
+        temp_link.download = "active-onboarding-pass.csv";
+        var url = window.URL.createObjectURL(CSVFile);
+        temp_link.href = url;
+
+        // This link should not be displayed
+        temp_link.style.display = "none";
+        document.body.appendChild(temp_link);
+
+        // Automatically click the link to trigger download
+        temp_link.click();
+        document.body.removeChild(temp_link);
+      }
+
+      function generateCSVforTable() {
+        // Variable to store the final csv data
+        var csv_data = [];
+        var table = document.getElementById("active-boarding-pass");
+        // Get each row data
+        var rows = table.getElementsByTagName("tr");
+        for (var i = 0; i < rows.length; i++) {
+          // Get each column data
+          if (rows[i].style.display != "none") {
+            var cols = rows[i].querySelectorAll("td,th");
+
+            // Stores each csv row data
+            var csvrow = [];
+            for (var j = 0; j < cols.length; j++) {
+              // Get the text data of each cell of
+              // a row and push it to csvrow
+              csvrow.push(cols[j].innerText);
+            }
+
+            // Combine each column value with comma
+            csv_data.push(csvrow.join(","));
+          }
+        }
+        // combine each row data with new line character
+        csv_data = csv_data.join("\n");
+
+        downloadCSVFile(csv_data);
+      }
+    </script>
+    <script>
+      am5.ready(function () {
+        // Create root element
+        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+        var root = am5.Root.new("chartdiv");
+
+        // Set themes
+        // https://www.amcharts.com/docs/v5/concepts/themes/
+        root.setThemes([am5themes_Dark.new(root)]);
+
+        // Create chart
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/
+        var chart = root.container.children.push(
+          am5xy.XYChart.new(root, {
+            panX: true,
+            panY: true,
+            wheelX: "panX",
+            wheelY: "zoomX",
+            pinchZoomX: true,
+          })
+        );
+
+        chart.get("colors").set("step", 3);
+
+        // Add cursor
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+        var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+        cursor.lineY.set("visible", false);
+
+        // Create axes
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+        var xAxis = chart.xAxes.push(
+          am5xy.DateAxis.new(root, {
+            maxDeviation: 0.3,
+            baseInterval: {
+              timeUnit: "day",
+              count: 1,
+            },
+            renderer: am5xy.AxisRendererX.new(root, {}),
+            tooltip: am5.Tooltip.new(root, {}),
+          })
+        );
+
+        var yAxis = chart.yAxes.push(
+          am5xy.ValueAxis.new(root, {
+            maxDeviation: 0.3,
+            renderer: am5xy.AxisRendererY.new(root, {}),
+          })
+        );
+
+        // Add series
+        // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+        var series = chart.series.push(
+          am5xy.LineSeries.new(root, {
+            name: "Series 1",
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: "value1",
+            valueXField: "date",
+            stroke: am5.color(0x66e091),
+            tooltip: am5.Tooltip.new(root, {
+              labelText: "{valueX}: {valueY}\n{previousDate}: {value2}",
+            }),
+          })
+        );
+
+        series.strokes.template.setAll({
+          strokeWidth: 2,
+          stroke: am5.color(0x000000),
+        });
+
+        series.get("tooltip").get("background").set("fillOpacity", 0.5);
+
+        var series2 = chart.series.push(
+          am5xy.LineSeries.new(root, {
+            name: "Series 2",
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: "value2",
+            stroke: am5.color(0xed3833),
+            valueXField: "date",
+          })
+        );
+        series2.strokes.template.setAll({
+          strokeWidth: 2,
+        });
+
+        // Set date fields
+        // https://www.amcharts.com/docs/v5/concepts/data/#Parsing_dates
+        root.dateFormatter.setAll({
+          dateFormat: "yyyy-MM-dd",
+          dateFields: ["valueX"],
+        });
+
+        // Set data
+        var data = [
+          {
+            date: new Date(2019, 5, 12).getTime(),
+            value1: 50,
+            value2: 48,
+            previousDate: new Date(2019, 5, 5),
+          },
+          {
+            date: new Date(2019, 5, 13).getTime(),
+            value1: 53,
+            value2: 51,
+            previousDate: "2019-05-06",
+          },
+          {
+            date: new Date(2019, 5, 14).getTime(),
+            value1: 56,
+            value2: 58,
+            previousDate: "2019-05-07",
+          },
+          {
+            date: new Date(2019, 5, 15).getTime(),
+            value1: 52,
+            value2: 53,
+            previousDate: "2019-05-08",
+          },
+          {
+            date: new Date(2019, 5, 16).getTime(),
+            value1: 48,
+            value2: 44,
+            previousDate: "2019-05-09",
+          },
+          {
+            date: new Date(2019, 5, 17).getTime(),
+            value1: 47,
+            value2: 42,
+            previousDate: "2019-05-10",
+          },
+          {
+            date: new Date(2019, 5, 18).getTime(),
+            value1: 59,
+            value2: 55,
+            previousDate: "2019-05-11",
+          },
+        ];
+
+        series.data.setAll(data);
+        series2.data.setAll(data);
+
+        // Make stuff animate on load
+        // https://www.amcharts.com/docs/v5/concepts/animations/
+        series.appear(1000);
+        series2.appear(1000);
+        chart.appear(1000, 100);
+      }); // end am5.ready()
+    </script>
+  </body>
+</html>
