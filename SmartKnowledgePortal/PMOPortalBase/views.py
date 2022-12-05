@@ -72,5 +72,5 @@ def PMORepository(request, repo_set):
         )
     else:
         return render(
-            request=request, template_name="PMORepository-boardingpass.html", context={}
+            request=request, template_name="PMORepository.html", context={}
         )

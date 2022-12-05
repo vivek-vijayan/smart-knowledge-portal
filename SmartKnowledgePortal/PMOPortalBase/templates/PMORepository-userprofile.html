@@ -3443,188 +3443,209 @@
     </script>
     <!-- Chart code -->
     <script>
-      am5.ready(function () {
-        // Create root element
-        // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-        var root = am5.Root.new("chartdiv");
-
-        // Set themes
-        // https://www.amcharts.com/docs/v5/concepts/themes/
-        root.setThemes([am5themes_Dark.new(root)]);
-
-        // Create chart
-        // https://www.amcharts.com/docs/v5/charts/xy-chart/
-        var chart = root.container.children.push(
-          am5xy.XYChart.new(root, {
-            panX: false,
-            panY: false,
-            wheelX: "none",
-            wheelY: "none",
+      am5.ready(function() {
+      
+      // Create root element
+      // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+      var root = am5.Root.new("chartdiv");
+      
+      // Set themes
+      // https://www.amcharts.com/docs/v5/concepts/themes/
+      root.setThemes([
+        am5themes_Dark.new(root)
+      ]);
+      
+      // Create chart
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/
+      var chart = root.container.children.push(
+        am5xy.XYChart.new(root, {
+          panX: false,
+          panY: false,
+          wheelX: "panX",
+          wheelY: "zoomX",
+          layout: root.verticalLayout,
+          arrangeTooltips: false
+        })
+      );
+      
+      // Use only absolute numbers
+      chart.getNumberFormatter().set("numberFormat", "#.#s");
+      
+      // Add legend
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+      var legend = chart.children.push(
+        am5.Legend.new(root, {
+          centerX: am5.p50,
+          x: am5.p50
+        })
+      );
+      
+      // Data
+      var data = [
+      {
+          age: "",
+          male: 0,
+          female: 0
+        },
+        {
+          age: "BPC",
+          male: -8,
+          female: 10
+        },
+        {
+          age: "BW",
+          male: -2,
+          female: 1
+        },
+        {
+          age: "RTR",
+          male: -5,
+          female:9
+        },
+        {
+          age: "BO",
+          male: -1,
+          female: 1
+        },
+        {
+          age: "PTP",
+          male: -8,
+          female: 1
+        },
+        {
+          age: "RL",
+          male: -1,
+          female: 5
+        },
+        {
+          age: "OTC",
+          male: -5,
+          female: 9
+        },
+        {
+          age: "BO1",
+          male: -1,
+          female: 21
+        },
+        {
+          age: "PTP1",
+          male: -8,
+          female: 1
+        },
+        {
+          age: "RL1",
+          male: -10,
+          female: 5
+        },
+        {
+          age: "OTC1",
+          male: -5,
+          female: 9
+        },
+        
+        
+      ];
+      
+      // Create axes
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+      var yAxis = chart.yAxes.push(
+        am5xy.CategoryAxis.new(root, {
+          categoryField: "age",
+          renderer: am5xy.AxisRendererY.new(root, {
+            inversed: true,
+            cellStartLocation: 0.1,
+            cellEndLocation: 0.9
           })
-        );
-
-        // We don't want zoom-out button to appear while animating, so we hide it
-        chart.zoomOutButton.set("forceHidden", true);
-
-        // Create axes
-        // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-        var yRenderer = am5xy.AxisRendererY.new(root, {
-          minGridDistance: 30,
-        });
-
-        var yAxis = chart.yAxes.push(
-          am5xy.CategoryAxis.new(root, {
-            maxDeviation: 0,
-            categoryField: "team_name",
-            renderer: yRenderer,
-            tooltip: am5.Tooltip.new(root, { themeTags: ["axis"] }),
-          })
-        );
-
-        var xAxis = chart.xAxes.push(
-          am5xy.ValueAxis.new(root, {
-            maxDeviation: 0,
-            min: 0,
-            extraMax: 0.1,
-            renderer: am5xy.AxisRendererX.new(root, {}),
-          })
-        );
-
-        // Add series
-        // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+        })
+      );
+      
+      yAxis.data.setAll(data);
+      
+      var xAxis = chart.xAxes.push(
+        am5xy.ValueAxis.new(root, {
+          renderer: am5xy.AxisRendererX.new(root, {})
+        })
+      );
+      
+      // Add series
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+      function createSeries(field, labelCenterX, pointerOrientation, rangeValue) {
         var series = chart.series.push(
           am5xy.ColumnSeries.new(root, {
-            name: "Series 1",
             xAxis: xAxis,
             yAxis: yAxis,
-            valueXField: "value",
-            categoryYField: "team_name",
+            valueXField: field,
+            categoryYField: "age",
+            sequencedInterpolation: true,
+            clustered: false,
             tooltip: am5.Tooltip.new(root, {
-              pointerOrientation: "left",
-              labelText: "{valueX}",
-            }),
+              pointerOrientation: pointerOrientation,
+              labelText: "{categoryY}: {valueX}"
+            })
           })
         );
-
-        // Rounded corners for columns
+      
         series.columns.template.setAll({
-          cornerRadiusTR: 5,
-          cornerRadiusBR: 5,
+          height: am5.p100
         });
-
-        // Make each column to be of a different color
-        series.columns.template.adapters.add("fill", function (fill, target) {
-          return chart.get("colors").getIndex(series.columns.indexOf(target));
+      
+        series.bullets.push(function() {
+          return am5.Bullet.new(root, {
+            locationX: 1,
+            locationY: 0.5,
+            sprite: am5.Label.new(root, {
+              centerY: am5.p50,
+              text: "{valueX}",
+              populateText: true,
+              centerX: labelCenterX
+            })
+          });
         });
-
-        series.columns.template.adapters.add(
-          "stroke",
-          function (stroke, target) {
-            return chart.get("colors").getIndex(series.columns.indexOf(target));
-          }
-        );
-
-        // Set data
-        var data = [
-          {
-            team_name: "BPC",
-            value: 20,
-          },
-          {
-            team_name: "BO",
-            value: 5,
-          },
-          {
-            team_name: "BW",
-            value: 17,
-          },
-          {
-            team_name: "RTR",
-            value: 14,
-          },
-          {
-            team_name: "PTP",
-            value: 7,
-          },
-          {
-            team_name: "PMO",
-            value: 8,
-          },
-          {
-            team_name: "RL",
-            value: 2,
-          },
-        ];
-
-        yAxis.data.setAll(data);
+      
         series.data.setAll(data);
-        sortCategoryAxis();
-
-        // Get series item by category
-        function getSeriesItem(category) {
-          for (var i = 0; i < series.dataItems.length; i++) {
-            var dataItem = series.dataItems[i];
-            if (dataItem.get("categoryY") == category) {
-              return dataItem;
-            }
-          }
-        }
-
-        chart.set(
-          "cursor",
-          am5xy.XYCursor.new(root, {
-            behavior: "none",
-            xAxis: xAxis,
-            yAxis: yAxis,
-          })
-        );
-
-        // Axis sorting
-        function sortCategoryAxis() {
-          // Sort by value
-          series.dataItems.sort(function (x, y) {
-            return x.get("valueX") - y.get("valueX"); // descending
-            //return y.get("valueY") - x.get("valueX"); // ascending
-          });
-
-          // Go through each axis item
-          am5.array.each(yAxis.dataItems, function (dataItem) {
-            // get corresponding series item
-            var seriesDataItem = getSeriesItem(dataItem.get("category"));
-
-            if (seriesDataItem) {
-              // get index of series data item
-              var index = series.dataItems.indexOf(seriesDataItem);
-              // calculate delta position
-              var deltaPosition =
-                (index - dataItem.get("index", 0)) / series.dataItems.length;
-              // set index to be the same as series data item index
-              dataItem.set("index", index);
-              // set deltaPosition instanlty
-              dataItem.set("deltaPosition", -deltaPosition);
-              // animate delta position to 0
-              dataItem.animate({
-                key: "deltaPosition",
-                to: 0,
-                duration: 1000,
-                easing: am5.ease.out(am5.ease.cubic),
-              });
-            }
-          });
-
-          // Sort axis items by index.
-          // This changes the order instantly, but as deltaPosition is set,
-          // they keep in the same places and then animate to true positions.
-          yAxis.dataItems.sort(function (x, y) {
-            return x.get("index") - y.get("index");
-          });
-        }
-
-        // Make stuff animate on load
-        // https://www.amcharts.com/docs/v5/concepts/animations/
-        series.appear(1000);
-        chart.appear(1000, 100);
+        series.appear();
+      
+        var rangeDataItem = xAxis.makeDataItem({
+          value: rangeValue
+        });
+        xAxis.createAxisRange(rangeDataItem);
+        rangeDataItem.get("grid").setAll({
+          strokeOpacity: 1,
+          stroke: series.get("stroke")
+        });
+      
+        var label = rangeDataItem.get("label");
+        label.setAll({
+          text: field.toUpperCase(),
+          fontSize: "1.1em",
+          fill: series.get("stroke"),
+          paddingTop: 10,
+          isMeasured: false,
+          centerX: labelCenterX
+        });
+        label.adapters.add("dy", function() {
+          return -chart.plotContainer.height();
+        });
+      
+        return series;
+      }
+      
+      createSeries("male", am5.p100, "right", -2);
+      createSeries("female", 0, "left", 2);
+      
+      // Add cursor
+      // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+      var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+        behavior: "zoomY"
+      }));
+      cursor.lineY.set("forceHidden", true);
+      cursor.lineX.set("forceHidden", true);
+      
+      // Make stuff animate on load
+      // https://www.amcharts.com/docs/v5/concepts/animations/
+      chart.appear(1000, 100);
+      
       }); // end am5.ready()
-    </script>
+      </script>
   </body>
 </html>
