@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 """
@@ -9,53 +10,109 @@ Recently : 22 -09 -2022
 
 """
 
-"""////////////////////////////////// KNOWLEDGE HUB LINKS TABLE ////////////////////////////////////////"""
 
-# Link Category table
-class LinkCategory(models.Model):
-    LinkCategoryID = models.BigAutoField(primary_key=True)
-    LinkCategoryDescription = models.CharField(max_length=500)
-
-    def __str__(self) -> str:
-        return str(self.LinkCategoryDescription)
-
-
-# Table for recording all the KH On boarding related links
-class KH_OnboardingLinks(models.Model):
-    KH_OnboardingLinksID = models.BigAutoField(primary_key=True)
-    KH_OnboardingLinksTopic = models.CharField(
-        max_length=500, default="Onboarding Topic"
-    )
-    KH_OnboardingLinksCategory = models.ForeignKey(
-        LinkCategory, on_delete=models.CASCADE
-    )
-    KH_OnboardingLinksURL = models.URLField()
+# General Models
+class Grade(models.Model):
+    grade_id = models.CharField(max_length=200, primary_key=True)
+    grade_name = models.CharField(max_length=200, default="Analyst")
+    created_on = models.DateTimeField(auto_now=True)
+    created_by = models.ForeignKey(User, on_delete=models.PROTECT)
 
     def __str__(self) -> str:
-        return (
-            str(self.KH_OnboardingLinksID)
-            + " - "
-            + str(self.KH_OnboardingLinksTopic)
-            + " : "
-            + str(self.KH_OnboardingLinksURL)
-        )
+        return super().__str__()
 
 
-# Training links table
-class KH_TrainingLinks(models.Model):
-    KH_TrainingLinksID = models.BigAutoField(primary_key=True)
-    KH_TrainingLinksDescription = models.CharField(
-        max_length=500, default="Training Links"
-    )
-    KH_TrainingLinksCategory = models.ForeignKey(LinkCategory, on_delete=models.CASCADE)
-    KH_TrainingLinksURL = models.URLField()
+class ProjectRole(models.Model):
+    project_role_id = models.BigAutoField(primary_key=True)
+    project_role_name = models.CharField(max_length=200, default="Default Name")
+    created_on = models.DateTimeField(auto_now=True)
+    created_by = models.ForeignKey(User, on_delete=models.PROTECT)
+
+
+class Location(models.Model):
+    location_id = models.BigAutoField(primary_key=True)
+    location_name = models.CharField(max_length=200, default="Default Location")
+    location_short_name = models.CharField(max_length=100, default="LOC")
+    created_on = models.DateTimeField(auto_now=True)
+    created_by = models.ForeignKey(User, on_delete=models.PROTECT)
+
+
+
+"""////////////////////////////////// KNOWLEDGE HUB TEAM TABLES ////////////////////////////////////////"""
+
+
+# Team Leader Model
+class TeamLeader(models.Model):
+    team_leader_id = models.BigAutoField(primary_key=True)
+    team_leader_user = models.ForeignKey(User, on_delete=models.PROTECT)
+    start_date = models.DateTimeField(auto_now=True)
+    end_date = models.DateTimeField(blank=True)
+    active = models.BooleanField(default=True)
 
     def __str__(self) -> str:
-        return (
-            str(self.KH_TrainingLinksID)
-            + " - "
-            + str(self.KH_TrainingLinksDescription)
-            + " : "
-            + str(self.KH_TrainingLinksURL)
-        )
+        return "Team Leader : " + str(self.team_leader_user)
 
+
+# Team Design Authority model
+class TeamDA(models.Model):
+    team_da_id = models.BigAutoField(primary_key=True)
+    team_da_user = models.ForeignKey(User, on_delete=models.PROTECT)
+    start_date = models.DateTimeField(auto_now=True)
+    end_date = models.DateTimeField(blank=True)
+    active = models.BooleanField(default=True)
+
+    def __str__(self) -> str:
+        return "Team DA : " + str(self.team_da_user)
+
+
+# Team models
+class Team(models.Model):
+    team_id = models.BigAutoField(primary_key=True)
+    team_name = models.CharField(max_length=200, default="Team")
+    team_leader = models.ForeignKey(TeamLeader, on_delete=models.PROTECT)
+    team_description = models.CharField(max_length=200)
+    team_da = models.ForeignKey(TeamDA, on_delete=models.PROTECT)
+
+    def __str__(self) -> str:
+        return "Team Name : " + str(self.team_name)
+
+
+class Module(models.Model):
+    module_id = models.BigAutoField(primary_key=True)
+    module_name = models.CharField(max_length=200, default="")
+    team = models.ForeignKey(Team, on_delete=models.PROTECT)
+
+
+"""
+//////////////////////////////////// Users Profile /////////////////////////////////////////
+"""
+
+
+class Employee(models.Model):
+    employee_system_id = models.BigAutoField(primary_key=True)
+    employee_short_id = models.CharField(max_length=200)
+    corp_id = models.CharField(max_length=200)
+    phone = models.CharField(max_length=200)
+    dob = models.DateField(blank=True)
+    cg_email = models.EmailField()
+    team = models.ForeignKey(Team, on_delete=models.PROTECT)
+    module = models.ForeignKey(Module, on_delete=models.PROTECT)
+    location = models.ForeignKey(Location, on_delete=models.PROTECT)
+    supervisor_name = models.CharField(max_length=200, default="")
+    supervisor_email = models.EmailField()
+    n_1_name = models.CharField(max_length=200, default="")
+    n_1_email = models.EmailField()
+    asset_type = models.CharField(max_length=200, default="")
+    profile_picture = models.ImageField(upload_to='profile-picture/')
+
+    # project info
+    fte = models.CharField(max_length=200, default="")
+    cost_rate = models.CharField(max_length=200, default="")
+    spoc = models.ForeignKey(User, on_delete=models.PROTECT, related_name="spoc")
+    
+    # Onboard
+    onboard_type = models.CharField(max_length=200)
+    so_smart = models.CharField(max_length=200, default="")
+    pool_of_req = models.CharField(max_length=300)
+    so_r2d2 = models.CharField(max_length=200)
+    requestor =  models.ForeignKey(User, on_delete=models.PROTECT, related_name="requestor")
