@@ -736,10 +736,9 @@
                     </label>
                   </div>
                   <select class="custom-select" id="grade">
-                    <option selected>Choose...</option>
-                    <option value="1">A4</option>
-                    <option value="2">A5</option>
-                    <option value="3">B1</option>
+                    {% for each in grade %}
+                      <option value="{{each.grade_id}}">{{each.grade_id}}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div>
@@ -752,11 +751,10 @@
                       >Team</label
                     >
                   </div>
-                  <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                  <select class="custom-select" id="team">
+                    {% for each in team %}
+                      <option value="{{each.team_id}}">{{each.team_name}}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div>
@@ -770,10 +768,9 @@
                     >
                   </div>
                   <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {% for each in module %}
+                      <option value="{{each.module_id}}">{{each.module_name}} - {{each.team}}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div>
@@ -808,11 +805,10 @@
                       >Role</label
                     >
                   </div>
-                  <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                  <select class="custom-select" id="project_role">
+                    {% for each in role %}
+                      <option value="{{each.project_role_id}}">{{each.project_role_name}}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div>
@@ -825,11 +821,10 @@
                       >Location</label
                     >
                   </div>
-                  <select class="custom-select" id="inputGroupSelect01">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                  <select class="custom-select" id="location">
+                    {% for each in location %}
+                      <option value="{{each.location_id}}">{{each.location_name}}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div>
@@ -1088,10 +1083,9 @@
                     >
                   </div>
                   <select class="custom-select" id="requestedby">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {% for each in other_user %}
+                      <option value="{{each.username}}">{{each.first_name}}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div>
@@ -1158,10 +1152,9 @@
                     </label>
                   </div>
                   <select class="custom-select" id="backfillinputarea">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {% for each in other_user %}
+                      <option value="{{each.username}}">{{each.first_name}}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div>
@@ -1228,10 +1221,9 @@
                     >
                   </div>
                   <select class="custom-select" id="requestedby">
-                    <option selected>Choose...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {% for each in other_user %}
+                      <option value="{{each.username}}">{{each.first_name}}</option>
+                    {% endfor %}
                   </select>
                 </div>
               </div>

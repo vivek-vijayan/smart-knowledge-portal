@@ -80,7 +80,7 @@ class Team(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.PROTECT, related_name="team_created_by")
 
     def __str__(self) -> str:
-        return "Team Name : " + str(self.team_name)
+        return  str(self.team_name)
 
 
 class Module(models.Model):
@@ -147,4 +147,39 @@ class Employee_To_Project_Mapping(models.Model):
     mapped_by = models.ForeignKey(User, on_delete=models.PROTECT) 
 
 
-#class onboard_registration(models.Model):
+class Onboard_registration(models.Model):
+    onboard_reg_id = models.BigAutoField(primary_key=True)
+    employee_onboard = models.ForeignKey(Employee, on_delete=models.PROTECT)
+    created_on = models.DateTimeField(auto_now=True)
+    created_by = models.ForeignKey(User, on_delete=models.PROTECT, related_name='onboard_created_by')
+    raised_by = models.ForeignKey(Employee, on_delete=models.PROTECT, related_name="onboard_raised_by")
+    
+class Onboard_process_timeline(models.Model):
+    onboard_process_timeline_id = models.BigAutoField(primary_key=True)
+    onboard_reg_no = models.ForeignKey(Onboard_registration, on_delete=models.PROTECT)
+    process_name = models.CharField(max_length=200, default="Process")
+    process_status = models.CharField(max_length=200, default="Not Started")
+    process_description = models.CharField(max_length=200, default="New Process")
+    process_owner = models.ForeignKey(User, on_delete=models.PROTECT)
+    process_start_date = models.DateTimeField(auto_now=True)
+    process_end_date = models.DateTimeField(blank=True)
+    active = models.BooleanField(default=True) 
+    created_by = models.ForeignKey(User, on_delete=models.PROTECT, related_name='onboard_timeline_created_by')
+
+    def __str__(self) -> str:
+        return super().__str__()
+    
+class Onboarding_ticket_relation(models.Model):
+    onboard_ticket_relation = models.BigAutoField(primary_key=True)
+    ticket_number = models.CharField(max_length=200, default="TICKET")
+    ticket_short_desc = models.CharField(max_length=200, default="")
+    ticket_long_desc = models.CharField(max_length=500, default="")
+    raised_by = models.ForeignKey(User, on_delete=models.PROTECT)
+    raised_on = models.DateTimeField(auto_now=True)
+    ticket_link = models.URLField(default="#")
+    timeline_relation = models.ForeignKey(Onboard_process_timeline, on_delete=models.PROTECT)
+
+
+
+
+    
