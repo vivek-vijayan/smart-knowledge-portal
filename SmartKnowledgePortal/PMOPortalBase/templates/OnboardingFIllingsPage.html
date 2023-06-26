@@ -373,7 +373,7 @@
 
                 <div class="card-body">
                   <form
-                    action="/login/login-validator"
+                    action="/serco-pmo/upload-data-employee-creation/"
                     method="post"
                     style="margin-top: 10px"
                   >
@@ -392,6 +392,7 @@
                         class="form-control"
                         aria-label="Small"
                         required
+                        name="firstname"
                         aria-describedby="inputGroup-sizing-sm"
                       />
                     </div>
@@ -410,6 +411,7 @@
                         class="form-control"
                         aria-label="Small"
                         required
+                        name="lastname"
                         aria-describedby="inputGroup-sizing-sm"
                       />
                     </div>
@@ -429,6 +431,8 @@
                             class="form-control"
                             aria-label="Small"
                             required
+                            name="corp_id"
+                            id="corp_id"
                             aria-describedby="inputGroup-sizing-sm"
                           />
                         </div>
@@ -448,12 +452,13 @@
                             class="form-control"
                             aria-label="Small"
                             required
+                            name="emp_id"
                             aria-describedby="inputGroup-sizing-sm"
                           />
                         </div>
                       </div>
                     </div>
-                  </form>
+                  
                 </div>
               </div>
             </div>
@@ -560,16 +565,16 @@
                       <div class="custom-file">
                         <input
                           type="file"
-                          id="imgInp"
+                          id="profilepicture" 
+                          name="profilepicture"
                           accept="image/*"
                           class="custom-file-input"
-                          id="inputGroupFile01"
                           aria-describedby="inputGroupFileAddon01"
                           style="background-color: #172231; color: white"
                         />
                         <label
                           class="custom-file-label"
-                          for="inputGroupFile01"
+                          for="profilepicture"
                           style="
                             background-color: #1c293c;
                             border: none;
@@ -592,7 +597,8 @@
                       </div>
                       <input
                         type="text"
-                        class="form-control"
+                        class="form-control" required
+                        name="phone"
                         placeholder="+91XXXXXXXXXX"
                         aria-label="Username"
                         aria-describedby="addon-wrapping"
@@ -610,7 +616,8 @@
                       </div>
                       <input
                         type="date"
-                        class="form-control"
+                        class="form-control" required
+                        name="dob"
                         placeholder="+91XXXXXXXXXX"
                         aria-label="Username"
                         aria-describedby="addon-wrapping"
@@ -698,6 +705,7 @@
                   <input
                     type="email"
                     class="form-control"
+                    name="cg_email" required
                     placeholder="xyz@capgemini.com"
                     aria-label="Username"
                     aria-describedby="addon-wrapping"
@@ -715,7 +723,7 @@
                   </div>
                   <input
                     type="date"
-                    class="form-control"
+                    class="form-control" required
                     placeholder="+91XXXXXXXXXX"
                     aria-label="Username"
                     aria-describedby="addon-wrapping"
@@ -735,7 +743,7 @@
                       >Grade
                     </label>
                   </div>
-                  <select class="custom-select" id="grade">
+                  <select class="custom-select" name="grade">
                     {% for each in grade %}
                       <option value="{{each.grade_id}}">{{each.grade_id}}</option>
                     {% endfor %}
@@ -751,7 +759,7 @@
                       >Team</label
                     >
                   </div>
-                  <select class="custom-select" id="team">
+                  <select class="custom-select" name="team">
                     {% for each in team %}
                       <option value="{{each.team_id}}">{{each.team_name}}</option>
                     {% endfor %}
@@ -763,11 +771,11 @@
                   <div class="input-group-prepend">
                     <label
                       class="input-group-text input-group-text-dark"
-                      for="inputGroupSelect01"
+                      for="module"
                       >Module</label
                     >
                   </div>
-                  <select class="custom-select" id="inputGroupSelect01">
+                  <select class="custom-select" name="module">
                     {% for each in module %}
                       <option value="{{each.module_id}}">{{each.module_name}} - {{each.team}}</option>
                     {% endfor %}
@@ -790,7 +798,8 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder=""
+                    placeholder="" required
+                    name="practice"
                     aria-label="Username"
                     aria-describedby="addon-wrapping"
                   />
@@ -805,7 +814,7 @@
                       >Role</label
                     >
                   </div>
-                  <select class="custom-select" id="project_role">
+                  <select class="custom-select" name="project_role">
                     {% for each in role %}
                       <option value="{{each.project_role_id}}">{{each.project_role_name}}</option>
                     {% endfor %}
@@ -821,7 +830,7 @@
                       >Location</label
                     >
                   </div>
-                  <select class="custom-select" id="location">
+                  <select class="custom-select" name="location">
                     {% for each in location %}
                       <option value="{{each.location_id}}">{{each.location_name}}</option>
                     {% endfor %}
@@ -844,8 +853,9 @@
                   <input
                     type="text"
                     class="form-control"
-                    placeholder=""
+                    placeholder="" required
                     aria-label="Username"
+                    name="supervisor_name"
                     aria-describedby="addon-wrapping"
                   />
                 </div>
@@ -861,7 +871,7 @@
                   </div>
                   <input
                     type="email"
-                    class="form-control"
+                    class="form-control" required
                     placeholder="xyz@capgemini.com"
                     aria-label="Username"
                     aria-describedby="addon-wrapping"
@@ -882,7 +892,7 @@
                     >
                   </div>
                   <input
-                    type="text"
+                    type="text" required
                     class="form-control"
                     placeholder=""
                     aria-label="Username"
@@ -900,7 +910,7 @@
                     >
                   </div>
                   <input
-                    type="email"
+                    type="email" required
                     class="form-control"
                     placeholder="xyz@capgemini.com"
                     aria-label="Username"
@@ -928,7 +938,7 @@
                       <input
                         type="radio"
                         class="custom-control-input checkbox-tools"
-                        id="laptop"
+                        id="laptop" required
                         name="asset"
                       />
                       <label class="custom-control-label" for="laptop">
@@ -983,8 +993,8 @@
             <div style="margin-top: 20px"></div>
 
             <script>
-              imgInp.onchange = (evt) => {
-                const [file] = imgInp.files;
+              profilepicture.onchange = (evt) => {
+                const [file] = profilepicture.files;
                 if (file) {
                   blah.src = URL.createObjectURL(file);
                 }
@@ -1045,7 +1055,7 @@
                     >
                   </div>
                   <input
-                    type="text"
+                    type="text" required
                     class="form-control"
                     placeholder=""
                     aria-label="Username"
@@ -1061,7 +1071,7 @@
                     >
                   </div>
                   <input
-                    type="text"
+                    type="text" required
                     style="text-align: right"
                     class="form-control"
                     aria-label="Amount (to the nearest dollar)"
@@ -1126,7 +1136,7 @@
                     >
                   </div>
                   <select
-                    class="custom-select"
+                    class="custom-select" required
                     id="backfillornew"
                     onchange="{
                      if(document.getElementById('backfillornew').value == '2') {
@@ -1136,7 +1146,6 @@
                      }
                     }"
                   >
-                    <option selected>Choose...</option>
                     <option value="1">New Requirement</option>
                     <option value="2">Backfill</option>
                   </select>
@@ -1170,7 +1179,7 @@
                     </span>
                   </div>
                   <input
-                    type="text"
+                    type="text" required
                     class="form-control"
                     id="basic-url"
                     aria-describedby="backfillinputarea"
@@ -1185,7 +1194,7 @@
                     </span>
                   </div>
                   <input
-                    type="text"
+                    type="text" required
                     class="form-control"
                     id="basic-url"
                     aria-describedby="backfillinputarea"
@@ -1204,7 +1213,7 @@
                     </span>
                   </div>
                   <input
-                    type="text"
+                    type="text" required
                     class="form-control"
                     id="basic-url"
                     aria-describedby="backfillinputarea"
@@ -1270,11 +1279,10 @@
         <div class="row">
           <div class="col-sm-5">
             <a
-              href="/serco-pmo/onboard"
               class="col-sm-4 content-show-card"
               style="text-align: center"
             >
-              <button
+              <button type="submit"
                 style="
                   color: #35df91;
                   border: none;
@@ -1303,6 +1311,7 @@
             </a>
           </div>
         </div>
+      </form>
       </div>
 
       <div style="margin: 100px">

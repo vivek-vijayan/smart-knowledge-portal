@@ -30,4 +30,7 @@ urlpatterns = [
     path("boardingstatus/request-to-deactivate/", views.RequestToDeactivateAccount, name="RequestToDeactivateAccount"),
     path("pmo-admin/", views.PMOAdminPage, name="PMOAdminPage"),
     path("pmo-repository/<int:repo_set>", views.PMORepository, name="PMORepository"),
+
+    # posting area - Data
+    path('upload-data-employee-creation/', views.Create_New_Employee_for_OnBoard, name="Create_New_Employee_for_OnBoard"),
 ]

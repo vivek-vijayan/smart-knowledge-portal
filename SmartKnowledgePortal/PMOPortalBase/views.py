@@ -96,8 +96,13 @@ def PMORepository(request, repo_set):
 ''' ////////////// PROCESS HANDLER /////////////////'''
 
 def Create_New_Employee_for_OnBoard(request):
+    print("VALUE -----------------------------------")
+    print(request.POST.get('corp_id', False))
     # Creating a new user in the Smart Portal
-    user = User.objects.create_user(request.data['corp_id'], password='welcome@12345')
+    user = User.objects.create_user(request.POST['corp_id'], password='welcome@12345')
+    user.first_name = request.POST['firstname']
+    user.last_name = request.POST['lastname']
+    user.email = request.POST['cg_email']
     user.is_staff = False
     user.is_superuser = False
     user.save()
@@ -119,7 +124,7 @@ def Create_New_Employee_for_OnBoard(request):
             n_1_name = request.POST['n_1_name'],
             n_1_email = request.POST['n_1_email'],
             asset_type = request.POST['assest'],
-            profile_picture = request.FILES[0],
+            profile_picture = request.FILES['profilepic'],
 
             # project info
             fte = request.POST['fte'],
@@ -136,6 +141,7 @@ def Create_New_Employee_for_OnBoard(request):
             )
         employee.save()
         redirect('/serco-pmo/tagging-access-new-user/')
-    except:
-        print("Error in creating the employee in the smart portal")
+    except Exception as e:
+        print("Error in creating the employee in the smart portal : " + e)
         
+    return redirect('/serco-pmo/tagging-access-new-user')
