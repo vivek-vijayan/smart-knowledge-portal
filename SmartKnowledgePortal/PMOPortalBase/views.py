@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from DatabaseEngine.models import Employee, Location, Grade, Team, Module, ProjectRole
 from django.contrib.auth.models import User
 
+from django.core.files.storage import FileSystemStorage
+
 # Create your views here.
 
 
@@ -107,6 +109,9 @@ def Create_New_Employee_for_OnBoard(request):
     user.is_superuser = False
     user.save()
     # User object has been created
+    upload = request.FILES['profilepic']
+    fss = FileSystemStorage()
+    file = fss.save(upload.name, upload)
 
     ''' Creating a new Employee using the user object '''
     try:
@@ -123,8 +128,8 @@ def Create_New_Employee_for_OnBoard(request):
             supervisor_email = request.POST['supervisor_email'],
             n_1_name = request.POST['n_1_name'],
             n_1_email = request.POST['n_1_email'],
-            asset_type = request.POST['assest'],
-            profile_picture = request.FILES['profilepic'],
+            asset_type = request.POST['asset'],
+            profile_picture = file,
 
             # project info
             fte = request.POST['fte'],

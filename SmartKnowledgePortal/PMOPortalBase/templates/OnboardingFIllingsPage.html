@@ -375,7 +375,7 @@
                   <form
                     action="/serco-pmo/upload-data-employee-creation/"
                     method="post"
-                    style="margin-top: 10px"
+                    style="margin-top: 10px" enctype="multipart/form-data"
                   >
                     {% csrf_token %}
                     <div class="input-group input-group-sm mb-3">
@@ -565,8 +565,8 @@
                       <div class="custom-file">
                         <input
                           type="file"
-                          id="profilepicture" 
-                          name="profilepicture"
+                          id="profilepic" 
+                          name="profilepic"
                           accept="image/*"
                           class="custom-file-input"
                           aria-describedby="inputGroupFileAddon01"
@@ -574,7 +574,7 @@
                         />
                         <label
                           class="custom-file-label"
-                          for="profilepicture"
+                          for="profilepic"
                           style="
                             background-color: #1c293c;
                             border: none;
@@ -874,6 +874,7 @@
                     class="form-control" required
                     placeholder="xyz@capgemini.com"
                     aria-label="Username"
+                    name="supervisor_email"
                     aria-describedby="addon-wrapping"
                   />
                 </div>
@@ -896,6 +897,7 @@
                     class="form-control"
                     placeholder=""
                     aria-label="Username"
+                    name="n_1_name"
                     aria-describedby="addon-wrapping"
                   />
                 </div>
@@ -915,6 +917,7 @@
                     placeholder="xyz@capgemini.com"
                     aria-label="Username"
                     aria-describedby="addon-wrapping"
+                    name="n_1_email"
                   />
                 </div>
               </div>
@@ -993,8 +996,8 @@
             <div style="margin-top: 20px"></div>
 
             <script>
-              profilepicture.onchange = (evt) => {
-                const [file] = profilepicture.files;
+              profilepic.onchange = (evt) => {
+                const [file] = profilepic.files;
                 if (file) {
                   blah.src = URL.createObjectURL(file);
                 }
@@ -1058,6 +1061,7 @@
                     type="text" required
                     class="form-control"
                     placeholder=""
+                    name="fte"
                     aria-label="Username"
                     aria-describedby="addon-wrapping"
                   />
@@ -1074,6 +1078,7 @@
                     type="text" required
                     style="text-align: right"
                     class="form-control"
+                    name="cost_rate"
                     aria-label="Amount (to the nearest dollar)"
                   />
                   <div class="input-group-append">
@@ -1092,7 +1097,7 @@
                       >SPOC</label
                     >
                   </div>
-                  <select class="custom-select" id="requestedby">
+                  <select class="custom-select" id="requestedby" name="spoc">
                     {% for each in other_user %}
                       <option value="{{each.username}}">{{each.first_name}}</option>
                     {% endfor %}
@@ -1138,6 +1143,7 @@
                   <select
                     class="custom-select" required
                     id="backfillornew"
+                    name="onboarding_type"
                     onchange="{
                      if(document.getElementById('backfillornew').value == '2') {
                       document.getElementById('backfillinput').style.display = 'block';
@@ -1160,7 +1166,7 @@
                       >Backfill person
                     </label>
                   </div>
-                  <select class="custom-select" id="backfillinputarea">
+                  <select class="custom-select" id="backfillinputarea" name="backfill_person">
                     {% for each in other_user %}
                       <option value="{{each.username}}">{{each.first_name}}</option>
                     {% endfor %}
@@ -1180,6 +1186,7 @@
                   </div>
                   <input
                     type="text" required
+                    name="so_smart"
                     class="form-control"
                     id="basic-url"
                     aria-describedby="backfillinputarea"
@@ -1195,7 +1202,7 @@
                   </div>
                   <input
                     type="text" required
-                    class="form-control"
+                    class="form-control" name="pool_req"
                     id="basic-url"
                     aria-describedby="backfillinputarea"
                   />
@@ -1215,6 +1222,7 @@
                   <input
                     type="text" required
                     class="form-control"
+                    name="so_r2d2"
                     id="basic-url"
                     aria-describedby="backfillinputarea"
                   />
@@ -1229,7 +1237,7 @@
                       >Requested by</label
                     >
                   </div>
-                  <select class="custom-select" id="requestedby">
+                  <select class="custom-select" id="requestedby" name="requestor">
                     {% for each in other_user %}
                       <option value="{{each.username}}">{{each.first_name}}</option>
                     {% endfor %}
