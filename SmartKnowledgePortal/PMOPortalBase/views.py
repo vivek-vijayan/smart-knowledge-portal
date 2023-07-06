@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
 
-from DatabaseEngine.models import Employee, Location, Grade, Team, Module, ProjectRole
+from DatabaseEngine.models import Employee, Location, Grade, ProjectCode, Team, Module, ProjectRole
 from django.contrib.auth.models import User
 
 from django.core.files.storage import FileSystemStorage
+
+import datetime
+from django.db.models import Q
 
 # Create your views here.
 
@@ -13,11 +16,11 @@ def PMOIndexPage(request):
         request=request, template_name="PMOPortalBaseIndexPage.html", context={}
     )
 
+
 def PMOAdminPage(request):
     return render(
         request=request, template_name="PMOAdmin.html", context={}
     )
-
 
 
 def OnboardingFillingPage(request):
@@ -29,7 +32,7 @@ def OnboardingFillingPage(request):
     other_user = User.objects.all()
     return render(
         request=request, template_name="OnboardingFillingsPage.html", context={
-            'location' : location,
+            'location': location,
             'grade': grade,
             'team': team,
             'module': module,
@@ -47,23 +50,67 @@ def OffboardingInitPage(request):
 def AnnouncementPage(request):
     return render(request=request, template_name="PMOAnnouncement.html", context={})
 
+# Boarding control page :
+
 
 def BoardingStatusPage(request):
+
+    # Waiting list object //////////////////////
+    wl_employees = Employee.objects.filter(
+        Q(onboard_started=False) or Q(offboard_started=False))
+
+    wl_emp_obj = []
+    for _each in wl_employees:
+        user = User.objects.get(username=_each.corp_id)
+        team = Team.objects.get(team_id=_each.team.team_id)
+        location = Location.objects.get(location_id=_each.location.location_id)
+        grade = Grade.objects.get(grade_id=_each.grade.grade_id)
+        obj = {
+            'userid': user.username,
+            'name': str(user.first_name) + " " + str(user.last_name),
+            'team': team.team_name,
+            'location_name': location.location_name,
+            'location_image': location.location_fancy,
+            'grade': grade.grade_id,
+            'profile_image': _each.profile_picture
+        }
+        wl_emp_obj.append(obj)
+
+    # ///////////////////////////////////////////
+    active_employees = Employee.objects.filter(active=True)
     return render(
-        request=request, template_name="BoardingStatusUpdatePage.html", context={}
+        request=request, template_name="BoardingStatusUpdatePage.html", context={
+            'waiting_list': wl_emp_obj
+        }
     )
 
 
 def OnBoardingPassPage(request):
     return render(request=request, template_name="OnBoardingPass.html", context={})
 
+
 def OffBoardingPassPage(request):
     return render(request=request, template_name="OffBoardingPass.html", context={})
 
 
-def TaggingAndAccessPageForNewUser(request):
+def TaggingAndAccessPageForNewUser(request, userid):
+    user = User.objects.get(username=userid)
+    user_firstname = user.first_name
+    user_lastname = user.last_name
+    employee = Employee.objects.get(corp_id=userid)
+    employee_corp = employee.corp_id
+    employee_empid = employee.employee_short_id
+
+    available_projects = ProjectCode.objects.filter(active=True)
+
     return render(
-        request=request, template_name="TaggingAndAccessPageNewUser.html", context={}
+        request=request, template_name="TaggingAndAccessPageNewUser.html", context={
+            'firstname': user_firstname,
+            'lastname': user_lastname,
+            'corp_id': employee_corp,
+            'employee_id': employee_empid,
+            'active_projects' : available_projects
+        }
     )
 
 
@@ -80,12 +127,13 @@ def RequestToDeactivateAccount(request):
         request=request, template_name="DeactivateAccountRequest.html", context={}
     )
 
+
 def PMORepository(request, repo_set):
-    if(repo_set == 1):
+    if (repo_set == 1):
         return render(
             request=request, template_name="PMORepository-boardingpass.html", context={}
         )
-    elif(repo_set == 2):
+    elif (repo_set == 2):
         return render(
             request=request, template_name="PMORepository-userprofile.html", context={}
         )
@@ -97,11 +145,13 @@ def PMORepository(request, repo_set):
 
 ''' ////////////// PROCESS HANDLER /////////////////'''
 
+
 def Create_New_Employee_for_OnBoard(request):
-    print("VALUE -----------------------------------")
+
     print(request.POST.get('corp_id', False))
     # Creating a new user in the Smart Portal
-    user = User.objects.create_user(request.POST['corp_id'], password='welcome@12345')
+    user = User.objects.create_user(
+        request.POST['corp_id'], password='welcome@12345')
     user.first_name = request.POST['firstname']
     user.last_name = request.POST['lastname']
     user.email = request.POST['cg_email']
@@ -113,40 +163,55 @@ def Create_New_Employee_for_OnBoard(request):
     fss = FileSystemStorage()
     file = fss.save(upload.name, upload)
 
+    # Getting the foreign team
+    team = Team.objects.get(team_id=request.POST['team'])
+    module = Module.objects.get(module_id=request.POST['module'])
+    loction = Location.objects.get(location_id=request.POST['location'])
+    spoc = User.objects.get(username=request.POST['spoc'])
+    replacer = User.objects.get(username=request.POST['backfill_person'])
+    requestor = User.objects.get(username=request.POST['requestor'])
+    grade = Grade.objects.get(grade_id=request.POST['grade'])
+
     ''' Creating a new Employee using the user object '''
     try:
         employee = Employee.objects.create(
-            employee_short_id = request.POST['emp_id'],
-            corp_id = request.POST['corp_id'],
-            phone = request.POST['phone'],
-            dob = request.POST['dob'],
-            cg_email = request.POST['cg_email'],
-            team = request.POST['team'],
-            module = request.POST['module'],
-            location = request.POST['location'],
-            supervisor_name = request.POST['supervisor_name'],
-            supervisor_email = request.POST['supervisor_email'],
-            n_1_name = request.POST['n_1_name'],
-            n_1_email = request.POST['n_1_email'],
-            asset_type = request.POST['asset'],
-            profile_picture = file,
+            employee_short_id=request.POST['emp_id'],
+            corp_id=request.POST['corp_id'],
+            emp_obj=user,
+            phone=request.POST['phone'],
+            dob=request.POST['dob'],
+            cg_email=request.POST['cg_email'],
+            team=team,
+            module=module,
+            location=loction,
+            supervisor_name=request.POST['supervisor_name'],
+            supervisor_email=request.POST['supervisor_email'],
+            n_1_name=request.POST['n_1_name'],
+            n_1_email=request.POST['n_1_email'],
+            asset_type=request.POST['asset'],
+            profile_picture=file,
+            grade=grade,
 
             # project info
-            fte = request.POST['fte'],
-            cost_rate = request.POST['cost_rate'],
-            spoc = request.POST['spoc'],
-            
+            fte=request.POST['fte'],
+            cost_rate=request.POST['cost_rate'],
+            spoc=spoc,
+
             # Onboard
-            onboard_type = request.POST['onboarding_type'],
-            backfill_person = request.POST['backfill_person'],
-            so_smart = request.POST['so_smart'],
-            pool_of_req = request.POST['pool_req'],
-            so_r2d2 = request.POST['so_r2d2'],
-            requestor =  request.POST['requestor']
-            )
+            onboard_type=request.POST['onboarding_type'],
+            backfill_person=replacer,
+            so_smart=request.POST['so_smart'],
+            pool_of_req=request.POST['pool_req'],
+            so_r2d2=request.POST['so_r2d2'],
+            requestor=requestor,
+            offboard_date=datetime.date(9999, 12, 31),
+            onboard_date=datetime.date(9999, 12, 31),
+            active=False
+        )
         employee.save()
-        redirect('/serco-pmo/tagging-access-new-user/')
+        redirect('/serco-pmo/tagging-access-new-user/' +
+                 str(user.username) + "/")
     except Exception as e:
-        print("Error in creating the employee in the smart portal : " + e)
-        
-    return redirect('/serco-pmo/tagging-access-new-user')
+        print("Error in creating the employee in the smart portal : " + str(e))
+
+    return redirect('/serco-pmo/tagging-access-new-user/' + str(user.username) + "/")

@@ -584,6 +584,16 @@
             color: #e94e33 !important;
             border-radius: 10px;
           }
+
+          .pass-block .waiting-list-header {
+            position: relative;
+            height: 45px;
+            border-bottom: #e9e333 solid 1px;
+            background-color: #121e2a7c;
+            padding: 10px 0px 10px 15px;
+            color: #e9e333 !important;
+            border-radius: 10px;
+          }
           .pass-block header .company-name {
             line-height: 20px;
             text-align: left;
@@ -1097,20 +1107,20 @@
           </section>
         </div>
         <!-- ENd -->
-
+        {% for each_wl_emp in waiting_list %}
         <div class="pass-block">
-          <header>
-            <div class="company-name">ONBOARD PASS</div>
+          <header class="waiting-list-header">
+            <div class="company-name">AWAITING ONBOARD</div>
             <div class="gate">
-              <div>C2</div>
+              <div>{{each_wl_emp.grade}}</div>
             </div>
           </header>
           <section class="pass-cards">
             <div class="pass-card">
-              <div class="pass-card-name">Vivek Vijayan</div>
+              <div class="pass-card-name">{{each_wl_emp.name}}</div>
               <div class="pass-card-code" style="margin-top: 15px">
                 <img
-                  src="{%static 'images/vivek.jpg'%}"
+                  src="{{each_wl_emp.profile_image.url}}"
                   width="60px"
                   style="border-radius: 100%; border: #fff solid 1px"
                   alt=""
@@ -1119,17 +1129,17 @@
               </div>
               <div class="secure">
                 <img
-                  src="{% static 'images/shield.png' %}"
+                  src="{% static 'images/verified.png' %}"
                   width="20px"
                   alt=""
                   srcset=""
                 />
               </div>
-              <div class="dep-arr-label text-muted">Manager</div>
+              <div class="dep-arr-label text-muted">{{each_wl_emp.grade}}</div>
             </div>
             <div class="pass-card">
               <div class="pass-card-name">Serco</div>
-              <div class="pass-card-code" style="margin-top: 15px">BPC</div>
+              <div class="pass-card-code" style="margin-top: 15px">{{each_wl_emp.team}}</div>
               <div class="dep-arr-label text-muted-ss">Joining</div>
               <div class="time text-muted-ss">8th May</div>
             </div>
@@ -1145,13 +1155,13 @@
                   alt=""
                   srcset=""
                 />
-                Progress
+                Awaiting onboard
               </div>
             </div>
             <div class="place-block">
               <div class="place-label jumper location-area">
                 <center>
-                  <div class="place-value" style="color: white">chennai</div>
+                  <div class="place-value" style="color: white">{{each_wl_emp.location_name}}</div>
                 </center>
 
                 <div
@@ -1175,7 +1185,7 @@
             </div>
 
             <div class="arrow">
-              <a href="onboardingpass/" class="a-color">
+              <a href="/serco-pmo/tagging-access-new-user/{{each_wl_emp.userid}}/" class="a-color">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="50"
@@ -1192,6 +1202,7 @@
             </div>
           </section>
         </div>
+        {% endfor %}
 
         <!-- ENd -->
 
@@ -1570,7 +1581,7 @@
                       font-weight: normal;
                     "
                   >
-                    Vivek Vijayan
+                    Vivek Vijayan 
                   </h5>
                   <small style="color: #9ac1e7">BPC Lead </small>
                   <br />
