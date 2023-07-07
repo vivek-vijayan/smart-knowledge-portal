@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from DatabaseEngine.models import Employee, Location, Grade, ProjectCode, Team, Module, ProjectRole
+from DatabaseEngine.models import Employee, Employee_To_Project_Mapping, Location, Grade, ProjectCode, Team, Module, ProjectRole
 from django.contrib.auth.models import User
 
 from django.core.files.storage import FileSystemStorage
@@ -102,6 +102,43 @@ def TaggingAndAccessPageForNewUser(request, userid):
     employee_empid = employee.employee_short_id
 
     available_projects = ProjectCode.objects.filter(active=True)
+    assigned_projects = Employee_To_Project_Mapping.objects.filter(
+        employee=employee)
+
+    all_codes = []
+    for avail in available_projects:
+        all_codes.append(avail.project_code_id)
+
+    project_unassigned = []
+    project_assigned = []
+
+    for _each_a in assigned_projects:
+        try:
+            all_codes.remove(_each_a.project_code.project_code_id)
+            project_assigned.append({
+                'project_code_id': _each_a.project_code.project_code_id,
+                'project_code': _each_a.project_code.project_code,
+                'project_description': _each_a.project_code.project_description,
+                'percent': _each_a.tag_percent
+            })
+        except:
+            print("Error while loading the data for provided data")
+
+    show_assigned = False
+    if len(project_assigned) > 0:
+        show_assigned = True
+    # remaining
+    for _each_p in available_projects:
+        if (_each_p.project_code_id in all_codes):
+            project_unassigned.append({
+                'project_code_id': _each_p.project_code_id,
+                'project_code': _each_p.project_code,
+                'project_description': _each_p.project_description
+            })
+
+    show_unassigned = False
+    if len(project_unassigned) > 0:
+        show_unassigned = True
 
     return render(
         request=request, template_name="TaggingAndAccessPageNewUser.html", context={
@@ -109,10 +146,42 @@ def TaggingAndAccessPageForNewUser(request, userid):
             'lastname': user_lastname,
             'corp_id': employee_corp,
             'employee_id': employee_empid,
-            'active_projects' : available_projects
+            'assigned_project_code': project_assigned,
+            'unassigned_project_code': project_unassigned,
+            'show_assigned': show_assigned,
+            'show_unassigned': show_unassigned
         }
     )
 
+
+def Add_Project_Tagging(request):
+    try:
+        tagging_percent = request.POST['tagging_percent']
+        project_code = ProjectCode.objects.get(
+            project_code_id=request.POST['tag_project_code_id'])
+        user = User.objects.get(username=request.POST['corp_id'])
+        emp = Employee.objects.get(emp_obj=user)
+
+        tag_map = Employee_To_Project_Mapping.objects.create(
+            employee=emp, project_code=project_code, tag_percent=tagging_percent, mapped_by=request.user)
+        tag_map.save()
+    except Exception as e:
+        print("Failed to map project code" + str(e))
+    return redirect('/serco-pmo/tagging-access-new-user/'+str(request.POST['corp_id'])+'/')
+
+def Remove_Project_Tagging(request):
+    try:
+        project_code = ProjectCode.objects.get(
+            project_code_id=request.POST['detag_project_code_id'])
+        user = User.objects.get(username=request.POST['corp_id'])
+        emp = Employee.objects.get(emp_obj=user)
+
+        entry = Employee_To_Project_Mapping.objects.filter( employee=emp, project_code=project_code).delete()
+        entry.save()
+
+    except Exception as e:
+        print(e)
+    return redirect('/serco-pmo/tagging-access-new-user/'+str(request.POST['corp_id'])+'/')
 
 def successpage(request):
     return render(

@@ -33,4 +33,6 @@ urlpatterns = [
 
     # posting area - Data
     path('upload-data-employee-creation/', views.Create_New_Employee_for_OnBoard, name="Create_New_Employee_for_OnBoard"),
+    path('tag-project-code/', views.Add_Project_Tagging, name='TaggingUserProjectCode'),
+    path('detag-project-code/', views.Remove_Project_Tagging, name='DetaggingUserProjectCode')
 ]
