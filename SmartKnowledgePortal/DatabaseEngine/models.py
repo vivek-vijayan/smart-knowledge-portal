@@ -219,6 +219,28 @@ class Onboarding_ticket_relation(models.Model):
     timeline_relation = models.ForeignKey(Onboard_process_timeline, on_delete=models.PROTECT)
 
 
+'''
+////////////////////////////// ACCESS TO PORTAL ///////////////////////////////////////
+'''
 
+# Admin level required
+class App_Module_Registration(models.Model):
+    app_register_id = models.BigAutoField(primary_key=True)
+    app_name = models.CharField(max_length=10)
+    app_short_name = models.CharField(max_length=5)
+    active = models.BooleanField(default=True)
 
+    def __str__(self) -> str:
+        return super().__str__()
     
+class Access_To_App_Portal(models.Model):
+    access_registration_id = models.BigAutoField(primary_key=True)
+    access_module = models.ForeignKey(App_Module_Registration, on_delete=models.PROTECT)
+    access_user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="access_user")
+    access_validity_end = models.DateTimeField(default=datetime.date(9999, 12, 31))
+    access_provided_on = models.DateTimeField(auto_now=True)
+    provided_by = models.ForeignKey(User, on_delete=models.PROTECT, related_name="provided_by")
+
+    def __str__(self) -> str:
+        return super().__str__()
+
